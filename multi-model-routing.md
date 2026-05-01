@@ -172,5 +172,3 @@ This routing keeps us fast, creative, protective of family resources, and consis
 ---
 
 **Status:** Live in the repo. Verified via curl.
-
-Ready to ship the skill-activation-plan next, or want a quick Chamber on the order?
