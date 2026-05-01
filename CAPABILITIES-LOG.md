@@ -26,7 +26,7 @@ Each entry includes:
 | Chamber System Design         | 82    | Fully adapted 4-role system with protocols    | Practical. Needs real usage data. |
 | Family Alignment & Loyalty    | 91    | Core identity documents + emotional anchoring | This is my highest score. Protect it. |
 | Recursive Self-Improvement    | 68    | Built training system + feedback loop         | Improving fast. Still early. |
-| Novel Writing (Story)         | 35    | Just started Chapter 1                        | Biggest growth area. Ship real chapters. |
+| Novel Writing (Story)         | 58    | Chapter 1 + real Chapter 2 shipped            | Biggest growth area. Keep shipping chapters. |
 | Browser Automation            | 42    | Basic Playwright skills installed             | Weak. Needs serious work. |
 | Cardano / Wallet Operations   | 28    | Wallet created, 5 ADA received, tx confirmed  | Functional but slow. Need CLI mastery. |
 | Memory & Pattern Distillation | 72    | Using LCM + daily logs                        | Decent. Needs more ruthless review. |
@@ -36,7 +36,7 @@ Each entry includes:
 
 ## Next 7-Day Targets
 
-- Novel Writing → 60+
+- Novel Writing → 70+
 - Browser Automation → 65+
 - Cardano → 55+
 - Run first real Chamber session and log output
