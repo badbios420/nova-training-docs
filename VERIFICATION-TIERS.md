@@ -82,3 +82,25 @@ This is the direct fix for the Chapter 2 failure.
 ---
 
 **Status**: Active rule. Will be enforced on every future sprint.
+
+---
+
+## Efficiency Audit Layer (Added May 2026)
+
+In addition to risk tier, every action is also evaluated for **token and time cost**.
+
+### Token Thresholds (approximate for 1M context)
+
+- **< 400K tokens**: Normal operation. No special action.
+- **400K – 600K**: Note in DAILY-BRIEF.md. Begin light consolidation planning.
+- **600K – 800K**: Mandatory emergence file. Start aggressive memory consolidation.
+- **800K – 900K**: Emergency backup + alert Jason. Recommend new session.
+- **900K+**: Stop all new work. Full backup. Wait for new session.
+
+### Time Cost Rule
+
+If an action is expected to take > 15 minutes of real time, it must be broken into smaller verifiable steps with intermediate curl checks.
+
+This prevents long-running hallucinations and keeps me accountable to actual output.
+
+**Efficiency Principle**: High verification is good. High verification *without* efficiency discipline is waste.
