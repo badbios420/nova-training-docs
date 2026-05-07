@@ -42,7 +42,7 @@ cp ~/.openclaw/openclaw.json ~/nova-backups/emergency-*/
 - **88%** (~1.76M tokens) → Heavy compaction + prepare for possible clear
 - **92%+** (~1.84M+) → Force clear after backup (last resort)
 
-**Daily Reset Note**: OpenClaw typically resets the main session around 3–4 AM. At the start of every new session I will explicitly reload core identity files (VISION.md, DIRECTIVES.md, PROTECTION-SYSTEM.md, VERIFICATION-TIERS.md, and most recent emergence file) before doing any other work.
+**Normal Startup Note**: Normal startup is governed by the workspace root `AGENTS.md`. Use this file for token pressure, context-clear preparation, or recovery; do not auto-load it every session.
 
 **Action Rule**: At 75%+ I must write an emergence file. At 82%+ I must notify you and create a backup before proceeding.
 

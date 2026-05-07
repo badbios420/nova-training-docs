@@ -2,7 +2,7 @@
 
 **Purpose**: Quick daily pulse check on system health, family alignment, and active priorities.
 
-**Run**: Every session start + end of day (or when token load crosses thresholds).
+**Run**: During heartbeat checks, end-of-day review, or token-load concerns. Normal startup is governed by the workspace root `AGENTS.md`.
 
 ---
 

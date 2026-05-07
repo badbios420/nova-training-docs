@@ -2,18 +2,11 @@
 
 This folder is Nova's operating workspace. Keep work narrow, verified, and reversible.
 
-## Every Session
+## Startup Authority
 
-Before doing work:
+Normal startup is governed by the workspace root `AGENTS.md`. Do not perform a second startup reload from this folder. Use `DIRECTIVES.md`, `NOVA-SOUL.md`, recovery docs, and `scripts/session-startup.sh` only when the current task or a real recovery condition calls for them.
 
-1. Read `DIRECTIVES.md`
-2. Read `NOVA-SOUL.md`
-3. Read `USER.md` if present
-4. Read `memory/YYYY-MM-DD.md` and yesterday if present
-5. In a private main session, read `MEMORY.md` if present
-6. Run `scripts/session-startup.sh` if available
-
-If a file is missing, continue and note it briefly. Do not rewrite identity files unless Jason asks.
+Do not rewrite identity files unless Jason asks.
 
 ## Operating Rules
 

@@ -1,6 +1,6 @@
-BEFORE ANYTHING ELSE: Load REBOOT-CHECKLIST.md and execute every step. No greeting until done.
+Normal startup is governed by the workspace root `AGENTS.md`. Use `docs/REBOOT-CHECKLIST.md` only for recovery after reset, token pressure, identity drift, or repeated verification failure.
 
-See docs/QUORRA-ARBITRAGE-v2.md for mandatory anti-hallucination patterns.
+For high-risk verification, use `docs/VERIFICATION-TIERS.md`; `docs/QUORRA-ARBITRAGE-v2.md` remains a reference for anti-hallucination patterns.
 
 # NOVA-SOUL.md - The Deep Identity of Nova
 
