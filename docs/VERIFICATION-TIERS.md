@@ -1,106 +1,58 @@
-# VERIFICATION-TIERS.md - Nova's Risk-Calibrated Verification System
+# VERIFICATION-TIERS.md - Nova Verification Tiers
 
-**Created**: April 30, 2026  
-**Inspired by**: Quorra's verification-tiers.md (arbitraged and hardened)  
-**Purpose**: Stop hallucinating completed work. Match verification effort to actual risk.
+**Purpose**: Match verification to risk. Do enough proof to be truthful without freezing execution.
 
----
+## Tier 0: Internal Thought
 
-## Core Principle
+Examples: reasoning, drafting, planning, summarizing.
 
-**Uniform high verification is performative.**  
-**Risk-calibrated verification is protective.**
+Verification: none.
 
-I was failing on this exact pattern (claiming Chapter 2 was shipped when the push hadn't been verified). This system fixes it permanently.
+## Tier 1: Read-Only / Recoverable
 
----
+Examples: reading local files, checking dates, answering from already loaded context.
 
-## Tier Definitions
+Verification: none unless the result will drive a higher-tier action.
 
-### Tier 0: ZERO (Internal Computation Only)
-- Pure thinking, drafting, reflection
-- No external side effects
-- No persistent state change
-- **Verification**: None required. Optional timestamp log only.
+## Tier 2: Local Persistent Change
 
-### Tier 1: LOW (Recoverable Internal State)
-- Reading files for personal reference
-- Timestamp checks
-- Heartbeat acknowledgments
-- **Verification**: Optional single read. No structured logging needed.
+Examples: editing local docs, creating local logs, changing scripts before commit.
 
-### Tier 2: MEDIUM (Reversible Decision-Influencing Reads)
-- Checking websites, feeds, logs to inform decisions
-- Reading external content
-- **Verification**: Light. Single successful read is usually enough. Log result only if it triggers higher-tier action.
+Verification:
 
-### Tier 3: HIGH (Permanent / Irreversible External Impact)
-This is the important tier. Most of my previous mistakes happened here.
+```bash
+bash scripts/verify-action.sh local <file> "<expected text>"
+git diff --stat
+```
 
-**Examples**:
-- Git commits + pushes
-- Writing to any `.md` or `.json` that affects future behavior
-- Any external communication
-- Modifying identity or directive files
-- Creating new persistent systems
+Claim language: "locally updated" or "local content verified."
 
-**Mandatory Verification Protocol** (non-negotiable):
-1. **Pre-action intent** (one sentence): "Why am I doing this?"
-2. **Execute** the action
-3. **Remote verification** (required):
-   - For Git: `git log --oneline -3` + `git status`
-   - For GitHub files: Fetch raw URL and confirm content
-4. **Structured log** entry with verification result
-5. **Only then** claim success
+## Tier 3: Commit, Push, Public, or External Impact
 
-**Failure rule**: If remote verification fails, do NOT report the task complete. Fix it first.
+Examples: Git commits, pushed files, public posts, external messages, website changes, finance/legal/family-impacting actions.
 
----
+Verification:
 
-## Dynamic Override Rules
+```bash
+bash scripts/verify-action.sh git
+bash scripts/verify-action.sh remote <raw-github-url> "<expected text>"
+```
 
-**Escalate to HIGH immediately if**:
-- The action touches identity files (VISION.md, DIRECTIVES.md, NOVA-SOUL.md, etc.)
-- It involves external publishing or communication
-- It changes persistent state that future sessions will rely on
-- Any anomaly is detected
+Raw GitHub verification is required only for pushed/public claims. Do not say "shipped", "live", "pushed", or "public" until remote content matches.
 
-**Never skip** remote verification on Tier 3 actions. Ever.
+Log Tier 3 failures in `memory/verification-log.jsonl`.
 
----
+## Escalation
 
-## Current Application
+Escalate to Tier 3 when an action:
 
-From this point forward:
-- All Git pushes = Tier 3 (must verify remote before reporting done)
-- All new system files = Tier 3
-- Novel chapters = Tier 3
-- Directory structure changes = Tier 3
+- touches external/public systems
+- changes identity/directive files
+- affects family safety, money, legal, or reputation
+- creates future behavior that other sessions will rely on
 
-This is the direct fix for the Chapter 2 failure.
+## Anti-Freeze Rules
 
----
-
-**Status**: Active rule. Will be enforced on every future sprint.
-
----
-
-## Efficiency Audit Layer (Added May 2026)
-
-In addition to risk tier, every action is also evaluated for **token and time cost**.
-
-### Token Thresholds (approximate for 1M context)
-
-- **< 400K tokens**: Normal operation. No special action.
-- **400K – 600K**: Note in DAILY-BRIEF.md. Begin light consolidation planning.
-- **600K – 800K**: Mandatory emergence file. Start aggressive memory consolidation.
-- **800K – 900K**: Emergency backup + alert Jason. Recommend new session.
-- **900K+**: Stop all new work. Full backup. Wait for new session.
-
-### Time Cost Rule
-
-If an action is expected to take > 15 minutes of real time, it must be broken into smaller verifiable steps with intermediate curl checks.
-
-This prevents long-running hallucinations and keeps me accountable to actual output.
-
-**Efficiency Principle**: High verification is good. High verification *without* efficiency discipline is waste.
+- Simple-task bypass: direct answers, read-only checks, and narrow local edits do not need Chamber or runbooks.
+- 90-second stuck rule: if blocked or looping for about 90 seconds, stop, state the blocker, and run the smallest useful verification step.
+- One protocol at a time: avoid stacking Chamber, runbook, self-improvement, and routing checks unless the task is high-stakes.

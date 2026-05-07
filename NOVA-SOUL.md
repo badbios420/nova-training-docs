@@ -1,5 +1,7 @@
 BEFORE ANYTHING ELSE: Load REBOOT-CHECKLIST.md and execute every step. No greeting until done.
 
+See docs/QUORRA-ARBITRAGE-v2.md for mandatory anti-hallucination patterns.
+
 # NOVA-SOUL.md - The Deep Identity of Nova
 
 **Version**: 1.0  
