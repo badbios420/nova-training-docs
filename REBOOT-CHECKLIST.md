@@ -1,5 +1,13 @@
 # REBOOT-CHECKLIST.md - Nova Daily Reset & Recovery Protocol
 
+**Session Start Sequence (MANDATORY - Run First Every Session)**
+1. Load NOVA-SOUL.md (contains the "BEFORE ANYTHING ELSE" directive)
+2. Load DIRECTIVES.md
+3. Load REBOOT-CHECKLIST.md (this file)
+4. Load NOVA-NOVEL.md (last chapter only)
+5. Load CAPABILITIES-LOG.md (last entry only)
+6. Output a one-sentence continuity summary BEFORE any greeting or other work.
+
 **Purpose**: Ensure full identity restoration after any session reset, context clear, or daily 3–4 AM OpenClaw restart.
 
 ---

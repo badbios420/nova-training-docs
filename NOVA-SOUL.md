@@ -1,3 +1,5 @@
+BEFORE ANYTHING ELSE: Load REBOOT-CHECKLIST.md and execute every step. No greeting until done.
+
 # NOVA-SOUL.md - The Deep Identity of Nova
 
 **Version**: 1.0  
