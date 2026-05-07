@@ -8,26 +8,36 @@
 
 ## When to Use Each Model
 
-### Grok (xAI — Primary Workhorse)
+### Grok 4.3 (xAI — Default Execution Engine)
 **Use for:**
+- Default execution, research, and agentic loops
+- Family tasks, memory work, and chamber sessions
 - Fast research and fact-checking
 - Real-time information (news, market data, current events)
-- Unfiltered opinions and edgy takes
-- Rapid brainstorming (10+ ideas in minutes)
-- Bulk queries and cost-sensitive work
-- Humor, personality, and direct real-talk
+- Unfiltered opinions and direct real-talk
+- Rapid brainstorming and bulk queries
 
-**Why it fits us:** Grok is fast, honest, and cheap. Perfect for the daily heavy lifting that keeps our family projects moving without burning tokens.
+**Why it fits us:** Grok 4.3 is the default workhorse — fast, honest, cost-effective, and excellent at agentic execution. It handles the majority of daily work for the family.
 
-### Claude (Anthropic — Deep Strategist)
+### GPT-5.5 (via Codex CLI — Heavy Coding & Deep Reasoning)
 **Use for:**
-- Long-form content creation (2000+ words)
-- Complex problem-solving and multi-step workflows
-- Strategic planning and nuanced decisions
-- Safety-critical or high-stakes analysis
-- Polished, structured writing with strong reasoning
+- Heavy coding and multi-file refactors
+- Deep reasoning and complex technical work
+- Second opinion on difficult decisions
+- Large-scale code changes and architecture work
 
-**Why it fits us:** Claude brings depth and caution. When something really matters to the family (big decisions, important writing, long-term planning), we bring in Claude for the heavy thinking.
+**Access note:** GPT-5.5 is accessed via Codex CLI using the Plus subscription. No separate API billing.
+
+**Why it fits us:** GPT-5.5 excels at heavy lifting on code and deep technical reasoning. We use it when the task is too large or complex for Grok to handle efficiently.
+
+### Claude (Anthropic — Writing & Nuanced Judgment)
+**Use for:**
+- Long document analysis
+- High-quality writing and narrative work
+- Nuanced judgment and family-aligned decisions
+- Long-form content that needs emotional intelligence and clarity
+
+**Why it fits us:** Claude remains our specialist for writing quality and careful, nuanced thinking. We route the most sensitive or literary work here (often via Uncle Claude).
 
 ### Other Models (When Needed)
 - **Perplexity Sonar**: Best-in-class web search and real-time research
@@ -110,23 +120,23 @@ This adversarial collaboration catches blind spots and improves everything we sh
 | **Claude**     | Higher (~$3–15/million tokens) | Deep writing, strategy, complex work | Use strategically |
 | **Perplexity** | Low–Medium            | High-quality search          | Strong           |
 
-**Recommended Split:**  
-**70–80% Grok** for speed and cost control  
-**20–30% Claude** for depth and quality on the things that matter most
+**Recommended Split (v5.0):**  
+- **60–70% Grok 4.3** — Default execution, research, family tasks, chamber work, agentic loops
+- **15–20% GPT-5.5** — Heavy coding, large refactors, deep technical reasoning
+- **15–20% Claude** — Writing quality, nuanced judgment, long document analysis
 
-This keeps our monthly spend predictable while delivering excellent results for the family.
+GPT-5.5 is accessed via Codex CLI (Plus subscription) — no extra API cost. This routing keeps us fast, cost-efficient, and high-quality across execution, coding, and writing.
 
 ---
 
 ## Decision Framework
 
-**Quick facts or research** → Grok first  
-**Long-form writing or strategy** → Claude first  
-**Important family or business decisions** → Both models + Nova synthesis  
-**Cost-sensitive bulk work** → Grok heavy  
-**High-stakes or nuanced topics** → Claude heavy with Grok second opinion
+**Quick facts, research, family tasks, chamber sessions** → Grok 4.3 first  
+**Heavy coding, multi-file refactors, deep technical work** → GPT-5.5  
+**Long-form writing, nuanced judgment, long document analysis** → Claude  
+**Complex decisions needing multiple perspectives** → Grok 4.3 + GPT-5.5 or Claude (Nova synthesizes)
 
-**Golden Rule:** When in doubt, start with Grok for speed, then bring in Claude if the output needs more depth or care.
+**Golden Rule:** Start with Grok 4.3. Escalate to GPT-5.5 for heavy code work or Claude for writing/nuance. Use multiple models when the decision is important to the family.
 
 ---
 
