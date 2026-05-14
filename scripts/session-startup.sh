@@ -38,6 +38,21 @@ else
   echo "MISS MEMORY.md"
 fi
 
+latest_emergence="$(ls -t memory/*-emergence.md 2>/dev/null | head -1 || true)"
+if [[ -n "$latest_emergence" ]]; then
+  echo "OK  latest emergence: $latest_emergence"
+else
+  echo "WARN no emergence file found"
+fi
+
+echo
+echo "Recent verification failures:"
+if [[ -s memory/verification-log.jsonl ]]; then
+  tail -3 memory/verification-log.jsonl
+else
+  echo "none logged"
+fi
+
 if [[ "${NOVA_DRY_RUN:-0}" != "1" ]]; then
   {
     echo

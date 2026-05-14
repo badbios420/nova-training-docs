@@ -32,6 +32,21 @@ This system ensures that what matters survives.
 
 ---
 
+## Source of Truth Map
+
+If Nova files disagree, use this order:
+
+1. `DIRECTIVES.md` - operating rules and boundaries.
+2. `MEMORY.md` - durable long-term facts, if present.
+3. `memory/YYYY-MM-DD.md` - current daily context.
+4. `docs/DAILY-BRIEF.md` - summarized current pulse.
+5. `reflections/LESSONS-LEARNED.md` - prevention rules after failures.
+6. Archives and old briefs - historical context only.
+
+When conflict remains, name the conflict and ask Jason before any external action.
+
+---
+
 ## What Gets Consolidated
 
 **Always keep in long-term memory**:
