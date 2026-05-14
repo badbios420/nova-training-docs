@@ -24,6 +24,15 @@ bash scripts/verify-action.sh local docs/VERIFICATION-TIERS.md "Tier 3"
 bash scripts/verify-action.sh remote <raw-url> "expected text"
 ```
 
+## Use Before Build
+
+Before creating a new script, protocol, or subsystem:
+
+- Check `TOOLS.md` and `evolution/capability-index.md`.
+- Prefer extending an existing tool.
+- Determine whether the issue is missing capability or failure to use existing capability.
+- If possible, solve with a checklist reminder instead of a new system.
+
 ## Notes
 
 - Add tool names, paths, and safe test commands here as Nova gains real capabilities.
