@@ -1,0 +1,21 @@
+{
+  "status": "prototype-prompt-bank",
+  "animationPrompts": [
+    {
+      "id": "coil-breathing-loop",
+      "duration": "6s",
+      "prompt": "The fractal Ouroboros serpent slowly breathes with pulsing Cardano-blue light, subtle particle ring rotation, seamless loop, no camera shake"
+    },
+    {
+      "id": "deluxe-trait-reveal",
+      "duration": "8s",
+      "prompt": "The Eternal Coil appears from darkness, deluxe trait glints once, lore glyphs orbit softly, clean loop ending on the static NFT composition"
+    },
+    {
+      "id": "nested-recursion-loop",
+      "duration": "10s",
+      "prompt": "The mini NFT frame inside the artwork recursively reveals a smaller Eternal Coil, gentle zoom illusion, seamless cosmic loop"
+    }
+  ]
+}
+

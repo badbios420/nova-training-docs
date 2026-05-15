@@ -1,0 +1,47 @@
+{
+  "forbiddenPairs": [
+    {
+      "a": { "category": "Head Trait", "trait": "Space Helmet Ring" },
+      "b": { "category": "Head Trait", "trait": "Ouroboros Halo" },
+      "reason": "helmet/halo conflict"
+    },
+    {
+      "a": { "category": "Head Trait", "trait": "Space Helmet Ring" },
+      "b": { "category": "Head Trait", "trait": "Eclipse Halo" },
+      "reason": "helmet/halo conflict"
+    },
+    {
+      "a": { "category": "Eyes", "trait": "Midnight Mask Eyes" },
+      "b": { "category": "Head Trait", "trait": "Space Helmet Ring" },
+      "reason": "eye-hidden conflict"
+    },
+    {
+      "a": { "category": "Background", "trait": "Golden Singularity" },
+      "b": { "category": "Aura", "trait": "Golden Aura" },
+      "reason": "bright-on-bright conflict"
+    },
+    {
+      "a": { "category": "Background", "trait": "Quantum ADA Storm" },
+      "b": { "category": "Aura", "trait": "Prism Explosion" },
+      "reason": "overstacked visual chaos"
+    }
+  ],
+  "highIntensityTraits": {
+    "Background": ["Quantum ADA Storm", "Golden Singularity", "Whitepaper Cosmos"],
+    "Material": ["Holographic", "Gold Scales", "Platinum Scales", "Living Code Scales", "One-of-One Material"],
+    "Eyes": ["Laser Eyes", "Golden Oracle Eyes", "Diamond Eyes", "One-of-One Eyes"],
+    "Head Trait": ["Golden Crown", "Eclipse Halo", "Living Glyph Crown", "One-of-One Headpiece"],
+    "Aura": ["Lightning Coil", "Time Warp", "Prism Explosion", "Golden Aura", "Event Horizon", "Animated Aura Placeholder"]
+  },
+  "maxHighIntensityTraits": 3,
+  "oneOfOneRequiredTraits": {
+    "Background": "One-of-One Scene",
+    "Serpent Form": "Ouroboros 1/1 Body",
+    "Material": "One-of-One Material",
+    "Eyes": "One-of-One Eyes",
+    "Head Trait": "One-of-One Headpiece",
+    "Aura": "Animated Aura Placeholder",
+    "Cardano Lore": "One-of-One Lore"
+  }
+}
+

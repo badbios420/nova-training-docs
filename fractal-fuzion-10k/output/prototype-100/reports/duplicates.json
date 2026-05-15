@@ -1,0 +1,9 @@
+{
+  "checkedFiles": 100,
+  "exactTraitDuplicates": [],
+  "visualDuplicateCheck": {
+    "status": "skipped",
+    "reason": "No image generation in scaffold pass."
+  },
+  "status": "PASS"
+}

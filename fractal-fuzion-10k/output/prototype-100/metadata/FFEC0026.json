@@ -1,0 +1,31 @@
+{
+  "721": {
+    "POLICY_ID_PLACEHOLDER": {
+      "FFEC0026": {
+        "name": "Eternal Coil #0026 - Ouroboros Maxima",
+        "image": "ipfs://IMAGE_CID_PLACEHOLDER/FFEC0026.png",
+        "mediaType": "image/png",
+        "description": "A 1/1 prototype concept: Ouroboros Maxima. Planning metadata only; not minted.",
+        "files": [
+          {
+            "name": "Eternal Coil #0026 - Ouroboros Maxima",
+            "mediaType": "image/png",
+            "src": "ipfs://IMAGE_CID_PLACEHOLDER/FFEC0026.png"
+          }
+        ],
+        "Collection": "Fractal Fuzion Eternal Coil Prototype",
+        "Background": "One-of-One Scene",
+        "Serpent Form": "Ouroboros 1/1 Body",
+        "Material": "One-of-One Material",
+        "Eyes": "One-of-One Eyes",
+        "Head Trait": "One-of-One Headpiece",
+        "Aura": "Animated Aura Placeholder",
+        "Cardano Lore": "One-of-One Lore",
+        "Edition Tier": "1/1 Ultra",
+        "One-of-One Concept": "Ouroboros Maxima",
+        "Prototype": "true"
+      }
+    },
+    "version": 2
+  }
+}

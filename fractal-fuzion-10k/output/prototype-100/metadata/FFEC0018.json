@@ -1,0 +1,30 @@
+{
+  "721": {
+    "POLICY_ID_PLACEHOLDER": {
+      "FFEC0018": {
+        "name": "Eternal Coil #0018",
+        "image": "ipfs://IMAGE_CID_PLACEHOLDER/FFEC0018.png",
+        "mediaType": "image/png",
+        "description": "A prototype Fractal Fuzion Eternal Coil. Planning metadata only; not minted.",
+        "files": [
+          {
+            "name": "Eternal Coil #0018",
+            "mediaType": "image/png",
+            "src": "ipfs://IMAGE_CID_PLACEHOLDER/FFEC0018.png"
+          }
+        ],
+        "Collection": "Fractal Fuzion Eternal Coil Prototype",
+        "Background": "Julia Rift",
+        "Serpent Form": "Double Loop Coil",
+        "Material": "Matte Scales",
+        "Eyes": "Third Eye",
+        "Head Trait": "Serpent Crown",
+        "Aura": "None / Clean",
+        "Cardano Lore": "Goguen",
+        "Edition Tier": "Common",
+        "Prototype": "true"
+      }
+    },
+    "version": 2
+  }
+}

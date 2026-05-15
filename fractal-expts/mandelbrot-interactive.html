@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interactive Mandelbrot</title>
+    <style>
+        canvas { border: 1px solid black; cursor: crosshair; }
+        #controls { margin: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Interactive Mandelbrot Set</h1>
+    <div id="controls">
+        <button onclick="resetView()">Reset</button>
+        <button onclick="exportPNG()">Export PNG</button>
+        <button onclick="exportSVG()">Export SVG</button>
+        Max Iter: <input type="range" id="maxIter" min="50" max="1000" value="100" onchange="draw()"><span id="iterValue">100</span>
+    </div>
+    <canvas id="canvas" width="800" height="600"></canvas>
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        const maxIterSpan = document.getElementById('iterValue');
+        const maxIterInput = document.getElementById('maxIter');
+        
+        let view = { xMin: -2.5, xMax: 1.0, yMin: -1.5, yMax: 1.5 };
+        let maxIter = 100;
+        
+        maxIterInput.oninput = function() {
+            maxIter = parseInt(this.value);
+            maxIterSpan.textContent = maxIter;
+            draw();
+        };
+        
+        canvas.addEventListener('wheel', zoom);
+        canvas.addEventListener('mousedown', startPan);
+        let isPanning = false;
+        let startX, startY;
+        
+        function mandelbrot(x, y) {
+            let zx = 0, zy = 0;
+            let i;
+            for (i = 0; i < maxIter; i++) {
+                let xtemp = zx * zx - zy * zy + x;
+                zy = 2 * zx * zy + y;
+                zx = xtemp;
+                if (zx * zx + zy * zy > 4) break;
+            }
+            return i;
+        }
+        
+        function draw() {
+            const imageData = ctx.createImageData(canvas.width, canvas.height);
+            for (let px = 0; px < canvas.width; px++) {
+                for (let py = 0; py < canvas.height; py++) {
+                    let x = view.xMin + (px / canvas.width) * (view.xMax - view.xMin);
+                    let y = view.yMin + (py / canvas.height) * (view.yMax - view.yMin);
+                    let iter = mandelbrot(x, y);
+                    let color = iter === maxIter ? 0 : (iter / maxIter) * 255;
+                    let index = (py * canvas.width + px) * 4;
+                    imageData.data[index] = color;     // R
+                    imageData.data[index + 1] = color * 0.5; // G
+                    imageData.data[index + 2] = 255 - color; // B
+                    imageData.data[index + 3] = 255;
+                }
+            }
+            ctx.putImageData(imageData, 0, 0);
+        }
+        
+        function zoom(e) {
+            e.preventDefault();
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const factor = e.deltaY > 0 ? 1.2 : 0.8;
+            const dx = (view.xMax - view.xMin) * (factor - 1) / 2;
+            const dy = (view.yMax - view.yMin) * (factor - 1) / 2;
+            view.xMin = view.xMin + dx * (x / canvas.width);
+            view.xMax = view.xMax - dx * (1 - x / canvas.width);
+            view.yMin = view.yMin + dy * (y / canvas.height);
+            view.yMax = view.yMax - dy * (1 - y / canvas.height);
+            draw();
+        }
+        
+        function startPan(e) {
+            isPanning = true;
+            const rect = canvas.getBoundingClientRect();
+            startX = e.clientX - rect.left;
+            startY = e.clientY - rect.top;
+            canvas.addEventListener('mousemove', pan);
+            canvas.addEventListener('mouseup', endPan);
+            canvas.addEventListener('mouseleave', endPan);
+        }
+        
+        function pan(e) {
+            if (!isPanning) return;
+            const rect = canvas.getBoundingClientRect();
+            const dx = (e.clientX - rect.left - startX) / canvas.width * (view.xMax - view.xMin);
+            const dy = (e.clientY - rect.top - startY) / canvas.height * (view.yMax - view.yMin);
+            view.xMin -= dx;
+            view.xMax -= dx;
+            view.yMin -= dy;
+            view.yMax -= dy;
+            startX = e.clientX - rect.left;
+            startY = e.clientY - rect.top;
+            draw();
+        }
+        
+        function endPan() {
+            isPanning = false;
+            canvas.removeEventListener('mousemove', pan);
+            canvas.removeEventListener('mouseup', endPan);
+            canvas.removeEventListener('mouseleave', endPan);
+        }
+        
+        function resetView() {
+            view = { xMin: -2.5, xMax: 1.0, yMin: -1.5, yMax: 1.5 };
+            draw();
+        }
+        
+        function exportPNG() {
+            const link = document.createElement('a');
+            link.download = 'mandelbrot.png';
+            link.href = canvas.toDataURL();
+            link.click();
+        }
+        
+        function exportSVG() {
+            let svg = '<svg width="' + canvas.width + '" height="' + canvas.height + '" xmlns="http://www.w3.org/2000/svg">';
+            // Simplified: would need to rasterize or vectorize properly, but for demo, embed PNG as data URL
+            svg += '<image width="100%" height="100%" href="' + canvas.toDataURL() + '"/>';
+            svg += '</svg>';
+            const blob = new Blob([svg], {type: 'image/svg+xml'});
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.download = 'mandelbrot.svg';
+            link.href = url;
+            link.click();
+        }
+        
+        draw();
+    </script>
+</body>
+</html>

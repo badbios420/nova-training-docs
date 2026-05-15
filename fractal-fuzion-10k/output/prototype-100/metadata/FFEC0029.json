@@ -1,0 +1,30 @@
+{
+  "721": {
+    "POLICY_ID_PLACEHOLDER": {
+      "FFEC0029": {
+        "name": "Eternal Coil #0029",
+        "image": "ipfs://IMAGE_CID_PLACEHOLDER/FFEC0029.png",
+        "mediaType": "image/png",
+        "description": "A prototype Fractal Fuzion Eternal Coil. Planning metadata only; not minted.",
+        "files": [
+          {
+            "name": "Eternal Coil #0029",
+            "mediaType": "image/png",
+            "src": "ipfs://IMAGE_CID_PLACEHOLDER/FFEC0029.png"
+          }
+        ],
+        "Collection": "Fractal Fuzion Eternal Coil Prototype",
+        "Background": "Cardano Midnight Blue",
+        "Serpent Form": "Classic Ouroboros Coil",
+        "Material": "Emerald Scales",
+        "Eyes": "Calm Glow",
+        "Head Trait": "Voltaire Halo",
+        "Aura": "Smoke Wisps",
+        "Cardano Lore": "Mithril",
+        "Edition Tier": "Common",
+        "Prototype": "true"
+      }
+    },
+    "version": 2
+  }
+}

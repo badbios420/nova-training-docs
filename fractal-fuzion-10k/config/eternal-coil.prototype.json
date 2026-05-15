@@ -1,0 +1,32 @@
+{
+  "collection": "Fractal Fuzion Eternal Coil Prototype",
+  "shortName": "Eternal Coil",
+  "assetPrefix": "FFEC",
+  "editionSize": 100,
+  "policyId": "POLICY_ID_PLACEHOLDER",
+  "imageBaseUri": "ipfs://IMAGE_CID_PLACEHOLDER",
+  "mediaType": "image/png",
+  "description": "A prototype Fractal Fuzion Eternal Coil. Planning metadata only; not minted.",
+  "seed": 1337420,
+  "metadataVersion": 2,
+  "outputDir": "output/prototype-100",
+  "categories": [
+    "Background",
+    "Serpent Form",
+    "Material",
+    "Eyes",
+    "Head Trait",
+    "Aura",
+    "Cardano Lore",
+    "Edition Tier"
+  ],
+  "tierTargets": {
+    "Common": 55,
+    "Uncommon": 25,
+    "Rare": 12,
+    "Epic": 5,
+    "Mythic": 2,
+    "1/1 Ultra": 1
+  }
+}
+

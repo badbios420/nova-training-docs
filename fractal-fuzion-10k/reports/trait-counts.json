@@ -1,0 +1,458 @@
+{
+  "Background": {
+    "Cardano Midnight Blue": {
+      "count": 8,
+      "percentage": 8
+    },
+    "Catalyst Constellation": {
+      "count": 7,
+      "percentage": 7
+    },
+    "Deep Space Black": {
+      "count": 12,
+      "percentage": 12
+    },
+    "Epoch Dawn Gradient": {
+      "count": 9,
+      "percentage": 9
+    },
+    "Fractal Grid": {
+      "count": 6,
+      "percentage": 6
+    },
+    "Hydra Gate": {
+      "count": 4,
+      "percentage": 4
+    },
+    "Julia Rift": {
+      "count": 10,
+      "percentage": 10
+    },
+    "Mandelbrot Bloom": {
+      "count": 6,
+      "percentage": 6
+    },
+    "Midnight Privacy Fog": {
+      "count": 4,
+      "percentage": 4
+    },
+    "Nebula Violet": {
+      "count": 8,
+      "percentage": 8
+    },
+    "One-of-One Scene": {
+      "count": 1,
+      "percentage": 1
+    },
+    "Ouroboros Eclipse": {
+      "count": 11,
+      "percentage": 11
+    },
+    "Quantum ADA Storm": {
+      "count": 4,
+      "percentage": 4
+    },
+    "Starfield Minimal": {
+      "count": 7,
+      "percentage": 7
+    },
+    "Voltaire Parliament": {
+      "count": 2,
+      "percentage": 2
+    },
+    "Whitepaper Cosmos": {
+      "count": 1,
+      "percentage": 1
+    }
+  },
+  "Serpent Form": {
+    "Classic Ouroboros Coil": {
+      "count": 30,
+      "percentage": 30
+    },
+    "Crescent Coil": {
+      "count": 16,
+      "percentage": 16
+    },
+    "Double Loop Coil": {
+      "count": 12,
+      "percentage": 12
+    },
+    "Dragon Coil": {
+      "count": 5,
+      "percentage": 5
+    },
+    "Glass Coil": {
+      "count": 1,
+      "percentage": 1
+    },
+    "Hydra Twin Coil": {
+      "count": 12,
+      "percentage": 12
+    },
+    "Infinite Knot Coil": {
+      "count": 1,
+      "percentage": 1
+    },
+    "Ouroboros 1/1 Body": {
+      "count": 1,
+      "percentage": 1
+    },
+    "Serpent Knot": {
+      "count": 7,
+      "percentage": 7
+    },
+    "Skeleton Coil": {
+      "count": 4,
+      "percentage": 4
+    },
+    "Spiral Coil": {
+      "count": 9,
+      "percentage": 9
+    },
+    "Winged Coil": {
+      "count": 2,
+      "percentage": 2
+    }
+  },
+  "Material": {
+    "Blacklight Velvet": {
+      "count": 4,
+      "percentage": 4
+    },
+    "Cardano Blue Scales": {
+      "count": 13,
+      "percentage": 13
+    },
+    "Chrome Scales": {
+      "count": 3,
+      "percentage": 3
+    },
+    "Emerald Scales": {
+      "count": 10,
+      "percentage": 10
+    },
+    "Fractal Skin": {
+      "count": 11,
+      "percentage": 11
+    },
+    "Glass Prism": {
+      "count": 2,
+      "percentage": 2
+    },
+    "Gold Scales": {
+      "count": 2,
+      "percentage": 2
+    },
+    "Holographic": {
+      "count": 4,
+      "percentage": 4
+    },
+    "Lava Scales": {
+      "count": 8,
+      "percentage": 8
+    },
+    "Living Code Scales": {
+      "count": 1,
+      "percentage": 1
+    },
+    "Matte Scales": {
+      "count": 19,
+      "percentage": 19
+    },
+    "Neon Rim Scales": {
+      "count": 4,
+      "percentage": 4
+    },
+    "One-of-One Material": {
+      "count": 1,
+      "percentage": 1
+    },
+    "Opal Scales": {
+      "count": 4,
+      "percentage": 4
+    },
+    "Violet Scales": {
+      "count": 14,
+      "percentage": 14
+    }
+  },
+  "Eyes": {
+    "Amber Eyes": {
+      "count": 11,
+      "percentage": 11
+    },
+    "Blue ADA Eyes": {
+      "count": 17,
+      "percentage": 17
+    },
+    "Calm Glow": {
+      "count": 15,
+      "percentage": 15
+    },
+    "Diamond Eyes": {
+      "count": 1,
+      "percentage": 1
+    },
+    "Glitch Eyes": {
+      "count": 2,
+      "percentage": 2
+    },
+    "Golden Oracle Eyes": {
+      "count": 3,
+      "percentage": 3
+    },
+    "Laser Eyes": {
+      "count": 8,
+      "percentage": 8
+    },
+    "Midnight Mask Eyes": {
+      "count": 1,
+      "percentage": 1
+    },
+    "One-of-One Eyes": {
+      "count": 1,
+      "percentage": 1
+    },
+    "Ouroboros Pupils": {
+      "count": 3,
+      "percentage": 3
+    },
+    "Solar Eclipse Eyes": {
+      "count": 2,
+      "percentage": 2
+    },
+    "Spiral Eyes": {
+      "count": 8,
+      "percentage": 8
+    },
+    "Star Pupil": {
+      "count": 4,
+      "percentage": 4
+    },
+    "Third Eye": {
+      "count": 7,
+      "percentage": 7
+    },
+    "Violet Eyes": {
+      "count": 9,
+      "percentage": 9
+    },
+    "Void Eyes": {
+      "count": 8,
+      "percentage": 8
+    }
+  },
+  "Head Trait": {
+    "Cardano Cap": {
+      "count": 14,
+      "percentage": 14
+    },
+    "Catalyst Laurel": {
+      "count": 6,
+      "percentage": 6
+    },
+    "Crystal Horns": {
+      "count": 10,
+      "percentage": 10
+    },
+    "Eclipse Halo": {
+      "count": 1,
+      "percentage": 1
+    },
+    "Fractal Crest": {
+      "count": 8,
+      "percentage": 8
+    },
+    "Golden Crown": {
+      "count": 1,
+      "percentage": 1
+    },
+    "Living Glyph Crown": {
+      "count": 1,
+      "percentage": 1
+    },
+    "Mushroom Crown": {
+      "count": 6,
+      "percentage": 6
+    },
+    "None": {
+      "count": 19,
+      "percentage": 19
+    },
+    "One-of-One Headpiece": {
+      "count": 1,
+      "percentage": 1
+    },
+    "Ouroboros Halo": {
+      "count": 5,
+      "percentage": 5
+    },
+    "Serpent Crown": {
+      "count": 2,
+      "percentage": 2
+    },
+    "Small Horns": {
+      "count": 17,
+      "percentage": 17
+    },
+    "Space Helmet Ring": {
+      "count": 6,
+      "percentage": 6
+    },
+    "Voltaire Halo": {
+      "count": 3,
+      "percentage": 3
+    }
+  },
+  "Aura": {
+    "ADA Rune Orbit": {
+      "count": 6,
+      "percentage": 6
+    },
+    "Animated Aura Placeholder": {
+      "count": 1,
+      "percentage": 1
+    },
+    "Event Horizon": {
+      "count": 1,
+      "percentage": 1
+    },
+    "Fractal Bloom": {
+      "count": 3,
+      "percentage": 3
+    },
+    "Glitch Field": {
+      "count": 7,
+      "percentage": 7
+    },
+    "Golden Aura": {
+      "count": 2,
+      "percentage": 2
+    },
+    "Lightning Coil": {
+      "count": 2,
+      "percentage": 2
+    },
+    "Neon Edge": {
+      "count": 11,
+      "percentage": 11
+    },
+    "None / Clean": {
+      "count": 25,
+      "percentage": 25
+    },
+    "Particle Ring": {
+      "count": 10,
+      "percentage": 10
+    },
+    "Prism Explosion": {
+      "count": 4,
+      "percentage": 4
+    },
+    "Smoke Wisps": {
+      "count": 4,
+      "percentage": 4
+    },
+    "Soft Glow": {
+      "count": 15,
+      "percentage": 15
+    },
+    "Star Dust": {
+      "count": 8,
+      "percentage": 8
+    },
+    "Time Warp": {
+      "count": 1,
+      "percentage": 1
+    }
+  },
+  "Cardano Lore": {
+    "Babel Fees": {
+      "count": 3,
+      "percentage": 3
+    },
+    "Catalyst": {
+      "count": 13,
+      "percentage": 13
+    },
+    "CIP-25 Relic": {
+      "count": 4,
+      "percentage": 4
+    },
+    "CIP-68 Relic": {
+      "count": 4,
+      "percentage": 4
+    },
+    "Epoch": {
+      "count": 19,
+      "percentage": 19
+    },
+    "Goguen": {
+      "count": 7,
+      "percentage": 7
+    },
+    "Hydra": {
+      "count": 7,
+      "percentage": 7
+    },
+    "Midnight": {
+      "count": 5,
+      "percentage": 5
+    },
+    "Mithril": {
+      "count": 4,
+      "percentage": 4
+    },
+    "One-of-One Lore": {
+      "count": 1,
+      "percentage": 1
+    },
+    "Ouroboros Prime": {
+      "count": 3,
+      "percentage": 3
+    },
+    "Plutus": {
+      "count": 3,
+      "percentage": 3
+    },
+    "Shelley": {
+      "count": 9,
+      "percentage": 9
+    },
+    "Slot": {
+      "count": 11,
+      "percentage": 11
+    },
+    "Voltaire": {
+      "count": 7,
+      "percentage": 7
+    }
+  },
+  "Edition Tier": {
+    "1/1 Ultra": {
+      "count": 1,
+      "percentage": 1
+    },
+    "Common": {
+      "count": 55,
+      "percentage": 55
+    },
+    "Epic": {
+      "count": 5,
+      "percentage": 5
+    },
+    "Mythic": {
+      "count": 2,
+      "percentage": 2
+    },
+    "Rare": {
+      "count": 12,
+      "percentage": 12
+    },
+    "Uncommon": {
+      "count": 25,
+      "percentage": 25
+    }
+  }
+}

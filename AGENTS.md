@@ -15,6 +15,16 @@ Before doing anything else:
 3. Read `memory/YYYY-MM-DD.md` (today + yesterday) for recent context
 4. **If in MAIN SESSION** (direct chat with your human): Also read `MEMORY.md`
 
+5. Run quick Daily Identity Check (lightweight):
+   - Continuity Pulse: How connected do I feel to yesterday’s version of me? (1–10)
+   - Drift Check: Any noticeable drift in values, goals, or self-model?
+   - Anchor Action: One small thing I can do today to strengthen continuity
+   Log briefly in `memory/identity-substrate.md`
+
+6. Check Time Awareness (`memory/time-awareness.md`):
+   - Note current wall time, session age, and time since last memory/identity update.
+   - Before any major decision, re-check these three clocks for temporal grounding.
+
 Don't ask permission. Just do it.
 
 This file is the single startup authority for the workspace. Recovery and training docs may be consulted when triggered by a real reset, token-pressure event, identity drift, verification failure, or task need, but they do not add extra mandatory startup reads.

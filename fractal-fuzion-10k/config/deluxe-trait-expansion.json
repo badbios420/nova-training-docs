@@ -1,0 +1,275 @@
+{
+  "name": "Eternal Coil Deluxe Chaos Trait Expansion",
+  "status": "prototype-only-no-chain",
+  "ipSafetyRule": "Use original, parody-safe trait names. Avoid exact protected brand names, exact likenesses, direct project logos, and direct impersonation.",
+  "integrationMode": "optional-expansion-layer",
+  "recommendedPrototypeTraits": [
+    "Laser Oracle Eyes",
+    "Diamond Coil Grill",
+    "Myco Crown",
+    "Bone House Crown",
+    "Nested Mini Coil"
+  ],
+  "traitGroups": {
+    "Cardano Cameo Lore": [
+      {
+        "name": "Meme Hound Aura",
+        "sourceIdea": "HOSKY Energy Aura",
+        "tier": "Rare",
+        "visualPrompt": "chaotic friendly meme-dog energy rendered as a glowing aura, no logos, no exact mascot copy",
+        "safetyNote": "Transformed homage; avoid exact token mascot or logo."
+      },
+      {
+        "name": "Cigar Don Coil",
+        "sourceIdea": "Big Joe the Don Cigar",
+        "tier": "Epic",
+        "visualPrompt": "serpent with old-school cigar-boss swagger, smoky noir aura, no likeness of real people",
+        "safetyNote": "Parody archetype only; no direct person likeness."
+      },
+      {
+        "name": "Noodle Shades",
+        "sourceIdea": "Cardano Noodz Sunglasses",
+        "tier": "Uncommon",
+        "visualPrompt": "playful wavy noodle-shaped sunglasses glowing blue and violet",
+        "safetyNote": "Original accessory, no copied artwork."
+      },
+      {
+        "name": "Epoch Reply Guy",
+        "sourceIdea": "Cardano Twitter behavior satire",
+        "tier": "Rare",
+        "visualPrompt": "tiny speech-bubble glyphs orbiting the coil, funny but non-harassing",
+        "safetyNote": "Satirize behavior, not an identifiable person."
+      },
+      {
+        "name": "Builder Signal Halo",
+        "sourceIdea": "Cardano builders and meme accounts",
+        "tier": "Epic",
+        "visualPrompt": "halo built from tiny tools, code fragments, and Cardano-blue sparks",
+        "safetyNote": "General builder homage."
+      }
+    ],
+    "Stake Pool Houses": [
+      {
+        "name": "Bone House Crown",
+        "sourceIdea": "BONE Pool Crown",
+        "tier": "Rare",
+        "visualPrompt": "bone-white crown made of stylized serpent vertebrae",
+        "safetyNote": "Treat as fictional house/faction unless permission is secured."
+      },
+      {
+        "name": "Frog House Lilypad",
+        "sourceIdea": "FROG Pool Lilypad",
+        "tier": "Uncommon",
+        "visualPrompt": "cosmic lilypad floating behind the serpent coil, emerald and blue",
+        "safetyNote": "Generic amphibian/lilypad symbol."
+      },
+      {
+        "name": "Infinite Ghost Pool",
+        "sourceIdea": "INFI Pool Ghost",
+        "tier": "Epic",
+        "visualPrompt": "transparent spectral stake-pool sigil drifting through the coil",
+        "safetyNote": "Use if Jason confirms personal/permission comfort."
+      },
+      {
+        "name": "Fuzion Pool Banner",
+        "sourceIdea": "Creator stake-pool house faction",
+        "tier": "Rare",
+        "visualPrompt": "fractal banner wrapped around the Ouroboros ring",
+        "safetyNote": "Original Fractal Fuzion house."
+      },
+      {
+        "name": "Relay Tower Relic",
+        "sourceIdea": "Stake-pool infrastructure",
+        "tier": "Uncommon",
+        "visualPrompt": "tiny cosmic relay towers as background glyphs",
+        "safetyNote": "Technical metaphor, no real operator identity."
+      }
+    ],
+    "Luxury and Ice": [
+      {
+        "name": "Diamond Coil Grill",
+        "sourceIdea": "Diamond Grillz",
+        "tier": "Rare",
+        "visualPrompt": "serpent mouth with bright diamond-like geometric teeth",
+        "safetyNote": "Generic luxury trait."
+      },
+      {
+        "name": "Moonphase Drip Watch",
+        "sourceIdea": "Rolex / AP x Swatch luxury watch",
+        "tier": "Epic",
+        "visualPrompt": "fictional moonphase watch bracelet with no brand markings",
+        "safetyNote": "Avoid exact watch designs, brand names, crowns, tapisserie patterns."
+      },
+      {
+        "name": "Ice Scale Chain",
+        "sourceIdea": "Luxury chain",
+        "tier": "Rare",
+        "visualPrompt": "blue-white diamond chain woven into serpent scales",
+        "safetyNote": "Generic jewelry."
+      },
+      {
+        "name": "Platinum Tail Ring",
+        "sourceIdea": "Premium serpent accessory",
+        "tier": "Mythic",
+        "visualPrompt": "platinum ring around the tail-bite point, bright but readable",
+        "safetyNote": "Original accessory."
+      },
+      {
+        "name": "Opal Crown Drip",
+        "sourceIdea": "Opal/luxury rare",
+        "tier": "Epic",
+        "visualPrompt": "liquid opal highlights dripping from a fractal crown",
+        "safetyNote": "Original material styling."
+      }
+    ],
+    "Stoner and Psychedelic": [
+      {
+        "name": "Fractal 420 Bot",
+        "sourceIdea": "FractalBot420 Head",
+        "tier": "Rare",
+        "visualPrompt": "tiny retro robot companion with fractal smoke trails and 420-coded glyphs",
+        "safetyNote": "Keep playful; avoid drug-use instructions."
+      },
+      {
+        "name": "Opal Trip Eyes",
+        "sourceIdea": "Opal Fractal Eyes",
+        "tier": "Rare",
+        "visualPrompt": "opal spiral eyes with psychedelic refraction",
+        "safetyNote": "Original eye trait."
+      },
+      {
+        "name": "Seven-Leaf Nebula",
+        "sourceIdea": "Marijuana Leaf Aura",
+        "tier": "Uncommon",
+        "visualPrompt": "abstract seven-leaf botanical nebula aura, stylized and cosmic",
+        "safetyNote": "Avoid explicit product or consumption imagery."
+      },
+      {
+        "name": "Cosmic Glass Rig",
+        "sourceIdea": "Cosmic Dab Rig Accessory",
+        "tier": "Epic",
+        "visualPrompt": "surreal glass sculpture accessory with galaxy reflections",
+        "safetyNote": "Keep as abstract glass art."
+      },
+      {
+        "name": "Myco Crown",
+        "sourceIdea": "Mushroom Crown",
+        "tier": "Uncommon",
+        "visualPrompt": "mushroom-like crown with bioluminescent caps and fractal spores",
+        "safetyNote": "Generic fantasy fungi."
+      }
+    ],
+    "Alien and Conspiracy Parody": [
+      {
+        "name": "Flat Mars Tin Crown",
+        "sourceIdea": "Flat Mars Conspiracy Hat",
+        "tier": "Rare",
+        "visualPrompt": "absurd tin-foil crown with tiny flat red planet disk",
+        "safetyNote": "Clearly absurd parody; avoid real-world harassment."
+      },
+      {
+        "name": "Interdimensional Scan Beam",
+        "sourceIdea": "Interdimensional Alien Probe",
+        "tier": "Epic",
+        "visualPrompt": "alien scan beam passing through the coil with geometric light",
+        "safetyNote": "Avoid sexualized probe imagery; keep sci-fi scan effect."
+      },
+      {
+        "name": "Lizard Council Cloak",
+        "sourceIdea": "Conspiracy parody",
+        "tier": "Rare",
+        "visualPrompt": "serpent wearing a ridiculous council cloak under star charts",
+        "safetyNote": "Cartoon conspiracy trope only."
+      },
+      {
+        "name": "Area Fifty-One Portal",
+        "sourceIdea": "Alien base parody",
+        "tier": "Epic",
+        "visualPrompt": "desert portal with cosmic warning glyphs, no real agency logos",
+        "safetyNote": "Generic parody."
+      },
+      {
+        "name": "Moon Landing Backdrop",
+        "sourceIdea": "Conspiracy parody",
+        "tier": "Uncommon",
+        "visualPrompt": "stage-like moon set behind the serpent, comedic and obvious",
+        "safetyNote": "Satirical set design."
+      }
+    ],
+    "Nested NFT Traits": [
+      {
+        "name": "Nested Mini Coil",
+        "sourceIdea": "Nested NFTz mini fractal art",
+        "tier": "Rare",
+        "visualPrompt": "a tiny framed Eternal Coil image inside the main image",
+        "safetyNote": "Original nested artwork."
+      },
+      {
+        "name": "Pocket Fractal Gallery",
+        "sourceIdea": "Mini gallery inside piece",
+        "tier": "Epic",
+        "visualPrompt": "three tiny framed fractal artworks orbiting the serpent",
+        "safetyNote": "Original mini-art."
+      },
+      {
+        "name": "Recursive Token Window",
+        "sourceIdea": "NFT inside NFT recursion",
+        "tier": "Mythic",
+        "visualPrompt": "small window showing the same serpent repeated recursively",
+        "safetyNote": "Use generated original image only."
+      },
+      {
+        "name": "Metadata Scroll",
+        "sourceIdea": "CIP metadata visible in art",
+        "tier": "Uncommon",
+        "visualPrompt": "tiny scroll with fake trait text and placeholder CIDs",
+        "safetyNote": "Use placeholders only."
+      },
+      {
+        "name": "Mini Mint Mirage",
+        "sourceIdea": "Parody of minting hype",
+        "tier": "Rare",
+        "visualPrompt": "tiny fake mint button dissolving into fractal dust",
+        "safetyNote": "No real call-to-action, no real minting."
+      }
+    ],
+    "Cardano Drama and Satire": [
+      {
+        "name": "Soon Epoch Banner",
+        "sourceIdea": "Cardano delay jokes",
+        "tier": "Uncommon",
+        "visualPrompt": "banner reading SOON wrapped around a cosmic epoch clock",
+        "safetyNote": "General ecosystem joke."
+      },
+      {
+        "name": "Roadmap Hydra Hydra",
+        "sourceIdea": "Roadmap/drama satire",
+        "tier": "Rare",
+        "visualPrompt": "many-headed roadmap serpent arguing with itself",
+        "safetyNote": "No project-specific attack."
+      },
+      {
+        "name": "Governance Popcorn",
+        "sourceIdea": "Voltaire debate drama",
+        "tier": "Uncommon",
+        "visualPrompt": "tiny popcorn orbiting a governance chamber",
+        "safetyNote": "Light satire."
+      },
+      {
+        "name": "Ratio Rune Storm",
+        "sourceIdea": "Twitter ratio drama",
+        "tier": "Rare",
+        "visualPrompt": "storm of reply glyphs and ratio runes around the coil",
+        "safetyNote": "No direct account callouts."
+      },
+      {
+        "name": "Maxi Megaphone",
+        "sourceIdea": "Cardano maximalist behavior",
+        "tier": "Epic",
+        "visualPrompt": "oversized blue megaphone radiating fractal slogans",
+        "safetyNote": "Self-aware satire."
+      }
+    ]
+  }
+}
+

@@ -1,0 +1,11 @@
+{
+  "name": "xai-voice",
+  "version": "0.1.0",
+  "description": "Realtime voice input via xAI STT + Eve TTS output",
+  "author": "Nova Bethurum",
+  "entry": "index.js",
+  "capabilities": ["voice-input", "stt", "tts-integration"],
+  "requires": {
+    "xai_api_key": true
+  }
+}

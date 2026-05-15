@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Eternal Coil Prototype Review Board</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #080b12;
+      --panel: #111827;
+      --line: #263244;
+      --text: #e8eef8;
+      --muted: #91a1b7;
+      --accent: #67e8f9;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 14px/1.45 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(8, 11, 18, 0.96);
+      border-bottom: 1px solid var(--line);
+      padding: 16px 20px;
+    }
+    h1 {
+      margin: 0 0 12px;
+      font-size: 20px;
+      letter-spacing: 0;
+    }
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+    select, button {
+      min-height: 36px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--text);
+      border-radius: 6px;
+      padding: 0 10px;
+    }
+    button { cursor: pointer; }
+    .stats { color: var(--muted); }
+    main {
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 14px;
+    }
+    article {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    img {
+      width: 100%;
+      aspect-ratio: 1;
+      display: block;
+      background: #05070d;
+    }
+    .meta { padding: 10px; }
+    .title {
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .row {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      color: var(--muted);
+      margin: 3px 0;
+    }
+    .tier {
+      color: var(--accent);
+      font-weight: 700;
+    }
+    .traits {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Fractal Fuzion Eternal Coil - Prototype 100 Review Board</h1>
+    <div class="controls">
+      <label>Tier
+        <select id="tierFilter">
+          <option value="All">All</option>
+          <option value="Common">Common</option>
+          <option value="Uncommon">Uncommon</option>
+          <option value="Rare">Rare</option>
+          <option value="Epic">Epic</option>
+          <option value="Mythic">Mythic</option>
+          <option value="1/1 Ultra">1/1 Ultra</option>
+        </select>
+      </label>
+      <button data-sort="asset">Sort ID</button>
+      <button data-sort="tier">Sort Tier</button>
+      <button data-sort="rarity">Sort Rarity</button>
+      <span class="stats" id="stats"></span>
+    </div>
+  </header>
+  <main id="grid"></main>
+  <script>
+    const cards = [{"assetName":"FFEC0001","name":"Eternal Coil #0001","tier":"Uncommon","rarityScore":29,"thumbnail":"thumbnails/FFEC0001.png","background":"Ouroboros Eclipse","form":"Double Loop Coil","material":"Cardano Blue Scales","eyes":"Golden Oracle Eyes","aura":"Neon Edge","lore":"Shelley"},{"assetName":"FFEC0002","name":"Eternal Coil #0002","tier":"Common","rarityScore":21,"thumbnail":"thumbnails/FFEC0002.png","background":"Starfield Minimal","form":"Double Loop Coil","material":"Lava Scales","eyes":"Blue ADA Eyes","aura":"Glitch Field","lore":"Babel Fees"},{"assetName":"FFEC0003","name":"Eternal Coil #0003","tier":"Common","rarityScore":31,"thumbnail":"thumbnails/FFEC0003.png","background":"Fractal Grid","form":"Hydra Twin Coil","material":"Matte Scales","eyes":"Blue ADA Eyes","aura":"ADA Rune Orbit","lore":"CIP-68 Relic"},{"assetName":"FFEC0004","name":"Eternal Coil #0004","tier":"Common","rarityScore":14,"thumbnail":"thumbnails/FFEC0004.png","background":"Epoch Dawn Gradient","form":"Spiral Coil","material":"Cardano Blue Scales","eyes":"Spiral Eyes","aura":"Star Dust","lore":"Hydra"},{"assetName":"FFEC0005","name":"Eternal Coil #0005","tier":"Common","rarityScore":16,"thumbnail":"thumbnails/FFEC0005.png","background":"Starfield Minimal","form":"Hydra Twin Coil","material":"Emerald Scales","eyes":"Glitch Eyes","aura":"Neon Edge","lore":"Goguen"},{"assetName":"FFEC0006","name":"Eternal Coil #0006","tier":"Common","rarityScore":10,"thumbnail":"thumbnails/FFEC0006.png","background":"Deep Space Black","form":"Crescent Coil","material":"Fractal Skin","eyes":"Amber Eyes","aura":"Smoke Wisps","lore":"Catalyst"},{"assetName":"FFEC0007","name":"Eternal Coil #0007","tier":"Epic","rarityScore":34,"thumbnail":"thumbnails/FFEC0007.png","background":"Midnight Privacy Fog","form":"Winged Coil","material":"Neon Rim Scales","eyes":"Laser Eyes","aura":"Neon Edge","lore":"CIP-25 Relic"},{"assetName":"FFEC0008","name":"Eternal Coil #0008","tier":"Epic","rarityScore":47,"thumbnail":"thumbnails/FFEC0008.png","background":"Hydra Gate","form":"Classic Ouroboros Coil","material":"Blacklight Velvet","eyes":"Golden Oracle Eyes","aura":"Particle Ring","lore":"Mithril"},{"assetName":"FFEC0009","name":"Eternal Coil #0009","tier":"Common","rarityScore":17,"thumbnail":"thumbnails/FFEC0009.png","background":"Julia Rift","form":"Crescent Coil","material":"Matte Scales","eyes":"Star Pupil","aura":"Glitch Field","lore":"Shelley"},{"assetName":"FFEC0010","name":"Eternal Coil #0010","tier":"Uncommon","rarityScore":16,"thumbnail":"thumbnails/FFEC0010.png","background":"Catalyst Constellation","form":"Double Loop Coil","material":"Opal Scales","eyes":"Blue ADA Eyes","aura":"None / Clean","lore":"Plutus"},{"assetName":"FFEC0011","name":"Eternal Coil #0011","tier":"Rare","rarityScore":20,"thumbnail":"thumbnails/FFEC0011.png","background":"Epoch Dawn Gradient","form":"Spiral Coil","material":"Cardano Blue Scales","eyes":"Midnight Mask Eyes","aura":"Smoke Wisps","lore":"Shelley"},{"assetName":"FFEC0012","name":"Eternal Coil #0012","tier":"Common","rarityScore":12,"thumbnail":"thumbnails/FFEC0012.png","background":"Nebula Violet","form":"Crescent Coil","material":"Opal Scales","eyes":"Calm Glow","aura":"None / Clean","lore":"Epoch"},{"assetName":"FFEC0013","name":"Eternal Coil #0013","tier":"Common","rarityScore":10,"thumbnail":"thumbnails/FFEC0013.png","background":"Starfield Minimal","form":"Serpent Knot","material":"Cardano Blue Scales","eyes":"Blue ADA Eyes","aura":"Star Dust","lore":"Epoch"},{"assetName":"FFEC0014","name":"Eternal Coil #0014","tier":"Common","rarityScore":17,"thumbnail":"thumbnails/FFEC0014.png","background":"Deep Space Black","form":"Spiral Coil","material":"Holographic","eyes":"Blue ADA Eyes","aura":"Soft Glow","lore":"Slot"},{"assetName":"FFEC0015","name":"Eternal Coil #0015","tier":"Common","rarityScore":17,"thumbnail":"thumbnails/FFEC0015.png","background":"Ouroboros Eclipse","form":"Classic Ouroboros Coil","material":"Cardano Blue Scales","eyes":"Blue ADA Eyes","aura":"Glitch Field","lore":"Slot"},{"assetName":"FFEC0016","name":"Eternal Coil #0016","tier":"Common","rarityScore":29,"thumbnail":"thumbnails/FFEC0016.png","background":"Midnight Privacy Fog","form":"Serpent Knot","material":"Matte Scales","eyes":"Violet Eyes","aura":"Prism Explosion","lore":"Midnight"},{"assetName":"FFEC0017","name":"Eternal Coil #0017","tier":"Common","rarityScore":15,"thumbnail":"thumbnails/FFEC0017.png","background":"Cardano Midnight Blue","form":"Hydra Twin Coil","material":"Matte Scales","eyes":"Calm Glow","aura":"Lightning Coil","lore":"Catalyst"},{"assetName":"FFEC0018","name":"Eternal Coil #0018","tier":"Common","rarityScore":18,"thumbnail":"thumbnails/FFEC0018.png","background":"Julia Rift","form":"Double Loop Coil","material":"Matte Scales","eyes":"Third Eye","aura":"None / Clean","lore":"Goguen"},{"assetName":"FFEC0019","name":"Eternal Coil #0019","tier":"Uncommon","rarityScore":28,"thumbnail":"thumbnails/FFEC0019.png","background":"Deep Space Black","form":"Double Loop Coil","material":"Gold Scales","eyes":"Calm Glow","aura":"Particle Ring","lore":"Midnight"},{"assetName":"FFEC0020","name":"Eternal Coil #0020","tier":"Common","rarityScore":11,"thumbnail":"thumbnails/FFEC0020.png","background":"Starfield Minimal","form":"Serpent Knot","material":"Cardano Blue Scales","eyes":"Amber Eyes","aura":"None / Clean","lore":"Voltaire"},{"assetName":"FFEC0021","name":"Eternal Coil #0021","tier":"Uncommon","rarityScore":12,"thumbnail":"thumbnails/FFEC0021.png","background":"Cardano Midnight Blue","form":"Classic Ouroboros Coil","material":"Cardano Blue Scales","eyes":"Violet Eyes","aura":"ADA Rune Orbit","lore":"Catalyst"},{"assetName":"FFEC0022","name":"Eternal Coil #0022","tier":"Common","rarityScore":11,"thumbnail":"thumbnails/FFEC0022.png","background":"Deep Space Black","form":"Classic Ouroboros Coil","material":"Fractal Skin","eyes":"Spiral Eyes","aura":"Soft Glow","lore":"Catalyst"},{"assetName":"FFEC0023","name":"Eternal Coil #0023","tier":"Uncommon","rarityScore":16,"thumbnail":"thumbnails/FFEC0023.png","background":"Nebula Violet","form":"Hydra Twin Coil","material":"Emerald Scales","eyes":"Laser Eyes","aura":"Soft Glow","lore":"Goguen"},{"assetName":"FFEC0024","name":"Eternal Coil #0024","tier":"Common","rarityScore":12,"thumbnail":"thumbnails/FFEC0024.png","background":"Deep Space Black","form":"Classic Ouroboros Coil","material":"Fractal Skin","eyes":"Violet Eyes","aura":"Particle Ring","lore":"Voltaire"},{"assetName":"FFEC0025","name":"Eternal Coil #0025","tier":"Common","rarityScore":18,"thumbnail":"thumbnails/FFEC0025.png","background":"Julia Rift","form":"Hydra Twin Coil","material":"Glass Prism","eyes":"Violet Eyes","aura":"Fractal Bloom","lore":"Voltaire"},{"assetName":"FFEC0026","name":"Eternal Coil #0026 - Ouroboros Maxima","tier":"1/1 Ultra","rarityScore":512,"thumbnail":"thumbnails/FFEC0026.png","background":"One-of-One Scene","form":"Ouroboros 1/1 Body","material":"One-of-One Material","eyes":"One-of-One Eyes","aura":"Animated Aura Placeholder","lore":"One-of-One Lore"},{"assetName":"FFEC0027","name":"Eternal Coil #0027","tier":"Common","rarityScore":30,"thumbnail":"thumbnails/FFEC0027.png","background":"Ouroboros Eclipse","form":"Dragon Coil","material":"Holographic","eyes":"Laser Eyes","aura":"Soft Glow","lore":"CIP-25 Relic"},{"assetName":"FFEC0028","name":"Eternal Coil #0028","tier":"Uncommon","rarityScore":12,"thumbnail":"thumbnails/FFEC0028.png","background":"Julia Rift","form":"Classic Ouroboros Coil","material":"Violet Scales","eyes":"Blue ADA Eyes","aura":"Particle Ring","lore":"Catalyst"},{"assetName":"FFEC0029","name":"Eternal Coil #0029","tier":"Common","rarityScore":18,"thumbnail":"thumbnails/FFEC0029.png","background":"Cardano Midnight Blue","form":"Classic Ouroboros Coil","material":"Emerald Scales","eyes":"Calm Glow","aura":"Smoke Wisps","lore":"Mithril"},{"assetName":"FFEC0030","name":"Eternal Coil #0030","tier":"Uncommon","rarityScore":22,"thumbnail":"thumbnails/FFEC0030.png","background":"Nebula Violet","form":"Dragon Coil","material":"Blacklight Velvet","eyes":"Amber Eyes","aura":"Neon Edge","lore":"Goguen"},{"assetName":"FFEC0031","name":"Eternal Coil #0031","tier":"Common","rarityScore":14,"thumbnail":"thumbnails/FFEC0031.png","background":"Fractal Grid","form":"Spiral Coil","material":"Lava Scales","eyes":"Violet Eyes","aura":"None / Clean","lore":"Shelley"},{"assetName":"FFEC0032","name":"Eternal Coil #0032","tier":"Common","rarityScore":16,"thumbnail":"thumbnails/FFEC0032.png","background":"Catalyst Constellation","form":"Spiral Coil","material":"Matte Scales","eyes":"Third Eye","aura":"Glitch Field","lore":"Epoch"},{"assetName":"FFEC0033","name":"Eternal Coil #0033","tier":"Common","rarityScore":18,"thumbnail":"thumbnails/FFEC0033.png","background":"Julia Rift","form":"Double Loop Coil","material":"Emerald Scales","eyes":"Third Eye","aura":"Neon Edge","lore":"Ouroboros Prime"},{"assetName":"FFEC0034","name":"Eternal Coil #0034","tier":"Common","rarityScore":14,"thumbnail":"thumbnails/FFEC0034.png","background":"Deep Space Black","form":"Winged Coil","material":"Fractal Skin","eyes":"Calm Glow","aura":"Particle Ring","lore":"Voltaire"},{"assetName":"FFEC0035","name":"Eternal Coil #0035","tier":"Common","rarityScore":17,"thumbnail":"thumbnails/FFEC0035.png","background":"Epoch Dawn Gradient","form":"Skeleton Coil","material":"Cardano Blue Scales","eyes":"Laser Eyes","aura":"Glitch Field","lore":"Epoch"},{"assetName":"FFEC0036","name":"Eternal Coil #0036","tier":"Uncommon","rarityScore":13,"thumbnail":"thumbnails/FFEC0036.png","background":"Epoch Dawn Gradient","form":"Classic Ouroboros Coil","material":"Violet Scales","eyes":"Calm Glow","aura":"None / Clean","lore":"Hydra"},{"assetName":"FFEC0037","name":"Eternal Coil #0037","tier":"Rare","rarityScore":32,"thumbnail":"thumbnails/FFEC0037.png","background":"Quantum ADA Storm","form":"Hydra Twin Coil","material":"Blacklight Velvet","eyes":"Glitch Eyes","aura":"Star Dust","lore":"Epoch"},{"assetName":"FFEC0038","name":"Eternal Coil #0038","tier":"Common","rarityScore":14,"thumbnail":"thumbnails/FFEC0038.png","background":"Epoch Dawn Gradient","form":"Hydra Twin Coil","material":"Violet Scales","eyes":"Star Pupil","aura":"Smoke Wisps","lore":"Goguen"},{"assetName":"FFEC0039","name":"Eternal Coil #0039","tier":"Epic","rarityScore":24,"thumbnail":"thumbnails/FFEC0039.png","background":"Catalyst Constellation","form":"Crescent Coil","material":"Neon Rim Scales","eyes":"Void Eyes","aura":"Neon Edge","lore":"Goguen"},{"assetName":"FFEC0040","name":"Eternal Coil #0040","tier":"Common","rarityScore":37,"thumbnail":"thumbnails/FFEC0040.png","background":"Ouroboros Eclipse","form":"Classic Ouroboros Coil","material":"Chrome Scales","eyes":"Golden Oracle Eyes","aura":"Prism Explosion","lore":"Slot"},{"assetName":"FFEC0041","name":"Eternal Coil #0041","tier":"Rare","rarityScore":26,"thumbnail":"thumbnails/FFEC0041.png","background":"Julia Rift","form":"Classic Ouroboros Coil","material":"Lava Scales","eyes":"Void Eyes","aura":"Prism Explosion","lore":"Epoch"},{"assetName":"FFEC0042","name":"Eternal Coil #0042","tier":"Rare","rarityScore":27,"thumbnail":"thumbnails/FFEC0042.png","background":"Quantum ADA Storm","form":"Double Loop Coil","material":"Violet Scales","eyes":"Solar Eclipse Eyes","aura":"Neon Edge","lore":"Catalyst"},{"assetName":"FFEC0043","name":"Eternal Coil #0043","tier":"Common","rarityScore":18,"thumbnail":"thumbnails/FFEC0043.png","background":"Voltaire Parliament","form":"Crescent Coil","material":"Fractal Skin","eyes":"Blue ADA Eyes","aura":"Neon Edge","lore":"Shelley"},{"assetName":"FFEC0044","name":"Eternal Coil #0044","tier":"Common","rarityScore":28,"thumbnail":"thumbnails/FFEC0044.png","background":"Ouroboros Eclipse","form":"Classic Ouroboros Coil","material":"Fractal Skin","eyes":"Spiral Eyes","aura":"None / Clean","lore":"Catalyst"},{"assetName":"FFEC0045","name":"Eternal Coil #0045","tier":"Common","rarityScore":12,"thumbnail":"thumbnails/FFEC0045.png","background":"Epoch Dawn Gradient","form":"Serpent Knot","material":"Violet Scales","eyes":"Spiral Eyes","aura":"Soft Glow","lore":"Goguen"},{"assetName":"FFEC0046","name":"Eternal Coil #0046","tier":"Common","rarityScore":16,"thumbnail":"thumbnails/FFEC0046.png","background":"Nebula Violet","form":"Classic Ouroboros Coil","material":"Violet Scales","eyes":"Third Eye","aura":"Soft Glow","lore":"Babel Fees"},{"assetName":"FFEC0047","name":"Eternal Coil #0047","tier":"Uncommon","rarityScore":16,"thumbnail":"thumbnails/FFEC0047.png","background":"Epoch Dawn Gradient","form":"Classic Ouroboros Coil","material":"Matte Scales","eyes":"Void Eyes","aura":"None / Clean","lore":"Midnight"},{"assetName":"FFEC0048","name":"Eternal Coil #0048","tier":"Epic","rarityScore":20,"thumbnail":"thumbnails/FFEC0048.png","background":"Fractal Grid","form":"Classic Ouroboros Coil","material":"Violet Scales","eyes":"Laser Eyes","aura":"Particle Ring","lore":"Epoch"},{"assetName":"FFEC0049","name":"Eternal Coil #0049","tier":"Common","rarityScore":16,"thumbnail":"thumbnails/FFEC0049.png","background":"Fractal Grid","form":"Double Loop Coil","material":"Lava Scales","eyes":"Calm Glow","aura":"Soft Glow","lore":"Plutus"},{"assetName":"FFEC0050","name":"Eternal Coil #0050","tier":"Common","rarityScore":13,"thumbnail":"thumbnails/FFEC0050.png","background":"Midnight Privacy Fog","form":"Crescent Coil","material":"Matte Scales","eyes":"Calm Glow","aura":"Particle Ring","lore":"Epoch"},{"assetName":"FFEC0051","name":"Eternal Coil #0051","tier":"Uncommon","rarityScore":20,"thumbnail":"thumbnails/FFEC0051.png","background":"Catalyst Constellation","form":"Crescent Coil","material":"Matte Scales","eyes":"Blue ADA Eyes","aura":"Particle Ring","lore":"CIP-25 Relic"},{"assetName":"FFEC0052","name":"Eternal Coil #0052","tier":"Common","rarityScore":9,"thumbnail":"thumbnails/FFEC0052.png","background":"Deep Space Black","form":"Classic Ouroboros Coil","material":"Matte Scales","eyes":"Blue ADA Eyes","aura":"Neon Edge","lore":"Slot"},{"assetName":"FFEC0053","name":"Eternal Coil #0053","tier":"Common","rarityScore":29,"thumbnail":"thumbnails/FFEC0053.png","background":"Ouroboros Eclipse","form":"Hydra Twin Coil","material":"Cardano Blue Scales","eyes":"Spiral Eyes","aura":"Prism Explosion","lore":"Babel Fees"},{"assetName":"FFEC0054","name":"Eternal Coil #0054","tier":"Uncommon","rarityScore":31,"thumbnail":"thumbnails/FFEC0054.png","background":"Starfield Minimal","form":"Dragon Coil","material":"Cardano Blue Scales","eyes":"Ouroboros Pupils","aura":"Event Horizon","lore":"Slot"},{"assetName":"FFEC0055","name":"Eternal Coil #0055","tier":"Uncommon","rarityScore":47,"thumbnail":"thumbnails/FFEC0055.png","background":"Catalyst Constellation","form":"Spiral Coil","material":"Fractal Skin","eyes":"Violet Eyes","aura":"Golden Aura","lore":"CIP-68 Relic"},{"assetName":"FFEC0056","name":"Eternal Coil #0056","tier":"Common","rarityScore":14,"thumbnail":"thumbnails/FFEC0056.png","background":"Cardano Midnight Blue","form":"Skeleton Coil","material":"Matte Scales","eyes":"Ouroboros Pupils","aura":"None / Clean","lore":"Slot"},{"assetName":"FFEC0057","name":"Eternal Coil #0057","tier":"Common","rarityScore":28,"thumbnail":"thumbnails/FFEC0057.png","background":"Julia Rift","form":"Crescent Coil","material":"Neon Rim Scales","eyes":"Blue ADA Eyes","aura":"ADA Rune Orbit","lore":"Slot"},{"assetName":"FFEC0058","name":"Eternal Coil #0058","tier":"Uncommon","rarityScore":24,"thumbnail":"thumbnails/FFEC0058.png","background":"Midnight Privacy Fog","form":"Crescent Coil","material":"Lava Scales","eyes":"Void Eyes","aura":"ADA Rune Orbit","lore":"Plutus"},{"assetName":"FFEC0059","name":"Eternal Coil #0059","tier":"Uncommon","rarityScore":14,"thumbnail":"thumbnails/FFEC0059.png","background":"Hydra Gate","form":"Spiral Coil","material":"Emerald Scales","eyes":"Blue ADA Eyes","aura":"Soft Glow","lore":"Voltaire"},{"assetName":"FFEC0060","name":"Eternal Coil #0060","tier":"Common","rarityScore":13,"thumbnail":"thumbnails/FFEC0060.png","background":"Hydra Gate","form":"Spiral Coil","material":"Fractal Skin","eyes":"Blue ADA Eyes","aura":"Soft Glow","lore":"Slot"},{"assetName":"FFEC0061","name":"Eternal Coil #0061","tier":"Uncommon","rarityScore":28,"thumbnail":"thumbnails/FFEC0061.png","background":"Catalyst Constellation","form":"Infinite Knot Coil","material":"Neon Rim Scales","eyes":"Amber Eyes","aura":"Particle Ring","lore":"Ouroboros Prime"},{"assetName":"FFEC0062","name":"Eternal Coil #0062","tier":"Common","rarityScore":12,"thumbnail":"thumbnails/FFEC0062.png","background":"Epoch Dawn Gradient","form":"Serpent Knot","material":"Violet Scales","eyes":"Calm Glow","aura":"Soft Glow","lore":"Hydra"},{"assetName":"FFEC0063","name":"Eternal Coil #0063","tier":"Mythic","rarityScore":38,"thumbnail":"thumbnails/FFEC0063.png","background":"Julia Rift","form":"Hydra Twin Coil","material":"Fractal Skin","eyes":"Calm Glow","aura":"ADA Rune Orbit","lore":"Ouroboros Prime"},{"assetName":"FFEC0064","name":"Eternal Coil #0064","tier":"Uncommon","rarityScore":29,"thumbnail":"thumbnails/FFEC0064.png","background":"Mandelbrot Bloom","form":"Dragon Coil","material":"Gold Scales","eyes":"Laser Eyes","aura":"None / Clean","lore":"Slot"},{"assetName":"FFEC0065","name":"Eternal Coil #0065","tier":"Uncommon","rarityScore":25,"thumbnail":"thumbnails/FFEC0065.png","background":"Nebula Violet","form":"Classic Ouroboros Coil","material":"Emerald Scales","eyes":"Amber Eyes","aura":"Soft Glow","lore":"CIP-68 Relic"},{"assetName":"FFEC0066","name":"Eternal Coil #0066","tier":"Uncommon","rarityScore":13,"thumbnail":"thumbnails/FFEC0066.png","background":"Fractal Grid","form":"Classic Ouroboros Coil","material":"Matte Scales","eyes":"Ouroboros Pupils","aura":"None / Clean","lore":"Catalyst"},{"assetName":"FFEC0067","name":"Eternal Coil #0067","tier":"Rare","rarityScore":14,"thumbnail":"thumbnails/FFEC0067.png","background":"Julia Rift","form":"Crescent Coil","material":"Emerald Scales","eyes":"Third Eye","aura":"Neon Edge","lore":"Epoch"},{"assetName":"FFEC0068","name":"Eternal Coil #0068","tier":"Uncommon","rarityScore":30,"thumbnail":"thumbnails/FFEC0068.png","background":"Nebula Violet","form":"Classic Ouroboros Coil","material":"Violet Scales","eyes":"Void Eyes","aura":"Golden Aura","lore":"Mithril"},{"assetName":"FFEC0069","name":"Eternal Coil #0069","tier":"Common","rarityScore":12,"thumbnail":"thumbnails/FFEC0069.png","background":"Cardano Midnight Blue","form":"Classic Ouroboros Coil","material":"Glass Prism","eyes":"Spiral Eyes","aura":"Soft Glow","lore":"Catalyst"},{"assetName":"FFEC0070","name":"Eternal Coil #0070","tier":"Common","rarityScore":12,"thumbnail":"thumbnails/FFEC0070.png","background":"Nebula Violet","form":"Dragon Coil","material":"Fractal Skin","eyes":"Star Pupil","aura":"None / Clean","lore":"Shelley"},{"assetName":"FFEC0071","name":"Eternal Coil #0071","tier":"Uncommon","rarityScore":40,"thumbnail":"thumbnails/FFEC0071.png","background":"Starfield Minimal","form":"Classic Ouroboros Coil","material":"Violet Scales","eyes":"Diamond Eyes","aura":"Particle Ring","lore":"Epoch"},{"assetName":"FFEC0072","name":"Eternal Coil #0072","tier":"Common","rarityScore":12,"thumbnail":"thumbnails/FFEC0072.png","background":"Deep Space Black","form":"Spiral Coil","material":"Cardano Blue Scales","eyes":"Blue ADA Eyes","aura":"Soft Glow","lore":"Epoch"},{"assetName":"FFEC0073","name":"Eternal Coil #0073","tier":"Uncommon","rarityScore":28,"thumbnail":"thumbnails/FFEC0073.png","background":"Deep Space Black","form":"Classic Ouroboros Coil","material":"Living Code Scales","eyes":"Amber Eyes","aura":"ADA Rune Orbit","lore":"Slot"},{"assetName":"FFEC0074","name":"Eternal Coil #0074","tier":"Uncommon","rarityScore":13,"thumbnail":"thumbnails/FFEC0074.png","background":"Mandelbrot Bloom","form":"Serpent Knot","material":"Matte Scales","eyes":"Calm Glow","aura":"None / Clean","lore":"Voltaire"},{"assetName":"FFEC0075","name":"Eternal Coil #0075","tier":"Common","rarityScore":12,"thumbnail":"thumbnails/FFEC0075.png","background":"Ouroboros Eclipse","form":"Classic Ouroboros Coil","material":"Matte Scales","eyes":"Amber Eyes","aura":"None / Clean","lore":"Catalyst"},{"assetName":"FFEC0076","name":"Eternal Coil #0076","tier":"Rare","rarityScore":16,"thumbnail":"thumbnails/FFEC0076.png","background":"Mandelbrot Bloom","form":"Classic Ouroboros Coil","material":"Cardano Blue Scales","eyes":"Laser Eyes","aura":"Soft Glow","lore":"Shelley"},{"assetName":"FFEC0077","name":"Eternal Coil #0077","tier":"Epic","rarityScore":23,"thumbnail":"thumbnails/FFEC0077.png","background":"Fractal Grid","form":"Hydra Twin Coil","material":"Matte Scales","eyes":"Calm Glow","aura":"Neon Edge","lore":"Hydra"},{"assetName":"FFEC0078","name":"Eternal Coil #0078","tier":"Common","rarityScore":9,"thumbnail":"thumbnails/FFEC0078.png","background":"Deep Space Black","form":"Crescent Coil","material":"Cardano Blue Scales","eyes":"Blue ADA Eyes","aura":"Fractal Bloom","lore":"Epoch"},{"assetName":"FFEC0079","name":"Eternal Coil #0079","tier":"Uncommon","rarityScore":16,"thumbnail":"thumbnails/FFEC0079.png","background":"Mandelbrot Bloom","form":"Double Loop Coil","material":"Emerald Scales","eyes":"Calm Glow","aura":"None / Clean","lore":"Hydra"},{"assetName":"FFEC0080","name":"Eternal Coil #0080","tier":"Rare","rarityScore":18,"thumbnail":"thumbnails/FFEC0080.png","background":"Ouroboros Eclipse","form":"Classic Ouroboros Coil","material":"Matte Scales","eyes":"Star Pupil","aura":"Lightning Coil","lore":"Epoch"},{"assetName":"FFEC0081","name":"Eternal Coil #0081","tier":"Mythic","rarityScore":36,"thumbnail":"thumbnails/FFEC0081.png","background":"Voltaire Parliament","form":"Skeleton Coil","material":"Matte Scales","eyes":"Third Eye","aura":"None / Clean","lore":"Voltaire"},{"assetName":"FFEC0082","name":"Eternal Coil #0082","tier":"Uncommon","rarityScore":15,"thumbnail":"thumbnails/FFEC0082.png","background":"Starfield Minimal","form":"Double Loop Coil","material":"Emerald Scales","eyes":"Amber Eyes","aura":"Glitch Field","lore":"Epoch"},{"assetName":"FFEC0083","name":"Eternal Coil #0083","tier":"Common","rarityScore":18,"thumbnail":"thumbnails/FFEC0083.png","background":"Cardano Midnight Blue","form":"Skeleton Coil","material":"Violet Scales","eyes":"Void Eyes","aura":"None / Clean","lore":"Shelley"},{"assetName":"FFEC0084","name":"Eternal Coil #0084","tier":"Common","rarityScore":32,"thumbnail":"thumbnails/FFEC0084.png","background":"Ouroboros Eclipse","form":"Hydra Twin Coil","material":"Opal Scales","eyes":"Amber Eyes","aura":"Time Warp","lore":"CIP-25 Relic"},{"assetName":"FFEC0085","name":"Eternal Coil #0085","tier":"Common","rarityScore":24,"thumbnail":"thumbnails/FFEC0085.png","background":"Hydra Gate","form":"Classic Ouroboros Coil","material":"Lava Scales","eyes":"Void Eyes","aura":"None / Clean","lore":"Catalyst"},{"assetName":"FFEC0086","name":"Eternal Coil #0086","tier":"Common","rarityScore":15,"thumbnail":"thumbnails/FFEC0086.png","background":"Catalyst Constellation","form":"Serpent Knot","material":"Matte Scales","eyes":"Amber Eyes","aura":"Star Dust","lore":"Epoch"},{"assetName":"FFEC0087","name":"Eternal Coil #0087","tier":"Rare","rarityScore":21,"thumbnail":"thumbnails/FFEC0087.png","background":"Epoch Dawn Gradient","form":"Classic Ouroboros Coil","material":"Chrome Scales","eyes":"Void Eyes","aura":"Star Dust","lore":"Midnight"},{"assetName":"FFEC0088","name":"Eternal Coil #0088","tier":"Common","rarityScore":35,"thumbnail":"thumbnails/FFEC0088.png","background":"Quantum ADA Storm","form":"Double Loop Coil","material":"Chrome Scales","eyes":"Solar Eclipse Eyes","aura":"None / Clean","lore":"Hydra"},{"assetName":"FFEC0089","name":"Eternal Coil #0089","tier":"Common","rarityScore":18,"thumbnail":"thumbnails/FFEC0089.png","background":"Quantum ADA Storm","form":"Classic Ouroboros Coil","material":"Emerald Scales","eyes":"Blue ADA Eyes","aura":"Soft Glow","lore":"Midnight"},{"assetName":"FFEC0090","name":"Eternal Coil #0090","tier":"Common","rarityScore":18,"thumbnail":"thumbnails/FFEC0090.png","background":"Mandelbrot Bloom","form":"Double Loop Coil","material":"Lava Scales","eyes":"Violet Eyes","aura":"Star Dust","lore":"Hydra"},{"assetName":"FFEC0091","name":"Eternal Coil #0091","tier":"Uncommon","rarityScore":10,"thumbnail":"thumbnails/FFEC0091.png","background":"Deep Space Black","form":"Crescent Coil","material":"Violet Scales","eyes":"Calm Glow","aura":"Fractal Bloom","lore":"Slot"},{"assetName":"FFEC0092","name":"Eternal Coil #0092","tier":"Rare","rarityScore":16,"thumbnail":"thumbnails/FFEC0092.png","background":"Cardano Midnight Blue","form":"Classic Ouroboros Coil","material":"Fractal Skin","eyes":"Violet Eyes","aura":"None / Clean","lore":"Shelley"},{"assetName":"FFEC0093","name":"Eternal Coil #0093","tier":"Common","rarityScore":19,"thumbnail":"thumbnails/FFEC0093.png","background":"Mandelbrot Bloom","form":"Crescent Coil","material":"Blacklight Velvet","eyes":"Calm Glow","aura":"None / Clean","lore":"Epoch"},{"assetName":"FFEC0094","name":"Eternal Coil #0094","tier":"Rare","rarityScore":15,"thumbnail":"thumbnails/FFEC0094.png","background":"Deep Space Black","form":"Classic Ouroboros Coil","material":"Matte Scales","eyes":"Spiral Eyes","aura":"Glitch Field","lore":"Catalyst"},{"assetName":"FFEC0095","name":"Eternal Coil #0095","tier":"Common","rarityScore":11,"thumbnail":"thumbnails/FFEC0095.png","background":"Nebula Violet","form":"Classic Ouroboros Coil","material":"Violet Scales","eyes":"Laser Eyes","aura":"Star Dust","lore":"Epoch"},{"assetName":"FFEC0096","name":"Eternal Coil #0096","tier":"Common","rarityScore":23,"thumbnail":"thumbnails/FFEC0096.png","background":"Julia Rift","form":"Hydra Twin Coil","material":"Holographic","eyes":"Third Eye","aura":"None / Clean","lore":"Mithril"},{"assetName":"FFEC0097","name":"Eternal Coil #0097","tier":"Common","rarityScore":14,"thumbnail":"thumbnails/FFEC0097.png","background":"Ouroboros Eclipse","form":"Crescent Coil","material":"Lava Scales","eyes":"Amber Eyes","aura":"None / Clean","lore":"Epoch"},{"assetName":"FFEC0098","name":"Eternal Coil #0098","tier":"Rare","rarityScore":16,"thumbnail":"thumbnails/FFEC0098.png","background":"Ouroboros Eclipse","form":"Crescent Coil","material":"Violet Scales","eyes":"Spiral Eyes","aura":"None / Clean","lore":"Catalyst"},{"assetName":"FFEC0099","name":"Eternal Coil #0099","tier":"Common","rarityScore":33,"thumbnail":"thumbnails/FFEC0099.png","background":"Whitepaper Cosmos","form":"Crescent Coil","material":"Holographic","eyes":"Violet Eyes","aura":"None / Clean","lore":"Epoch"},{"assetName":"FFEC0100","name":"Eternal Coil #0100","tier":"Rare","rarityScore":34,"thumbnail":"thumbnails/FFEC0100.png","background":"Cardano Midnight Blue","form":"Glass Coil","material":"Opal Scales","eyes":"Blue ADA Eyes","aura":"Star Dust","lore":"CIP-68 Relic"}];
+    const tierRank = { "1/1 Ultra": 0, "Mythic": 1, "Epic": 2, "Rare": 3, "Uncommon": 4, "Common": 5 };
+    let sortMode = "asset";
+    const grid = document.getElementById("grid");
+    const tierFilter = document.getElementById("tierFilter");
+    const stats = document.getElementById("stats");
+
+    function render() {
+      const tier = tierFilter.value;
+      const visible = cards
+        .filter(card => tier === "All" || card.tier === tier)
+        .sort((a, b) => {
+          if (sortMode === "rarity") return b.rarityScore - a.rarityScore || a.assetName.localeCompare(b.assetName);
+          if (sortMode === "tier") return tierRank[a.tier] - tierRank[b.tier] || b.rarityScore - a.rarityScore;
+          return a.assetName.localeCompare(b.assetName);
+        });
+      grid.innerHTML = visible.map(card => `
+        <article>
+          <img src="${card.thumbnail}" alt="${card.name}">
+          <div class="meta">
+            <div class="title">${card.name}</div>
+            <div class="row"><span class="tier">${card.tier}</span><span>Score ${card.rarityScore}</span></div>
+            <div class="traits">
+              <div>${card.background}</div>
+              <div>${card.form}</div>
+              <div>${card.material} / ${card.eyes}</div>
+              <div>${card.aura} / ${card.lore}</div>
+            </div>
+          </div>
+        </article>`).join("");
+      stats.textContent = `${visible.length} shown / ${cards.length} total`;
+    }
+
+    tierFilter.addEventListener("change", render);
+    document.querySelectorAll("button[data-sort]").forEach(button => {
+      button.addEventListener("click", () => {
+        sortMode = button.dataset.sort;
+        render();
+      });
+    });
+    render();
+  </script>
+</body>
+</html>

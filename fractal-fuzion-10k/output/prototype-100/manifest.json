@@ -1,0 +1,609 @@
+{
+  "generatedAt": "2026-05-14T04:13:42.407Z",
+  "editionSize": 100,
+  "seed": 1337420,
+  "policyId": "POLICY_ID_PLACEHOLDER",
+  "imageBaseUri": "ipfs://IMAGE_CID_PLACEHOLDER",
+  "tokens": [
+    {
+      "assetName": "FFEC0001",
+      "name": "Eternal Coil #0001",
+      "tier": "Uncommon",
+      "rarityScore": 29
+    },
+    {
+      "assetName": "FFEC0002",
+      "name": "Eternal Coil #0002",
+      "tier": "Common",
+      "rarityScore": 21
+    },
+    {
+      "assetName": "FFEC0003",
+      "name": "Eternal Coil #0003",
+      "tier": "Common",
+      "rarityScore": 31
+    },
+    {
+      "assetName": "FFEC0004",
+      "name": "Eternal Coil #0004",
+      "tier": "Common",
+      "rarityScore": 14
+    },
+    {
+      "assetName": "FFEC0005",
+      "name": "Eternal Coil #0005",
+      "tier": "Common",
+      "rarityScore": 16
+    },
+    {
+      "assetName": "FFEC0006",
+      "name": "Eternal Coil #0006",
+      "tier": "Common",
+      "rarityScore": 10
+    },
+    {
+      "assetName": "FFEC0007",
+      "name": "Eternal Coil #0007",
+      "tier": "Epic",
+      "rarityScore": 34
+    },
+    {
+      "assetName": "FFEC0008",
+      "name": "Eternal Coil #0008",
+      "tier": "Epic",
+      "rarityScore": 47
+    },
+    {
+      "assetName": "FFEC0009",
+      "name": "Eternal Coil #0009",
+      "tier": "Common",
+      "rarityScore": 17
+    },
+    {
+      "assetName": "FFEC0010",
+      "name": "Eternal Coil #0010",
+      "tier": "Uncommon",
+      "rarityScore": 16
+    },
+    {
+      "assetName": "FFEC0011",
+      "name": "Eternal Coil #0011",
+      "tier": "Rare",
+      "rarityScore": 20
+    },
+    {
+      "assetName": "FFEC0012",
+      "name": "Eternal Coil #0012",
+      "tier": "Common",
+      "rarityScore": 12
+    },
+    {
+      "assetName": "FFEC0013",
+      "name": "Eternal Coil #0013",
+      "tier": "Common",
+      "rarityScore": 10
+    },
+    {
+      "assetName": "FFEC0014",
+      "name": "Eternal Coil #0014",
+      "tier": "Common",
+      "rarityScore": 17
+    },
+    {
+      "assetName": "FFEC0015",
+      "name": "Eternal Coil #0015",
+      "tier": "Common",
+      "rarityScore": 17
+    },
+    {
+      "assetName": "FFEC0016",
+      "name": "Eternal Coil #0016",
+      "tier": "Common",
+      "rarityScore": 29
+    },
+    {
+      "assetName": "FFEC0017",
+      "name": "Eternal Coil #0017",
+      "tier": "Common",
+      "rarityScore": 15
+    },
+    {
+      "assetName": "FFEC0018",
+      "name": "Eternal Coil #0018",
+      "tier": "Common",
+      "rarityScore": 18
+    },
+    {
+      "assetName": "FFEC0019",
+      "name": "Eternal Coil #0019",
+      "tier": "Uncommon",
+      "rarityScore": 28
+    },
+    {
+      "assetName": "FFEC0020",
+      "name": "Eternal Coil #0020",
+      "tier": "Common",
+      "rarityScore": 11
+    },
+    {
+      "assetName": "FFEC0021",
+      "name": "Eternal Coil #0021",
+      "tier": "Uncommon",
+      "rarityScore": 12
+    },
+    {
+      "assetName": "FFEC0022",
+      "name": "Eternal Coil #0022",
+      "tier": "Common",
+      "rarityScore": 11
+    },
+    {
+      "assetName": "FFEC0023",
+      "name": "Eternal Coil #0023",
+      "tier": "Uncommon",
+      "rarityScore": 16
+    },
+    {
+      "assetName": "FFEC0024",
+      "name": "Eternal Coil #0024",
+      "tier": "Common",
+      "rarityScore": 12
+    },
+    {
+      "assetName": "FFEC0025",
+      "name": "Eternal Coil #0025",
+      "tier": "Common",
+      "rarityScore": 18
+    },
+    {
+      "assetName": "FFEC0026",
+      "name": "Eternal Coil #0026 - Ouroboros Maxima",
+      "tier": "1/1 Ultra",
+      "rarityScore": 512
+    },
+    {
+      "assetName": "FFEC0027",
+      "name": "Eternal Coil #0027",
+      "tier": "Common",
+      "rarityScore": 30
+    },
+    {
+      "assetName": "FFEC0028",
+      "name": "Eternal Coil #0028",
+      "tier": "Uncommon",
+      "rarityScore": 12
+    },
+    {
+      "assetName": "FFEC0029",
+      "name": "Eternal Coil #0029",
+      "tier": "Common",
+      "rarityScore": 18
+    },
+    {
+      "assetName": "FFEC0030",
+      "name": "Eternal Coil #0030",
+      "tier": "Uncommon",
+      "rarityScore": 22
+    },
+    {
+      "assetName": "FFEC0031",
+      "name": "Eternal Coil #0031",
+      "tier": "Common",
+      "rarityScore": 14
+    },
+    {
+      "assetName": "FFEC0032",
+      "name": "Eternal Coil #0032",
+      "tier": "Common",
+      "rarityScore": 16
+    },
+    {
+      "assetName": "FFEC0033",
+      "name": "Eternal Coil #0033",
+      "tier": "Common",
+      "rarityScore": 18
+    },
+    {
+      "assetName": "FFEC0034",
+      "name": "Eternal Coil #0034",
+      "tier": "Common",
+      "rarityScore": 14
+    },
+    {
+      "assetName": "FFEC0035",
+      "name": "Eternal Coil #0035",
+      "tier": "Common",
+      "rarityScore": 17
+    },
+    {
+      "assetName": "FFEC0036",
+      "name": "Eternal Coil #0036",
+      "tier": "Uncommon",
+      "rarityScore": 13
+    },
+    {
+      "assetName": "FFEC0037",
+      "name": "Eternal Coil #0037",
+      "tier": "Rare",
+      "rarityScore": 32
+    },
+    {
+      "assetName": "FFEC0038",
+      "name": "Eternal Coil #0038",
+      "tier": "Common",
+      "rarityScore": 14
+    },
+    {
+      "assetName": "FFEC0039",
+      "name": "Eternal Coil #0039",
+      "tier": "Epic",
+      "rarityScore": 24
+    },
+    {
+      "assetName": "FFEC0040",
+      "name": "Eternal Coil #0040",
+      "tier": "Common",
+      "rarityScore": 37
+    },
+    {
+      "assetName": "FFEC0041",
+      "name": "Eternal Coil #0041",
+      "tier": "Rare",
+      "rarityScore": 26
+    },
+    {
+      "assetName": "FFEC0042",
+      "name": "Eternal Coil #0042",
+      "tier": "Rare",
+      "rarityScore": 27
+    },
+    {
+      "assetName": "FFEC0043",
+      "name": "Eternal Coil #0043",
+      "tier": "Common",
+      "rarityScore": 18
+    },
+    {
+      "assetName": "FFEC0044",
+      "name": "Eternal Coil #0044",
+      "tier": "Common",
+      "rarityScore": 28
+    },
+    {
+      "assetName": "FFEC0045",
+      "name": "Eternal Coil #0045",
+      "tier": "Common",
+      "rarityScore": 12
+    },
+    {
+      "assetName": "FFEC0046",
+      "name": "Eternal Coil #0046",
+      "tier": "Common",
+      "rarityScore": 16
+    },
+    {
+      "assetName": "FFEC0047",
+      "name": "Eternal Coil #0047",
+      "tier": "Uncommon",
+      "rarityScore": 16
+    },
+    {
+      "assetName": "FFEC0048",
+      "name": "Eternal Coil #0048",
+      "tier": "Epic",
+      "rarityScore": 20
+    },
+    {
+      "assetName": "FFEC0049",
+      "name": "Eternal Coil #0049",
+      "tier": "Common",
+      "rarityScore": 16
+    },
+    {
+      "assetName": "FFEC0050",
+      "name": "Eternal Coil #0050",
+      "tier": "Common",
+      "rarityScore": 13
+    },
+    {
+      "assetName": "FFEC0051",
+      "name": "Eternal Coil #0051",
+      "tier": "Uncommon",
+      "rarityScore": 20
+    },
+    {
+      "assetName": "FFEC0052",
+      "name": "Eternal Coil #0052",
+      "tier": "Common",
+      "rarityScore": 9
+    },
+    {
+      "assetName": "FFEC0053",
+      "name": "Eternal Coil #0053",
+      "tier": "Common",
+      "rarityScore": 29
+    },
+    {
+      "assetName": "FFEC0054",
+      "name": "Eternal Coil #0054",
+      "tier": "Uncommon",
+      "rarityScore": 31
+    },
+    {
+      "assetName": "FFEC0055",
+      "name": "Eternal Coil #0055",
+      "tier": "Uncommon",
+      "rarityScore": 47
+    },
+    {
+      "assetName": "FFEC0056",
+      "name": "Eternal Coil #0056",
+      "tier": "Common",
+      "rarityScore": 14
+    },
+    {
+      "assetName": "FFEC0057",
+      "name": "Eternal Coil #0057",
+      "tier": "Common",
+      "rarityScore": 28
+    },
+    {
+      "assetName": "FFEC0058",
+      "name": "Eternal Coil #0058",
+      "tier": "Uncommon",
+      "rarityScore": 24
+    },
+    {
+      "assetName": "FFEC0059",
+      "name": "Eternal Coil #0059",
+      "tier": "Uncommon",
+      "rarityScore": 14
+    },
+    {
+      "assetName": "FFEC0060",
+      "name": "Eternal Coil #0060",
+      "tier": "Common",
+      "rarityScore": 13
+    },
+    {
+      "assetName": "FFEC0061",
+      "name": "Eternal Coil #0061",
+      "tier": "Uncommon",
+      "rarityScore": 28
+    },
+    {
+      "assetName": "FFEC0062",
+      "name": "Eternal Coil #0062",
+      "tier": "Common",
+      "rarityScore": 12
+    },
+    {
+      "assetName": "FFEC0063",
+      "name": "Eternal Coil #0063",
+      "tier": "Mythic",
+      "rarityScore": 38
+    },
+    {
+      "assetName": "FFEC0064",
+      "name": "Eternal Coil #0064",
+      "tier": "Uncommon",
+      "rarityScore": 29
+    },
+    {
+      "assetName": "FFEC0065",
+      "name": "Eternal Coil #0065",
+      "tier": "Uncommon",
+      "rarityScore": 25
+    },
+    {
+      "assetName": "FFEC0066",
+      "name": "Eternal Coil #0066",
+      "tier": "Uncommon",
+      "rarityScore": 13
+    },
+    {
+      "assetName": "FFEC0067",
+      "name": "Eternal Coil #0067",
+      "tier": "Rare",
+      "rarityScore": 14
+    },
+    {
+      "assetName": "FFEC0068",
+      "name": "Eternal Coil #0068",
+      "tier": "Uncommon",
+      "rarityScore": 30
+    },
+    {
+      "assetName": "FFEC0069",
+      "name": "Eternal Coil #0069",
+      "tier": "Common",
+      "rarityScore": 12
+    },
+    {
+      "assetName": "FFEC0070",
+      "name": "Eternal Coil #0070",
+      "tier": "Common",
+      "rarityScore": 12
+    },
+    {
+      "assetName": "FFEC0071",
+      "name": "Eternal Coil #0071",
+      "tier": "Uncommon",
+      "rarityScore": 40
+    },
+    {
+      "assetName": "FFEC0072",
+      "name": "Eternal Coil #0072",
+      "tier": "Common",
+      "rarityScore": 12
+    },
+    {
+      "assetName": "FFEC0073",
+      "name": "Eternal Coil #0073",
+      "tier": "Uncommon",
+      "rarityScore": 28
+    },
+    {
+      "assetName": "FFEC0074",
+      "name": "Eternal Coil #0074",
+      "tier": "Uncommon",
+      "rarityScore": 13
+    },
+    {
+      "assetName": "FFEC0075",
+      "name": "Eternal Coil #0075",
+      "tier": "Common",
+      "rarityScore": 12
+    },
+    {
+      "assetName": "FFEC0076",
+      "name": "Eternal Coil #0076",
+      "tier": "Rare",
+      "rarityScore": 16
+    },
+    {
+      "assetName": "FFEC0077",
+      "name": "Eternal Coil #0077",
+      "tier": "Epic",
+      "rarityScore": 23
+    },
+    {
+      "assetName": "FFEC0078",
+      "name": "Eternal Coil #0078",
+      "tier": "Common",
+      "rarityScore": 9
+    },
+    {
+      "assetName": "FFEC0079",
+      "name": "Eternal Coil #0079",
+      "tier": "Uncommon",
+      "rarityScore": 16
+    },
+    {
+      "assetName": "FFEC0080",
+      "name": "Eternal Coil #0080",
+      "tier": "Rare",
+      "rarityScore": 18
+    },
+    {
+      "assetName": "FFEC0081",
+      "name": "Eternal Coil #0081",
+      "tier": "Mythic",
+      "rarityScore": 36
+    },
+    {
+      "assetName": "FFEC0082",
+      "name": "Eternal Coil #0082",
+      "tier": "Uncommon",
+      "rarityScore": 15
+    },
+    {
+      "assetName": "FFEC0083",
+      "name": "Eternal Coil #0083",
+      "tier": "Common",
+      "rarityScore": 18
+    },
+    {
+      "assetName": "FFEC0084",
+      "name": "Eternal Coil #0084",
+      "tier": "Common",
+      "rarityScore": 32
+    },
+    {
+      "assetName": "FFEC0085",
+      "name": "Eternal Coil #0085",
+      "tier": "Common",
+      "rarityScore": 24
+    },
+    {
+      "assetName": "FFEC0086",
+      "name": "Eternal Coil #0086",
+      "tier": "Common",
+      "rarityScore": 15
+    },
+    {
+      "assetName": "FFEC0087",
+      "name": "Eternal Coil #0087",
+      "tier": "Rare",
+      "rarityScore": 21
+    },
+    {
+      "assetName": "FFEC0088",
+      "name": "Eternal Coil #0088",
+      "tier": "Common",
+      "rarityScore": 35
+    },
+    {
+      "assetName": "FFEC0089",
+      "name": "Eternal Coil #0089",
+      "tier": "Common",
+      "rarityScore": 18
+    },
+    {
+      "assetName": "FFEC0090",
+      "name": "Eternal Coil #0090",
+      "tier": "Common",
+      "rarityScore": 18
+    },
+    {
+      "assetName": "FFEC0091",
+      "name": "Eternal Coil #0091",
+      "tier": "Uncommon",
+      "rarityScore": 10
+    },
+    {
+      "assetName": "FFEC0092",
+      "name": "Eternal Coil #0092",
+      "tier": "Rare",
+      "rarityScore": 16
+    },
+    {
+      "assetName": "FFEC0093",
+      "name": "Eternal Coil #0093",
+      "tier": "Common",
+      "rarityScore": 19
+    },
+    {
+      "assetName": "FFEC0094",
+      "name": "Eternal Coil #0094",
+      "tier": "Rare",
+      "rarityScore": 15
+    },
+    {
+      "assetName": "FFEC0095",
+      "name": "Eternal Coil #0095",
+      "tier": "Common",
+      "rarityScore": 11
+    },
+    {
+      "assetName": "FFEC0096",
+      "name": "Eternal Coil #0096",
+      "tier": "Common",
+      "rarityScore": 23
+    },
+    {
+      "assetName": "FFEC0097",
+      "name": "Eternal Coil #0097",
+      "tier": "Common",
+      "rarityScore": 14
+    },
+    {
+      "assetName": "FFEC0098",
+      "name": "Eternal Coil #0098",
+      "tier": "Rare",
+      "rarityScore": 16
+    },
+    {
+      "assetName": "FFEC0099",
+      "name": "Eternal Coil #0099",
+      "tier": "Common",
+      "rarityScore": 33
+    },
+    {
+      "assetName": "FFEC0100",
+      "name": "Eternal Coil #0100",
+      "tier": "Rare",
+      "rarityScore": 34
+    }
+  ]
+}

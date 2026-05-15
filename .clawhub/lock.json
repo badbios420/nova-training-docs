@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "skills": {
+    "cardano": {
+      "version": "1.0.0",
+      "installedAt": 1775093435254
+    },
+    "agent-dev-toolkit": {
+      "version": "1.0.0",
+      "installedAt": 1775093520029
+    },
+    "browser-automation-stealth": {
+      "version": "1.0.0",
+      "installedAt": 1775105710642
+    },
+    "playwright-scraper-skill": {
+      "version": "1.2.0",
+      "installedAt": 1775105711087
+    },
+    "playwright-mcp": {
+      "version": "1.0.0",
+      "installedAt": 1775168376813
+    },
+    "clawbrowser": {
+      "version": "0.1.1",
+      "installedAt": 1775166857962
+    },
+    "agent-autonomy-kit": {
+      "version": "1.0.0",
+      "installedAt": 1775166858207
+    },
+    "playwright-npx": {
+      "version": "1.0.0",
+      "installedAt": 1775166859238
+    },
+    "browser-cash": {
+      "version": "1.0.0",
+      "installedAt": 1775166929803
+    },
+    "mia-twitter-stealth": {
+      "version": "1.0.0",
+      "installedAt": 1775166929879
+    },
+    "wallet-pilot": {
+      "version": "0.1.0",
+      "installedAt": 1775166930010
+    },
+    "agent-autonomy": {
+      "version": "1.0.0",
+      "installedAt": 1775168033391
+    },
+    "agent-proxy-guardian": {
+      "version": "1.0.0",
+      "installedAt": 1775168053405
+    },
+    "github": {
+      "version": "1.0.0",
+      "installedAt": 1775168326688
+    }
+  }
+}

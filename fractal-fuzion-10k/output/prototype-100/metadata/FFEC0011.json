@@ -1,0 +1,30 @@
+{
+  "721": {
+    "POLICY_ID_PLACEHOLDER": {
+      "FFEC0011": {
+        "name": "Eternal Coil #0011",
+        "image": "ipfs://IMAGE_CID_PLACEHOLDER/FFEC0011.png",
+        "mediaType": "image/png",
+        "description": "A prototype Fractal Fuzion Eternal Coil. Planning metadata only; not minted.",
+        "files": [
+          {
+            "name": "Eternal Coil #0011",
+            "mediaType": "image/png",
+            "src": "ipfs://IMAGE_CID_PLACEHOLDER/FFEC0011.png"
+          }
+        ],
+        "Collection": "Fractal Fuzion Eternal Coil Prototype",
+        "Background": "Epoch Dawn Gradient",
+        "Serpent Form": "Spiral Coil",
+        "Material": "Cardano Blue Scales",
+        "Eyes": "Midnight Mask Eyes",
+        "Head Trait": "None",
+        "Aura": "Smoke Wisps",
+        "Cardano Lore": "Shelley",
+        "Edition Tier": "Rare",
+        "Prototype": "true"
+      }
+    },
+    "version": 2
+  }
+}

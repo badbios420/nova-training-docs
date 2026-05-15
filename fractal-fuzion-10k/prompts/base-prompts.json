@@ -1,0 +1,21 @@
+{
+  "status": "prototype-prompt-bank",
+  "basePrompts": [
+    {
+      "id": "eternal-coil-core",
+      "title": "Eternal Coil Core",
+      "prompt": "A fractal Ouroboros serpent coiled in cosmic space, Cardano-native blue accents, psychedelic but readable, strong centered silhouette, premium generative NFT style, clean thumbnail composition"
+    },
+    {
+      "id": "deluxe-chaos-core",
+      "title": "Deluxe Chaos Core",
+      "prompt": "A high-energy fractal Ouroboros serpent with meme-lore accessories, luxury cosmic details, Cardano-inspired glyphs, playful satire, readable at thumbnail size, no logos, no exact brand references"
+    },
+    {
+      "id": "cosmic-gallery-core",
+      "title": "Nested Gallery Core",
+      "prompt": "A cosmic serpent wrapped around tiny framed fractal artworks, recursive NFT-inside-NFT feeling, clean central coil, high contrast, no real policy IDs or wallet references"
+    }
+  ]
+}
+

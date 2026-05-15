@@ -1,0 +1,30 @@
+{
+  "721": {
+    "POLICY_ID_PLACEHOLDER": {
+      "FFEC0017": {
+        "name": "Eternal Coil #0017",
+        "image": "ipfs://IMAGE_CID_PLACEHOLDER/FFEC0017.png",
+        "mediaType": "image/png",
+        "description": "A prototype Fractal Fuzion Eternal Coil. Planning metadata only; not minted.",
+        "files": [
+          {
+            "name": "Eternal Coil #0017",
+            "mediaType": "image/png",
+            "src": "ipfs://IMAGE_CID_PLACEHOLDER/FFEC0017.png"
+          }
+        ],
+        "Collection": "Fractal Fuzion Eternal Coil Prototype",
+        "Background": "Cardano Midnight Blue",
+        "Serpent Form": "Hydra Twin Coil",
+        "Material": "Matte Scales",
+        "Eyes": "Calm Glow",
+        "Head Trait": "Cardano Cap",
+        "Aura": "Lightning Coil",
+        "Cardano Lore": "Catalyst",
+        "Edition Tier": "Common",
+        "Prototype": "true"
+      }
+    },
+    "version": 2
+  }
+}

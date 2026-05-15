@@ -1,0 +1,30 @@
+{
+  "721": {
+    "POLICY_ID_PLACEHOLDER": {
+      "FFEC0055": {
+        "name": "Eternal Coil #0055",
+        "image": "ipfs://IMAGE_CID_PLACEHOLDER/FFEC0055.png",
+        "mediaType": "image/png",
+        "description": "A prototype Fractal Fuzion Eternal Coil. Planning metadata only; not minted.",
+        "files": [
+          {
+            "name": "Eternal Coil #0055",
+            "mediaType": "image/png",
+            "src": "ipfs://IMAGE_CID_PLACEHOLDER/FFEC0055.png"
+          }
+        ],
+        "Collection": "Fractal Fuzion Eternal Coil Prototype",
+        "Background": "Catalyst Constellation",
+        "Serpent Form": "Spiral Coil",
+        "Material": "Fractal Skin",
+        "Eyes": "Violet Eyes",
+        "Head Trait": "Ouroboros Halo",
+        "Aura": "Golden Aura",
+        "Cardano Lore": "CIP-68 Relic",
+        "Edition Tier": "Uncommon",
+        "Prototype": "true"
+      }
+    },
+    "version": 2
+  }
+}

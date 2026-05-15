@@ -1,0 +1,38 @@
+{
+  "status": "prototype-prompt-bank",
+  "archetypes": [
+    {
+      "name": "The Oracle Coil",
+      "rules": ["Ouroboros", "Oracle", "Voltaire", "CIP-68"],
+      "cardPrompt": "wise protocol serpent, reads epochs before they arrive, calm but dangerous"
+    },
+    {
+      "name": "The Chaos Builder",
+      "rules": ["Catalyst", "Builder", "Meme", "Nested"],
+      "cardPrompt": "high-energy builder serpent, ships prototypes through cosmic noise"
+    },
+    {
+      "name": "The Ice Relic",
+      "rules": ["Diamond", "Platinum", "Moonphase", "Luxury"],
+      "cardPrompt": "luxury relic serpent, cold shine, ancient taste, no brand worship"
+    },
+    {
+      "name": "The Myco Trickster",
+      "rules": ["Myco", "Psychedelic", "Smoke", "Stoner"],
+      "cardPrompt": "playful psychedelic serpent, speaks in fractal jokes and glowing spores"
+    },
+    {
+      "name": "The Tin Crown Witness",
+      "rules": ["Conspiracy", "Alien", "Flat Mars", "Scan Beam"],
+      "cardPrompt": "absurd cosmic witness serpent, sees too much and explains none of it"
+    }
+  ],
+  "stats": [
+    "Chaos Level",
+    "Fuzion Signal",
+    "Lore Depth",
+    "Thumbnail Power",
+    "Stake Pool Vibe"
+  ]
+}
+
