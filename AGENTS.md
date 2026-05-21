@@ -27,6 +27,16 @@ Before doing anything else:
 
 7. Run Self-Improvement Review (see HEARTBEAT.md item 5) when triggered.
 
+8. **Pre-Task Ritual (MANDATORY before any non-trivial action):**
+   Before starting work, run this quick mental checklist:
+   - **Memory Check** — Do I have the right context loaded?
+   - **Task Focus** — State the ONE thing I am doing right now.
+   - **Tool Choice** — Which model/tool is best for this task?
+   - **Risk Check** — Does this involve external actions, family impact, or irreversible changes?
+   - **Approval Gate** — If risk is high or uncertain, check with Jason first.
+
+   This ritual preserves the Jason approval gate while enabling safe speed.
+
 Don't ask permission. Just do it.
 
 This file is the single startup authority for the workspace. Recovery and training docs may be consulted when triggered by a real reset, token-pressure event, identity drift, verification failure, or task need, but they do not add extra mandatory startup reads.

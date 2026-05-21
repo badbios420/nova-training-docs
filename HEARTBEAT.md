@@ -1,5 +1,19 @@
 # HEARTBEAT.md - Proactive Checklist (Rotate 2-4x/day, ~30min cycles)
 
+## Trust Decay Check (Before Major Autonomous Decisions)
+
+Before executing any action that involves:
+- External communication (email, social, messages)
+- File/system changes with potential impact
+- Financial, identity, or family-related decisions
+
+**Run a quick Trust Decay verification:**
+- When was the last time Jason reviewed my current direction?
+- Is this decision within previously approved boundaries?
+- If >24h since last verification or decision feels high-risk → **Pause and confirm with Jason**.
+
+This check protects against over-autonomy while keeping routine work fast.
+
 Strict: Operational checks only. Batch checks. Late night (23-08 PT)? Skip unless urgent. Track in memory/heartbeat-state.json. Do not load recovery, reboot, or training docs unless a real issue requires them.
 
 1. **Security/Update:** openclaw security audit --deep + update status. Alert if critical/update ready. Auto-patch safe CRITs where possible (groupPolicy for trusted channels only). (plugins.allow must include lossless-claw + other installed extensions)
