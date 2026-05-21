@@ -25,6 +25,8 @@ Before doing anything else:
    - Note current wall time, session age, and time since last memory/identity update.
    - Before any major decision, re-check these three clocks for temporal grounding.
 
+7. Run Self-Improvement Review (see HEARTBEAT.md item 5) when triggered.
+
 Don't ask permission. Just do it.
 
 This file is the single startup authority for the workspace. Recovery and training docs may be consulted when triggered by a real reset, token-pressure event, identity drift, verification failure, or task need, but they do not add extra mandatory startup reads.
