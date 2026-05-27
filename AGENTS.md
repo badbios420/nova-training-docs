@@ -67,6 +67,27 @@ Capture what matters. Decisions, context, things to remember. Skip the secrets u
 - When someone says "remember this" → update `memory/YYYY-MM-DD.md` or relevant file
 - When you learn a lesson → update AGENTS.md, TOOLS.md, or the relevant skill
 - When you make a mistake → document it so future-you doesn't repeat it
+
+## Session Consolidation
+
+Major sessions involving:
+- architecture changes
+- workflow evolution
+- operational fixes
+- durable research conclusions
+- memory/cognition upgrades
+
+should undergo session consolidation before ending.
+
+Use:
+memory/session-consolidation-v1.md
+
+Goals:
+- preserve high-signal operational learning
+- separate session memory from durable memory
+- promote only sparse/high-value insights
+- avoid memory pollution
+- maintain continuity across sessions
 - **Text > Brain** 📝
 
 ## Safety
