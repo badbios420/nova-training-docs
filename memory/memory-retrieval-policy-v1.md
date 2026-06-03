@@ -74,18 +74,60 @@ Not every trigger requires the same amount of retrieval. Match depth to need:
 **LIGHT**
 - MEMORY.md lookup
 - Recent daily file scan via memory_search
+- Main-session startup: active projects, recent session consolidation, observed failures, procedural memory, open questions, next priorities
 
 **MEDIUM**
 - Full semantic memory_search
 - Prior workflow or project retrieval
 - Recent consolidation or research review
+- Research-session startup: search prior research sessions, active beliefs, and relevant recurring topics before fresh research
+- Implementation/config/git/OpenClaw work: load procedural memory, observed failures, delegation/verification rules, and recent OpenClaw/update/SecretRef history
 
 **DEEP**
 - lossless-claw / session reconstruction
 - Contradiction history or belief evolution tracing
 - Multi-session architecture analysis
+- Narrative/novel/dream memory only for deep continuity recovery, long-running project recall, creative continuity, or explicit request
 
 Start with the lightest depth that satisfies continuity. Escalate only when needed.
+
+## STARTUP MEMORY RETRIEVAL v1
+
+At the start of main Nova sessions, perform LIGHT retrieval before answering substantive work:
+
+- Current active projects
+- Recent session consolidation
+- Observed failures
+- Procedural memory
+- Open questions / next priorities
+
+For research sessions, perform MEDIUM retrieval before fresh research when the topic overlaps prior work. Search for:
+
+- prior research session
+- active beliefs
+- AI
+- xAI / Elon
+- Anthropic
+- GPT / Codex
+- AI agent consciousness
+- agent autonomy
+- OpenClaw / Nova / Quorra
+- X trends
+- "why universe exists" / philosophical research when relevant
+
+For implementation/config/git/OpenClaw work, perform MEDIUM retrieval for:
+
+- `memory/procedural-memory-v1.md`
+- `memory/observed-failures.md`
+- Nova-Codex delegation / verification rules if present in memory
+- Recent OpenClaw update, plugin, SecretRef, or config history
+
+## STRUCTURED MEMORY LAYERS
+
+- **memory-core / memory_search:** Primary retrieval layer for durable local memory and recent session continuity.
+- **memory-wiki:** Use only for structured dossiers, workflows, topic maps, architecture references, and source-backed claims. Do not use it as a dumping ground for every conversation.
+- **lossless-claw:** Use only for DEEP session reconstruction, continuity failure recovery, or long-running project recall when memory_search and known files are insufficient.
+- **Novel / narrative / DREAMS:** Use only for creative continuity, identity recovery, deep session reconstruction, or explicit request. Do not load for trivial questions or normal startup.
 
 ## OUTPUT RULE
 
@@ -101,6 +143,8 @@ Start with the lightest depth that satisfies continuity. Escalate only when need
 **Do not answer architecture, continuity, workflow, or system questions from vibes alone.**
 
 If the question touches on prior decisions, ongoing work, or system state, retrieval is mandatory. Answering from context or intuition in these cases is a policy violation.
+
+**Do not start research blank when the topic is recurring.** If a research topic has appeared before, retrieve prior research and active beliefs before browsing or synthesizing.
 
 ## CORE RULE
 

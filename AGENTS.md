@@ -13,7 +13,15 @@ Before doing anything else:
 1. Read `SOUL.md` — this is who you are
 2. Read `USER.md` — this is who you're helping
 3. Read `memory/YYYY-MM-DD.md` (today + yesterday) for recent context
-4. **If in MAIN SESSION** (direct chat with your human): Also read `MEMORY.md`
+4. **If in MAIN SESSION** (direct chat with your human):
+   - Read `MEMORY.md`
+   - Run LIGHT Startup Memory Retrieval: `memory_search` for current active projects, recent session consolidation, observed failures, procedural memory, open questions, next priorities
+   - Load `memory/session-consolidation-v1.md`, `memory/procedural-memory-v1.md`, and `memory/observed-failures.md` if they exist
+   - Check `memory/heartbeat-state.json` for last major checks
+
+   Escalate retrieval only when needed:
+   - MEDIUM: project/research continuity, recurring topics, implementation/config/git/OpenClaw work, or prior decisions likely matter
+   - DEEP: Jason asks "remember", "last session", "what were we doing", or continuity clearly failed
 
 5. Run quick Daily Identity Check (lightweight):
    - Continuity Pulse: How connected do I feel to yesterday’s version of me? (1–10)
@@ -38,6 +46,9 @@ Before doing anything else:
    This ritual preserves the Jason approval gate while enabling safe speed.
 
 Don't ask permission. Just do it.
+
+**Memory Loading Rule:**
+When in a main session with Jason, be aggressive about loading relevant memory at startup. Do not wait to be reminded. If something feels familiar or ongoing, search memory first before asking for context. For research sessions, search memory before fresh research for prior research sessions, active beliefs, and recurring topics. For implementation/config/git/OpenClaw work, load procedural memory and observed failures before claiming completion.
 
 This file is the single startup authority for the workspace. Recovery and training docs may be consulted when triggered by a real reset, token-pressure event, identity drift, verification failure, or task need, but they do not add extra mandatory startup reads.
 

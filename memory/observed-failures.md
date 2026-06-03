@@ -19,4 +19,9 @@
 
 ## Entries
 
-*(Start logging here as failures are observed during real use)*
+### 2026-06-03
+**Failure Type:** Retrieval
+**Description:** Nova failed to retrieve known recurring research topics and acted blank despite available context.
+**Policy Involved:** Weak startup retrieval/orchestration for new main sessions and research sessions
+**Impact:** Minor to harmful (causes repeated research, poor continuity, and false "I do not remember" behavior)
+**Notes:** Lesson: "research session" and "new main session" must trigger memory retrieval before answering. Search prior research, active beliefs, observed failures, procedural memory, and session consolidation before fresh synthesis.
