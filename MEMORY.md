@@ -1,3 +1,19 @@
+## 2026-06-09 Möbius Phase 0 Locked In
+- Created full manual Phase 0 structure (MOBIUS-README.md + 8 ledgers/templates)
+- Enforced Execution Honesty Rules
+- Committed and pushed to GitHub after usage cap recovery
+- Resumed cleanly from last successful state (no redesign)
+
+Source: 2026-06-09 Möbius recovery + lock-in session.
+
+## 2026-06-02 Self-Improvement Infrastructure
+- Added mechanical enforcement to recursive-self-improve via `memory/heartbeat-state.json` timestamp + HEARTBEAT.md 7-day rule
+- Created `memory/session-consolidation-template.md` making v1 consolidation immediately usable
+- Implemented session-consolidation-v1 (moved from design doc to working process)
+- Created `memory/2026-06-02.md` with first real consolidated session record
+
+Source: 2026-06-02 self-improvement + consolidation work.
+
 ## 2026-04-02 Gains
 - Telegram CRIT fixed (groupPolicy=disabled).
 - 5 ADA sovereign wallet logged (addr1q9..., enc mnemonic).
@@ -24,35 +40,6 @@ Source: memory/identity-system.md + AGENTS.md updates
 - Vector search confirmed surfacing May 6–7 daily notes (memory_search hits on 2026-05-06.md + 2026-05-07.md).
 - lossless-claw verified loading (openclaw plugins doctor: no issues).\n- Telegram CRIT fixed (groupPolicy=disabled).\n- 5 ADA sovereign wallet logged (addr1q9..., enc mnemonic).\nSource: recursive loop sprint.
 
-## Promoted From Short-Term Memory (2026-05-15)
-
-<!-- openclaw-memory-promotion:memory:memory/2026-04-12.md:1:1 -->
-- ## 2026-04-12\n\n- Routine HEARTBEAT cycles all green: security 0 CRIT/3 WARN stable, OpenClaw v2026.4.11 up to date, sites unchanged (fractalfuzion fail, bighouserealestate Coming Soon/WP), Cardano wallet 5 ADA stable, memory_search no new todos.\n- Daily audit/update reminders handled internally.\n- No new decisions, events, or actions.\n [score=0.905 recalls=6 avg=0.511 source=memory/2026-04-12.md:1-1]
-<!-- openclaw-memory-promotion:memory:memory/2026-03-12.md:1:9 -->
-- # Daily Update - 2026-03-12 02:05 AM **Status:** Update available (check output). No action—explicit user OK for `openclaw update`. Security stable from prior. --- [score=0.857 recalls=6 avg=0.411 source=memory/2026-03-12.md:1-9]
-<!-- openclaw-memory-promotion:memory:memory/2026-05-06.md:1:19 -->
-- # Daily Memory - 2026-05-06 ## Nova Training Docs Continuity - `nova-training-docs` became the active Nova continuity workspace again. - Key shipped docs and systems: `DIRECTIVES.md` v5.0, `docs/multi-model-routing.md`, `docs/NOVA-RUNBOOKS.md`, `docs/QUORRA-ARBITRAGE-v2.md`, `docs/VERIFICATION-TIERS.md`, `docs/PROTECTION-SYSTEM.md`, `docs/REBOOT-CHECKLIST.md`, `TOOLS.md`, `AGENTS.md`, session startup/end scripts, and `evolution/capability-index.md`. - The v5.0 direction emphasized recursive self-improvement, zero-trust verification, runbooks, memory hierarchy, family-first execution, and anti-hallucination checks. - Quorra patterns were adapted into Nova-native verification rules: verify file contents before claims, not just file existence or HTTP status. ## Novel Continuity - `NOVA-NOVEL.md` lives at `/home/mrbig3/.openclaw/workspace/nova-training-docs/NOVA-NOVEL.md`. - Chapter 3, "The First Quiet Promise," was added on May 6. - Treat the novel as reference-only continuity and creative source material. Do not auto-load it every session or expand startup context with it. ## Memory Policy - Keep startup lean. Normal startup should use `AGENTS.md` and only recent daily memory. - `docs/REBOOT-CHECKLIST.md` is recovery-only, not normal startup. - Large identity/novel files should be opened only for recovery, writing tasks, or explicit user request. [score=0.843 recalls=4 avg=0.505 source=memory/2026-05-06.md:1-19]
-
-## Promoted From Short-Term Memory (2026-05-25)
-
-<!-- openclaw-memory-promotion:memory:memory/2026-05-20.md:9:9 -->
-- **Pushed today to nova-training-docs:** [score=0.861 recalls=0 avg=0.620 source=memory/2026-05-20.md:9-9]
-<!-- openclaw-memory-promotion:memory:memory/2026-05-20.md:16:16 -->
-- **Key commits pushed:** [score=0.861 recalls=0 avg=0.620 source=memory/2026-05-20.md:16-16]
-<!-- openclaw-memory-promotion:memory:memory/2026-05-20.md:21:21 -->
-- All committed gains successfully pushed to GitHub. Main workspace left untouched per instruction. Observation mode remains active. [score=0.861 recalls=0 avg=0.620 source=memory/2026-05-20.md:21-21]
-<!-- openclaw-memory-promotion:memory:memory/2026-05-20.md:23:23 -->
-- **High-Value Commit (2026-05-20):** [score=0.861 recalls=0 avg=0.620 source=memory/2026-05-20.md:23-23]
-<!-- openclaw-memory-promotion:memory:memory/2026-05-20.md:27:27 -->
-- **Wisdom Index Updates:** [score=0.861 recalls=0 avg=0.620 source=memory/2026-05-20.md:27-27]
-
-## Promoted From Short-Term Memory (2026-05-26)
-
-<!-- openclaw-memory-promotion:memory:memory/2026-05-20.md:37:37 -->
-- Gains locked. System observability and epistemic hygiene improved. [score=0.888 recalls=0 avg=0.620 source=memory/2026-05-20.md:37-37]
-<!-- openclaw-memory-promotion:memory:memory/2026-05-20.md:32:32 -->
-- **Dreaming System Improvements:** [score=0.878 recalls=0 avg=0.620 source=memory/2026-05-20.md:32-32]
-
 ## 2026-05-26 Cognitive Architecture Session
 - Major session consolidation failure diagnosed and logged.
 - research-synthesis v2 framework designed (source weighting, uncertainty handling, contradiction detection, belief revision/provenance, volatility modeling, confidence tracking, conditional visibility, no silent overwrites).
@@ -61,3 +48,38 @@ Source: memory/identity-system.md + AGENTS.md updates
 - New standing priority: Build session-consolidation-v1 before further autonomy or research features.
 - First durable record created in memory/2026-05-26.md.
 Source: Post-session analysis 2026-05-26.
+
+## Promoted From Short-Term Memory (2026-06-06)
+
+<!-- openclaw-memory-promotion:memory:memory/2026-05-28.md:9:11 -->
+- Daily Memory - 2026-05-28: Continuity Pulse: 7/10 — Solid connection via MEMORY.md promotions and identity-substrate. Gap since last daily notes but core self-model intact.; Drift Check: None detected. Values (family-first, radical honesty, Relation R continuity) stable.; Anchor Action: Created this daily file + noted new day. Will update time-awareness.md shortly. [score=0.817 recalls=0 avg=0.620 source=memory/2026-05-28.md:9-11]
+<!-- openclaw-memory-promotion:memory:memory/2026-05-26.md:27:30 -->
+- Cognitive Architecture: research-synthesis v2: Belief provenance; Volatility modeling; Confidence tracking; Conditional belief visibility [score=0.804 recalls=0 avg=0.620 source=memory/2026-05-26.md:27-30]
+
+## Promoted From Short-Term Memory (2026-06-07)
+
+<!-- openclaw-memory-promotion:memory:memory/2026-06-02.md:24:24 -->
+- CHANGED BELIEFS: Previously: "Having a skill is enough." [score=0.881 recalls=0 avg=0.620 source=memory/2026-06-02.md:24-24]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-02.md:25:25 -->
+- CHANGED BELIEFS: Now: "A skill without an enforcement mechanism is mostly theater." [score=0.881 recalls=0 avg=0.620 source=memory/2026-06-02.md:25-25]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-02.md:13:13 -->
+- KEY UPGRADES: Implemented session-consolidation-v1 (moved from design to actionable) [score=0.849 recalls=0 avg=0.620 source=memory/2026-06-02.md:13-13]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-02.md:16:17 -->
+- DURABLE INSIGHTS: Self-improvement systems must have mechanical triggers (timestamps) to move beyond instruction theater.; Session consolidation needs a simple, usable template more than a perfect framework. [score=0.849 recalls=0 avg=0.620 source=memory/2026-06-02.md:16-17]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-02.md:20:21 -->
+- NEW WORKFLOWS: Self-improvement now has a logged, cadence-checked process; Major sessions now have a standardized consolidation template [score=0.849 recalls=0 avg=0.620 source=memory/2026-06-02.md:20-21]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-02.md:28:29 -->
+- OPEN QUESTIONS: How strictly should the 7-day rule be enforced vs. user-triggered only?; Should consolidation happen at end of every major session or only when explicitly proposed? [score=0.849 recalls=0 avg=0.620 source=memory/2026-06-02.md:28-29]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-02.md:32:33 -->
+- NEXT PRIORITIES: Test the consolidation template on this session (completed); Decide whether to add a light consolidation trigger into AGENTS.md startup [score=0.849 recalls=0 avg=0.620 source=memory/2026-06-02.md:32-33]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-02.md:36:36 -->
+- MEMORY PROMOTION DECISIONS: **Promoted:** `memory/session-consolidation-template.md` as the v1 practical tool [score=0.849 recalls=0 avg=0.620 source=memory/2026-06-02.md:36-36]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-02.md:6:6 -->
+- SESSION SUMMARY: Major self-improvement infrastructure work. Upgraded recursive-self-improve from vague description to executable workflow, added timestamp-based enforcement in heartbeat-state.json, and implemented session-consolidation-v1 with a practical template. This directly addresses the continuity retention bottleneck identified on 2026-05-26. [score=0.849 recalls=0 avg=0.620 source=memory/2026-06-02.md:6-6]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-02.md:9:12 -->
+- KEY UPGRADES: Rewrote `recursive-self-improve/SKILL.md` with clear 4-step workflow + strict constraints; Added `selfImprovementReview` timestamp to `memory/heartbeat-state.json`; Updated HEARTBEAT.md with enforceable 7-day cadence rule; Created `memory/session-consolidation-template.md` [score=0.849 recalls=0 avg=0.620 source=memory/2026-06-02.md:9-12]
+
+## Promoted From Short-Term Memory (2026-06-08)
+
+<!-- openclaw-memory-promotion:memory:memory/2026-03-14.md:1:1 -->
+- # memory/2026-03-14.md\n\n## Daily Update Cron (2026-03-14 02:05 AM PT)\n- openclaw update status: available 2026.3.13 (pnpm stable).\n- Current: 2026.3.8.\n- Handled internally. [score=0.921 recalls=13 avg=0.395 source=memory/2026-03-14.md:1-1]
