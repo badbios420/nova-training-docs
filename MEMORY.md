@@ -1,3 +1,13 @@
+## 2026-06-09 Möbius Gains Locked In
+- Weekly Synthesis completed (validation mode declared)
+- Two discoveries promoted: "Attention ≠ Activity ≠ Priority" + "Human priorities operate at multiple timescales"
+- Three-layer priority model for Jason created and applied (Strategic / Tactical / Immediate)
+- `mobius-discovery-history.md` created with pre-crash discoveries
+- Layer tags added to human-intent-ledger.md
+- Shift from design mode → validation mode recorded
+
+Source: 2026-06-09 Möbius synthesis + Jason modeling session.
+
 ## 2026-06-09 Möbius Phase 0 Locked In
 - Created full manual Phase 0 structure (MOBIUS-README.md + 8 ledgers/templates)
 - Enforced Execution Honesty Rules
