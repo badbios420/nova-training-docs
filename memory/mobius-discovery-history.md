@@ -65,6 +65,30 @@
 
 ---
 
+## Research Findings (2026-06-09)
+
+**Multi-Timescale Priority Modeling**
+- Strong validation from neuroscience (rostro-caudal hierarchy in PFC) and cognitive architectures (ACT-R, SOAR).
+- Human brains use layered control specifically for managing goals across immediate → abstract timescales.
+- Supports treating Strategic / Tactical / Immediate as first-class architectural layers.
+
+**Attention ≠ Activity ≠ Priority**
+- Well-established distinction in productivity research and AI agent design (Microsoft Priorities/Notification work).
+- Systems that conflate activity with attention create poor prioritization.
+- Attention should be modeled as a dynamic, context-sensitive signal separate from observable activity.
+
+**Intent Drift & Stale Intent**
+- Active research area in long-running personal agents.
+- Detection approaches include runtime behavioral/trajectory analysis and intent drift scoring.
+- Relevant because persistent agents can slowly diverge from evolving user goals without explicit signals.
+
+**Implications for Möbius**
+- Three-layer model is biologically and computationally grounded.
+- Intent drift detection is a high-value area to explore next.
+- Attention modeling deserves dedicated signals beyond activity logging.
+
+---
+
 **Reconstructed:** 2026-06-09  
 **Source:** Previous Möbius session transcript + GPT analysis of failure point
 
