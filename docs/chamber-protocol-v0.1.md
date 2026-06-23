@@ -172,6 +172,7 @@ Track every chamber run. Measure behavior, not architecture.
 | # | Date | Topic | Consultants Used | Disagreements Found | Holds | Promotions | Later Corrections | Notes |
 |---|------|-------|-------------------|---------------------|-------|------------|-------------------|-------|
 | 1 | 2026-06-22 | Multi-model architecture | Grok, Perplexity | 1 (model diversity value) | 1 | 0 | TBD | Both independently identified correlated hallucinations as top risk |
+| 2 | 2026-06-22 | Caching system | Grok, Perplexity | 1 ("limited-time free" meaning) | 1 | 0 | TBD | 13% cache hit rate. z.ai caching is automatic. "Limited-time free" refers to storage, not token rate. |
 
 **Goal:** Run 10 real chambers before building v0.2. Track the metrics above. Then evaluate which consultants are actually valuable.
 
