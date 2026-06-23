@@ -39,6 +39,15 @@
 
 Source: 2026-06-23 morning session (wallet gen, TX, NFT research, Möbius cycle). Consolidation: memory/2026-06-23.md + memory/2026-06-23-wallet-v2.md + memory/10k-nft-research-2026-06-23.md.
 
+### Quorra Nuggets Mined — 40+ Findings
+- Full report: memory/quorra-nuggets-2026-06-23.md (313 lines)
+- **Top imports:** Risk-calibrated verification tiers (ZERO/LOW/MEDIUM/HIGH + dynamic escalation), WordPress REST API workflow for Big House RE, 30+ SEO content topics, capabilities log (anti-amnesia), fragmentation detection self-diagnostic, skill security checklist
+- **Real estate assets found:** 4 published service pages (templates), WordPress publishing pipeline with Yoast SEO, business details (CABRE# 02121893, Lantern Bay Realty, (760) 917-8588)
+- **Key lessons adopted:** "Proposals without implementation = analysis theater", capability amnesia is real, UI history ≠ token context, startup breaks silently after updates, verification must be structural not willpower-based
+- **Multi-model patterns:** Research→Write→Publish, Draft→Review→Refine, dual-perspective decision-making
+- **Patterns rejected:** Quorra's full identity mythology (borrow mechanisms, not biography), heavy heartbeat protocol, per-task model routing scripts, full novel at startup, always-on swarms
+- **Identity direction:** Nova needs her own identity, not Quorra's. Work on this next.
+
 
 
 ### Model Switch

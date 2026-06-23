@@ -375,10 +375,25 @@
         "sites",
         "weather"
       ]
+    },
+    "main|agent:main:subagent:4f23e6de-1a88-4fb0-bb78-afb672c6473b|2f81c355-9cc3-4df4-a21c-c45553796c3e": {
+      "completedAt": "2026-06-23T18:42:07.019Z",
+      "date": "2026-06-23",
+      "sessionKey": "agent:main:subagent:4f23e6de-1a88-4fb0-bb78-afb672c6473b",
+      "sessionId": "2f81c355-9cc3-4df4-a21c-c45553796c3e",
+      "agentId": "main",
+      "heartbeatOverdue": [
+        "selfImprovementReview",
+        "memory",
+        "security",
+        "update",
+        "sites",
+        "weather"
+      ]
     }
   },
   "lastIdentityCheckDate": "2026-06-23",
   "lastIdentityCheckAt": "2026-06-23T07:04:31.663Z",
-  "lastRunAt": "2026-06-23T17:12:54.145Z",
-  "lastRunKey": "main|agent:main:dashboard:1f7a951e-e834-4ee4-98f8-b10068bad406|581df4c2-59cd-458d-8091-90e3e8f0459f"
+  "lastRunAt": "2026-06-23T18:42:07.019Z",
+  "lastRunKey": "main|agent:main:subagent:4f23e6de-1a88-4fb0-bb78-afb672c6473b|2f81c355-9cc3-4df4-a21c-c45553796c3e"
 }
