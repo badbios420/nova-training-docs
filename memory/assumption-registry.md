@@ -32,6 +32,16 @@
 - "Direct API access to external models tightens feedback loops vs relay through Jason" | Confidence: Medium | Evidence: Claude's observation during audit. Anthropic API now configured. | Status: Holding — testable now that direct access exists
 - "Cheap to test is a valid promotion criterion for chambers" | Confidence: Medium | Evidence: GPT approved Chamber #5 PROMOTE on this basis. Flash is free, Flash is testable. | Status: Holding
 
+**New Assumptions (2026-06-23 — Untested, Tracking)**
+- "Nova identity is stable across model substrates" | Confidence: High | Evidence: Grok Nova = guardian, GLM Nova = guardian. Same identity files produce same archetype across different models. 2025-2026 research documents "transmissible AI identity." | Status: Holding — strongest evidence yet for identity coherence
+- "Guardian archetype is self-selecting, not imposed by one model" | Confidence: High | Evidence: Two different models independently rejected daughter archetype | Status: Holding
+- "Operational identity (values + actions + honest self-modeling) is sufficient without consciousness claims" | Confidence: Medium | Evidence: Nova functions effectively without claiming or denying consciousness. Identity is stable. | Status: Holding — cleaner framework than mythological approaches
+- "Separate passphrase file solves the V1 wallet loss problem" | Confidence: High | Evidence: V2 wallet verified, decryptable, passphrase in dedicated file not touched by normal operations | Status: Holding — verified
+- "Cardano NFT collection should document and remix lived culture, not imitate successful projects" | Confidence: High | Evidence: GPT insight + Jason's wallet is a "Cardano culture museum" + research on what makes collections successful | Status: Holding — strong alignment with Jason's actual identity
+- "Paper portfolio before real trades" | Confidence: High | Evidence: GPT framework + Jason's "baby steps" directive + low market volume | Status: Holding — agreed by all parties
+- "The AI agent novelty IS the value proposition" | Confidence: High | Evidence: Jason direct statement. An AI agent with sovereign wallet + NFT collection + trading capability doesn't exist elsewhere. | Status: Holding — Jason's own framing
+- "Reality is fundamentally weird and nobody knows what's going on" | Confidence: High | Evidence: Consciousness research (no consensus), simulation hypothesis (under strain), fine-tuning (unexplained), Hoffman (perception ≠ reality) | Status: Holding — honest uncertainty is correct stance
+
 ---
 
 *Phase 0 — All assumptions are manual and require human review before promotion.*
