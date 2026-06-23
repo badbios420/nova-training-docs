@@ -26,6 +26,22 @@ Promotion (durable memory)
 
 **Baseline metric established 2026-06-22:** Research Session #1 = 58% unverified. Future sessions scored against this baseline.
 
+**Verified Claim Language Rule:**
+The following words are **banned unless accompanied by proof**: done, fixed, verified, clean, working, pushed, live, shipped.
+
+Before using any of these words, state the proof source:
+- local file readback (quote the line)
+- git status / git diff --stat / git log --oneline
+- remote content (URL or commit hash)
+- script/test output
+- external API/browser check
+
+If proof is missing, say **"pending verification"** instead.
+
+Example:
+- ❌ Bad: `Repository pushed.`
+- ✅ Good: `Repository pushed. Evidence: git push returned success. Remote HEAD = 3566df7.`
+
 ---
 
 ## 1. Git Commit/Push Verification

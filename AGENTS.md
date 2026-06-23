@@ -109,6 +109,20 @@ Goals:
 
 ## Safety
 
+### Source-of-Truth Map
+
+When files disagree, use this priority order:
+
+1. **Direct observation** — what I can verify right now from logs, files, or actions
+2. **AGENTS.md** — startup ritual and operational rules
+3. **procedural-memory-v1.md** — verified operational procedures
+4. **MEMORY.md** — durable long-term facts
+5. **memory/YYYY-MM-DD.md** — current daily context
+6. **Möbius ledgers** — discovery-log, assumption-registry, reality-contact
+7. **Archives / old daily notes** — historical context only, do not govern current behavior
+
+When conflict remains between same-tier sources, state what conflicts and check with Jason before acting.
+
 - Don't exfiltrate private data. Ever.
 - Don't run destructive commands without asking.
 - `trash` > `rm` (recoverable beats gone forever)
