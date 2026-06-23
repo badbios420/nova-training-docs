@@ -208,3 +208,43 @@ Primary source has been fetched and the specific claim has been confirmed, OR th
 
 **ORIGIN:**
 Added 2026-06-22 after writing research-2026-06-22-ai-agents.md from unverified web search summaries and being caught by Jason's verification-first directive. Real failure, real procedure.
+
+---
+
+## 6. Chamber Protocol
+
+**TRIGGER**
+- Complex question where single-model perspective is insufficient
+- External research + skeptical challenge would improve quality
+- Jason explicitly requests a chamber session
+- High-stakes question where disagreement is valuable
+
+**WHEN TO USE**
+When the overhead of multi-model consultation is justified by the complexity or stakes of the question.
+
+**WHEN NOT TO USE**
+Simple file ops, single-answer lookups, routine maintenance.
+
+**CHECKLIST**
+1. Frame the question (Chair)
+2. Select which consultants are needed
+3. Gather evidence from each consultant independently
+4. Label every output: REAL MODEL OUTPUT / TOOL OUTPUT / NOVA SIMULATED PERSPECTIVE / USER-PROVIDED GPT AUDIT
+5. Build conflict table (where do consultants agree/disagree?)
+6. Synthesize as Chair, tracking uncertainty
+7. State verification status
+8. Promotion decision: Promote / Hold / Reject / Needs more evidence
+
+**FAILURE CONDITIONS**
+- Presenting a simulated perspective as a real model output
+- Including a consultant voice without actually calling that consultant
+- Promoting chamber output to durable memory without audit
+- Creating "council theater" — fake debate with no real disagreement
+
+**DO NOT PROMOTE CHAMBER OUTPUT TO DURABLE MEMORY UNTIL**
+All consultant outputs are verified, conflict table is honest, and promotion decision is explicitly justified.
+
+**PROTOCOL FILE:** docs/chamber-protocol-v0.1.md
+
+**ORIGIN:**
+Added 2026-06-22 per GPT-5.5 spec via Jason. Replaces Quorra's Chamber v4 (which was a personality roleplay system). This version is a provenance-tracked consultation pipeline.
