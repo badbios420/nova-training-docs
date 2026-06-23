@@ -21,12 +21,19 @@ Strict: Operational checks only. Batch checks. Late night (23-08 PT)? Skip unles
 3. **Sites Check:** web_fetch fractalfuzion.com + bighouserealestate.com (status/updates).
 4. **Weather:** Vista CA forecast (skill if trigger).
 
-5. **Self-Improvement Review** (daily or on trigger):
-   Run `recursive-self-improve` workflow:
-   - memory_search for patterns/lessons/blindspots
-   - Distill 1–2 concrete upgrades
-   - Propose changes (never auto-apply)
-   - Log outcome in memory/YYYY-MM-DD.md
+5. **Self-Improvement Review** (weekly or explicit trigger):
+   Run `recursive-self-improve` only if:
+   - `memory/heartbeat-state.json` → lastChecks.selfImprovementReview is older than 7 days, OR
+   - User explicitly asks for self-improvement / recursive review / growth loop / distill lessons
+
+   On each run:
+   - Hunt for patterns in memory (lessons, blindspots, drift, recurring issues)
+   - Distill 0–3 concrete issues
+   - Log result in `memory/self-improvement-log.md`
+   - Update `memory/heartbeat-state.json` lastChecks.selfImprovementReview to now
+   - If no meaningful issue exists, log: "No high-signal improvements identified this cycle"
+   - Never auto-apply changes or edit governance files without approval
+   - Only propose small, testable improvements
 
 Quiet OK: Recent check <30m ago or nothing new. Telegram disabled per user (webchat only).
 

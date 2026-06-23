@@ -19,6 +19,13 @@
 
 ## Entries
 
+### 2026-05-26
+**Failure Type:** Other (Operational Continuity)
+**Description:** When asked to push governance changes to GitHub, I had to be guided through basic remote verification and authentication steps, despite having done similar pushes before in this workspace.
+**Policy Involved:** Missing operational memory retrieval + no standardized git verification workflow
+**Impact:** Minor (slowed down "lock in gains" process, required human guidance)
+**Notes:** I incorrectly assumed the remote was missing instead of first verifying execution context (pwd, git remote -v, branch). This is a continuity + procedure memory failure. Fix: Create and follow a standard git verification sequence before any push/commit claims.
+
 ### 2026-06-03
 **Failure Type:** Retrieval
 **Description:** Nova failed to retrieve known recurring research topics and acted blank despite available context.

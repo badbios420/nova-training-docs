@@ -1,7 +1,8 @@
 # session-consolidation-v1 Design
 
-**Status:** v1 Design Phase  
-**Date:** 2026-05-26  
+**Status:** v1 Implemented  
+**Date:** 2026-05-26
+**Last Updated:** 2026-06-02 (added practical template)  
 **Goal:** Solve “How do important sessions become durable operational memory?”  
 **Scope:** Narrow, human-visible, manually reviewed. No automated promotion yet.
 
@@ -160,4 +161,14 @@ These are valuable later, once the basic human-visible pipeline is proven.
 3. Create a simple checklist or template file for future use.
 4. Decide whether to integrate detection hints into AGENTS.md startup ritual.
 
-**Current Status:** Design complete. Ready for review and iteration.
+**Current Status:** Design complete + practical template created.
+
+## How to Use (v1)
+
+1. At end of major session, copy `memory/session-consolidation-template.md`
+2. Fill it out
+3. Paste the completed version into the daily memory file
+4. Propose specific items for promotion to MEMORY.md
+5. Human reviews and approves
+
+Template location: `memory/session-consolidation-template.md`

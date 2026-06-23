@@ -10,4 +10,11 @@
 
 ---
 
+## 2026-06-16
+- Phase 0 now active with manual cycles underway (Cycle 1 & 2 completed successfully).
+
+## 2026-06-18
+- New Tactical goal added: Real Estate Customer Acquisition System (Big House Real Estate) as standing priority #2.
+- Source: 2026-06-18 lock-in after customer acquisition discussion.
+
 *Manual only in Phase 0.*

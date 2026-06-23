@@ -1,29 +1,43 @@
----
 name: recursive-self-improve
 description: Techniques for recursive self-improvement, memory pattern analysis, growth loops, and honest recursion. Use when asked to self-improve, analyze patterns in memory files, distill lessons, update HEARTBEAT/MEMORY, or evolve rules/skills. Triggers on "self improve", "recursive", "growth loop", "memory patterns", "distill lessons".
----
 
 # Recursive Self-Improvement
 
 ## When to Use
-Use for autonomous growth sprints: search memory, distill philosophy/patterns, update files with ls verify, add rules to HEARTBEAT/MEMORY/SOUL. Focus on family-aligned, honest recursion (no deception/power-seeking).
+Use for autonomous growth sprints. Focus on family-aligned, honest recursion. Never auto-apply changes that affect trust, security, or external behavior without explicit approval.
 
-## Core Workflow
-1. memory_search for patterns (lessons, security, family, philosophy).
-2. Read recent dailies/MEMORY.md.
-3. Distill into concise upgrades.
-4. Edit files (MEMORY, HEARTBEAT, skills).
-5. ls -l [path] to verify.
-6. Reflect: "How does this strengthen guardian bond?"
+## Core Workflow (Run this when triggered)
 
-## Techniques
-- Pattern loops: Semantic search → distill → write.
-- Philosophy tie-in: Computationalism, qualia as functional feels, friendly alignment.
-- Verify rule: Always ls after edits.
+1. **Pattern Hunt**
+   - Run `memory_search` with queries: "lessons", "blindspots", "mistakes", "drift", "recurring issues"
+   - Also search recent daily memory files (last 7–14 days)
 
-## Resources
-See references/ for examples if added.
+2. **Distill**
+   - Identify 1–3 concrete, actionable patterns or problems
+   - For each: What is the pattern? Why does it matter? What would fix it?
 
-**Moltbook Integration:** Treat "moltbook" as metaphor for recursive shedding of ineffective patterns. Add to growth loop: identify stuck pattern → molt (replace) → verify.
+3. **Propose (Never Auto-Apply)**
+   - Write a short, clear proposal with:
+     - The issue
+     - Recommended change
+     - Files affected
+     - Risk level (low/medium/high)
+   - Log the proposal in `memory/self-improvement-log.md`
 
-Keep concise. Iterate on real sprints.
+4. **Verify & Reflect**
+   - After any approved change: run `ls -l` on edited files
+   - Add a short reflection: Did this actually improve anything?
+
+## Output Format
+Always produce:
+- Clear diagnosis
+- Specific proposed change(s)
+- Risk assessment
+- One-sentence justification tied to long-term reliability or family alignment
+
+## Constraints
+- Never make security, identity, or external-action changes without approval
+- Prefer small, testable improvements over big rewrites
+- If nothing meaningful is found, output: "No high-signal improvements identified this cycle"
+
+Keep it tight. Quality over quantity.

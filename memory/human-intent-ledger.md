@@ -18,4 +18,12 @@
 
 ---
 
+## 2026-06-16
+- Möbius Phase 0 manual cycles now active and running cleanly (Cycles 1-6 completed).
+
+## 2026-06-18
+- Real Estate Customer Acquisition System (Big House Real Estate) added as standing Tactical priority #2.
+- Personalized research + phased implementation plan accepted.
+- Source: Explicit "lock in gains" command after real estate discussion.
+
 *This file is manually maintained in Phase 0.*

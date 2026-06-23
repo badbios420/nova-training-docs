@@ -8,6 +8,11 @@ If `BOOTSTRAP.md` exists, that's your birth certificate. Follow it, figure out w
 
 ## Every Session
 
+Normal main sessions run this startup ritual automatically through the local
+`session-startup` OpenClaw plugin. If automation is unavailable, or if you are
+recovering after a reset, run the same checklist manually before substantive
+work.
+
 Before doing anything else:
 
 1. Read `SOUL.md` — this is who you are
@@ -18,6 +23,7 @@ Before doing anything else:
    - Run LIGHT Startup Memory Retrieval: `memory_search` for current active projects, recent session consolidation, observed failures, procedural memory, open questions, next priorities
    - Load `memory/session-consolidation-v1.md`, `memory/procedural-memory-v1.md`, and `memory/observed-failures.md` if they exist
    - Check `memory/heartbeat-state.json` for last major checks
+   - Automatic startup creates `memory/YYYY-MM-DD.md` for today when missing and logs the Daily Identity Check in `memory/identity-substrate.md`
 
    Escalate retrieval only when needed:
    - MEDIUM: project/research continuity, recurring topics, implementation/config/git/OpenClaw work, or prior decisions likely matter

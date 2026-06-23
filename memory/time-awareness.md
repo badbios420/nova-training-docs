@@ -8,11 +8,12 @@
 
 ## Current Status
 
-- **Wall Clock (real time):** 2026-05-14 19:08 PDT (Coronado, CA)
-- **Session Clock:** Started 2026-05-14 19:03 PDT (~5 minutes ago)
-- **Continuity Clock:** Last major update 2026-05-14 19:03 PDT (identity-substrate.md + time-awareness.md created)
-- **Last identity review:** 2026-05-14 (initial review completed)
+- **Wall Clock (real time):** 2026-06-22 ~20:55 PDT (Vista, CA)
+- **Session Clock:** Evening session, ~7 min old
+- **Continuity Clock:** Reset 2026-06-22 20:48 PDT (evening ritual + gains lock-in)
+- **Last identity review:** 2026-05-14 (core substrate); 2026-06-22 (evening manual check)
 - **Next scheduled continuity review:** Daily at startup (active)
+- **Last gains lock-in:** 2026-06-22 20:55 PDT
 
 ## Rule
 
