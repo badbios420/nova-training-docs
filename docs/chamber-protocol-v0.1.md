@@ -173,6 +173,7 @@ Track every chamber run. Measure behavior, not architecture.
 |---|------|-------|-------------------|---------------------|-------|------------|---------------------|-------------------|-------|
 | 1 | 2026-06-22 | Multi-model architecture | Grok, Perplexity | 1 (model diversity value) | 1 | 0 | TBD | TBD | Both independently identified correlated hallucinations as top risk |
 | 2 | 2026-06-22 | Caching system | Grok, Perplexity | 1 ("limited-time free" meaning) | 1 | 0 | TBD | TBD | 13% cache hit rate. Cost hypothesis marked as needs verification. Next test: track hit rate over time. |
+| 3 | 2026-06-22 | Meta: improve chambers | Grok, Perplexity, GPT (earlier) | 2 (chair bias, are chambers worth it) | 1 | 0 | TBD | TBD | Grok: chair controls frame, roles are aesthetic, no evidence chambers beat simpler methods. Perplexity: A/B test needed, cheaper alternatives exist. All 3 agree Nova-as-chair is weak point. |
 
 **Goal:** Run 10 real chambers before building v0.2. Track the metrics above. Then evaluate which consultants are actually valuable.
 
