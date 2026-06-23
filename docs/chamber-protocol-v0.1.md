@@ -169,10 +169,10 @@ Every chamber session produces:
 
 Track every chamber run. Measure behavior, not architecture.
 
-| # | Date | Topic | Consultants Used | Disagreements Found | Holds | Promotions | Later Corrections | Notes |
-|---|------|-------|-------------------|---------------------|-------|------------|-------------------|-------|
-| 1 | 2026-06-22 | Multi-model architecture | Grok, Perplexity | 1 (model diversity value) | 1 | 0 | TBD | Both independently identified correlated hallucinations as top risk |
-| 2 | 2026-06-22 | Caching system | Grok, Perplexity | 1 ("limited-time free" meaning) | 1 | 0 | TBD | 13% cache hit rate. z.ai caching is automatic. "Limited-time free" refers to storage, not token rate. |
+| # | Date | Topic | Consultants Used | Disagreements Found | Holds | Promotions | Later Proven Wrong | Later Corrections | Notes |
+|---|------|-------|-------------------|---------------------|-------|------------|---------------------|-------------------|-------|
+| 1 | 2026-06-22 | Multi-model architecture | Grok, Perplexity | 1 (model diversity value) | 1 | 0 | TBD | TBD | Both independently identified correlated hallucinations as top risk |
+| 2 | 2026-06-22 | Caching system | Grok, Perplexity | 1 ("limited-time free" meaning) | 1 | 0 | TBD | TBD | 13% cache hit rate. Cost hypothesis marked as needs verification. Next test: track hit rate over time. |
 
 **Goal:** Run 10 real chambers before building v0.2. Track the metrics above. Then evaluate which consultants are actually valuable.
 
@@ -181,3 +181,4 @@ Track every chamber run. Measure behavior, not architecture.
 - Lots of HOLDs and NEEDS EVIDENCE is correct behavior
 - If consultants never disagree, the chamber failed
 - "Everyone mostly agrees → chamber declares success" is the failure mode to avoid
+- **"Later Proven Wrong" is the metric that matters most.** It tells you whether the chamber is actually improving judgment. Target: Promotions with low wrong-rate, not high promotion-rate.

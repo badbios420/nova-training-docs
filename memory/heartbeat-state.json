@@ -2,11 +2,25 @@
   "lastChecks": {
     "security": null,
     "update": null,
-    "memory": 1719109500,
+    "memory": 1781590417,
     "sites": null,
     "weather": null,
     "selfImprovementReview": 1781590417
   },
-  "lastSession": "2026-06-22T21:05:00-07:00",
-  "notes": "Reset 2026-06-22. Security/update/sites/weather all stale — overdue for heartbeat batch."
+  "lastSession": "2026-06-22T22:23:00-07:00",
+  "notes": "Reset 2026-06-22. Security/update/sites/weather all stale — overdue for heartbeat batch.",
+  "cacheTracking": {
+    "sessions": [
+      {
+        "date": "2026-06-22",
+        "model": "zai/glm-5.2",
+        "cacheHitPercent": 13,
+        "cachedTokens": 35000,
+        "totalInputTokens": 226000,
+        "cost": 0.00,
+        "notes": "First GLM-5.2 session. System prompt cached, conversation history not."
+      }
+    ],
+    "goal": "Track cache hit rate across sessions. If flat or declining, investigate. If rising, caching is working."
+  }
 }

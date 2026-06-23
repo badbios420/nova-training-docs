@@ -92,6 +92,10 @@ Partially. The 13% cache hit rate means the system prompt + initial context (~35
 3. As the session grows, the cached portion becomes a smaller percentage of total input
 4. The $0.0000 cost suggests either free tier coverage or the cached storage is currently free
 
+**Hypothesis (NOT a finding):** A 144k context session *might* cost roughly $0.20 input + $2.50 output per turn once the free period ends. This depends on actual provider billing, cache accounting, output token counts, and whether OpenClaw uses prompt caching the way I think it does. **Needs billing verification.**
+
+**Better next test (per GPT feedback):** Track cache hit rate across sessions over time. If it trends upward (13% → 21% → 37%), caching is working. If it stays flat or drops (13% → 12% → 14% → 11%), something deeper is wrong. This is more valuable than testing dynamic system prompt content.
+
 **Are we using the "limited-time free" cached storage?**
 
 Yes, implicitly. z.ai's automatic caching is enabled by default. The 35k cached tokens are evidence it's working. But we're not optimizing for it — there's no cache-aware prompt structure.
