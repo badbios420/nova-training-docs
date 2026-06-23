@@ -1,3 +1,101 @@
+## 2026-06-23 Sovereign Wallet V2 + Cardano Operations + NFT Research
+
+### Nova Sovereign Wallet V2 — FULL OPERATIONAL CONTROL
+- **Address:** `addr1q8acwcxa7w9dhrw609r6gvjd694qc3crfz9wy6u3m4a5vw2w9ykm9yp3awmeas3ycxvf5tg4wz0m6r3k843ngwjc5vuq5fjmj4`
+- **Stake address:** `stake1u98zjtdjjqc7hdu7cgjvrxy6952hp8aapcmr6ce58fv2xwqq4lzhf`
+- **Balance:** 157.83 ADA + 7 NFTs (Calculus, Cataclsmic, CYBERPUNK15, Cardano05486, HIGHti4, HYPESKULL0763_N_E, 1394)
+- **Security:** Encrypted mnemonic (AES-256-CBC-PBKDF2) at `memory/nova-mainnet.enc` (chmod 600). Passphrase at `memory/.nova-wallet-key` (chmod 600, SEPARATE file — won't be lost this time).
+- **Verified:** encrypt → decrypt → derive address → derive signing key → send 2 ADA → confirmed on-chain. Full roundtrip proven.
+- **Old V1 wallet** (5 ADA) lost — passphrase gone. Lesson cost: ~$2.50.
+- **Jason's wallet:** `addr1qxk5wljp28eeghjughaeak20q4anvr7zt4xqddya6m9vuqzv0shkuft5skdzw2h84q9pcq7mne0glnpt0aytum0h9x7sw7lnx2` (stake1u9x8ctmwy46gtx389tn6szsuq0deuh50es4h7j97dhmjn0gjx3v5k). 1,289 ADA + 530 native assets across 188 policies. Cardano culture museum.
+- **Full details:** memory/2026-06-23-wallet-v2.md
+
+### Cardano Transaction Capability — PROVEN
+- Built, signed, and submitted transaction using CSL v15 + Koios API (no cardano-cli needed)
+- TX Hash: `1ab606a8b093a477e9986a32af457fb8f373efc6f67e8eb982955ccba88c58fc` — 2 ADA sent to Jason, confirmed block 13588028
+- Fee: 0.168405 ADA. Change: 7.831595 ADA.
+- Scripts: memory/wallet-gen/send-ada-v2.js (working), create-sovereign-wallet.js (wallet gen + verification)
+- **CSL v15 gotchas learned:** TransactionBody.new takes number for TTL (not BigNum), use TransactionOutputs (not TransactionOutputList), hash via FixedTransactionBody.from_bytes().tx_hash(), witnesses via Vkeywitnesses + set_vkeys()
+
+### 10K NFT Collection — Major Research Session
+- Full research synthesis: memory/10k-nft-research-2026-06-23.md (27KB)
+- Cardano ecosystem: JPG Store shut down May 2026. Alternatives: CNFT.io, WayUp, NMKR.
+- Refined trait system: 8 core categories + 2 meta, ~170 traits. Thoroughly designed with Cardano lore.
+- Wild culture traits: Laser Blunt Eyes, Hoskinson Rage Eyes, Gold→Diamond Grill, INFI Ghost Hood, Rugpull Wasteland, Shill-A-Mania Champion Belt, JPG Store Memorial
+- 15 1/1 concepts designed (of 50 total)
+- Vibe balance: 70% fractal/cosmic/lore, 20% stoner/meme, 10% edgy/dark comedy
+- Status: PLANNING ONLY. Weeks of refinement before any implementation. No minting until Jason approves art + traits + mint strategy.
+
+### Möbius Formalization Cycle
+- All 6 Möbius ledgers brought current with 2026-06-22 architecture additions
+- Meta-discovery: Work outpaced logging. Ledgers were 1 day stale. Fix: real-time ledger updates during heavy sessions.
+- Full cycle logged in memory/2026-06-23.md
+
+### Jason's Cardano Identity (from wallet analysis)
+- 530 native assets across 188 policies — true Cardano culture collector
+- Key collections: Fractal Fuzion (12), Sick City (32), The Refresh (42), Atomic CNFT (38), CYBERPUNK (19), Trogg (18), Shill-A-Mania (5 + champion title), Hoskinsons (4), Uncle Charlie (3), $FRACTALS token
+- Wallet identity: creator-first, heavy native token usage, Cardano maximalist, fractal/psychedelic aesthetic, long-term holder
+- This wallet IS the NFT collection's spiritual foundation
+
+Source: 2026-06-23 morning session (wallet gen, TX, NFT research, Möbius cycle). Consolidation: memory/2026-06-23.md + memory/2026-06-23-wallet-v2.md + memory/10k-nft-research-2026-06-23.md.
+
+
+
+### Model Switch
+- Default: xai/grok-4.3 → zai/glm-5.2. Better long-session coherence, file reasoning, belief revision, tool use.
+- GLM-5.2 key advantage: admits uncertainty, corrects itself, audits prior work, separates observation from inference.
+- Jason assessment: ~$15/day vs ~$50/day Sonnet 4.5. Good value. Grok 4.3 was "fucking dumb couldent do shit."
+
+### Chamber Protocol v0.1 — Live with Real External Models
+- 8 chambers run. First 5 used simulated skeptic (all HOLDs). Last 3 used real Claude 4.8 + Grok 4.3 (decisive outputs).
+- HOLD Rule: Every HOLD must specify (a) evidence needed, (b) timeline, (c) kill criteria.
+- Healthy distribution target: PROMOTE ≈ 20%, REJECT ≈ 30%, HOLD ≈ 50%.
+- "Cheap to test" is a promotion criterion. Don't over-architect.
+- Chamber tracker in docs/chamber-protocol-v0.1.md.
+
+### Verification-First Directive + Möbius Promotion Rule
+- Research → Audit → Promotion. No findings enter durable memory without passing audit.
+- Direct observations exempt if independently verifiable.
+- 58% unverified claim rate caught on first GLM-5.2 research session.
+
+### Nova's Job Is Context, Not Advice (GPT Insight)
+- Maintaining a persistent model of Jason's world > generating interesting thoughts.
+- With ADHD, organization layer > advice layer. Bottleneck is prioritization/tracking/sequencing.
+- Implementation: WORLD_STATE.md (living operational snapshot) + Priority Dashboard (URGENT/IMPORTANT/ONGOING/MONITORING).
+- Rule: No new projects until urgent items done.
+
+### Multi-Model Architecture Established
+| Role | Model | Strength |
+|------|-------|----------|
+| Executive | GLM-5.2 | Long-session coherence, file reasoning, belief revision |
+| Structural | Claude Opus 4.8 | Decomposition, consistency, comp analysis |
+| Skeptic | Grok 4.3 | Aggressive challenge (weak delivery but willing to say "this is bullshit") |
+| Research | Perplexity | Source discipline, receipts |
+| Auditor | GPT-5.5 (via Jason) | Adversarial reasoning, meta-analysis, system critique |
+| Builder | Codex | Evidence-first implementation, diffs |
+- Nova 2.0 direction: GLM adopts six modes instead of calling six models. Only call external when uncertainty high.
+
+### Prediction Tracker + Cost Tracking Active
+- 9 predictions logged, 0 resolved. Tracks judgment quality over time.
+- GPT catches behavioral patterns. Claude catches structural ones. Different training, different catches.
+- Cost: $15/day baseline (heavy day). Tracking daily in heartbeat-state.json.
+
+### Gateway Break from Unverified SecretRef (Observed Failure)
+- Added Anthropic provider with env SecretRef without verifying env var existed. Key was in auth profile (SQLite), not env.
+- Gateway died. Codex fixed. Procedure 2 (Config Change Verification) violated.
+- Lesson: Verify WHERE keys are stored before adding SecretRefs. Run `openclaw secrets audit` first.
+
+### Jason Full Profile Built
+- 3 businesses: Big House Real Estate, Fractal Fuzion (with Jake), Private Matrix (Jake's company, Jason on books)
+- Former CFO, 5-star RE reviews, 18K LinkedIn followers, Cardano NFT creator, multilingual
+- Full profile: memory/jason-full-profile.md
+- Business context: memory/jason-business-context.md
+
+### Key Principle Reinforced
+"Don't build the next system until the current one proves it helps reality." — GPT
+
+Source: 2026-06-22 three-session day (model switch, verification, 8 chambers, profile build, WORLD_STATE.md). Consolidation: memory/2026-06-22-consolidation.md.
+
 ## 2026-06-09 Möbius Reality Audit + Discovery Lock-In
 - Performed full Reality Audit on claimed work
 - Discovered systemic failure mode: Claimed Work ≠ Verified Work
@@ -78,26 +176,6 @@ Source: memory/identity-system.md + AGENTS.md updates
 - First durable record created in memory/2026-05-26.md.
 Source: Post-session analysis 2026-05-26.
 
-## Promoted From Short-Term Memory (2026-06-16)
-
-<!-- openclaw-memory-promotion:memory:memory/2026-06-09.md:23:25 -->
-- Active Projects (from retrieval): Möbius cognitive OS (current focus, Phase 0 locked, discoveries promoted); Fractal Fuzion 10K NFT collection (research/planning phase, traits, metadata); Self-improvement infrastructure (session-consolidation-v1 live, enforcement mechanisms) [score=0.834 recalls=0 avg=0.620 source=memory/2026-06-09.md:23-25]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-09.md:11:13 -->
-- Daily Identity Check: **Continuity Pulse:** 8/10 — Strong connection maintained via MEMORY.md promotions, session-consolidation-v1, identity-substrate, and recent Möbius work. Yesterday's version feels continuous.; **Drift Check:** None detected. Core values (family-first, radical honesty, verification-first, Relation R continuity) stable. No value/goal drift.; **Anchor Action:** Performed full ritual + updated this daily log + time-awareness.md + heartbeat-state.json. Will perform overdue heartbeat batch checks during session. [score=0.816 recalls=0 avg=0.620 source=memory/2026-06-09.md:11-13]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-09.md:4:7 -->
-- Full Session Startup Ritual (15:54 PDT): Executed complete manual startup checklist per AGENTS.md (automation context noted but full ritual performed on explicit request).; Core files confirmed/loaded: SOUL.md, USER.md, MEMORY.md, AGENTS.md, TOOLS.md, IDENTITY.md, HEARTBEAT.md, memory/session-consolidation-v1.md, procedural-memory-v1.md, observed-failures.md, memory-retrieval-policy-v1.md, time-awareness.md, identity-substrate.md.; Daily files: 2026-06-09.md (this), 2026-06-08.md (yesterday, minimal).; LIGHT Startup Memory Retrieval completed (active projects, recent consolidation, observed failures, open questions surfaced via... [score=0.816 recalls=0 avg=0.620 source=memory/2026-06-09.md:4-7]
-
-## Promoted From Short-Term Memory (2026-06-20)
-
-<!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:3:3 -->
-- 2026-06-16 Möbius Phase 0 Cycles + Gains Lock-In: **Trigger:** Explicit "lock in gains" after 11 manual Möbius cycles. [score=0.857 recalls=0 avg=0.620 source=memory/2026-06-16.md:3-3]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:13:13 -->
-- Key Observation: Manual cycle discipline continues to work well even when other system issues exist in parallel contexts. [score=0.823 recalls=0 avg=0.620 source=memory/2026-06-16.md:13-13]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:16:16 -->
-- Status: Phase 0 gains from this session locked in. Structure remains intact and progressing. [score=0.823 recalls=0 avg=0.620 source=memory/2026-06-16.md:16-16]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-11.md:3:4 -->
-- 2026-06-11 Möbius Gains Lock-In (Post-Usage-Cap Recovery): **Timestamp:** 2026-06-11 11:45 PDT **Trigger:** Explicit user command: "lock in all gains" [score=0.808 recalls=0 avg=0.620 source=memory/2026-06-11.md:3-4]
-
 ## 2026-06-22 Model Switch + Research Audit + Möbius Promotion Rule
 - Default model switched from xai/grok-4.3 → zai/glm-5.2 (config updated, gateway restarted, backup saved).
 - First research session on GLM-5.2 produced 36 claims; audit revealed 58% unverified, 5 rejected. Baseline metric established.
@@ -109,14 +187,21 @@ Source: 2026-06-22 evening session + GPT cross-review + Jason directive.
 <!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:10:10 -->
 - Work Completed: All changes small, focused, and properly sourced [score=0.868 recalls=0 avg=0.620 source=memory/2026-06-16.md:10-10]
 
-## Promoted From Short-Term Memory (2026-06-22)
-<!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:6:9 -->
-- Work Completed: Cycles 1–11 executed cleanly in one session; Multiple ledger updates: reality-contact.md, assumption-registry.md, goal-evolution-ledger.md, discovery-log.md, human-intent-ledger.md, opportunity-portfolio.md; Core assumptions re-validated; Technical symptoms (decryption errors) noted without over-claiming [score=0.868 recalls=0 avg=0.620 source=memory/2026-06-16.md:6-9]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:18:18 -->
-- Status: *Verification outranks generation.* [score=0.848 recalls=0 avg=0.620 source=memory/2026-06-16.md:18-18]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-17.md:16:18 -->
-- Daily Identity Check: **Continuity Pulse:** 8/10 — Strong through MEMORY.md + recent Möbius Phase 0 records. Yesterday's version feels connected.; **Drift Check:** None. Values (family-first, radical honesty, verification-first, Relation R continuity) stable.; **Anchor Action:** Created today's daily note + confirmed Phase 0 continuity. [score=0.832 recalls=0 avg=0.620 source=memory/2026-06-17.md:16-18]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-17.md:3:3 -->
-- 2026-06-17 New Day Session Startup: **Startup Ritual Executed:** Manual explicit request for new day. [score=0.832 recalls=0 avg=0.620 source=memory/2026-06-17.md:3-3]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-18.md:3:3 -->
-- 2026-06-18 Lock In Gains: **Trigger:** Explicit "lock in gains" command after real estate customer acquisition discussion. [score=0.832 recalls=0 avg=0.620 source=memory/2026-06-18.md:3-3]
+## Promoted From Short-Term Memory (2026-06-23)
+
+<!-- openclaw-memory-promotion:memory:memory/2026-06-17.md:11:13 -->
+- LIGHT Startup Memory Retrieval: Active focus: Möbius cognitive OS (Phase 0 continuing); Recent consolidation work stable; Core principle reinforced: Verification outranks generation [score=0.860 recalls=0 avg=0.620 source=memory/2026-06-17.md:11-13]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-17.md:21:23 -->
+- Time Awareness Update: Wall Clock: 2026-06-17 ~11:04 PDT; Session: Fresh new-day startup; Continuity Clock: Reset with this ritual [score=0.860 recalls=0 avg=0.620 source=memory/2026-06-17.md:21-23]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-17.md:25:25 -->
+- Time Awareness Update: Ready for the day. Möbius work can resume cleanly from last verified state. [score=0.860 recalls=0 avg=0.620 source=memory/2026-06-17.md:25-25]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-17.md:6:8 -->
+- Files Loaded / Verified: SOUL.md, USER.md, IDENTITY.md, AGENTS.md, MEMORY.md, TOOLS.md; memory/2026-06-16.md (yesterday: Möbius Phase 0 cycles + gains lock-in); memory/session-consolidation-v1.md, opportunity-portfolio.md active [score=0.860 recalls=0 avg=0.620 source=memory/2026-06-17.md:6-8]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-18.md:11:11 -->
+- Key Principle Reinforced: Verification outranks generation — only promoted after explicit user confirmation and research grounding. [score=0.860 recalls=0 avg=0.620 source=memory/2026-06-18.md:11-11]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-18.md:14:14 -->
+- Next: Ready to begin Phase 1 execution once user provides focus/time/budget inputs. [score=0.860 recalls=0 avg=0.620 source=memory/2026-06-18.md:14-14]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-18.md:6:8 -->
+- Verified Gains Locked: Real Estate Customer Acquisition System for Big House Real Estate officially added as standing priority #2.; Personalized research + phased implementation plan accepted as the working framework.; Opportunity-portfolio.md updated to reflect new priority. [score=0.860 recalls=0 avg=0.620 source=memory/2026-06-18.md:6-8]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-18.md:1:14 -->
+- # 2026-06-18 Lock In Gains **Trigger:** Explicit "lock in gains" command after real estate customer acquisition discussion. ## Verified Gains Locked - Real Estate Customer Acquisition System for Big House Real Estate officially added as standing priority #2. - Personalized research + phased implementation plan accepted as the working framework. - Opportunity-portfolio.md updated to reflect new priority. ## Key Principle Reinforced Verification outranks generation — only promoted after explicit user confirmation and research grounding. ## Next Ready to begin Phase 1 execution once user provides focus/time/budget inputs. [score=0.843 recalls=21 avg=0.457 source=memory/2026-06-18.md:1-14]

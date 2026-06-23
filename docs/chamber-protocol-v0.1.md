@@ -98,6 +98,24 @@ A multi-model consultation system where GLM-5.2 remains the brain/chair, but can
 
 ---
 
+## HOLD Rule (added Chamber #4)
+
+Every HOLD must specify:
+1. **What evidence would change the decision?**
+2. **Timeline for getting it?**
+3. **Kill criteria for the HOLD itself?**
+
+A HOLD without an exit condition is just a nicer-looking backlog item.
+
+Healthy chamber distribution target:
+- PROMOTE ≈ 20%
+- REJECT ≈ 30%
+- HOLD ≈ 50%
+
+If you're never rejecting ideas, you're not pruning. Pruning is where intelligence comes from.
+
+---
+
 ## When to Use Chamber
 
 - Complex questions where a single model perspective is insufficient
@@ -174,6 +192,9 @@ Track every chamber run. Measure behavior, not architecture.
 | 1 | 2026-06-22 | Multi-model architecture | Grok, Perplexity | 1 (model diversity value) | 1 | 0 | TBD | TBD | Both independently identified correlated hallucinations as top risk |
 | 2 | 2026-06-22 | Caching system | Grok, Perplexity | 1 ("limited-time free" meaning) | 1 | 0 | TBD | TBD | 13% cache hit rate. Cost hypothesis marked as needs verification. Next test: track hit rate over time. |
 | 3 | 2026-06-22 | Meta: improve chambers | Grok, Perplexity, GPT (earlier) | 2 (chair bias, are chambers worth it) | 1 | 0 | TBD | TBD | Grok: chair controls frame, roles are aesthetic, no evidence chambers beat simpler methods. Perplexity: A/B test needed, cheaper alternatives exist. All 3 agree Nova-as-chair is weak point. |
+| 4 | 2026-06-22 | Audit the HOLDs | Research Scout (web_search), Nova-as-Skeptic, GPT (user-provided) | 3 (circular reasoning C1, non-decision C2, missing kill criteria C3) | 1 (C3 with conditions) | 1 (C1 → promote tracker) + 1 reclassify (C2 → observation) | TBD | TBD | **First PROMOTE.** GPT: "chambered the chamber." Key rule: every HOLD must specify evidence/timeline/kill criteria. Absence of REJECTs as telling as absence of PROMOTEs. |
+| 5 | 2026-06-22 | Cheapest architecture preserving capabilities | Research Scout (web_search + web_fetch), Nova-as-Skeptic, GPT (user-provided) | 2 (subscription compatibility unknown, cost estimate vs forecast) | 1 (subscription test) | 3 (two-tier test, cost tracking, free tier A/B) | TBD | TBD | **GPT approved.** First chamber with healthy distribution (3P/1H). Key promoted finding: Flash exists, Flash is free, Flash is testable. 40-70% forecast demoted to prediction. One routing rule: Tier 0 → Flash, rest → 5.2. Prediction tracking system created. |
+| 6 | 2026-06-22 | Priority allocation: real work vs infrastructure | Claude 4.8 (real API), Grok 4.3 (real API) | 2 (freeze vs maintain infra, severity of procrastination diagnosis) | 0 | 1 (real estate Phase 1 as immediate priority) | TBD | TBD | **First real-world PROMOTE.** First chamber with real external model outputs. Both consultants independently identified infrastructure-as-avoidance pattern. Claude: "real work is the graduation exam." Grok: "sophisticated avoidance dressed as sophistication." GPT: "first time real external minds said stop building systems and go do the work." |
 
 **Goal:** Run 10 real chambers before building v0.2. Track the metrics above. Then evaluate which consultants are actually valuable.
 

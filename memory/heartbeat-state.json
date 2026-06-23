@@ -7,8 +7,8 @@
     "weather": null,
     "selfImprovementReview": 1781590417
   },
-  "lastSession": "2026-06-22T22:23:00-07:00",
-  "notes": "Reset 2026-06-22. Security/update/sites/weather all stale — overdue for heartbeat batch.",
+  "lastSession": "2026-06-23T00:57:00-07:00",
+  "notes": "3-session day. Full consolidation complete. WORLD_STATE.md live. Security/update/sites/weather all stale — overdue for heartbeat batch tomorrow.",
   "cacheTracking": {
     "sessions": [
       {
@@ -19,8 +19,46 @@
         "totalInputTokens": 226000,
         "cost": 0.00,
         "notes": "First GLM-5.2 session. System prompt cached, conversation history not."
+      },
+      {
+        "date": "2026-06-22",
+        "model": "zai/glm-5.2",
+        "cacheHitPercent": 68,
+        "cachedTokens": 44000,
+        "totalInputTokens": 20000,
+        "cost": 0.00,
+        "notes": "3rd session. Cache hit jumped to 68%."
+      },
+      {
+        "date": "2026-06-22",
+        "model": "zai/glm-5.2",
+        "cacheHitPercent": 68,
+        "cachedTokens": 44000,
+        "totalInputTokens": 52000,
+        "cost": 0.00,
+        "notes": "3rd session continued. 8 chambers, profile build, WORLD_STATE.md. Heavy subagent spawning."
       }
     ],
     "goal": "Track cache hit rate across sessions. If flat or declining, investigate. If rising, caching is working."
+  },
+  "costTracking": {
+    "dailyLog": [
+      {
+        "date": "2026-06-22",
+        "cost": 15.00,
+        "costSource": "Jason (user-reported)",
+        "sessions": 3,
+        "capabilitiesGained": "Model switch to GLM-5.2, verification-first directive, Möbius Promotion Rule, 8 chambers, Quorra arbitrage, identity cleanup, research audit system, prediction tracker, cost tracking, WORLD_STATE.md, priority dashboard, Jason full profile, Anthropic provider setup, chamber protocol with real external models",
+        "errorsPrevented": "58% unverified claims caught before promotion, signal pollution cleaned, circular HOLD reasoning caught, infrastructure-as-avoidance pattern caught by external models, unverified SecretRef caught (after gateway died — Codex fixed)",
+        "notes": "Heavy day. 3 sessions. Typical day expected $2-5."
+      }
+    ],
+    "goal": "Track cost vs capabilities vs errors prevented. 7 days of data before subscription decision.",
+    "baseline": {
+      "dailyLow": null,
+      "dailyHigh": 15.00,
+      "dailyAverage": null,
+      "daysTracked": 1
+    }
   }
 }

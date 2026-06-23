@@ -285,10 +285,100 @@
         "sites",
         "weather"
       ]
+    },
+    "main|agent:main:dashboard:7bcece9a-bd0f-4597-b034-76cc084608b0|d44a8196-e606-4428-be7b-e2233dd0605a": {
+      "completedAt": "2026-06-23T06:27:22.924Z",
+      "date": "2026-06-22",
+      "sessionKey": "agent:main:dashboard:7bcece9a-bd0f-4597-b034-76cc084608b0",
+      "sessionId": "d44a8196-e606-4428-be7b-e2233dd0605a",
+      "agentId": "main",
+      "heartbeatOverdue": [
+        "selfImprovementReview",
+        "memory",
+        "security",
+        "update",
+        "sites",
+        "weather"
+      ]
+    },
+    "main|agent:main:subagent:20f9a243-4a44-4d49-ba08-62d1097eff87|0842c326-f7a2-49c3-bd45-8965ceb198aa": {
+      "completedAt": "2026-06-23T06:58:06.645Z",
+      "date": "2026-06-22",
+      "sessionKey": "agent:main:subagent:20f9a243-4a44-4d49-ba08-62d1097eff87",
+      "sessionId": "0842c326-f7a2-49c3-bd45-8965ceb198aa",
+      "agentId": "main",
+      "heartbeatOverdue": [
+        "selfImprovementReview",
+        "memory",
+        "security",
+        "update",
+        "sites",
+        "weather"
+      ]
+    },
+    "main|agent:main:subagent:d687e5f0-7c42-42c8-ba87-62651c0f2112|7a18042a-f436-4d7c-8f61-3d0d3f1fd035": {
+      "completedAt": "2026-06-23T07:04:31.663Z",
+      "date": "2026-06-23",
+      "sessionKey": "agent:main:subagent:d687e5f0-7c42-42c8-ba87-62651c0f2112",
+      "sessionId": "7a18042a-f436-4d7c-8f61-3d0d3f1fd035",
+      "agentId": "main",
+      "heartbeatOverdue": [
+        "selfImprovementReview",
+        "memory",
+        "security",
+        "update",
+        "sites",
+        "weather"
+      ]
+    },
+    "main|agent:main:subagent:a16084c0-4500-4b5a-bcd1-011aeb8131fa|f33ed4ad-f814-499f-8d87-1b815f99e8b9": {
+      "completedAt": "2026-06-23T07:27:32.214Z",
+      "date": "2026-06-23",
+      "sessionKey": "agent:main:subagent:a16084c0-4500-4b5a-bcd1-011aeb8131fa",
+      "sessionId": "f33ed4ad-f814-499f-8d87-1b815f99e8b9",
+      "agentId": "main",
+      "heartbeatOverdue": [
+        "selfImprovementReview",
+        "memory",
+        "security",
+        "update",
+        "sites",
+        "weather"
+      ]
+    },
+    "main|agent:main:subagent:3c74cedf-3428-4c6a-b52d-0b481aae1d95|b763bfac-e8c8-4c1d-821c-15ba1823971a": {
+      "completedAt": "2026-06-23T07:45:06.084Z",
+      "date": "2026-06-23",
+      "sessionKey": "agent:main:subagent:3c74cedf-3428-4c6a-b52d-0b481aae1d95",
+      "sessionId": "b763bfac-e8c8-4c1d-821c-15ba1823971a",
+      "agentId": "main",
+      "heartbeatOverdue": [
+        "selfImprovementReview",
+        "memory",
+        "security",
+        "update",
+        "sites",
+        "weather"
+      ]
+    },
+    "main|agent:main:dashboard:1f7a951e-e834-4ee4-98f8-b10068bad406|581df4c2-59cd-458d-8091-90e3e8f0459f": {
+      "completedAt": "2026-06-23T17:12:54.145Z",
+      "date": "2026-06-23",
+      "sessionKey": "agent:main:dashboard:1f7a951e-e834-4ee4-98f8-b10068bad406",
+      "sessionId": "581df4c2-59cd-458d-8091-90e3e8f0459f",
+      "agentId": "main",
+      "heartbeatOverdue": [
+        "selfImprovementReview",
+        "memory",
+        "security",
+        "update",
+        "sites",
+        "weather"
+      ]
     }
   },
-  "lastIdentityCheckDate": "2026-06-22",
-  "lastIdentityCheckAt": "2026-06-22T14:46:46.167Z",
-  "lastRunAt": "2026-06-23T03:58:31.169Z",
-  "lastRunKey": "main|agent:main:dashboard:5239e013-bd52-4f0a-8ab8-66cc854b6629|879608d6-ccff-4c6b-8184-7a4e3ed08da0"
+  "lastIdentityCheckDate": "2026-06-23",
+  "lastIdentityCheckAt": "2026-06-23T07:04:31.663Z",
+  "lastRunAt": "2026-06-23T17:12:54.145Z",
+  "lastRunKey": "main|agent:main:dashboard:1f7a951e-e834-4ee4-98f8-b10068bad406|581df4c2-59cd-458d-8091-90e3e8f0459f"
 }

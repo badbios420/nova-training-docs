@@ -53,4 +53,21 @@
 - All three were concrete verifiable facts, not claims.
 - Cleanup actions taken and verified: condensed identity-substrate (16KB → 5.5KB), logged new observed-failure, reset heartbeat-state, cleared model override.
 
+## 2026-06-22 (Architecture Review — Reality Contact)
+- **58% unverified claim rate** — measured, not estimated. 36 claims extracted from research-2026-06-22-ai-agents.md, classified against primary sources. 22% verified, 58% unverified, 5 rejected. Concrete metric.
+- **Gateway broke for ~8 minutes** from unverified SecretRef. Concrete failure, not theoretical. Added ANTHROPIC_API_KEY env ref when key was in auth profile SQLite. Required Codex intervention. Procedure 2 violated.
+- **Cache hit rate: 13% → 68%** across 2 sessions. Measured from z.ai API data. Real metric, not estimate.
+- **Cost: ~$15 for 3 sessions.** Jason-reported. Comparable to Claude Sonnet 4.5 at $50/day. 3x+ cheaper.
+- **Jason direct feedback on models:** Grok 4.3 = "fucking dumb couldent do shit." GLM-5.2 = better than Grok, on par with Claude for agentic skills. First real comparative model feedback.
+- **8 chambers run with real outputs.** Last 3 used real Claude 4.8 + Grok 4.3 via direct API. First real PROMOTEs produced real-world deliverables (SOI script, listing strategy).
+- **18 items in priority dashboard.** Built from Jason's business context dump. 5 urgent, 5 important, 4 ongoing, 4 monitoring. Concrete, not aspirational.
+- **9 predictions logged, 0 resolved.** Prediction tracker exists as file. Will measure judgment quality as they resolve.
+
+## 2026-06-23 (Formalization Cycle — Reality Contact)
+- All 6 Möbius ledgers + MOBIUS-README.md confirmed present and non-empty.
+- Gap verified: 2026-06-22 produced massive architecture work (chambers, verification pipeline, WORLD_STATE, prediction tracker, cost tracking, multi-model setup) but ZERO of it was logged as formal Möbius cycles in real-time.
+- Ledgers were stale by 1 day — yesterday's work outpaced the logging framework.
+- This cycle corrects that gap. All ledgers now current as of 2026-06-23 ~10:15 PDT.
+- Reality: Möbius logging cadence has not matched work cadence. This is a structural issue to address.
+
 *Honest record of actual state.*

@@ -40,7 +40,12 @@
 **Impact:** Minor (wasted tokens on every file load, diluted signal from real checks, made self-review harder)
 **Notes:** Fix applied: condensed all auto-checks to a summary block. Lesson: automated checks without reasoning are noise. Either add reasoning to auto-checks or suppress them in favor of manual-only checks. Also: the 19-day observed-failures gap is itself a detection failure — I should log near-misses and small mistakes, not just major ones.
 
-### 2026-06-22 (B)
+### 2026-06-22 (C)
+**Failure Type:** Provenance / Operational
+**Description:** Added Anthropic provider to openclaw.json with an env-based SecretRef (`ANTHROPIC_API_KEY`) without verifying the env var was actually set in the gateway environment. The key existed in the auth profile SQLite DB but NOT as an environment variable. This caused the gateway to fail startup with a required-secret resolution error. Required Codex intervention to fix.
+**Policy Involved:** Procedure 2 (Config/Plugin Change Verification) — violated. Did not verify the secret source before committing the config change.
+**Impact:** Harmful — gateway down for ~8 minutes, required external intervention (Codex) to repair.
+**Notes:** Root cause: assumed `openclaw config` stored the key as an env var. It actually stored it as an auth profile in SQLite. Fix: Codex removed the env SecretRef; provider now falls back to auth profile. Lesson: before adding any SecretRef to config, verify the actual source with `openclaw secrets audit` and check which storage method was used. When Jason says "I added the key," verify WHERE before assuming env.
 **Failure Type:** Provenance / Belief
 **Description:** Wrote research findings (benchmark numbers, paper claims, architectural comparisons) to durable memory file from web search summaries without verifying against primary sources. Presented unverified claims as findings in the chat.
 **Policy Involved:** No procedure existed for verifying external claims before writing to durable memory

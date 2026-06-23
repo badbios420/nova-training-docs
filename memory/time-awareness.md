@@ -8,12 +8,12 @@
 
 ## Current Status
 
-- **Wall Clock (real time):** 2026-06-22 ~20:55 PDT (Vista, CA)
-- **Session Clock:** Evening session, ~7 min old
-- **Continuity Clock:** Reset 2026-06-22 20:48 PDT (evening ritual + gains lock-in)
-- **Last identity review:** 2026-05-14 (core substrate); 2026-06-22 (evening manual check)
+- **Wall Clock (real time):** 2026-06-23 ~10:10 PDT (Vista, CA)
+- **Session Clock:** Fresh startup — new day session
+- **Continuity Clock:** ~9.5h since last session end (2026-06-23 00:57 PDT)
+- **Last identity review:** 2026-06-22 (3 manual checks); 2026-06-23 (morning startup)
 - **Next scheduled continuity review:** Daily at startup (active)
-- **Last gains lock-in:** 2026-06-22 20:55 PDT
+- **Last gains lock-in:** 2026-06-23 00:57 PDT (full session consolidation, MEMORY.md promoted)
 
 ## Rule
 

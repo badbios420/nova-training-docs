@@ -1,0 +1,11 @@
+# Wallet secrets - NEVER commit
+memory/.nova-wallet-key
+memory/nova-mainnet-v2.enc
+memory/agent-mainnet.enc
+
+# Node modules
+memory/wallet-gen/node_modules/
+
+# Training docs submodules
+nova-training-docs/
+quorra-training-docs/
