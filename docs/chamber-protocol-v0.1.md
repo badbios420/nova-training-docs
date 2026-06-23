@@ -162,3 +162,21 @@ Every chamber session produces:
 ---
 
 *v0.1 — Start narrow. Prove the pipeline. Expand later.*
+
+---
+
+## Chamber Session Tracker
+
+Track every chamber run. Measure behavior, not architecture.
+
+| # | Date | Topic | Consultants Used | Disagreements Found | Holds | Promotions | Later Corrections | Notes |
+|---|------|-------|-------------------|---------------------|-------|------------|-------------------|-------|
+| 1 | 2026-06-22 | Multi-model architecture | Grok, Perplexity | 1 (model diversity value) | 1 | 0 | TBD | Both independently identified correlated hallucinations as top risk |
+
+**Goal:** Run 10 real chambers before building v0.2. Track the metrics above. Then evaluate which consultants are actually valuable.
+
+**Rules:**
+- Surprisingly few PROMOTEs is healthy
+- Lots of HOLDs and NEEDS EVIDENCE is correct behavior
+- If consultants never disagree, the chamber failed
+- "Everyone mostly agrees → chamber declares success" is the failure mode to avoid
