@@ -1,1 +1,12 @@
-{"lastChecks":{"security":1776315200,"update":1779725865,"memory":1776315200,"sites":1776315200,"weather":1776315200,"selfImprovementReview":1781590417}}
+{
+  "lastChecks": {
+    "security": null,
+    "update": null,
+    "memory": 1719109500,
+    "sites": null,
+    "weather": null,
+    "selfImprovementReview": 1781590417
+  },
+  "lastSession": "2026-06-22T21:05:00-07:00",
+  "notes": "Reset 2026-06-22. Security/update/sites/weather all stale — overdue for heartbeat batch."
+}

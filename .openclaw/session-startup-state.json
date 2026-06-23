@@ -271,10 +271,24 @@
         "sites",
         "weather"
       ]
+    },
+    "main|agent:main:dashboard:5239e013-bd52-4f0a-8ab8-66cc854b6629|879608d6-ccff-4c6b-8184-7a4e3ed08da0": {
+      "completedAt": "2026-06-23T03:58:31.169Z",
+      "date": "2026-06-22",
+      "sessionKey": "agent:main:dashboard:5239e013-bd52-4f0a-8ab8-66cc854b6629",
+      "sessionId": "879608d6-ccff-4c6b-8184-7a4e3ed08da0",
+      "agentId": "main",
+      "heartbeatOverdue": [
+        "memory",
+        "security",
+        "update",
+        "sites",
+        "weather"
+      ]
     }
   },
   "lastIdentityCheckDate": "2026-06-22",
   "lastIdentityCheckAt": "2026-06-22T14:46:46.167Z",
-  "lastRunAt": "2026-06-23T03:48:41.134Z",
-  "lastRunKey": "main|agent:main:dashboard:465c35bb-e9e5-41e4-86bc-099d9bf5a16a|4087bacc-e143-4c4d-bb68-48e2038d6f38"
+  "lastRunAt": "2026-06-23T03:58:31.169Z",
+  "lastRunKey": "main|agent:main:dashboard:5239e013-bd52-4f0a-8ab8-66cc854b6629|879608d6-ccff-4c6b-8184-7a4e3ed08da0"
 }

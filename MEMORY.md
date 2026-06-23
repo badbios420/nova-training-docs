@@ -98,12 +98,13 @@ Source: Post-session analysis 2026-05-26.
 <!-- openclaw-memory-promotion:memory:memory/2026-06-11.md:3:4 -->
 - 2026-06-11 Möbius Gains Lock-In (Post-Usage-Cap Recovery): **Timestamp:** 2026-06-11 11:45 PDT **Trigger:** Explicit user command: "lock in all gains" [score=0.808 recalls=0 avg=0.620 source=memory/2026-06-11.md:3-4]
 
-## 2026-06-22 Model Switch + Self-Review
+## 2026-06-22 Model Switch + Research Audit + Möbius Promotion Rule
 - Default model switched from xai/grok-4.3 → zai/glm-5.2 (config updated, gateway restarted, backup saved).
-- Self-review observation: Automated identity checks (30+ identical 7/10 entries) are signal pollution — manual checks with reasoning are the only valuable ones. Cleanup recommended.
-- Observed-failures log gap: No entries since 2026-06-03. Possible under-detection, not necessarily improvement.
-- GLM-5.1 felt more fluid than Grok 4.3 for self-review; GLM-5.2 set as default for future sessions.
-Source: 2026-06-22 evening session + config change.
+- First research session on GLM-5.2 produced 36 claims; audit revealed 58% unverified, 5 rejected. Baseline metric established.
+- **Möbius Promotion Rule added as permanent architecture:** Research → Audit → Promotion. No research findings enter durable memory without passing audit. Direct observations exempt if independently verifiable from logs/files/actions.
+- Four assumptions failed testing tonight: auto-identity-checks, observed-failures gap, model config propagation, and direct research promotion.
+- GLM-5.2 key advantage over Grok 4.3: willingness to admit uncertainty, correct itself, audit prior work, separate observation from inference. More valuable than raw intelligence for Möbius architecture.
+Source: 2026-06-22 evening session + GPT cross-review + Jason directive.
 
 <!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:10:10 -->
 - Work Completed: All changes small, focused, and properly sourced [score=0.868 recalls=0 avg=0.620 source=memory/2026-06-16.md:10-10]

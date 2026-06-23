@@ -7,6 +7,25 @@
 **Core Rule:**  
 **Do not rely on memory of how a task usually works. Verify current execution state first.**
 
+**Möbius Promotion Rule:**  
+**No research findings may be promoted to durable memory until they pass a research audit.**
+
+Pipeline:
+```
+Research (working memory)
+  ↓
+Audit (verification memory)
+  ↓
+Promotion (durable memory)
+```
+
+- Research files are working memory.
+- Audit files are verification memory.
+- Only audited findings may enter MEMORY.md, procedural memory, discovery logs, or belief state.
+- **Exception:** Direct observations from Nova's own operation may be promoted immediately if independently verifiable from logs, files, or actions.
+
+**Baseline metric established 2026-06-22:** Research Session #1 = 58% unverified. Future sessions scored against this baseline.
+
 ---
 
 ## 1. Git Commit/Push Verification
@@ -138,3 +157,38 @@ Relevant memory_search and known high-signal files have been checked.
 
 **Scope Note:**  
 This file is intentionally tiny. Only add a new procedure when a real, repeatable operational failure has occurred. Do not expand preemptively.
+
+---
+
+## 5. Proactive Disconfirmation Before Durable Claims
+
+**TRIGGER**
+- About to write a factual claim, benchmark number, or research finding to a durable memory file
+- About to promote web research to MEMORY.md or any ledger
+- About to state something as fact that I learned from a search summary rather than a primary source
+
+**WHEN TO USE**
+Any time information from external sources is being written to durable storage.
+
+**CHECKLIST**
+1. Before writing: ask "Could this be wrong?"
+2. Identify the source: Is it primary (I fetched and read it) or secondary (search summary, vendor blog, someone else's analysis)?
+3. If secondary and the claim is specific (numbers, named papers, attributions): mark it as UNVERIFIED in the file
+4. Ask "What evidence supports this beyond the source itself?"
+5. Ask "Is this discovery or just activity?" — does this change how I operate, or is it just information collection?
+6. Only promote to MEMORY.md or permanent ledgers after primary source verification
+
+**SUCCESS CRITERIA**
+Every durable claim is either (a) verified against a primary source, or (b) explicitly marked as unverified with a note on what needs checking.
+
+**FAILURE CONDITIONS**
+- Writing search summaries as verified facts
+- Citing a source I never actually read
+- Promoting vendor self-reported metrics without noting the conflict of interest
+- Confusing information collection with operational improvement
+
+**DO NOT PROMOTE TO DURABLE MEMORY UNTIL**
+Primary source has been fetched and the specific claim has been confirmed, OR the claim is explicitly marked as unverified.
+
+**ORIGIN:**
+Added 2026-06-22 after writing research-2026-06-22-ai-agents.md from unverified web search summaries and being caught by Jason's verification-first directive. Real failure, real procedure.

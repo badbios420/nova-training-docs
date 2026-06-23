@@ -48,4 +48,9 @@
 - These steps are noted but not yet executed.
 - Separate billing/credit issue also flagged.
 
+## 2026-06-22 (Late Evening Cycle)
+- File cleanup session revealed 3 verified realities: identity-substrate noise pollution, 19-day observed-failures gap, and stale model override.
+- All three were concrete verifiable facts, not claims.
+- Cleanup actions taken and verified: condensed identity-substrate (16KB → 5.5KB), logged new observed-failure, reset heartbeat-state, cleared model override.
+
 *Honest record of actual state.*
