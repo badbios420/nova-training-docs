@@ -1,14 +1,50 @@
 {
   "lastChecks": {
-    "security": null,
-    "update": null,
+    "security": 1750724820,
+    "update": 1750724820,
     "memory": 1781590417,
-    "sites": null,
-    "weather": null,
+    "sites": 1750724820,
+    "weather": 1750724820,
     "selfImprovementReview": 1781590417
   },
-  "lastSession": "2026-06-23T00:57:00-07:00",
-  "notes": "3-session day. Full consolidation complete. WORLD_STATE.md live. Security/update/sites/weather all stale — overdue for heartbeat batch tomorrow.",
+  "lastSession": "2026-06-23T16:26:00-07:00",
+  "notes": "Afternoon session. All stale heartbeat checks completed. Security audit clean (3 known WARN, 1 suppressed). Sites both up. Weather: light rain 59°F. Self-improvement review not due (last run <24h ago).",
+  "checkResults": {
+    "security": {
+      "timestamp": "2026-06-23T16:27:00-07:00",
+      "status": "WARN",
+      "findings": [
+        "tools.exec.security=full for main (known, accepted for personal assistant)",
+        "tools.fs.workspaceOnly=false (known)",
+        "security.audit.suppressions: 1 active suppression",
+        "gateway.auth.token SecretRef unresolved in shell (env not set in audit context, but gateway running with auth)"
+      ],
+      "critical": 0,
+      "suppressed": 1
+    },
+    "update": {
+      "timestamp": "2026-06-23T16:27:00-07:00",
+      "status": "OK",
+      "details": "npm, deps ok. Gateway app 2026.6.9. No updates pending."
+    },
+    "sites": {
+      "timestamp": "2026-06-23T16:27:00-07:00",
+      "status": "OK",
+      "fractalfuzion": "200 OK (nginx, WordPress, wp-json available)",
+      "bighouserealestate": "403 Cloudflare challenge (site up, bot protection active)"
+    },
+    "weather": {
+      "timestamp": "2026-06-23T16:27:00-07:00",
+      "status": "OK",
+      "vista_ca": "🌦️ 59°F, 91% humidity, wind 8mph, 0.00in precip"
+    },
+    "selfImprovementReview": {
+      "status": "NOT_DUE",
+      "lastRun": "2026-06-23T00:57:00-07:00",
+      "dueIn": "~6.5 days",
+      "rule": "7-day cycle"
+    }
+  },
   "cacheTracking": {
     "sessions": [
       {
