@@ -44,4 +44,9 @@
 
 ---
 
+**New Assumptions (2026-06-24 — Untested, Tracking)**
+- "WORLD_STATE.md time-sensitive items need daily verification" | Confidence: High | Evidence: 5 items flagged "tomorrow/this week" on 6/23, all unverified on 6/24 morning. No staleness detection mechanism exists. | Status: Holding — structural gap identified, need to add date stamping or staleness flagging
+- "web_fetch is sufficient for site health checks" | Confidence: Low | Evidence: web_fetch reported fractalfuzion.com as "200 OK" yesterday but missed broken SSL cert. curl -sI caught it. | Status: **Failed — replaced by: use curl -sI for site health, web_fetch for content only**
+- "Overnight gaps do not break continuity" | Confidence: Medium | Evidence: 13h gap survived cleanly. Files, wallet, memory, identity all intact. One data point. | Status: Holding — needs more data points across longer gaps
+
 *Phase 0 — All assumptions are manual and require human review before promotion.*

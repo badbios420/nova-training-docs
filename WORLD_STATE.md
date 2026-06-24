@@ -2,7 +2,7 @@
 
 **Not memory. Not journal. Not biography. Just: what is happening right now.**
 **Inspired by:** GPT-5.5 architecture review, 2026-06-23
-**Updated:** 2026-06-23 00:54 PDT
+**Updated:** 2026-06-24 07:53 PDT
 
 ---
 
@@ -10,10 +10,10 @@
 
 | Fire | Status | Next Action | Deadline |
 |------|--------|-------------|----------|
-| SOI Campaign — 50 contacts, script + tracking | Not started | Jason handling. Nova has script ready if needed. | Wed-Fri |
+| SOI Campaign — 50 contacts, script + tracking | Not started | Jason handling. Nova has script ready if needed. | Wed-Fri (TODAY — status unknown) |
 | Chula Vista listing relaunch — 1434 Hilltop Dr | Cancelling next week | Verify bedroom count (3bd vs 4bd), remove mattresses, new photos, decide price | Before relist |
-| IDX website launch | Tomorrow 6/23 | Verify it goes live, test lead capture | Tomorrow |
-| Vista business license | Tomorrow 6/23 | Jason getting it | Tomorrow |
+| IDX website launch | Was "tomorrow 6/23" | Verify it went live, test lead capture | OVERDUE — check with Jason |
+| Vista business license | Was "tomorrow 6/23" | Jason getting it | OVERDUE — check with Jason |
 | Sam's buyer lead — house under $600k Vista/North County | Not started | Search MLS | This week |
 
 ## Current Listings
@@ -47,7 +47,8 @@
 | Old address on Google Maps (664 E Vista Way) | MEDIUM | Update to 2440 Millegar Ln |
 | Private Matrix PO Box uses Jason's personal info | MEDIUM | Help Jake set up proper PO Box |
 | Medical bills / insurance claim unresolved | MEDIUM | $7,500 pending from San Marcos + WinCo |
-| API budget management | LOW | $6 remaining, tracking daily |
+| fractalfuzion.com SSL cert broken | MEDIUM | Self-signed cert for "example.com" instead of fractalfuzion.com. Browsers warn visitors. Needs proper cert via SiteGround or Cloudflare SSL. |
+| API budget management | LOW | Tracking daily |
 
 ## Current Opportunities
 

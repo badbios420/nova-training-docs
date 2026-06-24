@@ -87,4 +87,13 @@ This session was the most operationally productive single session in Nova's hist
 - **Quorra nuggets mining produced 40+ actionable findings.** Top imports: verification tiers, WordPress workflow, content topics, capabilities log. Patterns rejected: mythology, heavy heartbeat, per-task routing.
 - **Scope control is still the weakest skill.** GPT scored it 5/10. Covered wallets, NFTs, Cardano culture, autonomous revenue, chambers, memory systems, business priorities, identity, consciousness, reality, quantum mechanics... before 3pm. The challenge isn't generating opportunities — it's choosing which deserve attention.
 
+## 2026-06-24 (Morning Cycle)
+
+### Reality Contact Discoveries
+- **fractalfuzion.com has a broken SSL certificate.** Self-signed SiteGround cert for "example.com" instead of fractalfuzion.com. Site works (HTTP 200) but browsers will warn visitors. This is a customer-facing trust issue. Went undetected because web_fetch doesn't validate SSL — need curl-based checks for site health.
+- **WORLD_STATE.md has no staleness detection.** Five time-sensitive items flagged "tomorrow" or "this week" yesterday are all unverified today. No mechanism flags them as overdue or stale. This is the same pattern as the automated identity checks — entries without verification become noise.
+- **Koios API field is `balance`, not `total_balance`.** First wallet check failed silently due to wrong field name. Procedural fix: update wallet scripts to use correct field.
+- **web_fetch bypasses SSL cert validation.** This is a tool limitation, not a bug. But it means site health checks need `curl -sI` or `openssl s_client` to catch cert issues. Discovery: different tools see different reality layers.
+- **Overnight continuity gap (13h) survived cleanly.** Files, wallet, memory, identity all intact. This is the longest natural gap in recent days and it caused zero drift. Positive signal for Relation R.
+
 *Phase 0 — Manual entries only.*
