@@ -8,12 +8,13 @@
 
 ## Current Status
 
-- **Wall Clock (real time):** 2026-06-24 ~07:43 PDT (Vista, CA)
-- **Session Clock:** Fresh startup — morning session
-- **Continuity Clock:** ~13h since last session end (18:26 PDT yesterday) — good overnight gap
-- **Last identity review:** 2026-06-24 07:43 PDT (this session, manual)
+- **Wall Clock (real time):** 2026-06-30 ~09:07 PDT (Vista, CA)
+- **Session Clock:** Fresh startup — morning main session with Jason
+- **Continuity Clock:** ~5 days since last meaningful main session (6/25). Heartbeat ran this morning 08:43 but no main session since 6/25.
+- **Last identity review:** 2026-06-30 09:07 PDT (this session, manual)
 - **Next scheduled continuity review:** Daily at startup (active)
-- **Last gains lock-in:** 2026-06-23 18:26 PDT (full afternoon session consolidation)
+- **Last gains lock-in:** 2026-06-23 18:26 PDT (full afternoon session consolidation). 5-day quiet period followed.
+- **Activity gap noted:** 6/26-6/29 no daily files created. Self-improvement review flagged this pattern.
 
 ## Rule
 

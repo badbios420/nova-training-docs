@@ -420,10 +420,43 @@
         "sites",
         "weather"
       ]
+    },
+    "main|agent:main:dashboard:a34515fd-8b84-4945-bef8-b7768e8582f6|0ec5a702-3efd-4d4b-b767-9bfe3f134589": {
+      "completedAt": "2026-06-24T23:50:07.039Z",
+      "date": "2026-06-24",
+      "sessionKey": "agent:main:dashboard:a34515fd-8b84-4945-bef8-b7768e8582f6",
+      "sessionId": "0ec5a702-3efd-4d4b-b767-9bfe3f134589",
+      "agentId": "main",
+      "heartbeatOverdue": [
+        "selfImprovementReview",
+        "memory",
+        "security",
+        "update"
+      ]
+    },
+    "main|agent:main:dashboard:822dea4a-e4db-41ca-8d1d-264a2a47b451|e9091060-46c5-4c29-9dfa-d46a77a96a97": {
+      "completedAt": "2026-07-07T16:14:38.949Z",
+      "date": "2026-07-07",
+      "sessionKey": "agent:main:dashboard:822dea4a-e4db-41ca-8d1d-264a2a47b451",
+      "sessionId": "e9091060-46c5-4c29-9dfa-d46a77a96a97",
+      "agentId": "main",
+      "heartbeatOverdue": [
+        "memory"
+      ]
+    },
+    "main|agent:main:dashboard:822dea4a-e4db-41ca-8d1d-264a2a47b451|b88184aa-5e7f-4c23-ab6a-5ebbf9e353c2": {
+      "completedAt": "2026-07-09T00:49:40.734Z",
+      "date": "2026-07-08",
+      "sessionKey": "agent:main:dashboard:822dea4a-e4db-41ca-8d1d-264a2a47b451",
+      "sessionId": "b88184aa-5e7f-4c23-ab6a-5ebbf9e353c2",
+      "agentId": "main",
+      "heartbeatOverdue": [
+        "memory"
+      ]
     }
   },
-  "lastIdentityCheckDate": "2026-06-23",
-  "lastIdentityCheckAt": "2026-06-23T07:04:31.663Z",
-  "lastRunAt": "2026-06-24T01:22:23.419Z",
-  "lastRunKey": "main|agent:main:subagent:39f59ad4-de99-48fe-9216-ae122e45c5ae|7229d95b-9a7b-4e82-93b7-f60b823762c9"
+  "lastIdentityCheckDate": "2026-07-08",
+  "lastIdentityCheckAt": "2026-07-09T00:49:40.734Z",
+  "lastRunAt": "2026-07-09T00:49:40.734Z",
+  "lastRunKey": "main|agent:main:dashboard:822dea4a-e4db-41ca-8d1d-264a2a47b451|b88184aa-5e7f-4c23-ab6a-5ebbf9e353c2"
 }

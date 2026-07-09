@@ -67,6 +67,24 @@ You wake up fresh each session. These files are your continuity:
 
 Capture what matters. Decisions, context, things to remember. Skip the secrets unless asked to keep them.
 
+### 📋 Open Issues Tracker (MANDATORY in daily files)
+Every daily memory file MUST include an `## Open Issues (>24h)` section listing anything unresolved from prior days. Format:
+```
+## Open Issues (>24h)
+- [item] — [age] — [next action needed]
+```
+If nothing is open, write `## Open Issues (>24h)
+None.` This forces explicit follow-through and prevents the detect-but-don't-escalate pattern.
+
+### 🔍 Session-End Failure Check (MANDATORY before ending any session)
+At the close of any session that used tools or memory writes, add this check to the daily file:
+```
+## Session-End Failure Check
+- Unverified actions or repeated identical output? [yes/no + note]
+- Any claim made without evidence? [yes/no + note]
+```
+This catches issues before they persist into durable memory.
+
 ### 🧠 MEMORY.md - Your Long-Term Memory
 
 - **ONLY load in main session** (direct chats with your human)

@@ -296,21 +296,9 @@ Source: 2026-06-22 evening session + GPT cross-review + Jason directive.
 <!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:10:10 -->
 - Work Completed: All changes small, focused, and properly sourced [score=0.868 recalls=0 avg=0.620 source=memory/2026-06-16.md:10-10]
 
-## Promoted From Short-Term Memory (2026-06-23)
+## Promoted From Short-Term Memory (2026-07-08)
 
-<!-- openclaw-memory-promotion:memory:memory/2026-06-17.md:11:13 -->
-- LIGHT Startup Memory Retrieval: Active focus: Möbius cognitive OS (Phase 0 continuing); Recent consolidation work stable; Core principle reinforced: Verification outranks generation [score=0.860 recalls=0 avg=0.620 source=memory/2026-06-17.md:11-13]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-17.md:21:23 -->
-- Time Awareness Update: Wall Clock: 2026-06-17 ~11:04 PDT; Session: Fresh new-day startup; Continuity Clock: Reset with this ritual [score=0.860 recalls=0 avg=0.620 source=memory/2026-06-17.md:21-23]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-17.md:25:25 -->
-- Time Awareness Update: Ready for the day. Möbius work can resume cleanly from last verified state. [score=0.860 recalls=0 avg=0.620 source=memory/2026-06-17.md:25-25]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-17.md:6:8 -->
-- Files Loaded / Verified: SOUL.md, USER.md, IDENTITY.md, AGENTS.md, MEMORY.md, TOOLS.md; memory/2026-06-16.md (yesterday: Möbius Phase 0 cycles + gains lock-in); memory/session-consolidation-v1.md, opportunity-portfolio.md active [score=0.860 recalls=0 avg=0.620 source=memory/2026-06-17.md:6-8]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-18.md:11:11 -->
-- Key Principle Reinforced: Verification outranks generation — only promoted after explicit user confirmation and research grounding. [score=0.860 recalls=0 avg=0.620 source=memory/2026-06-18.md:11-11]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-18.md:14:14 -->
-- Next: Ready to begin Phase 1 execution once user provides focus/time/budget inputs. [score=0.860 recalls=0 avg=0.620 source=memory/2026-06-18.md:14-14]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-18.md:6:8 -->
-- Verified Gains Locked: Real Estate Customer Acquisition System for Big House Real Estate officially added as standing priority #2.; Personalized research + phased implementation plan accepted as the working framework.; Opportunity-portfolio.md updated to reflect new priority. [score=0.860 recalls=0 avg=0.620 source=memory/2026-06-18.md:6-8]
-<!-- openclaw-memory-promotion:memory:memory/2026-06-18.md:1:14 -->
-- # 2026-06-18 Lock In Gains **Trigger:** Explicit "lock in gains" command after real estate customer acquisition discussion. ## Verified Gains Locked - Real Estate Customer Acquisition System for Big House Real Estate officially added as standing priority #2. - Personalized research + phased implementation plan accepted as the working framework. - Opportunity-portfolio.md updated to reflect new priority. ## Key Principle Reinforced Verification outranks generation — only promoted after explicit user confirmation and research grounding. ## Next Ready to begin Phase 1 execution once user provides focus/time/budget inputs. [score=0.843 recalls=21 avg=0.457 source=memory/2026-06-18.md:1-14]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-02.md:4:7 -->
+- 15:07 PDT Heartbeat: **Security audit:** Same WARN as 06-23. 0 critical, 1 suppressed. exec.security=full, workspaceOnly=false, 1 audit suppression — all known/accepted.; **OpenClaw version:** 2026.6.11 (up from 2026.6.10 on 06-30); **Fractalfuzion.com:** HTTP 200 OK over HTTPS. ⚠️ SSL cert now shows CN=example.com (SiteGround self-signed, 2018-2028), NOT the Let's Encrypt cert seen on 06-30. Site functional but cert may have reverted. Worth monitoring.; **Bighouserealestate.com:** 403 Cloudflare (normal bot shield). Site up. [score=0.821 recalls=0 avg=0.620 source=memory/2026-07-02.md:4-7]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-02.md:8:10 -->
+- 15:07 PDT Heartbeat: **Weather:** Vista,CA 🌤️ +67°F; **Self-improvement review:** Last ran 06-30, not due for ~5 more days.; All green except FF cert observation. No action needed unless cert issue recurs. [score=0.821 recalls=0 avg=0.620 source=memory/2026-07-02.md:8-10]
