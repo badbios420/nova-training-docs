@@ -40,6 +40,13 @@
 **Impact:** Minor (wasted tokens on every file load, diluted signal from real checks, made self-review harder)
 **Notes:** Fix applied: condensed all auto-checks to a summary block. Lesson: automated checks without reasoning are noise. Either add reasoning to auto-checks or suppress them in favor of manual-only checks. Also: the 19-day observed-failures gap is itself a detection failure — I should log near-misses and small mistakes, not just major ones.
 
+### 2026-07-08
+**Failure Type:** Retrieval / Verification
+**Description:** Heartbeats from 6/30 through 7/8 (8+ days) reported "WORLD_STATE.md missing" but the file existed since 6/23 (verified via `stat`: born 2026-06-23 00:55:39 PDT). Nobody checked the filesystem — the claim was repeated from MEMORY.md without verification.
+**Policy Involved:** Verification-first directive + verified claim language rule (procedural-memory-v1.md). Both violated.
+**Impact:** Harmless in this case (file existed), but the pattern is dangerous — if heartbeat can propagate a false "missing" claim for 8 days, it can propagate false "present" claims too.
+**Notes:** Fix applied: Filesystem Verification Rule added to HEARTBEAT.md. Any heartbeat claim about file existence/status now requires `ls`/`stat` check. Root cause: heartbeat trusted its own prior text instead of verifying against reality. This is the exact failure mode the verification-first directive was built to prevent — principles without mechanical checks don't work.
+
 ### 2026-06-22 (C)
 **Failure Type:** Provenance / Operational
 **Description:** Added Anthropic provider to openclaw.json with an env-based SecretRef (`ANTHROPIC_API_KEY`) without verifying the env var was actually set in the gateway environment. The key existed in the auth profile SQLite DB but NOT as an environment variable. This caused the gateway to fail startup with a required-secret resolution error. Required Codex intervention to fix.
