@@ -1,3 +1,20 @@
+## 2026-07-11 Default Brain → Grok 4.5 + Catalog Fix
+
+### Model Switch (runtime already on 4.5; docs/config cleaned)
+- Jason switched Nova default brain to **xai/grok-4.5** and confirmed strong capability testing with Quorra.
+- Research working file: `memory/research-2026-07-11-grok-4.5.md` (specs verified from docs.x.ai; benchmarks secondary).
+- Codex read-only audit found CRITICAL catalog gap: primary was `xai/grok-4.5` but `models.providers.xai.models` had no explicit `grok-4.5` entry (synthesized ~200k context metadata).
+- **Fix applied 2026-07-11 by Nova (not Codex):**
+  - Backup: `~/.openclaw/openclaw.json.bak.2026-07-11-p0-grok45`
+  - Added explicit provider entry: id `grok-4.5`, contextWindow 500000, input text+image, reasoning true, cost $2/$0.50/$6 per 1M
+  - Alias: `grok` → `xai/grok-4.5`
+  - Evidence: `openclaw config validate` → valid; `openclaw models list --provider xai` → `xai/grok-4.5` text+image **488k** (500k catalog), tags default,configured,alias:grok
+- Continuity docs updated: IDENTITY.md current model line; WORLD_STATE.md architecture table (Grok 4.5 executive; GLM-5.2 compare lane).
+- **Not changed:** fallback order (still openrouter/auto → openai/grok-4.3 → zai/glm-5.1 → opus); Quorra training routers left archived/stale by design.
+- Historical note: 2026-06-22 switch Grok 4.3 → GLM-5.2 remains true history. This entry supersedes “GLM is current default.”
+
+Source: 2026-07-11 main session (research + Codex audit review + P0/P1 fixes).
+
 ## 2026-07-08 Self-Improvement Loop Closed + Governance Hardened + Gains Pushed to GitHub
 
 ### Self-Improvement Cycle Completed (First Full Loop)
@@ -336,9 +353,7 @@ Source: 2026-06-22 evening session + GPT cross-review + Jason directive.
 <!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:10:10 -->
 - Work Completed: All changes small, focused, and properly sourced [score=0.868 recalls=0 avg=0.620 source=memory/2026-06-16.md:10-10]
 
-## Promoted From Short-Term Memory (2026-07-08)
+## Promoted From Short-Term Memory (2026-07-11)
 
-<!-- openclaw-memory-promotion:memory:memory/2026-07-02.md:4:7 -->
-- 15:07 PDT Heartbeat: **Security audit:** Same WARN as 06-23. 0 critical, 1 suppressed. exec.security=full, workspaceOnly=false, 1 audit suppression — all known/accepted.; **OpenClaw version:** 2026.6.11 (up from 2026.6.10 on 06-30); **Fractalfuzion.com:** HTTP 200 OK over HTTPS. ⚠️ SSL cert now shows CN=example.com (SiteGround self-signed, 2018-2028), NOT the Let's Encrypt cert seen on 06-30. Site functional but cert may have reverted. Worth monitoring.; **Bighouserealestate.com:** 403 Cloudflare (normal bot shield). Site up. [score=0.821 recalls=0 avg=0.620 source=memory/2026-07-02.md:4-7]
-<!-- openclaw-memory-promotion:memory:memory/2026-07-02.md:8:10 -->
-- 15:07 PDT Heartbeat: **Weather:** Vista,CA 🌤️ +67°F; **Self-improvement review:** Last ran 06-30, not due for ~5 more days.; All green except FF cert observation. No action needed unless cert issue recurs. [score=0.821 recalls=0 avg=0.620 source=memory/2026-07-02.md:8-10]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-06.md:21:21 -->
+- Activity Gap Note: Last real heartbeat was 07-02. Daily files for 07-04 and 07-06 were empty stubs. 4-day gap with no substantive activity. Jason may be low-availability — no action needed beyond continued monitoring. [score=0.808 recalls=0 avg=0.620 source=memory/2026-07-06.md:21-21]

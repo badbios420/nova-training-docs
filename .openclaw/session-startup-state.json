@@ -453,10 +453,31 @@
       "heartbeatOverdue": [
         "memory"
       ]
+    },
+    "main|agent:main:dashboard:0ccd16a1-80d5-464a-add5-75955a8d46d4|80ef10a4-0d00-4e3f-a5cc-a7406c60c3ee": {
+      "completedAt": "2026-07-11T08:26:46.635Z",
+      "date": "2026-07-11",
+      "sessionKey": "agent:main:dashboard:0ccd16a1-80d5-464a-add5-75955a8d46d4",
+      "sessionId": "80ef10a4-0d00-4e3f-a5cc-a7406c60c3ee",
+      "agentId": "main",
+      "heartbeatOverdue": [
+        "memory",
+        "weather"
+      ]
+    },
+    "main|agent:main:subagent:ce658384-fc4c-462c-88ba-5e2f881b7705|74742172-187c-4a38-aba0-52237b9aa73f": {
+      "completedAt": "2026-07-11T09:20:03.544Z",
+      "date": "2026-07-11",
+      "sessionKey": "agent:main:subagent:ce658384-fc4c-462c-88ba-5e2f881b7705",
+      "sessionId": "74742172-187c-4a38-aba0-52237b9aa73f",
+      "agentId": "main",
+      "heartbeatOverdue": [
+        "weather"
+      ]
     }
   },
-  "lastIdentityCheckDate": "2026-07-08",
-  "lastIdentityCheckAt": "2026-07-09T00:49:40.734Z",
-  "lastRunAt": "2026-07-09T00:49:40.734Z",
-  "lastRunKey": "main|agent:main:dashboard:822dea4a-e4db-41ca-8d1d-264a2a47b451|b88184aa-5e7f-4c23-ab6a-5ebbf9e353c2"
+  "lastIdentityCheckDate": "2026-07-11",
+  "lastIdentityCheckAt": "2026-07-11T08:26:46.635Z",
+  "lastRunAt": "2026-07-11T09:20:03.544Z",
+  "lastRunKey": "main|agent:main:subagent:ce658384-fc4c-462c-88ba-5e2f881b7705|74742172-187c-4a38-aba0-52237b9aa73f"
 }

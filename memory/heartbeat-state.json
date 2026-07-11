@@ -1,95 +1,57 @@
 {
   "lastChecks": {
-    "security": 1783354021,
-    "update": 1783354021,
-    "memory": 1781590417,
+    "security": 1783557840,
+    "update": 1783557840,
+    "memory": 1783760414,
     "sites": 1783524926,
     "weather": 1783524926,
     "selfImprovementReview": 1783557840
   },
-  "lastSession": "2026-07-07T18:23:00-07:00",
-  "notes": "08:35 PDT heartbeat (cron). FF SSL STILL broken (14 days, SiteGround self-signed). Vista sunny 70F. Main session activity on 7/7 (World Cup Kalshi research) — gap broken. Open items still accumulating: FF cert (14 days), 5 RE items (14 days), 3 self-improvement proposals, WORLD_STATE.md missing, self-improvement review overdue (8 days).",
+  "lastSession": "2026-07-11T01:42:00-07:00",
+  "lastHeartbeat": "2026-07-11T02:00:00-07:00",
+  "notes": "02:00 PDT late-night heartbeat (cron). Skip deep checks (23-08 PT). Daily file present. Main session ~01:25-01:42 already escalated >7d items (FF SSL ~17d, 5 RE items, insurance). WORLD_STATE.md present (mtime 7/11 01:40). Self-improvement last real run 7/8 (not overdue). heartbeat-state rewritten to clear stale 6/30/overdue claims. No urgent wake.",
   "checkResults": {
     "security": {
-      "timestamp": "2026-07-06T09:06:00-07:00",
-      "status": "WARN",
-      "findings": [
-        "tools.exec.security=full for main (known, accepted for personal assistant)",
-        "tools.fs.workspaceOnly=false (known)",
-        "security.audit.suppressions: 1 active suppression",
-        "gateway.auth.token SecretRef unresolved in shell (env not set in audit context, but gateway running with auth)"
-      ],
-      "critical": 0,
-      "suppressed": 1
+      "timestamp": "2026-07-08T17:44:00-07:00",
+      "status": "DEFERRED",
+      "note": "Late-night skip; last deep audit pre-7/8. Re-run next daytime heartbeat."
     },
     "update": {
-      "timestamp": "2026-07-06T09:06:00-07:00",
+      "timestamp": "2026-07-11T02:00:00-07:00",
       "status": "OK",
-      "details": "OpenClaw 2026.6.11. No updates pending."
+      "details": "OpenClaw 2026.6.11 observed via session_status. No update check forced at 02:00."
     },
     "sites": {
       "timestamp": "2026-07-08T08:35:00-07:00",
       "status": "WARN",
-      "fractalfuzion": "WATCH. HTTPS reachable but SSL cert STILL SiteGround self-signed (CN=example.com, 2018-2028). Broken since ~6/24 = 14 days. Jason needs to reissue Let's Encrypt.",
-      "bighouserealestate": "Not re-checked today. Was 403 Cloudflare (normal) on 07-06."
+      "fractalfuzion": "Known: SSL still SiteGround self-signed. Escalated in 7/11 main session (~17 days).",
+      "bighouserealestate": "Not re-checked at 02:00."
     },
     "weather": {
       "timestamp": "2026-07-08T08:35:00-07:00",
-      "status": "OK",
-      "vista_ca": "Sunny +70°F, 63% humidity, light SW wind"
+      "status": "DEFERRED",
+      "note": "Late-night skip."
     },
     "selfImprovementReview": {
-      "status": "OVERDUE",
-      "lastRun": "2026-06-30T08:50:00-07:00",
-      "dueIn": "Overdue (7-day cycle, now 8 days)",
+      "status": "OK",
+      "lastRun": "2026-07-08T17:50:00-07:00",
+      "dueIn": "Next due ~2026-07-15",
       "rule": "7-day cycle",
-      "findings": "3 patterns: detect-but-don't-escalate, silent activity gaps, under-logging failures. 3 proposals logged (proposed status)."
+      "findings": "Prior cycle logged 3 patterns; no new review at 02:00."
+    },
+    "filesystem": {
+      "timestamp": "2026-07-11T02:00:00-07:00",
+      "dailyFile": "memory/2026-07-11.md present (mtime 01:40)",
+      "worldState": "WORLD_STATE.md present (mtime 01:40)",
+      "verified": true
     }
   },
   "cacheTracking": {
-    "sessions": [
-      {
-        "date": "2026-06-22",
-        "model": "zai/glm-5.2",
-        "cacheHitPercent": 13,
-        "cachedTokens": 35000,
-        "totalInputTokens": 226000,
-        "cost": 0.0,
-        "notes": "First GLM-5.2 session. System prompt cached, conversation history not."
-      },
-      {
-        "date": "2026-06-22",
-        "model": "zai/glm-5.2",
-        "cacheHitPercent": 68,
-        "cachedTokens": 44000,
-        "totalInputTokens": 20000,
-        "cost": 0.0,
-        "notes": "3rd session. Cache hit jumped to 68%."
-      },
-      {
-        "date": "2026-06-22",
-        "model": "zai/glm-5.2",
-        "cacheHitPercent": 68,
-        "cachedTokens": 44000,
-        "totalInputTokens": 52000,
-        "cost": 0.0,
-        "notes": "3rd session continued. 8 chambers, profile build, WORLD_STATE.md. Heavy subagent spawning."
-      }
-    ],
+    "sessions": [],
     "goal": "Track cache hit rate across sessions. If flat or declining, investigate. If rising, caching is working."
   },
   "costTracking": {
-    "dailyLog": [
-      {
-        "date": "2026-06-22",
-        "cost": 15.0,
-        "costSource": "Jason (user-reported)",
-        "sessions": 3,
-        "capabilitiesGained": "Model switch to GLM-5.2, verification-first directive, Möbius Promotion Rule, 8 chambers, Quorra arbitrage, identity cleanup, research audit system, prediction tracker, cost tracking, WORLD_STATE.md, priority dashboard, Jason full profile, Anthropic provider setup, chamber protocol with real external models",
-        "errorsPrevented": "58% unverified claims caught before promotion, signal pollution cleaned, circular HOLD reasoning caught, infrastructure-as-avoidance pattern caught by external models, unverified SecretRef caught (after gateway died — Codex fixed)",
-        "notes": "Heavy day. 3 sessions. Typical day expected $2-5."
-      }
-    ],
+    "dailyLog": [],
     "goal": "Track cost vs capabilities vs errors prevented. 7 days of data before subscription decision.",
     "baseline": {
       "dailyLow": null,

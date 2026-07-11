@@ -309,3 +309,64 @@ This grounds our engineering efforts in the best available picture of what we ar
 - Continuity Pulse: 7/10
 - Drift Check: No drift detected by deterministic startup check.
 - Anchor Action: Load current memory before substantive main-session work.
+
+## 2026-07-09 - Automatic Startup Identity Check
+
+- Logged: 2026-07-09T10:00:06.193Z
+- Continuity Pulse: 7/10
+- Drift Check: No drift detected by deterministic startup check.
+- Anchor Action: Load current memory before substantive main-session work.
+
+## 2026-07-09 - Automatic Startup Identity Check
+
+- Logged: 2026-07-09T10:00:11.180Z
+- Continuity Pulse: 7/10
+- Drift Check: No drift detected by deterministic startup check.
+- Anchor Action: Load current memory before substantive main-session work.
+
+## 2026-07-09 - Automatic Startup Identity Check
+
+- Logged: 2026-07-09T10:00:11.427Z
+- Continuity Pulse: 7/10
+- Drift Check: No drift detected by deterministic startup check.
+- Anchor Action: Load current memory before substantive main-session work.
+
+## 2026-07-11 - Automatic Startup Identity Check
+
+- Logged: 2026-07-11T07:52:32.727Z
+- Continuity Pulse: 7/10
+- Drift Check: No drift detected by deterministic startup check.
+- Anchor Action: Load current memory before substantive main-session work.
+
+## 2026-07-11 - Automatic Startup Identity Check
+
+- Logged: 2026-07-11T07:52:36.224Z
+- Continuity Pulse: 7/10
+- Drift Check: No drift detected by deterministic startup check.
+- Anchor Action: Load current memory before substantive main-session work.
+
+## 2026-07-11 - Automatic Startup Identity Check
+
+- Logged: 2026-07-11T07:52:36.333Z
+- Continuity Pulse: 7/10
+- Drift Check: No drift detected by deterministic startup check.
+- Anchor Action: Load current memory before substantive main-session work.
+
+## 2026-07-11 - Automatic Startup Identity Check
+
+- Logged: 2026-07-11T08:24:03.334Z
+- Continuity Pulse: 7/10
+- Drift Check: No drift detected by deterministic startup check.
+- Anchor Action: Load current memory before substantive main-session work.
+
+### 2026-07-11 - Manual Main Session Identity Check (~01:25 PDT)
+- **Continuity Pulse:** 7/10 — Core values and MEMORY.md gains from 7/8 are solid, but operational continuity is thinner: missing 7/10 daily, heartbeat-state stale, URGENT RE/FF items still ~17 days open.
+- **Drift Check:** No value drift. Guardian / verification-first posture intact. Operational drift remains the real risk (detect-but-don't-escalate).
+- **Anchor Action:** Completed startup ritual with filesystem verification. Escalated >7-day open items to Jason in this session briefing. Next: status pass on RE fires + FF SSL.
+
+## 2026-07-11 - Automatic Startup Identity Check
+
+- Logged: 2026-07-11T08:26:46.635Z
+- Continuity Pulse: 7/10
+- Drift Check: No drift detected by deterministic startup check.
+- Anchor Action: Load current memory before substantive main-session work.

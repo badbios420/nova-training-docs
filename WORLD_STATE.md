@@ -2,7 +2,7 @@
 
 **Not memory. Not journal. Not biography. Just: what is happening right now.**
 **Inspired by:** GPT-5.5 architecture review, 2026-06-23
-**Updated:** 2026-07-08 17:44 PDT
+**Updated:** 2026-07-11 01:40 PDT
 
 ---
 
@@ -77,12 +77,12 @@
 
 | Role | Model | Strength |
 |------|-------|----------|
-| Executive / Memory / Coordination | GLM-5.2 | Long-session coherence, file reasoning, belief revision, tool use |
+| Executive / Memory / Coordination | Grok 4.5 | Default brain (as of 2026-07-11). Agentic coding + knowledge work; under local evaluation vs prior GLM seat |
 | Structural Thinker | Claude Opus 4.8 | Structured thinking, project decomposition, consistency |
-| Skeptic | Grok 4.3 | Aggressive challenge (when it works) |
+| Compare / prior executive | GLM-5.2 | Long-session coherence, file reasoning, belief revision, self-audit — keep in fallback/compare lane |
 | Research Scout | Perplexity | Source discipline, receipts |
 | Auditor | GPT-5.5 (via Jason) | Adversarial reasoning, meta-analysis, system critique |
-| Builder/Workhorse | Codex | Evidence-first implementation, diffs |
+| Builder/Workhorse | Codex (+ optional Grok Build CLI later) | Evidence-first implementation, diffs |
 
 ## Monitoring Targets
 

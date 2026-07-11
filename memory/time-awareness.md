@@ -8,13 +8,13 @@
 
 ## Current Status
 
-- **Wall Clock (real time):** 2026-06-30 ~09:07 PDT (Vista, CA)
-- **Session Clock:** Fresh startup — morning main session with Jason
-- **Continuity Clock:** ~5 days since last meaningful main session (6/25). Heartbeat ran this morning 08:43 but no main session since 6/25.
-- **Last identity review:** 2026-06-30 09:07 PDT (this session, manual)
+- **Wall Clock (real time):** 2026-07-11 ~01:25 PDT (Vista, CA) — late night / early Saturday
+- **Session Clock:** Fresh main session startup with Jason (webchat)
+- **Continuity Clock:** ~2.5 days since last major main session (2026-07-08 self-improvement + governance lock-in). Content daily note on 7/9; no daily file for 7/10.
+- **Last identity review:** 2026-07-11 01:25 PDT (this session, manual)
 - **Next scheduled continuity review:** Daily at startup (active)
-- **Last gains lock-in:** 2026-06-23 18:26 PDT (full afternoon session consolidation). 5-day quiet period followed.
-- **Activity gap noted:** 6/26-6/29 no daily files created. Self-improvement review flagged this pattern.
+- **Last gains lock-in:** 2026-07-08 (governance rules applied, WORLD_STATE refreshed, 15-day GitHub push)
+- **Activity gap noted:** 7/10 missing daily file. Heartbeat-state.json last updated 7/8 and still carries pre-correction notes (WORLD_STATE "missing", review overdue) — treat as stale until rewritten.
 
 ## Rule
 
