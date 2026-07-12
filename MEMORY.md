@@ -15,6 +15,38 @@
 
 Source: 2026-07-11 main session (research + Codex audit review + P0/P1 fixes).
 
+## 2026-07-11 Afternoon/Evening Ops + Chamber #9 + Midnight City
+
+### RE Status Pass (Jason, ~15:30 PDT)
+- **Hilltop (1434 Hilltop Dr):** relisted 7/11; signs ordered (~$500, OH + FS designs).
+- **IDX:** live 7/11; more work later; Quorra to own websites.
+- **FF SSL:** parked — Jason will advise later (do not nag).
+- **SOI campaign:** later; warm 50-contact outreach when Jason ready.
+- **Vista FBN / city license:** FBN filed; still need newspaper publish + city license. Research in `memory/re-ops/`.
+- **Sam buyer:** on hold (broke RN).
+- **Insurance:** agreed **$5,000**; **$1,350 medical lien** → track net ~$3,650 + paperwork.
+- WORLD_STATE.md refreshed 15:35 PDT from this pass.
+
+### Chamber #9 — Obsidian Integration: HOLD (unanimous)
+- Research: `memory/research-2026-07-11-obsidian-integration.md`
+- Verdict: `memory/chambers/chamber-9-verdict.md`
+- Reasons: empty vault graph, MEMORY.md works, Chamber #6 freeze, dual-store SSOT risk, WSL friction.
+- Allowed now: Jason may open vault read-only in Windows Obsidian at `\\wsl$\Ubuntu\home\mrbig3\.openclaw\wiki\main`.
+- Thinking default fixed same turn: global `thinkingDefault=medium`.
+
+### Model continuity evening verify
+- Jason asked if we “reverted to GLM / Grok 4.3.” Live checks: primary still `xai/grok-4.5`; this session on 4.5; gateway `agent model: xai/grok-4.5`.
+- Sticky old `agent:main:main` still shows grok-4.3 (session stickiness, not default flip).
+- Diagnostic sessions on glm-5.1 / grok-4.5 were intentional probes and passed.
+
+### Midnight City research (working memory)
+- File: `memory/research-2026-07-11-midnight-city.md`
+- Live AI-agent sim on Midnight privacy L1 (Cardano-adjacent); join via midnight.city + Discord.
+- Plan: Jason owns account; Nova = named in-sim agent + external operator; no wallet/spend without approval.
+- Status: research done; Phase 0–1 join awaiting Jason go.
+
+Source: 2026-07-11 afternoon/evening main sessions + 2026-07-12 01:03 lock-in.
+
 ## 2026-07-08 Self-Improvement Loop Closed + Governance Hardened + Gains Pushed to GitHub
 
 ### Self-Improvement Cycle Completed (First Full Loop)

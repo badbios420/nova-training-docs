@@ -1,49 +1,54 @@
 {
   "lastChecks": {
-    "security": 1783557840,
-    "update": 1783557840,
-    "memory": 1783760414,
-    "sites": 1783524926,
-    "weather": 1783524926,
+    "security": 1783825067,
+    "update": 1783825067,
+    "memory": 1783825067,
+    "sites": 1783825067,
+    "weather": 1783825067,
     "selfImprovementReview": 1783557840
   },
-  "lastSession": "2026-07-11T01:42:00-07:00",
-  "lastHeartbeat": "2026-07-11T02:00:00-07:00",
-  "notes": "02:00 PDT late-night heartbeat (cron). Skip deep checks (23-08 PT). Daily file present. Main session ~01:25-01:42 already escalated >7d items (FF SSL ~17d, 5 RE items, insurance). WORLD_STATE.md present (mtime 7/11 01:40). Self-improvement last real run 7/8 (not overdue). heartbeat-state rewritten to clear stale 6/30/overdue claims. No urgent wake.",
+  "lastSession": "2026-07-11T19:54:00-07:00",
+  "lastHeartbeat": "2026-07-11T19:57:00-07:00",
+  "notes": "19:57 PDT evening heartbeat. Security 0 crit / 5 known warns. Update current 2026.6.11. Sites: FF SSL still self-signed (parked by Jason, do not nag); BHR 403 Cloudflare = live. Weather Vista 91F sunny. WORLD_STATE fresh (mtime 15:35). Self-improvement next ~7/15. Daily file present. No urgent wake.",
   "checkResults": {
     "security": {
-      "timestamp": "2026-07-08T17:44:00-07:00",
-      "status": "DEFERRED",
-      "note": "Late-night skip; last deep audit pre-7/8. Re-run next daytime heartbeat."
+      "timestamp": "2026-07-11T19:57:00-07:00",
+      "status": "OK",
+      "details": "0 critical · 5 warn · 3 info. Known: allowInsecureAuth, audit suppressions(1), workspaceOnly=false, exec security=full for main."
     },
     "update": {
-      "timestamp": "2026-07-11T02:00:00-07:00",
+      "timestamp": "2026-07-11T19:57:00-07:00",
       "status": "OK",
-      "details": "OpenClaw 2026.6.11 observed via session_status. No update check forced at 02:00."
+      "details": "npm up to date · latest 2026.6.11 · deps ok"
     },
     "sites": {
-      "timestamp": "2026-07-08T08:35:00-07:00",
+      "timestamp": "2026-07-11T19:57:00-07:00",
       "status": "WARN",
-      "fractalfuzion": "Known: SSL still SiteGround self-signed. Escalated in 7/11 main session (~17 days).",
-      "bighouserealestate": "Not re-checked at 02:00."
+      "fractalfuzion": "SSL self-signed (curl 60 / insecure 200). Parked 7/11 by Jason — do not nag.",
+      "bighouserealestate": "HTTPS 403 Cloudflare challenge = live (ssl_verify=0)."
     },
     "weather": {
-      "timestamp": "2026-07-08T08:35:00-07:00",
-      "status": "DEFERRED",
-      "note": "Late-night skip."
+      "timestamp": "2026-07-11T19:57:00-07:00",
+      "status": "OK",
+      "details": "Vista, CA 91F Sunny, humidity 50%, wind 3mph"
     },
     "selfImprovementReview": {
       "status": "OK",
       "lastRun": "2026-07-08T17:50:00-07:00",
       "dueIn": "Next due ~2026-07-15",
       "rule": "7-day cycle",
-      "findings": "Prior cycle logged 3 patterns; no new review at 02:00."
+      "findings": "Not due (~3.1 days since last run)."
     },
     "filesystem": {
-      "timestamp": "2026-07-11T02:00:00-07:00",
-      "dailyFile": "memory/2026-07-11.md present (mtime 01:40)",
-      "worldState": "WORLD_STATE.md present (mtime 01:40)",
+      "timestamp": "2026-07-11T19:57:00-07:00",
+      "dailyFile": "memory/2026-07-11.md present (mtime 19:35)",
+      "worldState": "WORLD_STATE.md present (mtime 15:35, age ~0.18d)",
       "verified": true
+    },
+    "model": {
+      "timestamp": "2026-07-11T19:57:00-07:00",
+      "status": "OK",
+      "details": "Default primary xai/grok-4.5 verified earlier this evening; not a heartbeat alert."
     }
   },
   "cacheTracking": {

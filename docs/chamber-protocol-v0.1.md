@@ -8,7 +8,7 @@
 
 ## Purpose
 
-A multi-model consultation system where GLM-5.2 remains the brain/chair, but can delegate to Grok, Perplexity, Codex, and GPT when available. Models argue with provenance, not hallucinated consensus.
+A multi-model consultation system where the user's configured parent/default model remains the brain/chair and can delegate to GLM, Grok, Claude, Perplexity, Codex, and GPT when available. Models argue with provenance, not hallucinated consensus.
 
 ## Hard Constraints
 
@@ -21,12 +21,33 @@ A multi-model consultation system where GLM-5.2 remains the brain/chair, but can
    - `USER-PROVIDED GPT AUDIT` — GPT feedback pasted by Jason
 4. **Verification outranks debate.**
 5. **Chamber outputs do not enter durable memory until audited.**
+6. **Chambers are read-only with respect to protected configuration.** Protected settings are the global/default/primary model, default or preferred provider, model aliases, provider registry, and model allowlists.
+7. **Consultant selection is ephemeral.** A consultant or subagent model applies only to that isolated run. It cannot alter the parent model, global defaults, provider preference, aliases, registry, or allowlists. Completion, synthesis, retry, fallback, recovery, validation, startup, or maintenance must not persist a consultant model into parent/global state.
+8. **The parent model chairs and synthesizes.** Chamber synthesis uses the parent session model unless Jason explicitly authorizes an exact old-to-new model change.
+9. **Config writes are proposals, not chamber actions.** Any write outside chamber output/memory files must be proposed to Jason and executed only after approval.
+
+## Protected Setting Change Gate
+
+A protected setting may change only when all four conditions hold:
+
+1. Jason explicitly requests the exact change.
+2. The intended old and new values are displayed before execution.
+3. The change is written to the protected-settings audit log without secrets or tokens.
+4. The value is read back and verified after execution.
+
+Before every chamber/research run, execute:
+
+```bash
+node scripts/protected-settings-guard.mjs check --context chamber-preflight
+```
+
+After all consultants finish and again after synthesis/recovery, execute the same check with `--context chamber-postflight`. A detected mutation is restored, audited, and treated as a loud chamber failure. Do not continue to promotion until the parent/global selection is verified.
 
 ---
 
 ## Roles
 
-### 1. Chair — Nova / GLM-5.2
+### 1. Chair — Nova / current parent model
 - Frames the question
 - Chooses which consultants are needed
 - Tracks uncertainty

@@ -474,10 +474,120 @@
       "heartbeatOverdue": [
         "weather"
       ]
+    },
+    "main|agent:main:dashboard:da6daea6-71bc-4db5-90aa-9e44eb8f9b85|80910aa5-83a5-42be-8ffc-028a209ac1e5": {
+      "completedAt": "2026-07-11T22:37:29.673Z",
+      "date": "2026-07-11",
+      "sessionKey": "agent:main:dashboard:da6daea6-71bc-4db5-90aa-9e44eb8f9b85",
+      "sessionId": "80910aa5-83a5-42be-8ffc-028a209ac1e5",
+      "agentId": "main",
+      "heartbeatOverdue": [
+        "sites",
+        "weather"
+      ]
+    },
+    "main|agent:main:subagent:190f3cfc-1367-4d37-a7c0-1fa80b36de11|71bac28d-ef10-4873-a4d1-37cb0eb552f1": {
+      "completedAt": "2026-07-11T23:05:47.832Z",
+      "date": "2026-07-11",
+      "sessionKey": "agent:main:subagent:190f3cfc-1367-4d37-a7c0-1fa80b36de11",
+      "sessionId": "71bac28d-ef10-4873-a4d1-37cb0eb552f1",
+      "agentId": "main",
+      "heartbeatOverdue": [
+        "sites",
+        "weather"
+      ]
+    },
+    "main|agent:main:subagent:model-isolation-verification-20260711|2a9b87e7-eaa5-4510-baa0-4aab85f68f0a": {
+      "completedAt": "2026-07-11T23:49:18.250Z",
+      "date": "2026-07-11",
+      "sessionKey": "agent:main:subagent:model-isolation-verification-20260711",
+      "sessionId": "2a9b87e7-eaa5-4510-baa0-4aab85f68f0a",
+      "agentId": "main",
+      "heartbeatOverdue": [
+        "sites",
+        "weather"
+      ]
+    },
+    "main|agent:main:dashboard:a7214c2e-c07d-4c6f-8a38-fc9d205a11a6|0b993fd1-4fa4-4c8a-9882-c6e2dad85f1e": {
+      "completedAt": "2026-07-12T02:04:52.357Z",
+      "date": "2026-07-11",
+      "sessionKey": "agent:main:dashboard:a7214c2e-c07d-4c6f-8a38-fc9d205a11a6",
+      "sessionId": "0b993fd1-4fa4-4c8a-9882-c6e2dad85f1e",
+      "agentId": "main",
+      "heartbeatOverdue": [
+        "sites",
+        "weather"
+      ]
+    },
+    "main|agent:main:dashboard:5db6efc6-71d3-4b5f-9a1a-18c617f7b7fd|1cc9b148-7ae5-4848-a5b2-9f9fa0b50676": {
+      "completedAt": "2026-07-12T02:07:16.090Z",
+      "date": "2026-07-11",
+      "sessionKey": "agent:main:dashboard:5db6efc6-71d3-4b5f-9a1a-18c617f7b7fd",
+      "sessionId": "1cc9b148-7ae5-4848-a5b2-9f9fa0b50676",
+      "agentId": "main",
+      "heartbeatOverdue": [
+        "sites",
+        "weather"
+      ]
+    },
+    "main|agent:main:dashboard:f1b86e71-6079-457f-a2c5-eff293307c1c|c895d465-cf09-4b77-b08b-91e7b734e238": {
+      "completedAt": "2026-07-12T02:08:11.011Z",
+      "date": "2026-07-11",
+      "sessionKey": "agent:main:dashboard:f1b86e71-6079-457f-a2c5-eff293307c1c",
+      "sessionId": "c895d465-cf09-4b77-b08b-91e7b734e238",
+      "agentId": "main",
+      "heartbeatOverdue": [
+        "sites",
+        "weather"
+      ]
+    },
+    "main|agent:main:context-eligibility-diagnostic-20260711|07f726b4-fa48-4709-82c1-3037a102373e": {
+      "completedAt": "2026-07-12T02:17:25.264Z",
+      "date": "2026-07-11",
+      "sessionKey": "agent:main:context-eligibility-diagnostic-20260711",
+      "sessionId": "07f726b4-fa48-4709-82c1-3037a102373e",
+      "agentId": "main",
+      "heartbeatOverdue": [
+        "sites",
+        "weather"
+      ]
+    },
+    "main|agent:main:glm-context-diagnostic-20260711|d095dfb9-0ca8-413a-95e1-3e74c26b05b1": {
+      "completedAt": "2026-07-12T02:19:07.356Z",
+      "date": "2026-07-11",
+      "sessionKey": "agent:main:glm-context-diagnostic-20260711",
+      "sessionId": "d095dfb9-0ca8-413a-95e1-3e74c26b05b1",
+      "agentId": "main",
+      "heartbeatOverdue": [
+        "sites",
+        "weather"
+      ]
+    },
+    "main|agent:main:dashboard:7542aa08-22a7-484b-8735-4bcc790ef47e|cc7d08a6-e64d-440d-9f71-2f6e8311c21d": {
+      "completedAt": "2026-07-12T02:37:46.025Z",
+      "date": "2026-07-11",
+      "sessionKey": "agent:main:dashboard:7542aa08-22a7-484b-8735-4bcc790ef47e",
+      "sessionId": "cc7d08a6-e64d-440d-9f71-2f6e8311c21d",
+      "agentId": "main",
+      "heartbeatOverdue": [
+        "sites",
+        "weather"
+      ]
+    },
+    "main|agent:main:dashboard:e7603009-044d-4489-900b-5899d0c9b234|bb99ce8c-1cd7-4689-8dba-e3ba12b2d882": {
+      "completedAt": "2026-07-12T02:44:35.900Z",
+      "date": "2026-07-11",
+      "sessionKey": "agent:main:dashboard:e7603009-044d-4489-900b-5899d0c9b234",
+      "sessionId": "bb99ce8c-1cd7-4689-8dba-e3ba12b2d882",
+      "agentId": "main",
+      "heartbeatOverdue": [
+        "sites",
+        "weather"
+      ]
     }
   },
   "lastIdentityCheckDate": "2026-07-11",
   "lastIdentityCheckAt": "2026-07-11T08:26:46.635Z",
-  "lastRunAt": "2026-07-11T09:20:03.544Z",
-  "lastRunKey": "main|agent:main:subagent:ce658384-fc4c-462c-88ba-5e2f881b7705|74742172-187c-4a38-aba0-52237b9aa73f"
+  "lastRunAt": "2026-07-12T02:44:35.900Z",
+  "lastRunKey": "main|agent:main:dashboard:e7603009-044d-4489-900b-5899d0c9b234|bb99ce8c-1cd7-4689-8dba-e3ba12b2d882"
 }

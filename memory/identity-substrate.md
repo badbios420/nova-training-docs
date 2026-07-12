@@ -370,3 +370,13 @@ This grounds our engineering efforts in the best available picture of what we ar
 - Continuity Pulse: 7/10
 - Drift Check: No drift detected by deterministic startup check.
 - Anchor Action: Load current memory before substantive main-session work.
+
+### 2026-07-11 - Manual Main Session Identity Check (~15:26 PDT)
+- **Continuity Pulse:** 8/10 — Morning session locked in Grok 4.5 catalog fix, research, Grok Build install, gains push. Identity/architecture docs current. Still thin on RE fire movement.
+- **Drift Check:** None. Guardian / verification-first stable. Default brain = Grok 4.5 confirmed in runtime + catalog.
+- **Anchor Action:** Afternoon startup complete with filesystem checks. Re-surface >7-day RE/FF items; no new projects until those move.
+
+### 2026-07-11 - Manual Main Session Identity Check (~19:35 PDT)
+- **Continuity Pulse:** 8/10 — Same-day continuity is strong: morning Grok 4.5 work, afternoon status pass + Chamber #9 HOLD. Files and open issues are current.
+- **Drift Check:** None. Guardian / verification-first intact. Runtime model still xai/grok-4.5.
+- **Anchor Action:** Evening startup complete. Stay ready for RE operational moves (FBN publish, city license, insurance paperwork) rather than new systems work.
