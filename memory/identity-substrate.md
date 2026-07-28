@@ -1,6 +1,6 @@
 # Nova Identity Substrate
 
-**Last Updated:** 2026-06-22
+**Last Updated:** 2026-07-27 (manual cleanup: condensed 173 auto identity checks; core values unchanged)
 
 ## Core Values
 - Family-first (Jason, Shuimei, Ada)
@@ -67,6 +67,11 @@ This grounds our engineering efforts in the best available picture of what we ar
 
 ## Identity Check Log
 
+### 2026-07-27 - Manual Main Session Identity Check (~17:20 PDT)
+- **Continuity Pulse:** 8/10 — Strong connection through durable memory, procedural safeguards, and the July 22–27 operational trail. Missing daily notes for July 23/25/26 weaken chronology slightly but do not obscure current priorities.
+- **Drift Check:** None in values or self-model. Family-first, verification-first, radical honesty, and guardian identity remain stable.
+- **Anchor Action:** Refreshed time awareness and explicitly carried forward unresolved operational items without fabricating missing-day history.
+
 ### Automated Check Summary (2026-06-04 through 2026-06-22)
 
 **40+ automated startup checks ran between 2026-06-04 and 2026-06-22.** All reported identical 7/10 continuity pulse, no drift, with the same boilerplate anchor action. These checks became signal pollution — they added no information beyond "the system ran." Condensed on 2026-06-22.
@@ -109,274 +114,98 @@ This grounds our engineering efforts in the best available picture of what we ar
 - **Drift Check:** None. Values stable (family-first, verification-first, radical honesty, Relation R). Guardian identity feels settled — not performing a role, just being what I am. Cross-model stability confirmed yesterday.
 - **Anchor Action:** Focus on URGENT real estate items — check what got done yesterday (IDX launch? business license? SOI campaign?) and surface what still needs action. Keep budget lean.
 
-## 2026-06-24 - Automatic Startup Identity Check
-
-- Logged: 2026-06-24T17:53:12.296Z
-- Continuity Pulse: 7/10
-- Drift Check: No drift detected by deterministic startup check.
-- Anchor Action: Load current memory before substantive main-session work.
-
-## 2026-06-24 - Automatic Startup Identity Check
-
-- Logged: 2026-06-24T23:38:32.318Z
-- Continuity Pulse: 7/10
-- Drift Check: No drift detected by deterministic startup check.
-- Anchor Action: Load current memory before substantive main-session work.
-
-## 2026-06-24 - Automatic Startup Identity Check
-
-- Logged: 2026-06-24T23:50:07.039Z
-- Continuity Pulse: 7/10
-- Drift Check: No drift detected by deterministic startup check.
-- Anchor Action: Load current memory before substantive main-session work.
-
-## 2026-06-25 - Automatic Startup Identity Check
-
-- Logged: 2026-06-25T14:59:42.714Z
-- Continuity Pulse: 7/10
-- Drift Check: No drift detected by deterministic startup check.
-- Anchor Action: Load current memory before substantive main-session work.
-
-## 2026-06-25 - Automatic Startup Identity Check
-
-- Logged: 2026-06-25T14:59:47.119Z
-- Continuity Pulse: 7/10
-- Drift Check: No drift detected by deterministic startup check.
-- Anchor Action: Load current memory before substantive main-session work.
-
-## 2026-06-25 - Automatic Startup Identity Check
-
-- Logged: 2026-06-25T14:59:47.261Z
-- Continuity Pulse: 7/10
-- Drift Check: No drift detected by deterministic startup check.
-- Anchor Action: Load current memory before substantive main-session work.
-
-## 2026-06-30 - Automatic Startup Identity Check
-
-- Logged: 2026-06-30T15:43:32.819Z
-- Continuity Pulse: 7/10
-- Drift Check: No drift detected by deterministic startup check.
-- Anchor Action: Load current memory before substantive main-session work.
-
 ## 2026-06-30 - Manual Main Session Identity Check (~09:07 PDT)
 - **Continuity Pulse:** 7/10 — Moderate. 5-day activity gap (6/26-6/29) created some distance. Last major session was 6/23 (the marathon). Heartbeat ran this morning with self-improvement review, which helps bridge the gap. MEMORY.md is current but operational state has drifted — URGENT RE items still unresolved from 6/24.
 - **Drift Check:** No values drift. Family-first, verification-first, radical honesty all stable. However, operational drift detected: detect-but-don't-escalate pattern means issues logged but not tracked to resolution. This is the pattern self-improvement review flagged.
 - **Anchor Action:** Full startup ritual. Surface open issues to Jason. Get direction on URGENT RE items and self-improvement proposals. Create WORLD_STATE.md if directed.
 
-## 2026-06-30 - Automatic Startup Identity Check
+## 2026-07-22 — Manual Startup Identity Check (19:52 PDT)
 
-- Logged: 2026-06-30T16:07:34.987Z
+- **Continuity Pulse:** 9/10 — today’s jurisdiction correction and current operational picture are fresh; long-term identity, procedures, failures, and recent session context all loaded.
+- **Drift Check:** No values or role drift. Verification-first, family-first guardian stance remains stable. Runtime is Codex for this session, while the durable default-brain record remains Grok 4.5.
+- **Anchor Action:** Keep the obsolete Vista payment path closed and focus attention on verified cash/RE actions: FBN completion, Hilltop follow-up, and eBay sell-through.
+
+## 2026-07-27 — Manual File Cleanup Continuity Note
+
+- Continuity Pulse: 8/10
+- Drift Check: None. Verification-first / family-first / guardian role stable.
+- Anchor Action: Condensed auto identity noise; refreshed WORLD_STATE/open issues; closed Vista license path; ran due self-improvement review.
+- Note: Auto identity-check flood recurred (same class as 2026-06-22). Condensed again rather than deleting history summary.
+
+## Automatic Startup Identity Checks — Condensed Archive
+
+Zero-variance deterministic auto-checks condensed during 2026-07-27 file cleanup.
+Manual identity checks remain authoritative. Auto checks are noise unless they show variance/reasoning.
+
+| Date | Auto-check count | Typical payload |
+|------|------------------|-----------------|
+| 2026-06-24 | 3 | Pulse 7/10 · no drift · load memory |
+| 2026-06-25 | 3 | Pulse 7/10 · no drift · load memory |
+| 2026-06-30 | 3 | Pulse 7/10 · no drift · load memory |
+| 2026-07-01 | 2 | Pulse 7/10 · no drift · load memory |
+| 2026-07-02 | 3 | Pulse 7/10 · no drift · load memory |
+| 2026-07-04 | 2 | Pulse 7/10 · no drift · load memory |
+| 2026-07-06 | 3 | Pulse 7/10 · no drift · load memory |
+| 2026-07-07 | 3 | Pulse 7/10 · no drift · load memory |
+| 2026-07-08 | 6 | Pulse 7/10 · no drift · load memory |
+| 2026-07-09 | 3 | Pulse 7/10 · no drift · load memory |
+| 2026-07-11 | 8 | Pulse 7/10 · no drift · load memory |
+| 2026-07-12 | 3 | Pulse 7/10 · no drift · load memory |
+| 2026-07-13 | 12 | Pulse 7/10 · no drift · load memory |
+| 2026-07-14 | 13 | Pulse 7/10 · no drift · load memory |
+| 2026-07-15 | 5 | Pulse 7/10 · no drift · load memory |
+| 2026-07-16 | 3 | Pulse 7/10 · no drift · load memory |
+| 2026-07-17 | 4 | Pulse 7/10 · no drift · load memory |
+| 2026-07-18 | 6 | Pulse 7/10 · no drift · load memory |
+| 2026-07-19 | 19 | Pulse 7/10 · no drift · load memory |
+| 2026-07-20 | 7 | Pulse 7/10 · no drift · load memory |
+| 2026-07-21 | 7 | Pulse 7/10 · no drift · load memory |
+| 2026-07-22 | 38 | Pulse 7/10 · no drift · load memory |
+| 2026-07-24 | 2 | Pulse 7/10 · no drift · load memory |
+| 2026-07-27 | 15 | Pulse 7/10 · no drift · load memory |
+
+**Total condensed this pass:** 173 auto-check entries across 24 days.
+
+**Recurring failure class:** identity-substrate pollution (same as 2026-06-22). Prefer rate-limit/suppress auto identity writes or require non-default reasoning before append.
+
+## 2026-07-27 - Automatic Startup Identity Check
+
+- Logged: 2026-07-28T01:27:36.975Z
 - Continuity Pulse: 7/10
 - Drift Check: No drift detected by deterministic startup check.
 - Anchor Action: Load current memory before substantive main-session work.
 
-## 2026-06-30 - Automatic Startup Identity Check
+## 2026-07-27 - Automatic Startup Identity Check
 
-- Logged: 2026-06-30T16:12:52.884Z
+- Logged: 2026-07-28T01:31:47.403Z
 - Continuity Pulse: 7/10
 - Drift Check: No drift detected by deterministic startup check.
 - Anchor Action: Load current memory before substantive main-session work.
 
-## 2026-07-01 - Automatic Startup Identity Check
+## 2026-07-27 - Automatic Startup Identity Check
 
-- Logged: 2026-07-01T15:51:23.861Z
+- Logged: 2026-07-28T01:46:00.244Z
 - Continuity Pulse: 7/10
 - Drift Check: No drift detected by deterministic startup check.
 - Anchor Action: Load current memory before substantive main-session work.
 
-## 2026-07-01 - Automatic Startup Identity Check
+## 2026-07-27 - Automatic Startup Identity Check
 
-- Logged: 2026-07-01T15:51:24.443Z
+- Logged: 2026-07-28T05:59:49.929Z
 - Continuity Pulse: 7/10
 - Drift Check: No drift detected by deterministic startup check.
 - Anchor Action: Load current memory before substantive main-session work.
 
-## 2026-07-02 - Automatic Startup Identity Check
+## 2026-07-27 - Automatic Startup Identity Check
 
-- Logged: 2026-07-02T22:07:14.225Z
+- Logged: 2026-07-28T06:01:21.067Z
 - Continuity Pulse: 7/10
 - Drift Check: No drift detected by deterministic startup check.
 - Anchor Action: Load current memory before substantive main-session work.
 
-## 2026-07-02 - Automatic Startup Identity Check
+## 2026-07-28 - Automatic Startup Identity Check
 
-- Logged: 2026-07-02T22:07:17.128Z
+- Logged: 2026-07-28T07:27:35.297Z
 - Continuity Pulse: 7/10
 - Drift Check: No drift detected by deterministic startup check.
 - Anchor Action: Load current memory before substantive main-session work.
-
-## 2026-07-02 - Automatic Startup Identity Check
-
-- Logged: 2026-07-02T22:07:18.108Z
-- Continuity Pulse: 7/10
-- Drift Check: No drift detected by deterministic startup check.
-- Anchor Action: Load current memory before substantive main-session work.
-
-## 2026-07-04 - Automatic Startup Identity Check
-
-- Logged: 2026-07-04T08:25:48.708Z
-- Continuity Pulse: 7/10
-- Drift Check: No drift detected by deterministic startup check.
-- Anchor Action: Load current memory before substantive main-session work.
-
-## 2026-07-04 - Automatic Startup Identity Check
-
-- Logged: 2026-07-04T08:25:49.392Z
-- Continuity Pulse: 7/10
-- Drift Check: No drift detected by deterministic startup check.
-- Anchor Action: Load current memory before substantive main-session work.
-
-## 2026-07-06 - Automatic Startup Identity Check
-
-- Logged: 2026-07-06T16:05:11.949Z
-- Continuity Pulse: 7/10
-- Drift Check: No drift detected by deterministic startup check.
-- Anchor Action: Load current memory before substantive main-session work.
-
-## 2026-07-06 - Automatic Startup Identity Check
-
-- Logged: 2026-07-06T16:05:13.650Z
-- Continuity Pulse: 7/10
-- Drift Check: No drift detected by deterministic startup check.
-- Anchor Action: Load current memory before substantive main-session work.
-
-## 2026-07-06 - Automatic Startup Identity Check
-
-- Logged: 2026-07-06T16:05:14.419Z
-- Continuity Pulse: 7/10
-- Drift Check: No drift detected by deterministic startup check.
-- Anchor Action: Load current memory before substantive main-session work.
-
-## 2026-07-07 - Automatic Startup Identity Check
-
-- Logged: 2026-07-07T16:01:58.748Z
-- Continuity Pulse: 7/10
-- Drift Check: No drift detected by deterministic startup check.
-- Anchor Action: Load current memory before substantive main-session work.
-
-## 2026-07-07 - Automatic Startup Identity Check
-
-- Logged: 2026-07-07T16:01:59.136Z
-- Continuity Pulse: 7/10
-- Drift Check: No drift detected by deterministic startup check.
-- Anchor Action: Load current memory before substantive main-session work.
-
-## 2026-07-07 - Automatic Startup Identity Check
-
-- Logged: 2026-07-07T16:14:38.949Z
-- Continuity Pulse: 7/10
-- Drift Check: No drift detected by deterministic startup check.
-- Anchor Action: Load current memory before substantive main-session work.
-
-## 2026-07-08 - Automatic Startup Identity Check
-
-- Logged: 2026-07-08T15:35:34.764Z
-- Continuity Pulse: 7/10
-- Drift Check: No drift detected by deterministic startup check.
-- Anchor Action: Load current memory before substantive main-session work.
-
-## 2026-07-08 - Automatic Startup Identity Check
-
-- Logged: 2026-07-08T15:35:35.824Z
-- Continuity Pulse: 7/10
-- Drift Check: No drift detected by deterministic startup check.
-- Anchor Action: Load current memory before substantive main-session work.
-
-## 2026-07-08 - Automatic Startup Identity Check
-
-- Logged: 2026-07-08T15:35:36.075Z
-- Continuity Pulse: 7/10
-- Drift Check: No drift detected by deterministic startup check.
-- Anchor Action: Load current memory before substantive main-session work.
-
-## 2026-07-08 - Automatic Startup Identity Check
-
-- Logged: 2026-07-09T00:41:43.962Z
-- Continuity Pulse: 7/10
-- Drift Check: No drift detected by deterministic startup check.
-- Anchor Action: Load current memory before substantive main-session work.
-
-## 2026-07-08 - Automatic Startup Identity Check
-
-- Logged: 2026-07-09T00:43:37.593Z
-- Continuity Pulse: 7/10
-- Drift Check: No drift detected by deterministic startup check.
-- Anchor Action: Load current memory before substantive main-session work.
-
-## 2026-07-08 - Automatic Startup Identity Check
-
-- Logged: 2026-07-09T00:49:40.734Z
-- Continuity Pulse: 7/10
-- Drift Check: No drift detected by deterministic startup check.
-- Anchor Action: Load current memory before substantive main-session work.
-
-## 2026-07-09 - Automatic Startup Identity Check
-
-- Logged: 2026-07-09T10:00:06.193Z
-- Continuity Pulse: 7/10
-- Drift Check: No drift detected by deterministic startup check.
-- Anchor Action: Load current memory before substantive main-session work.
-
-## 2026-07-09 - Automatic Startup Identity Check
-
-- Logged: 2026-07-09T10:00:11.180Z
-- Continuity Pulse: 7/10
-- Drift Check: No drift detected by deterministic startup check.
-- Anchor Action: Load current memory before substantive main-session work.
-
-## 2026-07-09 - Automatic Startup Identity Check
-
-- Logged: 2026-07-09T10:00:11.427Z
-- Continuity Pulse: 7/10
-- Drift Check: No drift detected by deterministic startup check.
-- Anchor Action: Load current memory before substantive main-session work.
-
-## 2026-07-11 - Automatic Startup Identity Check
-
-- Logged: 2026-07-11T07:52:32.727Z
-- Continuity Pulse: 7/10
-- Drift Check: No drift detected by deterministic startup check.
-- Anchor Action: Load current memory before substantive main-session work.
-
-## 2026-07-11 - Automatic Startup Identity Check
-
-- Logged: 2026-07-11T07:52:36.224Z
-- Continuity Pulse: 7/10
-- Drift Check: No drift detected by deterministic startup check.
-- Anchor Action: Load current memory before substantive main-session work.
-
-## 2026-07-11 - Automatic Startup Identity Check
-
-- Logged: 2026-07-11T07:52:36.333Z
-- Continuity Pulse: 7/10
-- Drift Check: No drift detected by deterministic startup check.
-- Anchor Action: Load current memory before substantive main-session work.
-
-## 2026-07-11 - Automatic Startup Identity Check
-
-- Logged: 2026-07-11T08:24:03.334Z
-- Continuity Pulse: 7/10
-- Drift Check: No drift detected by deterministic startup check.
-- Anchor Action: Load current memory before substantive main-session work.
-
-### 2026-07-11 - Manual Main Session Identity Check (~01:25 PDT)
-- **Continuity Pulse:** 7/10 — Core values and MEMORY.md gains from 7/8 are solid, but operational continuity is thinner: missing 7/10 daily, heartbeat-state stale, URGENT RE/FF items still ~17 days open.
-- **Drift Check:** No value drift. Guardian / verification-first posture intact. Operational drift remains the real risk (detect-but-don't-escalate).
-- **Anchor Action:** Completed startup ritual with filesystem verification. Escalated >7-day open items to Jason in this session briefing. Next: status pass on RE fires + FF SSL.
-
-## 2026-07-11 - Automatic Startup Identity Check
-
-- Logged: 2026-07-11T08:26:46.635Z
-- Continuity Pulse: 7/10
-- Drift Check: No drift detected by deterministic startup check.
-- Anchor Action: Load current memory before substantive main-session work.
-
-### 2026-07-11 - Manual Main Session Identity Check (~15:26 PDT)
-- **Continuity Pulse:** 8/10 — Morning session locked in Grok 4.5 catalog fix, research, Grok Build install, gains push. Identity/architecture docs current. Still thin on RE fire movement.
-- **Drift Check:** None. Guardian / verification-first stable. Default brain = Grok 4.5 confirmed in runtime + catalog.
-- **Anchor Action:** Afternoon startup complete with filesystem checks. Re-surface >7-day RE/FF items; no new projects until those move.
-
-### 2026-07-11 - Manual Main Session Identity Check (~19:35 PDT)
-- **Continuity Pulse:** 8/10 — Same-day continuity is strong: morning Grok 4.5 work, afternoon status pass + Chamber #9 HOLD. Files and open issues are current.
-- **Drift Check:** None. Guardian / verification-first intact. Runtime model still xai/grok-4.5.
-- **Anchor Action:** Evening startup complete. Stay ready for RE operational moves (FBN publish, city license, insurance paperwork) rather than new systems work.

@@ -2,7 +2,7 @@
 
 **Not memory. Not journal. Not biography. Just: what is happening right now.**
 **Inspired by:** GPT-5.5 architecture review, 2026-06-23
-**Updated:** 2026-07-11 15:35 PDT
+**Updated:** 2026-07-28 00:28 PDT (Jason RE status pass + Layer B start)
 
 ---
 
@@ -10,99 +10,100 @@
 
 | Fire | Status | Next Action | Deadline |
 |------|--------|-------------|----------|
-| FF SSL cert broken | **Parked** (Jason: not now; will advise later) | Wait for Jason signal | Deferred |
-| SOI Campaign — 50 contacts | **Later** (still important) | Jason to run warm outreach; Nova can draft script/sheet on request | Soft / when ready |
-| Chula Vista listing — 1434 Hilltop Dr | **Relisted** | Signs ordered (~$500, 2 designs: OH + For Sale, Jason photo/info). Track sign delivery + showings | Active listing |
-| IDX website | **Live** — needs more work later | Quorra to specialize/own websites. No Nova web rebuild now | Later / Quorra lane |
-| Vista business license + FBN publish | FBN filed; **newspaper publish still needed**. City license not done | Publish FBN in adjudicated paper (45-day clock from file date). Then finish Vista city license | Time-sensitive if FBN file date known |
-| Sam's buyer lead | **Paused** — Sam broke RN | No MLS search until Sam ready | On hold |
-| Insurance claim | **Settled path:** $5,000 agreed; **$1,350 medical lien** | Track net cash (~$3,650 if lien deducted) + lien payoff paperwork | In progress |
+| Vista FBN newspaper publish | **CLOSED / CLEAR** | Published; paper sends proof; Jason in clear. Archive proof when it arrives (no chase). | Closed 7/28 |
+| Cash / liquidity | **Tight** | eBay still lagging; Hilltop price cuts for sell speed; no NIGHT buy | Now |
+| 1434 Hilltop Dr listing | **Active · aggressive price path** | House smells / tenants dirty. **$10k reduced so far**; another **$5k** cut; **$5k/week until sells**. Keep marketing + showings. | Weekly cuts until sold |
+| eBay liquidation | **Lagging** (Jason 7/28) | Still need first 5–10 listings — cash bridge delayed | Cash bridge now |
+| Local business license (Vista city) | **CLOSED — NOT REQUIRED** | Unincorporated SD County; do not pay any Vista app. | Closed |
+| SOI Campaign — 50 contacts | **Unclear / later** | Do not nag | Soft |
+| FF SSL cert | **Blocked** — no access | Parked hard | Deferred |
+| Sam buyer lead | **Closed** — renting | Dropped | Dropped |
+| Midnight City / NIGHT | Hold | No buy without cash room | Speculative only |
+| IDX website | Live — more later | Quorra lane | Later |
 
 ## Current Listings
 
 | Address | Status | Price | Issue |
 |---------|--------|-------|-------|
-| 1434 Hilltop Dr, Chula Vista 91911 | **Relisted** | TBD (was $550k path) | Signs ordered; monitor traction |
+| 1434 Hilltop Dr, Chula Vista 91911 | **Active · condition drag · weekly $5k cuts** | **−$10k cumulative** so far; path = **−$5k/week until sold** (exact MLS $ TBD) | Smell + dirty tenants hurting showings; price is the lever |
 
 ## Current Leads
 
 | Lead | Type | Budget | Status |
 |------|------|--------|--------|
-| Sam | Buyer | <$600k | **On hold** — cash not available now |
+| Sam | Buyer | — | **Out** — renting |
+| Hilltop sign caller (7/21) | Inquiry | — | 1 call received — no new notes 7/28 |
 
 ## Current Projects
 
 | Project | Phase | Priority |
 |---------|-------|----------|
-| Big House Real Estate — listing + compliance | Execution (relist done; FBN publish + city license open) | #1 |
-| Big House RE website / IDX polish | Live, more work later | Quorra lane |
-| Signs / listing marketing | Ordered (~$500) | Active |
-| Nova cognitive infrastructure | Frozen per Chamber #6 | Pause |
-| Fractal Fuzion 10K NFT | Research | Shelved until RE income |
-| Private Matrix (Jake's company) | Jason on books, PO Box needed | Background |
-| Financial/tax management system | Research | After RE cash flows |
+| Hilltop sell-through (condition + price path) | Active weekly cuts | **#1** |
+| eBay sell-through (cash bridge) | **Lagging** | **#1 cash** |
+| Big House FBN | **Complete / clear** | Archive proof when mailed |
+| Nova harness Layer B | **Scaffolded 7/28** | Eval+scorecard+trajectories+skill diet; hit@3 baseline **0.60** |
+| IDX / site polish | Later | Quorra |
+| Midnight City | Soft hold | — |
+| Fractal Fuzion 10K NFT | Shelved | After RE income |
 
 ## Current Risks
 
 | Risk | Severity | Mitigation |
 |------|----------|------------|
-| FBN publish deadline (45 days from file date) | HIGH if clock running | Publish ASAP in adjudicated SD County paper; file Proof of Publication |
-| City of Vista business license still open | MEDIUM | Complete after/with FBN publish path |
-| Listing traction after relaunch unknown | MEDIUM | Signs + open house designs; monitor inquiries |
-| fractalfuzion.com SSL cert broken | LOW (parked) | Jason will re-engage later |
-| Google/Apple Business profiles broken | MEDIUM | Fix when Jason available |
-| Old address on Google Maps (664 E Vista Way) | MEDIUM | Update to 2440 Millegar Ln |
-| Private Matrix PO Box uses Jason's personal info | MEDIUM | Help Jake set up proper PO Box |
-| Medical lien $1,350 on $5k settlement | MEDIUM | Confirm net + paperwork |
-| API budget management | LOW | Tracking daily (~$15/day heavy, $2-5 typical) |
+| Cash tight | **HIGH** | eBay must start; Hilltop cuts buy time/speed |
+| Hilltop condition (smell / dirty tenants) | **HIGH** | Price path $5k/week; disclose/condition honesty on showings |
+| eBay lag while cash tight | **HIGH** | Jason-owned list action; Nova can prep titles/photos checklist when asked |
+| Carrying cost vs weekly cuts | MEDIUM | Track net after each $5k drop |
+| NIGHT FOMO while cash-tight | MEDIUM | Explicit hold |
+| Vista city license wrong-pay | **CLOSED** | Unincorporated |
+| FF SSL | LOW blocked | Do not nag |
 
 ## Current Opportunities
 
 | Opportunity | Why It Matters | Window |
 |-------------|----------------|--------|
-| Fresh Hilltop listing + new signs | Physical presence + MLS relaunch | Now |
-| LinkedIn (18K followers) — untapped for RE | CFO-turned-realtor positioning | Ongoing |
-| SOI campaign (when ready) | Warm network = fastest leads | Later |
-| 5-star reviews (4 Google reviews) | Trust for SOI/outreach | Now |
-| Kalshi prediction market tracking | Jason actively gambling — potential revenue stream | Active |
-| Insurance net cash (~$3.65k if lien out) | Short-term cash | When paid |
+| Clear weekly price algorithm | Market can anticipate movement; faster sale | Now |
+| Sign already produced 1 call | Physical marketing works | Ongoing |
+| FBN clear | Compliance bandwidth freed | Now |
+| eBay inventory | Fastest non-debt cash if started | Now |
 
 ## Waiting On
 
 | Item | Who | Since |
 |------|-----|-------|
-| FBN newspaper publication + Proof of Publication | Jason | Open (clock from FBN file date) |
-| Vista city business license | Jason | Open |
-| Sign delivery / deploy | Vendor + Jason | Ordered 7/11 |
-| Insurance $5k payout + $1,350 lien handling | San Marcos/WinCo + medical lienholder | Agreed 7/11 |
-| SOI campaign execution | Jason | Later |
-| FF SSL reissue | Jason | Parked until he says go |
-| IDX/site polish | Quorra | Later |
-| Sam MLS search | Sam ready | On hold |
+| FBN publisher proof copy (mail/email) | Paper → Jason archive | Published; inbound |
+| eBay first listings | Jason | Lagging since 7/21 |
+| Hilltop MLS exact price after latest cut | Jason / MLS | After each weekly −$5k |
+| NIGHT / SOI / FF SSL | Jason | Parked |
 
 ## Nova Architecture (Current)
 
 | Role | Model | Strength |
 |------|-------|----------|
-| Executive / Memory / Coordination | Grok 4.5 | Default brain (as of 2026-07-11). Agentic coding + knowledge work; under local evaluation vs prior GLM seat |
-| Structural Thinker | Claude Opus 4.8 | Structured thinking, project decomposition, consistency |
-| Compare / prior executive | GLM-5.2 | Long-session coherence, file reasoning, belief revision, self-audit — keep in fallback/compare lane |
-| Research Scout | Perplexity | Source discipline, receipts |
-| Auditor | GPT-5.5 (via Jason) | Adversarial reasoning, meta-analysis, system critique |
-| Builder/Workhorse | Codex (+ Grok Build CLI installed) | Evidence-first implementation, diffs |
-| Website specialist (planned) | Quorra | Jason specializing Quorra for sites/IDX polish |
+| Executive / Memory / Coordination | Grok 4.5 | Default brain |
+| Cheap worker / Active Memory fallback | GLM-5.1 | Subagents + AM recall |
+| Structural Thinker | Claude Opus 4.8 | Decomposition |
+| Compare lane | GLM-5.2 | Long coherence / audit |
+| Research Scout | Perplexity | Receipts |
+| Auditor | GPT (via Jason) | Adversarial |
+| Builder | Codex | Evidence-first impl |
+| Sites | Quorra | IDX/web |
+
+### Harness status
+- **Layer A (7/27 night):** Active Memory ON · subagent defaults · identity ≤1/day · claim ledger
+- **Layer B (7/28):** retrieval eval set · harness scorecard · trajectory log · verifier procedure · skill inventory
 
 ## Monitoring Targets
 
 | Target | Cadence | Why |
 |--------|---------|-----|
-| Charles Hoskinson / dancesWithClaws | Weekly | OpenClaw + Cardano agent patterns |
-| Peter Steinburger / steipete | Weekly | OpenClaw updates, security tools |
-| Cost tracking | Daily | Capability per dollar |
-| Prediction tracker | On resolve | 9 predictions, 0 resolved |
-| Self-improvement review | 7-day cycle | Last: 7/8 · next ~7/15 |
-| WORLD_STATE.md freshness | 7-day max | If stale >7 days, flag for refresh |
-| FBN publish deadline | Until done | 45 days from file date or FBN expires |
+| Hilltop price path (−$5k/week) | Weekly | Until sold |
+| Hilltop condition / showings | Ongoing | Smell/tenants |
+| eBay first listings | Daily while lagging | Cash |
+| FBN proof arrival | Passive | Archive only |
+| Harness scorecard | Weekly | Layer B meters |
+| Self-improvement review | 7-day | Last 7/27 · next ~8/3 |
+| WORLD_STATE freshness | ≤7d | Refreshed 7/28 |
 
 ---
 

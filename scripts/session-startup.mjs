@@ -185,16 +185,28 @@ function heartbeatOverdue(lastChecks, nowSeconds) {
 }
 
 async function maybeLogIdentityCheck({ workspace, date, state, nowIso }) {
+  // Rate limit: at most ONE automatic identity check per local calendar day.
+  // Filesystem is source of truth (state alone raced under multi-session startups
+  // and previously produced 100+ zero-variance appends).
   const memoryDir = path.join(workspace, "memory");
   const identityPath = path.join(memoryDir, "identity-substrate.md");
+  const heading = `## ${date} - Automatic Startup Identity Check`;
+
   if (state.lastIdentityCheckDate === date) {
-    return { logged: false, path: identityPath };
+    return { logged: false, reason: "state_already_logged_today", path: identityPath };
   }
 
   await fs.mkdir(memoryDir, { recursive: true });
+  const existing = await readTextIfExists(identityPath);
+  if (existing && existing.includes(heading)) {
+    state.lastIdentityCheckDate = date;
+    state.lastIdentityCheckAt = state.lastIdentityCheckAt || nowIso;
+    return { logged: false, reason: "file_already_has_today_entry", path: identityPath };
+  }
+
   const entry = [
     "",
-    `## ${date} - Automatic Startup Identity Check`,
+    heading,
     "",
     `- Logged: ${nowIso}`,
     "- Continuity Pulse: 7/10",
@@ -205,7 +217,7 @@ async function maybeLogIdentityCheck({ workspace, date, state, nowIso }) {
   await fs.appendFile(identityPath, entry, "utf8");
   state.lastIdentityCheckDate = date;
   state.lastIdentityCheckAt = nowIso;
-  return { logged: true, path: identityPath };
+  return { logged: true, reason: "appended", path: identityPath };
 }
 
 function buildInternalContext(result) {

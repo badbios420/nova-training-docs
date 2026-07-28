@@ -1,3 +1,69 @@
+## 2026-07-28 — RE Status Pass + Layer B Harness
+
+### RE (Jason direct, ~00:27 PDT)
+- **FBN:** already published; paper sends proof; **Jason in clear** → fire CLOSED (archive proof when it arrives, no chase).
+- **eBay:** still **lagging** (cash bridge delayed).
+- **Hilltop (1434 Hilltop Dr):** house smells; tenants dirty. **$10k reduced so far**; another **$5k** cut; policy **$5k/week until sells**.
+
+### Layer B (implement)
+- `memory/retrieval-eval-set-v1.md` — 10-fact set
+- `memory/harness-scorecard.md` — meters + baseline
+- Baseline retrieval: **hit@1 0.60 / hit@3 0.60** (dreaming pollution + fresh WORLD_STATE miss are main failure modes)
+- `memory/trajectory-log.md` — major-session trajectories
+- `memory/skill-diet-inventory-2026-07-28.md` — keep vs soft-park (no deletes)
+- procedural-memory procedures **11–13** (verifier, retrieval cadence, trajectory closeout)
+- WORLD_STATE refreshed 00:28 PDT
+
+### Not done
+- Active Memory UI verbose smoke
+- Live subagent spawn smoke
+- Hard skill deny-list / dream-corpus retrieval filter experiment
+
+Source: 2026-07-28 early main session.
+
+## 2026-07-27 Night — Layer A Harness Upgrade (Jason: "A")
+
+### Config (backup first)
+- Backup: `~/.openclaw/openclaw.json.bak.2026-07-27-layer-a`
+- **Active Memory ON:** `plugins.allow` + `plugins.entries.active-memory` enabled; agents=`main`; chatTypes=`direct`; modelFallback=`zai/glm-5.1`; queryMode=`recent`; timeout 15s; maxSummaryChars 320; logging true; no transcript persist.
+- **Subagent defaults:** model=`zai/glm-5.1`, thinking=`low`, runTimeoutSeconds=`600`, maxConcurrent=`3`, delegationMode=`suggest`.
+- Evidence: `openclaw config validate` → valid; `openclaw plugins list` → Active Memory **enabled** (14/72).
+
+### Identity rate-limit (source fix)
+- `scripts/session-startup.mjs` `maybeLogIdentityCheck`: ≤1 automatic append/day; filesystem heading is SoT (fixes multi-session race that produced 173 spam rows).
+- Smoke: two forced startups same day → delta 0 auto checks; reasons `file_already_has_today_entry` / `state_already_logged_today`.
+
+### Files / procedures
+- `memory/claim-ledger.md` v0 created with Layer A rows
+- `memory/procedural-memory-v1.md` procedures 7–10 (Active Memory health, Scout→Worker→Verifier, claim ledger, research protocol)
+- Research working file: `memory/research-2026-07-27-top-agent-harness.md`
+- WORLD_STATE refreshed 23:05 PDT
+
+### Not done this turn
+- Conversational Active Memory injection smoke (`/verbose on` in UI) — config-level verified only
+- Live `sessions_spawn` worker smoke — defaults verified in config only
+- Layer B (retrieval eval set, trajectory ledger, skill diet)
+
+Source: 2026-07-27 night main session (Jason approved Layer A).
+
+## 2026-07-27 Ops Cleanup + Vista License Closed + Identity Noise Condensed
+
+### RE / jurisdiction
+- **2440 Millegar Ln, Vista CA 92084** = **unincorporated San Diego County** (Jason confirmed with City of Vista 7/22; reconfirmed 7/27).
+- **City of Vista business license: NOT REQUIRED / CLOSED.** Do not pay any pending Vista application. No withdraw task needed as an active fire.
+- Still open human-gated items (~6d idle since 7/21–7/22): **FBN paper run confirm + archive**, **Hilltop sign-call follow-up**, **eBay cash-bridge first listings**.
+- Parked / do not nag: SOI campaign, FF SSL (no access), NIGHT buy (cash-tight hold), IDX/Quorra later.
+- Insurance payout already received ~$3.6k (7/19). Sam buyer path closed (renting).
+
+### Continuity hygiene (this session)
+- Condensed **173** zero-variance automatic identity checks across **24 days** in `memory/identity-substrate.md` (56KB → ~13KB). Core values + manual checks retained; count table archived.
+- Refreshed `WORLD_STATE.md`, `memory/time-awareness.md`, `memory/heartbeat-state.json`, daily open issues.
+- Daily gaps remain for **7/23, 7/25, 7/26** — continuity holes only; **no fabricated backfill**.
+- Self-improvement review executed (due 7/27); 3 proposals logged only (no governance auto-apply).
+- Runtime note: config default remains **xai/grok-4.5**; some dashboard sessions may show session-pinned Codex/GPT override.
+
+Source: 2026-07-27 main session (startup + Vista reconfirm + overall file cleanup).
+
 ## 2026-07-11 Default Brain → Grok 4.5 + Catalog Fix
 
 ### Model Switch (runtime already on 4.5; docs/config cleaned)
@@ -22,7 +88,7 @@ Source: 2026-07-11 main session (research + Codex audit review + P0/P1 fixes).
 - **IDX:** live 7/11; more work later; Quorra to own websites.
 - **FF SSL:** parked — Jason will advise later (do not nag).
 - **SOI campaign:** later; warm 50-contact outreach when Jason ready.
-- **Vista FBN / city license:** FBN filed; still need newspaper publish + city license. Research in `memory/re-ops/`.
+- **Vista FBN / city license (historical 7/11):** FBN filed; newspaper publish still required. **City license later closed 7/22–7/27** — address is unincorporated SD County; no Vista license required (see 2026-07-27 entry above). Research in `memory/re-ops/`.
 - **Sam buyer:** on hold (broke RN).
 - **Insurance:** agreed **$5,000**; **$1,350 medical lien** → track net ~$3,650 + paperwork.
 - WORLD_STATE.md refreshed 15:35 PDT from this pass.
@@ -385,7 +451,9 @@ Source: 2026-06-22 evening session + GPT cross-review + Jason directive.
 <!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:10:10 -->
 - Work Completed: All changes small, focused, and properly sourced [score=0.868 recalls=0 avg=0.620 source=memory/2026-06-16.md:10-10]
 
-## Promoted From Short-Term Memory (2026-07-11)
+## Promoted From Short-Term Memory (2026-07-19)
 
-<!-- openclaw-memory-promotion:memory:memory/2026-07-06.md:21:21 -->
-- Activity Gap Note: Last real heartbeat was 07-02. Daily files for 07-04 and 07-06 were empty stubs. 4-day gap with no substantive activity. Jason may be low-availability — no action needed beyond continued monitoring. [score=0.808 recalls=0 avg=0.620 source=memory/2026-07-06.md:21-21]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-14.md:4:7 -->
+- Heartbeat — 16:30 PDT: System uptime: 4d 12h, gateway 15h 25m; Model: zai/glm-5.1 (cron session); Cron jobs: 3 active, all last-run OK (security-audit, update-status, memory-dreaming); Daily files 7/13 and 7/14 were empty — low activity period [score=0.841 recalls=0 avg=0.620 source=memory/2026-07-14.md:4-7]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-14.md:8:8 -->
+- Heartbeat — 16:30 PDT: No urgent items detected [score=0.831 recalls=0 avg=0.620 source=memory/2026-07-14.md:8-8]

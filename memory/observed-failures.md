@@ -58,3 +58,17 @@
 **Policy Involved:** No procedure existed for verifying external claims before writing to durable memory
 **Impact:** Minor (caught before promotion to MEMORY.md, but the research file was written as if verified)
 **Notes:** Fix: Added Procedure 5 (Proactive Disconfirmation) to procedural-memory-v1.md. Research file marked with verification warning. Root cause: excitement about research content overrode verification instinct. The verification-first directive caught it.
+
+### 2026-07-27
+**Failure Type:** Other (Signal Pollution / Cognitive Hygiene)
+**Description:** Automatic startup identity checks re-flooded `memory/identity-substrate.md` after the 2026-06-22 condensation. Cleanup found **173** identical zero-variance auto entries across **24 days** (peak 38 on 7/22), growing the file back to ~57KB. Same failure class as the 6/22 40+ noise block.
+**Policy Involved:** Automated startup identity check plugin still appending without rate-limit, variance gate, or reasoning requirement.
+**Impact:** Minor-to-medium (token waste on every load; drowns manual identity signal; repeat of a known fixed-then-regressed failure).
+**Notes:** Condensed again to a per-day count archive + retained core values/manual checks (56KB → ~13KB). Fix still needed at source: rate-limit auto identity writes (e.g. 1/day) or suppress boilerplate appends. Logged as recurrence, not a new mystery.
+
+### 2026-07-27 (B)
+**Failure Type:** Retrieval / Operational Continuity
+**Description:** Open RE cash items (FBN confirm/archive, Hilltop sign-call follow-up, eBay first listings) stayed listed from 7/21–7/22 through 7/27 without main-session escalation despite Stale Item Escalation Rule and ~5d since last Jason contact before today.
+**Policy Involved:** HEARTBEAT.md Stale Item Escalation Rule (>7d without Jason contact). Borderline on calendar days; functionally detect-but-don't-escalate during quiet gap + missing dailies 7/23/25/26.
+**Impact:** Minor (no irreversible harm) but cash-tight context makes idle open fires costly.
+**Notes:** Escalated in 7/27 main cleanup. Prefer aging open fires inside WORLD_STATE with explicit day counts so startup cannot soft-pedal them.

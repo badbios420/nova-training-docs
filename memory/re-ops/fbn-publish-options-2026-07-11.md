@@ -1,6 +1,7 @@
-# FBN Publish Options — San Diego County (2026-07-11)
+# FBN Publish Options — San Diego County
 
 **Status:** Working note for Jason  
+**Updated:** 2026-07-19 (prices/links re-verified live)  
 **Context:** FBN already filed; newspaper publication still required.
 
 ## Legal requirements (from SDARCC official docs)
@@ -10,7 +11,7 @@ Source: `sd-county-fbn-publication-newspaper-list.pdf` (Rev 06/30/2025) + ARCC F
 - **Deadline:** within **45 days** of filing date (no extensions; miss it → FBN expires → refile + re-pay).
 - **Frequency:** once a week for **4 consecutive weeks**.
 - After 4th publish: get **Proof of Publication** and file it with County Clerk within **45 days** of the 4th publication.
-- Some papers will file the Proof with the County for an extra fee.
+- Some papers will file the Proof with the County for you (included or extra fee).
 
 County FBN page:  
 https://www.sdarcc.gov/content/arcc/home/divisions/recorder-clerk/fictitious-business-name.html
@@ -18,55 +19,58 @@ https://www.sdarcc.gov/content/arcc/home/divisions/recorder-clerk/fictitious-bus
 Official adjudicated newspaper list PDF (saved locally):  
 `memory/re-ops/sd-county-fbn-publication-newspaper-list.pdf`
 
-County filing fees (if refiling ever needed): **$54** first name/registrant + **$5** each additional (+ card surcharge if applicable). Publish cost is separate (set by newspaper).
+## Ranked: cheapest + easiest online (verified 2026-07-19)
 
-## Easiest / likely cheapest path (North County first)
+### 🥇 Easiest fully online — NewFBN — **$66 flat**
+- **Order:** https://newfbn.com/order  
+- **SD County page:** https://newfbn.com/fbn-san-diego-county/  
+- **Vista-specific page:** https://newfbn.com/fbn-vista/  
+- Upload photo/PDF of **county-stamped** FBN, pay online, done.
+- Includes 4 weekly pubs + Proof of Publication affidavit emailed after final run.
+- Instant **unsigned** proof at checkout (banks/licenses).
+- Phone: (951) 262-7611
+- **Best if you want zero phone tag.**
 
-Call 2–3 small papers and ask: **“FBN / DBA legal notice, 4 consecutive weeks, San Diego County adjudicated, total price, do you file Proof of Publication with ARCC?”**
+### 🥈 Cheapest — Uptown San Diego Examiner — **$30**
+- Site: https://www.uptownexaminer.com/
+- Email stamped FBN to: **kevin@uptownexaminer.com**
+- Phone: **(619) 955-8960** or **(619) 955-8961**
+- $30 for up to 4 names on one form (+$2 each extra)
+- **Includes filing Proof of Publication with county recorder** + mails proof to you
+- Not full self-checkout: email form, then call with card (or mail check)
+- Adjudicated City + County of San Diego; publishes Wed + Fri
+- **Best if you want lowest price and will email once.**
 
-### 1) THE PAPER (San Marcos) — closest to Vista
-- Phone: **(760) 747-7119**
-- Address: 845 West San Marcos Blvd, San Marcos, CA 92078
-- Why first: local North County adjudicated paper; usually cheaper than metro dailies.
+### 🥉 Online form + cheap — Hispanos Unidos — **$40**
+- Form page: https://hispanosnews.com/publish-san-diego-legal-notices-and-fictitious-business-name-statements/
+- Upload PDF/DOCX/JPG via web form → they invoice within 24h → pay Visa/MC
+- $40 FBN; includes 4 weeks + mails proof to County Clerk/court on your behalf
+- Adjudicated San Diego County newspaper
+- **Best middle path** (form online, still cheap).
 
-### 2) Escondido Times-Advocate — online submit + covers all SD County “other notices”
-- Submit legal notice: https://www.times-advocate.com/legal-public-notice-submission/
-- Legal notices index: https://www.times-advocate.com/legal-notices/
-- Public notice hotline: **(760) 546-4200**
-- Email: info@Times-Advocate.com
-- Site states they handle **“All other notices: All San Diego County”** and will send proof of publication.
-- Also lists Valley Roadrunner network (also on county adjudicated list).
+### Also online (North County) — Escondido Times-Advocate
+- Submit: https://www.times-advocate.com/legal-public-notice-submission/
+- Hotline: **(760) 546-4200** · info@Times-Advocate.com
+- On official county adjudicated list; price not posted (call/quote)
+- Good local North County option if you prefer a paper near Vista.
 
-### 3) North County Spectrum (Escondido)
-- Phone: **(760) 747-8911**
-- Address: 210 S. Juniper, Ste. 211, Escondido, CA 92025
+### Avoid for cheapest
+- San Diego Union-Tribune — usually highest legal-notice rates
+- San Diego Business Journal — not the bargain lane
 
-### 4) The Coast News (Encinitas)
-- Phone: **(760) 436-9737**
-- Address: 531 Encinitas Blvd, 204/205, Encinitas, CA 92024
+## What you need ready
+- Filed/stamped FBN statement (PDF or phone photo)
+- Filing must be **within last 45 days** or they cannot publish
+- Exact business name + registrant as filed
 
-### Avoid for “cheapest” (usually)
-- San Diego Union-Tribune — adjudicated, but typically highest legal-notice rates.
-- San Diego Business Journal — fine paper, usually not the bargain lane.
+## Recommended pick for Jason
+1. **Want easiest online right now:** NewFBN $66 → https://newfbn.com/order  
+2. **Want cheapest and OK emailing once:** Uptown $30 → email kevin@uptownexaminer.com  
+3. **Want form + cheap:** Hispanos $40 → hispanosnews form link above  
 
-## What to send the paper
-- Filed FBN statement copy / filing number
-- Exact business name as filed
-- Registrant name(s)
-- Business address
-- County where filed (San Diego)
-- Ask them to confirm 4-week schedule fits the **45-day** start window
+**Critical:** Confirm your **FBN file date**. If approaching/past 45 days, publish today or refile.
 
 ## Separate: City of Vista business license
-This is **not** the same as FBN publication.
-- City page (official): https://www.vista.gov/business/business-licenses  
-  (server blocked automated fetch from this host 7/11; use browser)
-- If online portal is HdL-based, start from that city page and follow “Apply/Renew”.
-- DRE broker license + Lantern Bay brokerage affiliation still govern real estate advertising; city business license is local tax/permit layer.
-
-## Recommended sequence
-1. Confirm **FBN file date** → compute 45-day publish start deadline.
-2. Call **THE PAPER** + **Times-Advocate** for total 4-week quote + proof-filing service.
-3. Pick cheapest that can start immediately.
-4. After publish complete, confirm Proof of Publication filed with ARCC (search FBN records).
-5. Finish **Vista city business license**.
+Not the same as FBN publication.
+- Official: https://www.vista.gov/business/business-licenses  
+- Target: Jason hoping **2026-07-20**

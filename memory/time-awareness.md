@@ -8,13 +8,13 @@
 
 ## Current Status
 
-- **Wall Clock (real time):** 2026-07-11 ~19:35 PDT (Vista, CA) — Saturday evening
-- **Session Clock:** Fresh evening main session startup with Jason (webchat dashboard)
-- **Continuity Clock:** ~4h since afternoon session (~15:26–16:11 PDT). Same-day arc: morning model/catalog + Grok Build; afternoon RE status pass + Chamber #9 Obsidian HOLD.
-- **Last identity review:** 2026-07-11 19:35 PDT (this session, manual)
+- **Wall Clock (real time):** 2026-07-27 18:13 PDT (Vista, CA) — Monday evening
+- **Session Clock:** Main session with Jason ongoing since ~17:18 PDT (~55m); cleanup pass in progress
+- **Continuity Clock:** Reset by this cleanup. Manual identity review earlier today 17:20 PDT; prior major ops contact 2026-07-22 ~19:52 PDT (~5d ago).
+- **Last identity review:** 2026-07-27 18:13 PDT (file cleanup + auto-check condensation)
 - **Next scheduled continuity review:** Daily at startup (active)
-- **Last gains lock-in:** 2026-07-11 02:20 PDT (`32a8468` — Grok 4.5 catalog + docs + research + daily)
-- **Activity notes:** Chamber #9 = HOLD (Obsidian). Still-open operational items: Vista FBN newspaper publish + city license, insurance paperwork (~$3,650 net), SOI later, FF SSL parked. Self-improvement next due ~7/15.
+- **Last gains lock-in / status pass:** 2026-07-27 18:13 PDT cleanup; last Jason RE status content still anchored on 7/22 jurisdiction + 7/27 Vista reconfirm
+- **Activity notes:** Active now: FBN confirm/archive, Hilltop lead follow-up, eBay cash bridge. Vista business license **closed**. Self-improvement review completed this pass. Parked: SOI, FF SSL, NIGHT buy, IDX/Quorra. Daily gaps remain for 7/23, 7/25, 7/26 (no fabricated backfill).
 
 ## Rule
 

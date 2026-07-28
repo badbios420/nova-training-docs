@@ -584,10 +584,39 @@
         "sites",
         "weather"
       ]
+    },
+    "main|agent:main:dashboard:a6cd6a3e-d29d-427a-b5db-e2a3b1dc357a|a623a033-cde3-4c65-b460-c81f51b880e2": {
+      "completedAt": "2026-07-16T01:29:01.156Z",
+      "date": "2026-07-15",
+      "sessionKey": "agent:main:dashboard:a6cd6a3e-d29d-427a-b5db-e2a3b1dc357a",
+      "sessionId": "a623a033-cde3-4c65-b460-c81f51b880e2",
+      "agentId": "main",
+      "heartbeatOverdue": [
+        "selfImprovementReview",
+        "memory",
+        "sites",
+        "weather"
+      ]
+    },
+    "main|agent:main:dashboard:layer-a-smoke|layer-a-smoke-1785218617-0": {
+      "completedAt": "2026-07-28T06:03:37.108Z",
+      "date": "2026-07-27",
+      "sessionKey": "agent:main:dashboard:layer-a-smoke",
+      "sessionId": "layer-a-smoke-1785218617-0",
+      "agentId": "main",
+      "heartbeatOverdue": []
+    },
+    "main|agent:main:dashboard:layer-a-smoke|layer-a-smoke-1785218639-1": {
+      "completedAt": "2026-07-28T06:03:59.665Z",
+      "date": "2026-07-27",
+      "sessionKey": "agent:main:dashboard:layer-a-smoke",
+      "sessionId": "layer-a-smoke-1785218639-1",
+      "agentId": "main",
+      "heartbeatOverdue": []
     }
   },
-  "lastIdentityCheckDate": "2026-07-11",
-  "lastIdentityCheckAt": "2026-07-11T08:26:46.635Z",
-  "lastRunAt": "2026-07-12T02:44:35.900Z",
-  "lastRunKey": "main|agent:main:dashboard:e7603009-044d-4489-900b-5899d0c9b234|bb99ce8c-1cd7-4689-8dba-e3ba12b2d882"
+  "lastIdentityCheckDate": "2026-07-27",
+  "lastIdentityCheckAt": "2026-07-16T01:29:01.156Z",
+  "lastRunAt": "2026-07-28T06:03:59.665Z",
+  "lastRunKey": "main|agent:main:dashboard:layer-a-smoke|layer-a-smoke-1785218639-1"
 }

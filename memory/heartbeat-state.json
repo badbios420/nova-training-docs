@@ -1,54 +1,61 @@
 {
   "lastChecks": {
-    "security": 1783825067,
-    "update": 1783825067,
-    "memory": 1783825067,
-    "sites": 1783825067,
-    "weather": 1783825067,
-    "selfImprovementReview": 1783557840
+    "security": 1784910086,
+    "update": 1785201174,
+    "memory": 1785201174,
+    "sites": 1785201174,
+    "weather": 1785201174,
+    "selfImprovementReview": 1785201174
   },
-  "lastSession": "2026-07-11T19:54:00-07:00",
-  "lastHeartbeat": "2026-07-11T19:57:00-07:00",
-  "notes": "19:57 PDT evening heartbeat. Security 0 crit / 5 known warns. Update current 2026.6.11. Sites: FF SSL still self-signed (parked by Jason, do not nag); BHR 403 Cloudflare = live. Weather Vista 91F sunny. WORLD_STATE fresh (mtime 15:35). Self-improvement next ~7/15. Daily file present. No urgent wake.",
+  "lastSession": "2026-07-27T18:13:00-07:00",
+  "lastHeartbeat": "2026-07-27T18:13:00-07:00",
+  "notes": "18:13 PDT main-session file cleanup (not a quiet poll). WORLD_STATE refreshed; Vista license closed; identity-substrate auto-noise condensed (173 entries / 24 days); SI review completed; open RE items FBN/Hilltop/eBay escalated (~6d idle). Security deep audit not re-run this pass (last full 7/24). Gaps 7/23+7/25+7/26 still missing — no fabricated backfill.",
   "checkResults": {
     "security": {
-      "timestamp": "2026-07-11T19:57:00-07:00",
-      "status": "OK",
-      "details": "0 critical · 5 warn · 3 info. Known: allowInsecureAuth, audit suppressions(1), workspaceOnly=false, exec security=full for main."
+      "timestamp": "2026-07-24T09:21:00-07:00",
+      "status": "STALE",
+      "details": "Last full deep audit 7/24: 0 critical · 7 warn · 3 info · 1 suppressed. Known: allowInsecureAuth, suppressions(1), workspaceOnly=false, exec security=full main, unpinned codex npm plugin, gateway probe SecretRef unavailable in audit shell. Not re-run during 7/27 cleanup — schedule next heartbeat deep pass."
     },
     "update": {
-      "timestamp": "2026-07-11T19:57:00-07:00",
+      "timestamp": "2026-07-27T18:12:54-07:00",
       "status": "OK",
-      "details": "npm up to date · latest 2026.6.11 · deps ok"
+      "details": "OpenClaw 2026.7.1-2 (0790d9f) · npm latest 2026.7.1-2 · up to date · deps ok. Gateway local reachable; systemd user active."
     },
     "sites": {
-      "timestamp": "2026-07-11T19:57:00-07:00",
+      "timestamp": "2026-07-27T18:12:54-07:00",
       "status": "WARN",
-      "fractalfuzion": "SSL self-signed (curl 60 / insecure 200). Parked 7/11 by Jason — do not nag.",
-      "bighouserealestate": "HTTPS 403 Cloudflare challenge = live (ssl_verify=0)."
+      "fractalfuzion": "HTTPS self-signed / cert verify fail (curl 60). Hard park — do not nag.",
+      "bighouserealestate": "HTTPS 403 Cloudflare challenge = live pattern."
     },
     "weather": {
-      "timestamp": "2026-07-11T19:57:00-07:00",
+      "timestamp": "2026-07-27T18:12:54-07:00",
       "status": "OK",
-      "details": "Vista, CA 91F Sunny, humidity 50%, wind 3mph"
+      "details": "Vista, CA sunny ~85F (wttr.in)."
     },
     "selfImprovementReview": {
       "status": "OK",
-      "lastRun": "2026-07-08T17:50:00-07:00",
-      "dueIn": "Next due ~2026-07-15",
+      "lastRun": "2026-07-27T18:13:00-07:00",
+      "dueIn": "Next due ~2026-08-03",
       "rule": "7-day cycle",
-      "findings": "Not due (~3.1 days since last run)."
+      "findings": "3 proposals logged (auto identity rate-limit; stale-open-issue aging in WORLD_STATE; no fabricated gap backfill). No governance auto-apply."
     },
     "filesystem": {
-      "timestamp": "2026-07-11T19:57:00-07:00",
-      "dailyFile": "memory/2026-07-11.md present (mtime 19:35)",
-      "worldState": "WORLD_STATE.md present (mtime 15:35, age ~0.18d)",
+      "timestamp": "2026-07-27T18:13:00-07:00",
+      "dailyFile": "memory/2026-07-27.md present and expanded this session",
+      "yesterdayGap": "memory/2026-07-23.md, 2026-07-25.md, 2026-07-26.md missing — continuity holes only",
+      "worldState": "WORLD_STATE.md refreshed 2026-07-27 18:13",
+      "identitySubstrate": "Condensed 173 auto identity checks across 24 days; core values/manual checks retained; 56KB → ~13KB",
       "verified": true
     },
     "model": {
-      "timestamp": "2026-07-11T19:57:00-07:00",
+      "timestamp": "2026-07-27T18:12:00-07:00",
       "status": "OK",
-      "details": "Default primary xai/grok-4.5 verified earlier this evening; not a heartbeat alert."
+      "details": "Config default xai/grok-4.5. This dashboard session currently pinned openai/gpt-5.6-sol (session override). OpenClaw 2026.7.1-2."
+    },
+    "memory": {
+      "timestamp": "2026-07-27T18:13:00-07:00",
+      "status": "OK",
+      "details": "MEMORY.md top entry patched for closed Vista license + current RE open set. Daily open issues cleaned. observed-failures + self-improvement-log updated."
     }
   },
   "cacheTracking": {
