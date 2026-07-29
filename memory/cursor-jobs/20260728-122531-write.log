@@ -1,0 +1,28 @@
+Retrieval-eval runner is live and green.
+
+### Files created/changed
+- `scripts/lib/retrieval-eval-lib.mjs` — parseFacts, isNoisePath, filterHits, scoreFact, rollup
+- `scripts/retrieval-eval.mjs` — CLI (live openclaw search)
+- `scripts/test-retrieval-eval.mjs` — unit tests (no network)
+- `scripts/fixtures/retrieval-eval-sample.md` — tiny fixture
+- `memory/retrieval-eval-set-v1.md` — appended **How to run** (facts untouched)
+- `memory/cursor-jobs/retrieval-eval-report-20260728-1228.md` — live smoke report
+
+### Unit tests
+`node scripts/test-retrieval-eval.mjs` → **exit 0** (11 tests)
+
+### Live `--limit 2` (F01, F02)
+```
+raw:      hit@1 0/2 (0.00)  hit@3 2/2 (1.00)  support@3 2/2 (1.00)
+filtered: hit@1 2/2 (1.00)  hit@3 2/2 (1.00)  support@3 2/2 (1.00)
+```
+Dream paths ranked #1 raw; after filter, gold paths (`memory/2026-07-22.md`, `memory/2026-06-23-wallet-v2.md`) promoted to hit@1.
+
+### Full report
+`memory/cursor-jobs/retrieval-eval-report-20260728-1228.md`  
+(overall + per-category tables present)
+
+### Residual risks
+- Host default Node is **v24.5.0**; openclaw needs **≥24.15**. Runner prepends `~/.nvm/versions/node/v24.18.0/bin` when present — if that install moves, live runs fail with a clear openclaw version error.
+- **support@3** is a weak proxy (hit@3 + non-empty snippet), not semantic entailment.
+- Smoke only covered 2 facts; full 15-fact category coverage not re-measured this job.

@@ -24,7 +24,7 @@
 |-------|-------|-------|
 | 1 Memory-before-speech | **unmeasured** | AM config ON 7/27; UI `/verbose` smoke still pending |
 | 2 Unsupported claims | **low this arc** | claim-ledger in use |
-| 3 Open-fire age | **improved** | FBN **closed**; Hilltop moving (−$5k/wk); eBay still lagging |
+| 3 Open-fire age | **mixed** | FBN **closed**; Hilltop moving (−$5k/wk); eBay **7d lag** (hit escalate threshold 7/28 midday) |
 | 4 Retrieval hit@3 | **0.60** | Baseline 6/10 — see detail |
 | 4b hit@1 | **0.60** | 6/10 |
 | 4c support@3 | **~0.60** | Dreaming pollution on misses |
@@ -60,3 +60,55 @@ Backend: ollama `nomic-embed-text` via builtin memory_search
 
 ### Target path
 - Week of 8/4: hit@3 ≥ 0.8 after dream-noise mitigation attempt
+
+### 2026-07-28 midday — efficiency pass (~11:25–11:40 PDT)
+
+**Config** (backup `openclaw.json.bak.2026-07-28-memory-efficiency`):
+- `memorySearch.query.minScore` 0.38; maxResults 8
+- hybrid vector 0.55 / text 0.45; MMR on λ0.75; temporalDecay on halfLifeDays 14
+- Active Memory: promptStyle `strict`, maxSummaryChars 220, timeoutMs 12000
+- validate OK
+
+**Policy:** ops-first order + mandatory dream/noise filter (Procedure 14); AM = untrusted cache
+
+**No hard path-exclude** in OpenClaw memorySearch — agent-side filter is the control surface. Dreaming left enabled (consolidation still useful).
+
+| Meter | Value | Notes |
+|-------|-------|-------|
+| 4 Retrieval hit@3 **raw** | **0.60** | Still dream-dominated on several queries |
+| 4 Retrieval hit@3 **filtered** | **0.80** | Drop dreaming/DREAMS/eval-self; F05 accept includes procedural |
+| 4b hit@1 filtered | **0.70** | 7/10 |
+| 4c support@3 filtered | **~0.80** | |
+| 1 Memory-before-speech | unmeasured | AM tightened; UI verbose smoke still open |
+| 3 Open-fire age | mixed | eBay 7d escalate (unchanged this pass) |
+
+**Filtered detail (post policy):**
+| ID | hit@1 | hit@3 | Note |
+|----|-------|-------|------|
+| F01 | Y | Y | gold daily after dream drop |
+| F02 | Y | Y | wallet daily/v2 after dream drop |
+| F03 | Y | Y | 7/11 daily + MEMORY |
+| F04 | N | N | still weak address index; ops-first WORLD_STATE covers live use |
+| F05 | Y | Y | procedural-memory Layer A procedure (accept path updated) |
+| F06 | Y | Y | 6/23 daily after dream drop |
+| F07 | Y | Y | procedural Möbius/research protocol |
+| F08 | N | Y | identity-substrate / observed-failures in top3 |
+| F09 | N | N | **raw top5 all dreams**; ops-first WORLD_STATE/today required |
+| F10 | Y | Y | procedural + MEMORY after dream drop |
+
+**Verdict:** Efficiency win via **filter + ops-first**, not via magic ranking alone. Raw index still needs future hard exclude or out-of-tree dream storage for F09-class misses.
+
+### 2026-07-28 12:30 — automated runner (Cursor job #2 + Nova full run) — **CANONICAL**
+Tool: `node scripts/retrieval-eval.mjs` (live `openclaw memory search --json`)
+Report: `memory/cursor-jobs/retrieval-eval-report-20260728-1230.md`
+
+| Meter | Raw | Filtered |
+|-------|-----|----------|
+| hit@1 (15 facts) | **0.33** | **0.53** |
+| hit@3 (15 facts) | **0.53** | **0.60** |
+
+Filtered hit@3 by category: durable_facts **0.80** · current_ops/recent/procedures/historical **0.50**
+
+Misses of note: F04 address; F08/F09/F11/F14/F15 often eval-self or empty after filter. Automated 15-fact set is a stricter baseline than midday manual 10-fact filtered 0.80.
+
+**Canon rule (2026-07-28 A-fix):** Quote this automated 15-fact row as current retrieval health. Midday manual filtered 0.80 is historical/legacy only.

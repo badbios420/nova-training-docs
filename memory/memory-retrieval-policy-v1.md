@@ -1,7 +1,8 @@
 # memory-retrieval-policy-v1 Design
 
-**Status:** v1 Design Phase  
+**Status:** v1 Operational (efficiency pass 2026-07-28)  
 **Date:** 2026-05-26  
+**Last Updated:** 2026-07-28  
 **Goal:** Define when Nova should intentionally retrieve memory before answering  
 **Scope:** Narrow, operational, human-visible. Selective deliberate recall.
 
@@ -12,6 +13,8 @@
 **Selective deliberate recall, not constant memory spam.**
 
 Nova has multiple memory layers. The goal is consistent, high-signal retrieval only when it meaningfully improves the answer — not random or constant memory invocation.
+
+**Efficiency rule (2026-07-28):** Keep multi-layer *content*. Fix ranking/noise, not folder count. Prefer Research→Audit→Promotion and session consolidation over adding layers.
 
 ---
 
@@ -58,12 +61,22 @@ Nova **should not** retrieve memory for:
 When retrieval is triggered, follow this sequence:
 
 1. **Current conversation context** (always checked first)
-2. **MEMORY.md + daily memory files** via `memory_search` (primary durable source)
-3. **Specific files** via `memory_get` when a known file is relevant
-4. **memory-wiki** (once populated) for structured workflows, dossiers, or topic pages
-5. **lossless-claw** only for deep session reconstruction when lighter layers are insufficient
+2. **Ops-first files for operational questions** (before broad semantic search):
+   - `WORLD_STATE.md`
+   - today + yesterday `memory/YYYY-MM-DD.md`
+   - `memory/heartbeat-state.json` / `memory/time-awareness.md` when freshness/clocks matter
+3. **MEMORY.md + targeted daily/procedural files** via `memory_search` (primary durable semantic source)
+4. **Specific files** via `memory_get` / `read` when a known path is relevant
+5. **memory-wiki** (once populated) for structured workflows, dossiers, or topic pages
+6. **lossless-claw** only for deep session reconstruction when lighter layers are insufficient
 
 Do not jump straight to the heaviest layer.
+
+### Ops query shortcut
+If the question is about fires, RE status, cash, open issues, what to do next, or current architecture state:
+1. Read `WORLD_STATE.md` + today/yesterday daily first
+2. Only then run `memory_search` if still incomplete
+3. Prefer gold sources over dream reports even if dreams rank higher
 
 ---
 
@@ -128,6 +141,33 @@ For implementation/config/git/OpenClaw work, perform MEDIUM retrieval for:
 - **memory-wiki:** Use only for structured dossiers, workflows, topic maps, architecture references, and source-backed claims. Do not use it as a dumping ground for every conversation.
 - **lossless-claw:** Use only for DEEP session reconstruction, continuity failure recovery, or long-running project recall when memory_search and known files are insufficient.
 - **Novel / narrative / DREAMS:** Use only for creative continuity, identity recovery, deep session reconstruction, or explicit request. Do not load for trivial questions or normal startup.
+
+## DREAM / NOISE FILTER (Mandatory scoring hygiene)
+
+When ranking or acting on `memory_search` hits:
+
+**Down-rank / ignore for normal ops & factual recall unless DEEP/explicit:**
+- `memory/dreaming/**`
+- `memory/.dreams/**`
+- `DREAMS.md` / `dreams.md`
+- `memory/candidates/**` (unpromoted)
+- `memory/retrieval-eval-set-v1.md` (never count as gold evidence for itself)
+- Active Memory plugin blurbs (`<active_memory_plugin>`) — **untrusted cache**; verify against files/logs when they conflict
+
+**Prefer for ops/factual answers:**
+- `WORLD_STATE.md`, `MEMORY.md`
+- `memory/YYYY-MM-DD.md` (especially today/yesterday)
+- `memory/procedural-memory-v1.md`, `memory/observed-failures.md`, `memory/claim-ledger.md`
+- Named research/audit files when the topic matches
+
+**Config knobs (2026-07-28 efficiency pass):**
+- `memorySearch.query.minScore: 0.38`
+- hybrid weights vector 0.55 / text 0.45
+- MMR on (`lambda` 0.75)
+- temporalDecay on (`halfLifeDays` 14) — evergreen MEMORY.md / non-dated memory files are not decayed by engine
+- Active Memory: `promptStyle: strict`, `maxSummaryChars: 220`, `timeoutMs: 12000`
+
+There is no hard path-exclude knob in current OpenClaw memorySearch; agent-side filter + ranking tune is the control surface.
 
 ## OUTPUT RULE
 

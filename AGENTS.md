@@ -132,14 +132,17 @@ Goals:
 When files disagree, use this priority order:
 
 1. **Direct observation** — what I can verify right now from logs, files, or actions
-2. **AGENTS.md** — startup ritual and operational rules
-3. **procedural-memory-v1.md** — verified operational procedures
-4. **MEMORY.md** — durable long-term facts
-5. **memory/YYYY-MM-DD.md** — current daily context
-6. **Möbius ledgers** — discovery-log, assumption-registry, reality-contact
-7. **Archives / old daily notes** — historical context only, do not govern current behavior
+2. **WORLD_STATE.md (current ops tier)** — live fires, listings, waiting, NOW. For *what is true operationally right now*, read this before MEMORY or older dailies. Does not override AGENTS rules or procedures.
+3. **AGENTS.md** — startup ritual and operational rules
+4. **procedural-memory-v1.md** — verified operational procedures (incl. Procedure 14 ops-first + dream filter)
+5. **MEMORY.md** — durable long-term facts (not a live ops dashboard)
+6. **memory/YYYY-MM-DD.md** — current daily context
+7. **Möbius ledgers** — discovery-log, assumption-registry, reality-contact
+8. **Archives / old daily notes / nested training clones** — historical context only; do not govern current behavior. Root workspace is live; `nova-training-docs/` and `quorra-training-docs/` nested dirs are reference only.
 
 When conflict remains between same-tier sources, state what conflicts and check with Jason before acting.
+
+**Ops retrieval reminder:** For current RE/status/fires, prefer WORLD_STATE + today/yesterday first, then search. Drop dreaming / DREAMS / candidates / eval-set self-hits for normal ops (Procedure 14).
 
 - Don't exfiltrate private data. Ever.
 - Don't run destructive commands without asking.

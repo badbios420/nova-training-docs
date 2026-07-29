@@ -1,0 +1,19 @@
+**Report:** `memory/cursor-jobs/nova-fullstack-audit-2026-07-28.md`  
+(sections 0–12 complete; only this file written)
+
+### Executive teaser
+1. Layer A/B harness is real — keep it; don’t collapse memory layers.  
+2. P0 trust issue: MEMORY still headlines filtered hit@3 **0.80**; automated 15-fact run is **0.60**.  
+3. P0 SoT bug: `AGENTS.md` omits `WORLD_STATE.md` while Procedure 14 requires it first.  
+4. Browser plugin OK but Chromium **not running** (CDP 18800).  
+5. Shared-browser **#1:** Windows Chrome + OpenClaw remote CDP `attachOnly` (Jason sees, both control).  
+6. Nested training clones + live repo share the `nova-training-docs` name — dual-home trap.  
+7. Five browser skill stacks + SI/autonomy kits → enforce skill diet, don’t mass-delete.  
+8. Dream corpus is small on disk, heavy in raw retrieval — filter, don’t delete.  
+9. Security: config mode 600 good; exec `ask=off` + `workspaceOnly=false` still wide blast radius.  
+10. Cursor default Node **v24.5** breaks `openclaw` CLI; gateway uses **v24.18**.  
+11. Stale: kalshi-bot, steipete research, shelved fractal-10k — archive-label only.  
+12. 30-day plan is small: SoT + meters + browser pilot + diet + labels.  
+13. Do-not: delete dreams/skills/training clones; no silent `openclaw.json`; no Optimus yet.  
+14. Evidence cited throughout (doctor, eval report, config structure, gitlinks).  
+15. Pre-existing dirty tree unchanged aside from this new report under `memory/cursor-jobs/`.

@@ -59,3 +59,23 @@
 - STATUS: verified
 - EVIDENCE: live memory_search runs logged in `memory/harness-scorecard.md`
 - CHECKED: 2026-07-28 ~00:35 PDT
+
+### 2026-07-28 — openclaw.json perms CRIT patched
+- CLAIM: config file mode fixed 664 → 600; deep audit now 0 critical
+- STATUS: verified
+- EVIDENCE: heartbeat 11:12 PDT; `stat` mode 600 on `~/.openclaw/openclaw.json`; re-audit 0 critical · 7 warn
+- CHECKED: 2026-07-28 11:12–11:17 PDT
+
+### 2026-07-28 — Active Memory housekeeping note is stale
+- CLAIM: AM injected summary claiming SI overdue since ~7/15 and WORLD_STATE ~8d stale is **false as of live check**
+- STATUS: rejected (stale recall)
+- EVIDENCE: SI last 2026-07-27 18:13 (due ~8/3); WORLD_STATE mtime 7/28 00:30 then light-stamped 11:18; FBN closed 7/28; eBay age 7d
+- CHECKED: 2026-07-28 11:17 PDT
+- NOTES: Prefer filesystem + heartbeat-state over AM plugin blurbs when they conflict.
+
+### 2026-07-28 — Memory efficiency pass
+- CLAIM: Retrieval efficiency improved to filtered hit@3 ≥ 0.80 without removing memory layers; raw index still dream-noisy
+- STATUS: verified (filtered meter) / partial (raw index)
+- EVIDENCE: backup `~/.openclaw/openclaw.json.bak.2026-07-28-memory-efficiency`; `openclaw config validate` OK; memorySearch hybrid/MMR/temporalDecay + AM strict written; live 10-query remeasure logged in harness-scorecard + retrieval-eval-set; policy Procedure 14 added
+- CHECKED: 2026-07-28 ~11:40 PDT
+- NOTES: OpenClaw has no memorySearch path-exclude; agent filter is enforced control. F09 FBN still fails raw search — ops-first WORLD_STATE required.

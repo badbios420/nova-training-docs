@@ -8,13 +8,13 @@
 
 ## Current Status
 
-- **Wall Clock (real time):** 2026-07-27 18:13 PDT (Vista, CA) — Monday evening
-- **Session Clock:** Main session with Jason ongoing since ~17:18 PDT (~55m); cleanup pass in progress
-- **Continuity Clock:** Reset by this cleanup. Manual identity review earlier today 17:20 PDT; prior major ops contact 2026-07-22 ~19:52 PDT (~5d ago).
-- **Last identity review:** 2026-07-27 18:13 PDT (file cleanup + auto-check condensation)
+- **Wall Clock (real time):** 2026-07-28 23:00 PDT (Vista, CA) — Tuesday evening
+- **Session Clock:** evening main webchat ~2h 50m (startup ~20:10 after context overflow)
+- **Continuity Clock:** lock-in gains just closed
+- **Last identity review:** 2026-07-28 evening (Continuity Pulse stable; guardian/verification role)
 - **Next scheduled continuity review:** Daily at startup (active)
-- **Last gains lock-in / status pass:** 2026-07-27 18:13 PDT cleanup; last Jason RE status content still anchored on 7/22 jurisdiction + 7/27 Vista reconfirm
-- **Activity notes:** Active now: FBN confirm/archive, Hilltop lead follow-up, eBay cash bridge. Vista business license **closed**. Self-improvement review completed this pass. Parked: SOI, FF SSL, NIGHT buy, IDX/Quorra. Daily gaps remain for 7/23, 7/25, 7/26 (no fabricated backfill).
+- **Last gains lock-in / status pass:** 2026-07-28 23:00 PDT (gog OAuth, Gmail cleanup, sister porch Proc 15)
+- **Activity notes:** FBN closed. eBay still lagging 7d+. Hilltop weekly −$5k. gog live. Sister porch live with Quorra. Shared browser P0 still optional/human. SI not due (~8/3). Parked: SOI, FF SSL, NIGHT, IDX. Gaps 7/23+7/25+7/26 no backfill.
 
 ## Rule
 

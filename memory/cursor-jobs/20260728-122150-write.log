@@ -1,0 +1,25 @@
+Done. Only `memory/retrieval-eval-set-v1.md` was written (66 lines).
+
+### Category counts (15 facts)
+| Category | Count |
+|----------|-------|
+| `current_ops` | 4 (F05, F09, F10, F11) |
+| `recent_events` | 2 (F08, F12) |
+| `durable_facts` | 5 (F01–F04, F13) |
+| `procedures` | 2 (F07, F14) |
+| `historical_narrative` | 2 (F06, F15) |
+
+### F11–F15
+- **F11** (`current_ops`) — Hilltop $5k/week cuts until sold; −$10k cumulative
+- **F12** (`recent_events`) — openclaw.json 664→600; re-audit 0 critical (7/28)
+- **F13** (`durable_facts`) — Tesla Optimus preferred embodiment; harness first; not near-term
+- **F14** (`procedures`) — Verified claim language: banned success words without proof
+- **F15** (`historical_narrative`) — Chamber #9 Obsidian Integration: HOLD (unanimous)
+
+### Verify
+- `test -f` + `wc -l` → 66 lines
+- F11–F15 accept paths: all exist (`WORLD_STATE.md`, `MEMORY.md`, `memory/2026-07-28.md`, `memory/claim-ledger.md`, `memory/procedural-memory-v1.md`)
+- Per-category scoring section + run-log stub present
+- No commit/push; no secrets
+
+**Residual risk:** Structure-only expansion — scores not re-run on F11–F15 yet.

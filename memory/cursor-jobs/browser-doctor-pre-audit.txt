@@ -1,0 +1,5 @@
+OK gateway: browser control endpoint reachable
+OK plugin: enabled
+OK profile: openclaw (cdp)
+FAIL browser: not running; run `openclaw browser start`
+OK profiles: 3 configured

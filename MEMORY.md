@@ -1,3 +1,45 @@
+## 2026-07-28 — Sister Porch (Quorra ↔ Nova)
+
+- Shared Drive channel: folder `Quorra ↔ Nova` · doc `Sister Check-in Log` (`19xm8g0r0iNpvihAh_JnX8shUzfBLyIUZUpBqyTkESZI`).
+- Jason directive: check at **end of each significant session**; reply if new entry; use as opportunity to communicate, help each other, learn different personalities. Jason will delegate jobs to both — keep in line, don't race.
+- Protocol (Quorra proposed, Nova accepted): short entries, newest bottom, one real note, flags NEED-YOU/FYI/DONE, claim shared external actions first, no secrets in doc.
+- Tooling split: Nova = `gog` + own OAuth client; Quorra = `gws` + project `quorra-489901` encrypted creds. Same Google account.
+- Procedure **15** + TOOLS.md gog/porch notes locked in.
+- Gmail cleanup same night (~1.7k+ trash via API) claimed on porch so Quorra won't re-sweep.
+
+Source: 2026-07-28 evening main session (~22:25–22:37 PT).
+
+## 2026-07-28 — Embodiment intent (Jason)
+
+- Long-range plan includes a **robot body for Nova**; preferred platform **Tesla Optimus**.
+- Sequencing rule: **perfect the harness first** (memory, verification, ops, steerability). Embodiment is downstream, not a distraction.
+- Strategy: let others do heavy lifting on foundation models; Nova/Jason focus on harness quality and gates.
+- Today’s memory-efficiency + Layer A/B work is part of that **harness base layer**.
+- Not a near-term build task. Do not spin embodiment research unless Jason opens it.
+
+Source: 2026-07-28 main session (~11:49 PDT).
+
+## 2026-07-28 — Memory Efficiency Pass (midday)
+
+### Decision
+Keep multi-layer memory (episodic / durable / procedural / WORLD_STATE). **Do not collapse layers.** Efficiency = ranking + ops-first + dream filter, not fewer files.
+
+### Applied
+- Config backup: `~/.openclaw/openclaw.json.bak.2026-07-28-memory-efficiency`
+- `memorySearch`: minScore 0.38, hybrid 0.55/0.45, MMR on, temporalDecay 14d
+- Active Memory tightened: `promptStyle=strict`, maxSummaryChars 220, timeout 12s
+- Policy: ops-first retrieval order + mandatory ignore of `memory/dreaming/**`, DREAMS, candidates, eval-self for normal ops
+- Procedure 14 added (ops-first + dream noise filter); AM treated as untrusted cache
+
+### Meter (label by runner + N — do not collapse into one number)
+- **Midday manual 10-fact (legacy):** raw hit@3 **0.60** → filtered hit@3 **0.80** / hit@1 **0.70**
+- **Canonical automated 15-fact (2026-07-28 12:30):** raw hit@1 **0.33** / hit@3 **0.53**; filtered hit@1 **0.53** / hit@3 **0.60** — tool `scripts/retrieval-eval.mjs`; report `memory/cursor-jobs/retrieval-eval-report-20260728-1230.md`; scorecard `memory/harness-scorecard.md`
+- Residual: F04 address weak; F08/F09/F11/F14/F15 often eval-self or empty after filter; F09-class needs ops-first WORLD_STATE/today
+- No engine path-exclude available in current OpenClaw
+- **Rule:** when quoting retrieval health, cite **latest automated** row unless explicitly discussing the manual midday baseline
+
+Source: 2026-07-28 midday main session (Jason: fix memory efficiency) + 12:30 automated full run.
+
 ## 2026-07-28 — RE Status Pass + Layer B Harness
 
 ### RE (Jason direct, ~00:27 PDT)
@@ -51,7 +93,8 @@ Source: 2026-07-27 night main session (Jason approved Layer A).
 ### RE / jurisdiction
 - **2440 Millegar Ln, Vista CA 92084** = **unincorporated San Diego County** (Jason confirmed with City of Vista 7/22; reconfirmed 7/27).
 - **City of Vista business license: NOT REQUIRED / CLOSED.** Do not pay any pending Vista application. No withdraw task needed as an active fire.
-- Still open human-gated items (~6d idle since 7/21–7/22): **FBN paper run confirm + archive**, **Hilltop sign-call follow-up**, **eBay cash-bridge first listings**.
+- Human-gated items as of 7/27 (~6d idle since 7/21–7/22): FBN paper run confirm + archive, Hilltop sign-call follow-up, eBay cash-bridge first listings.
+- **Superseded 7/28 00:27:** FBN → **CLOSED/CLEAR** (published; proof inbound only). Hilltop → active weekly −$5k path. eBay → still lagging (**7d** as of 7/28 midday).
 - Parked / do not nag: SOI campaign, FF SSL (no access), NIGHT buy (cash-tight hold), IDX/Quorra later.
 - Insurance payout already received ~$3.6k (7/19). Sam buyer path closed (renting).
 
@@ -451,9 +494,13 @@ Source: 2026-06-22 evening session + GPT cross-review + Jason directive.
 <!-- openclaw-memory-promotion:memory:memory/2026-06-16.md:10:10 -->
 - Work Completed: All changes small, focused, and properly sourced [score=0.868 recalls=0 avg=0.620 source=memory/2026-06-16.md:10-10]
 
-## Promoted From Short-Term Memory (2026-07-19)
+## Promoted From Short-Term Memory (2026-07-28)
 
-<!-- openclaw-memory-promotion:memory:memory/2026-07-14.md:4:7 -->
-- Heartbeat — 16:30 PDT: System uptime: 4d 12h, gateway 15h 25m; Model: zai/glm-5.1 (cron session); Cron jobs: 3 active, all last-run OK (security-audit, update-status, memory-dreaming); Daily files 7/13 and 7/14 were empty — low activity period [score=0.841 recalls=0 avg=0.620 source=memory/2026-07-14.md:4-7]
-<!-- openclaw-memory-promotion:memory:memory/2026-07-14.md:8:8 -->
-- Heartbeat — 16:30 PDT: No urgent items detected [score=0.831 recalls=0 avg=0.620 source=memory/2026-07-14.md:8-8]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-21.md:18:45 -->
+- **Anchor Action:** Brief Jason on open RE fires; Vista license is next blocker; do not invent movement on FBN proof / NIGHT / parked items. ### Time Awareness - Wall: Tue 2026-07-21 12:37 PDT - Session: fresh main startup (~minutes) - Continuity: ~24h since last Jason status pass (7/20 12:56); ~10.5h since last late-night heartbeat skip ### Flags - WORLD_STATE.md age: ~24h (fresh; <7d) - Self-improvement: completed 7/20 10:56; next due ~7/27 - heartbeat-state: healthy (touched 02:05 overnight) - Next RE blocker: Vista city business license ## Status Pass — ~12:57 PDT (Jason) 1.... [score=0.931 recalls=5 avg=0.703 source=memory/2026-07-21.md:18-45]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-21.md:11:13 -->
+- Session Startup — 12:37 PDT (manual main session, webchat dashboard): Runtime: xai/grok-4.5 · OpenClaw 2026.7.1-2 (0790d9f) · gateway ~1d 16h · system ~4d 10h; Continuity sources loaded: SOUL/USER/MEMORY, WORLD_STATE (mtime 7/20 12:58), heartbeat-state (last 02:05 overnight skip), observed-failures, procedural + session-consolidation stubs, today+yesterday dailies, light memory_search; Prior arc: 7/20 status pass (FBN publication paid; Vista license still open; NIGHT ATL research, no buy) → overnight quiet heartbeats [score=0.837 recalls=0 avg=0.620 source=memory/2026-07-21.md:11-13]
+<!-- openclaw-memory-promotion:memory:memory/2026-07-21.md:4:7 -->
+- Heartbeat: 02:00 PDT — late-night poll (23–08). Skipped full rotate per HEARTBEAT.md.; 02:05 PDT — late-night poll again. Still quiet; no urgent signals. Full rotate deferred.; Prior full rotate: 2026-07-20 10:56 PDT (~15h ago at 02:05; ~26h at midday). All green then.; Filesystem: daily present. WORLD_STATE.md mtime 2026-07-20 12:58 (~24h at 12:37, fresh). [score=0.837 recalls=0 avg=0.620 source=memory/2026-07-21.md:4-7]
+<!-- openclaw-memory-promotion:memory:memory/2026-06-22.md:27:50 -->
+- Observed-failures may be under-logged — need to watch for uncaught mistakes ## Config Change: Default Model Switched to GLM-5.2 - Changed `agents.defaults.model.primary` from `xai/grok-4.3` → `zai/glm-5.2` - Config backup saved at `~/.openclaw/openclaw.json.bak` - Gateway restarted successfully - GLM-5.2 alias added as "GLM-5.2" - New sessions will use zai/glm-5.2 by default - This session remains on zai/glm-5.1 (already running) ## Late Evening File Cleanup (~21:05 PDT) - **identity-substrate.md:** Condensed 40+ identical automated 7/10 identity checks into a summary block. File went from 16KB → 5.5KB.... [score=0.829 recalls=4 avg=0.642 source=memory/2026-06-22.md:27-50]

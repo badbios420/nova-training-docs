@@ -2,24 +2,24 @@
 
 **Not memory. Not journal. Not biography. Just: what is happening right now.**
 **Inspired by:** GPT-5.5 architecture review, 2026-06-23
-**Updated:** 2026-07-28 00:28 PDT (Jason RE status pass + Layer B start)
+**Updated:** 2026-07-28 23:00 PDT (lock-in: gog OAuth + sister porch; RE facts still Jason 00:27)
 
 ---
 
 ## Current Fires (URGENT — This Week)
 
-| Fire | Status | Next Action | Deadline |
-|------|--------|-------------|----------|
-| Vista FBN newspaper publish | **CLOSED / CLEAR** | Published; paper sends proof; Jason in clear. Archive proof when it arrives (no chase). | Closed 7/28 |
-| Cash / liquidity | **Tight** | eBay still lagging; Hilltop price cuts for sell speed; no NIGHT buy | Now |
-| 1434 Hilltop Dr listing | **Active · aggressive price path** | House smells / tenants dirty. **$10k reduced so far**; another **$5k** cut; **$5k/week until sells**. Keep marketing + showings. | Weekly cuts until sold |
-| eBay liquidation | **Lagging** (Jason 7/28) | Still need first 5–10 listings — cash bridge delayed | Cash bridge now |
-| Local business license (Vista city) | **CLOSED — NOT REQUIRED** | Unincorporated SD County; do not pay any Vista app. | Closed |
-| SOI Campaign — 50 contacts | **Unclear / later** | Do not nag | Soft |
-| FF SSL cert | **Blocked** — no access | Parked hard | Deferred |
-| Sam buyer lead | **Closed** — renting | Dropped | Dropped |
-| Midnight City / NIGHT | Hold | No buy without cash room | Speculative only |
-| IDX website | Live — more later | Quorra lane | Later |
+| Fire | Status | Age | Next Action | Deadline |
+|------|--------|-----|-------------|----------|
+| Vista FBN newspaper publish | **CLOSED / CLEAR** | 0d closed | Published; paper sends proof; Jason in clear. Archive proof when it arrives (no chase). | Closed 7/28 |
+| Cash / liquidity | **Tight** | ongoing | eBay still lagging; Hilltop price cuts for sell speed; no NIGHT buy | Now |
+| 1434 Hilltop Dr listing | **Active · aggressive price path** | 0d path refresh | House smells / tenants dirty. **$10k reduced so far**; another **$5k** cut; **$5k/week until sells**. Keep marketing + showings. | Weekly cuts until sold |
+| eBay liquidation | **Lagging** (Jason 7/28) | **7d** since 7/21 intent | Still need first 5–10 listings — cash bridge delayed. **Surface ≥5d / escalate at 7d.** | Cash bridge now |
+| Local business license (Vista city) | **CLOSED — NOT REQUIRED** | closed | Unincorporated SD County; do not pay any Vista app. | Closed |
+| SOI Campaign — 50 contacts | **Unclear / later** | parked | Do not nag | Soft |
+| FF SSL cert | **Blocked** — no access | parked | Parked hard | Deferred |
+| Sam buyer lead | **Closed** — renting | closed | Dropped | Dropped |
+| Midnight City / NIGHT | Hold | parked | No buy without cash room | Speculative only |
+| IDX website | Live — more later | later | Quorra lane | Later |
 
 ## Current Listings
 
@@ -41,7 +41,7 @@
 | Hilltop sell-through (condition + price path) | Active weekly cuts | **#1** |
 | eBay sell-through (cash bridge) | **Lagging** | **#1 cash** |
 | Big House FBN | **Complete / clear** | Archive proof when mailed |
-| Nova harness Layer B | **Scaffolded 7/28** | Eval+scorecard+trajectories+skill diet; hit@3 baseline **0.60** |
+| Nova harness Layer B + efficiency | **Active 7/28** | Filtered hit@3 **0.80** (raw still ~0.60); ops-first + dream filter; AM strict |
 | IDX / site polish | Later | Quorra |
 | Midnight City | Soft hold | — |
 | Fractal Fuzion 10K NFT | Shelved | After RE income |
@@ -69,12 +69,12 @@
 
 ## Waiting On
 
-| Item | Who | Since |
-|------|-----|-------|
-| FBN publisher proof copy (mail/email) | Paper → Jason archive | Published; inbound |
-| eBay first listings | Jason | Lagging since 7/21 |
-| Hilltop MLS exact price after latest cut | Jason / MLS | After each weekly −$5k |
-| NIGHT / SOI / FF SSL | Jason | Parked |
+| Item | Who | Since | Age |
+|------|-----|-------|-----|
+| FBN publisher proof copy (mail/email) | Paper → Jason archive | Published; inbound | passive |
+| eBay first listings | Jason | Lagging since 7/21 | **7d — escalate** |
+| Hilltop MLS exact price after latest cut | Jason / MLS | After each weekly −$5k | TBD |
+| NIGHT / SOI / FF SSL | Jason | Parked | do not nag |
 
 ## Nova Architecture (Current)
 
@@ -102,8 +102,10 @@
 | eBay first listings | Daily while lagging | Cash |
 | FBN proof arrival | Passive | Archive only |
 | Harness scorecard | Weekly | Layer B meters |
-| Self-improvement review | 7-day | Last 7/27 · next ~8/3 |
-| WORLD_STATE freshness | ≤7d | Refreshed 7/28 |
+| Self-improvement review | 7-day | Last 7/27 18:13 · next ~8/3 (**not overdue**) |
+| WORLD_STATE freshness | ≤7d | Light stamp 7/28 11:18; RE facts from 00:27 |
+| Config perms / security | heartbeat | 11:12: openclaw.json 600; 0 critical |
+| Active Memory stale-summary hygiene | as needed | AM plugin note can lag ops truth — verify live before acting |
 
 ---
 

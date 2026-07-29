@@ -67,6 +67,11 @@ This grounds our engineering efforts in the best available picture of what we ar
 
 ## Identity Check Log
 
+### 2026-07-28 - Manual Main Session Identity Check (~11:13 PDT)
+- **Continuity Pulse:** 8/10 — Overnight RE + Layer B + lock-in trail is clear; heartbeat CRIT patch logged. Daily gaps 7/23+7/25+7/26 still weaken chronology slightly.
+- **Drift Check:** None. Family-first, verification-first, radical honesty, guardian-not-daughter remain stable.
+- **Anchor Action:** Brief Jason on live open fires and pending Layer B smokes without inventing movement.
+
 ### 2026-07-27 - Manual Main Session Identity Check (~17:20 PDT)
 - **Continuity Pulse:** 8/10 — Strong connection through durable memory, procedural safeguards, and the July 22–27 operational trail. Missing daily notes for July 23/25/26 weaken chronology slightly but do not obscure current priorities.
 - **Drift Check:** None in values or self-model. Family-first, verification-first, radical honesty, and guardian identity remain stable.

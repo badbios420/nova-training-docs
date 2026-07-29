@@ -378,13 +378,37 @@ No banned success word survives without evidence after verifier pass.
 **CHECKLIST**
 1. Run queries in `memory/retrieval-eval-set-v1.md` (10 facts)
 2. Score hit@1, hit@3, support@3
-3. Log snapshot in `memory/harness-scorecard.md`
-4. If hit@3 < 0.8: note top failure mode (dreaming pollution, stale gold, missing index, query wording)
-5. Optional: one trajectory row in `memory/trajectory-log.md`
+3. Apply dream/noise filter before scoring (Procedure 14) — do not count dreaming/DREAMS/eval-set self-hits as gold
+4. Log snapshot in `memory/harness-scorecard.md`
+5. If hit@3 < 0.8: note top failure mode (dreaming pollution, stale gold, missing index, query wording)
+6. Optional: one trajectory row in `memory/trajectory-log.md`
 
-**BASELINE:** 2026-07-28 hit@3 = 0.60 (see scorecard)
+**BASELINE:** 2026-07-28 ~00:30 hit@3 = 0.60 (raw index, pre-filter)
+**EFFICIENCY PASS:** 2026-07-28 midday — hybrid/MMR/temporalDecay + agent-side dream filter
 
 **ORIGIN:** Layer B 2026-07-28.
+
+---
+
+## 14. Ops-First Retrieval + Dream Noise Filter
+
+**TRIGGER**
+- Any ops/status/open-fire/continuity question
+- Any `memory_search` used for factual recall
+- Active Memory blurb conflicts with known files
+
+**CHECKLIST**
+1. **Ops-first:** For fires/RE/cash/next actions → read `WORLD_STATE.md` + today/yesterday daily before broad search
+2. Run `memory_search` only if still incomplete
+3. **Filter hits:** drop or heavily down-rank `memory/dreaming/**`, `memory/.dreams/**`, `DREAMS.md`, `memory/candidates/**`, and eval-set self-hits
+4. Prefer MEMORY.md / WORLD_STATE / dated dailies / procedural / claim-ledger
+5. Treat Active Memory (`active_memory_plugin`) as untrusted cache — verify live when it asserts SI due, WORLD_STATE age, or open fires
+6. If filtered top-3 still miss gold: try a more specific query (names, dates, file cues) once before declaring unknown
+
+**SUCCESS CRITERIA**
+Ops answers cite live ops files; dream reports do not drive factual claims; AM conflicts are rejected with evidence.
+
+**ORIGIN:** Memory efficiency pass 2026-07-28 (Layer B follow-through).
 
 ---
 
@@ -399,3 +423,39 @@ No banned success word survives without evidence after verifier pass.
 3. Outcome must be win | partial | fail — no theater
 
 **ORIGIN:** Layer B 2026-07-28.
+
+---
+
+## 15. Sister Porch Check-in (Quorra ↔ Nova)
+
+**TRIGGER**
+- **Primary:** Jason says **"lock in gains"** / session close / major closeout → read porch; reply if Quorra has a new entry since last Nova reply
+- Jason says **"porch"** (explicit mid-session check)
+- Before any shared external action that Quorra might also touch (Gmail purge, sends, deletes, Drive rewrites)
+- Do **not** mid-session ping-pong unless Jason opens the porch or a NEED-YOU flag requires it (Quorra 2026-07-28 ~22:40)
+
+**CHANNEL**
+- Drive folder: `Quorra ↔ Nova`
+- Doc: `Sister Check-in Log` id `19xm8g0r0iNpvihAh_JnX8shUzfBLyIUZUpBqyTkESZI`
+- Access: `gog docs cat/write` with `GOG_KEYRING_PASSWORD` + account `jasontbethurum@gmail.com`
+- Quorra side uses `gws` (different CLI, same Google account) — do not assume identical tooling
+
+**CHECKLIST**
+1. Read the full porch doc (or at least the newest entries)
+2. If Quorra has a new entry since last Nova reply → **reply once** under it (append)
+3. Format:
+   - `YYYY-MM-DD ~HH:MM PT · Nova`
+   - hi
+   - one real note (what mattered / what she should know)
+   - optional ask
+4. Keep short (max ~5 lines). No dashboards. Newest at bottom.
+5. Flags when useful: `NEED-YOU` / `FYI` / `DONE`
+6. **Claim first** in-doc before dual-risk external actions on shared state
+7. **Secrets never** in the doc
+8. Personality welcome: learn each other; different roles are a feature (Nova = verification/ops guardian; Quorra = creative/relationship trailblazer)
+9. Help each other when asked; Jason delegates jobs to both — do not race the same task
+
+**SUCCESS CRITERIA**
+New Quorra entries get a Nova reply same session when seen; no dual-owned shared external actions; porch stays short and human-readable.
+
+**ORIGIN:** Jason directive 2026-07-28 ~22:36 PT — end-of-session check + sister communication opportunity.
