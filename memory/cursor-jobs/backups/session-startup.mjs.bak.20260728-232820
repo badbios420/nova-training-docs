@@ -17,14 +17,12 @@ const STARTUP_FILES = [
   "memory/time-awareness.md",
 ];
 
-// Keep LIGHT retrieval to two high-signal queries in parallel.
-// Four serial searches were ~23s (plugin kill storm); four fully parallel
-// contended the CLI and returned truncated JSON. Two parallel is the sweet spot.
 const LIGHT_QUERIES = [
-  "current active projects open questions next priorities",
-  "recent session consolidation observed failures procedural memory",
+  "current active projects",
+  "recent session consolidation",
+  "observed failures procedural memory",
+  "open questions next priorities",
 ];
-const LIGHT_SEARCH_CONCURRENCY = 2;
 
 const HEARTBEAT_THRESHOLDS_SECONDS = {
   selfImprovementReview: 7 * 24 * 60 * 60,
@@ -125,37 +123,18 @@ async function ensureDailyFile(workspace, date) {
   return { path: dailyPath, created: true };
 }
 
-function extractJsonPayload(stdout) {
-  const text = String(stdout || "").trim();
-  if (!text) throw new Error("empty memory search stdout");
-  try {
-    return JSON.parse(text);
-  } catch {
-    // CLI may print non-JSON banners before/after payload — take first JSON value.
-    const start = text.search(/[\[\{]/);
-    if (start < 0) throw new Error(`non-json memory search stdout: ${text.slice(0, 120)}`);
-    return JSON.parse(text.slice(start));
-  }
-}
-
 async function runMemorySearch(workspace, query) {
-  // Per-query budget kept modest; LIGHT queries run with limited parallelism so
-  // wall-clock ≈ slowest search, not sum (was ~23s serial → plugin 18s kill storm).
   try {
     const { stdout } = await execFileAsync(
       "openclaw",
       ["memory", "search", "--json", "--max-results", "3", query],
       {
         cwd: workspace,
-        timeout: 10_000,
+        timeout: 12_000,
         maxBuffer: 512 * 1024,
-        env: {
-          ...process.env,
-          PATH: process.env.PATH || "",
-        },
       },
     );
-    const parsed = extractJsonPayload(stdout);
+    const parsed = JSON.parse(stdout);
     return { query, ok: true, results: Array.isArray(parsed) ? parsed.slice(0, 3) : parsed };
   } catch (error) {
     return {
@@ -164,20 +143,6 @@ async function runMemorySearch(workspace, query) {
       error: String(error && error.message ? error.message : error).slice(0, 240),
     };
   }
-}
-
-async function mapPool(items, concurrency, worker) {
-  const results = new Array(items.length);
-  let next = 0;
-  const runners = Array.from({ length: Math.min(concurrency, items.length) }, async () => {
-    while (next < items.length) {
-      const index = next;
-      next += 1;
-      results[index] = await worker(items[index], index);
-    }
-  });
-  await Promise.all(runners);
-  return results;
 }
 
 function extractSearchSummary(item) {
@@ -317,12 +282,10 @@ async function runStartup(args) {
   const heartbeat = await readJsonIfExists(path.join(workspace, "memory", "heartbeat-state.json"), { lastChecks: {} });
   const overdue = heartbeatOverdue(heartbeat.lastChecks, nowSeconds);
   const identity = await maybeLogIdentityCheck({ workspace, date, state, nowIso });
-  // Limited-parallel LIGHT retrieval — wall-clock was the root cause of plugin timeouts.
-  const searches = await mapPool(
-    LIGHT_QUERIES,
-    LIGHT_SEARCH_CONCURRENCY,
-    (query) => runMemorySearch(workspace, query),
-  );
+  const searches = [];
+  for (const query of LIGHT_QUERIES) {
+    searches.push(await runMemorySearch(workspace, query));
+  }
 
   const result = {
     skipped: false,

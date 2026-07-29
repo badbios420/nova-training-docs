@@ -47,3 +47,11 @@
 - **Outcome:** win
 - **Lesson:** Browser CDP shared path is optional; gog API is the efficient default for Gmail/Drive. Porch needs claim rules so dual agents don't race.
 - **Follow-up:** eBay listings still human-gated; shared browser P0 only if Jason wants visual co-browse later
+
+### 2026-07-28 night — error-log audit + session-startup fix
+- Goal: Diagnose tool/error noise; fix highest-ROI P1 only (#1)
+- Actions: Cursor log audit → Nova verify counts → raise startup timeout 18→30s + parallelize LIGHT searches → gateway restart → lock-in
+- Evidence: audit md 382 lines; journal pre ~68 startup fails; smoke ~6.1s; live completedAt 23:46; post-restart fails 0; config validate
+- Outcome: **win** on #1; ladder #2–#5 parked
+- Lesson: Many "tool failures" are policy noise or empty fallback hops. Measure before thrash-fix. Timeout mismatch is a silent storm.
+- Follow-up: fallback reorder or OR credits; encrypted_content hygiene; MEMORY trim; eBay still human

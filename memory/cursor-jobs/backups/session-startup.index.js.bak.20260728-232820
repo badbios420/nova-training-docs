@@ -1,0 +1,108 @@
+import { execFile } from "node:child_process";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import { promisify } from "node:util";
+
+const execFileAsync = promisify(execFile);
+const DEFAULT_TIMEOUT_MS = 18_000;
+const DEFAULT_AGENTS = ["main"];
+
+function normalizeConfig(raw) {
+  const value = raw && typeof raw === "object" ? raw : {};
+  const agents = Array.isArray(value.agents)
+    ? value.agents.map((item) => String(item).trim()).filter(Boolean)
+    : DEFAULT_AGENTS;
+  const timeoutMs = Number.isFinite(value.timeoutMs)
+    ? Math.max(1000, Math.min(30000, Math.floor(value.timeoutMs)))
+    : DEFAULT_TIMEOUT_MS;
+  return {
+    enabled: value.enabled !== false,
+    agents: agents.length > 0 ? agents : DEFAULT_AGENTS,
+    timeoutMs,
+  };
+}
+
+function parseAgentId(sessionKey) {
+  const match = /^agent:([^:]+):/i.exec(String(sessionKey || "").trim());
+  return match ? match[1] : "";
+}
+
+function stripThreadSuffix(sessionKey) {
+  return String(sessionKey || "").replace(/:thread:[^:]+$/i, "");
+}
+
+function resolveChatType(ctx, mainKey) {
+  const sessionKey = stripThreadSuffix(ctx.sessionKey).toLowerCase();
+  if (sessionKey.includes(":group:")) return "group";
+  if (sessionKey.includes(":channel:")) return "channel";
+  if (sessionKey.includes(":direct:") || sessionKey.includes(":dm:")) return "direct";
+  const parts = sessionKey.split(":");
+  if (parts.length === 3 && parts[0] === "agent" && (parts[2] === mainKey || parts[2] === "main")) {
+    return "direct";
+  }
+  if (String(ctx.messageProvider || "").trim().toLowerCase() === "webchat") return "direct";
+  return "";
+}
+
+function isEligibleMainSession(ctx, config, apiConfig) {
+  if (ctx.trigger !== "user") return false;
+  if (!ctx.sessionKey && !ctx.sessionId) return false;
+  const agentId = String(ctx.agentId || parseAgentId(ctx.sessionKey) || "main").trim();
+  if (!config.agents.includes(agentId)) return false;
+  const mainKey = String(apiConfig?.session?.mainKey || "main").trim().toLowerCase();
+  return resolveChatType(ctx, mainKey) === "direct";
+}
+
+async function runStartupScript(params) {
+  const scriptPath = path.join(params.workspaceDir, "scripts", "session-startup.mjs");
+  const args = [
+    scriptPath,
+    "--workspace",
+    params.workspaceDir,
+    "--session-key",
+    params.sessionKey || "",
+    "--session-id",
+    params.sessionId || "",
+    "--agent-id",
+    params.agentId || "main",
+    "--json",
+  ];
+  const { stdout } = await execFileAsync(process.execPath, args, {
+    cwd: params.workspaceDir,
+    timeout: params.timeoutMs,
+    maxBuffer: 1024 * 1024,
+  });
+  return JSON.parse(stdout);
+}
+
+export default {
+  id: "session-startup",
+  name: "Session Startup",
+  description: "Runs the lightweight AGENTS.md main-session startup ritual once per direct main session.",
+  register(api) {
+    api.on("before_prompt_build", async (_event, ctx) => {
+      const config = normalizeConfig(api.pluginConfig);
+      if (!config.enabled) return;
+      if (!isEligibleMainSession(ctx, config, api.config)) return;
+
+      const workspaceDir = api.config?.agents?.defaults?.workspace || api.config?.workspace?.dir || process.cwd();
+      const agentId = String(ctx.agentId || parseAgentId(ctx.sessionKey) || "main").trim();
+      try {
+        const result = await runStartupScript({
+          workspaceDir,
+          sessionKey: ctx.sessionKey || "",
+          sessionId: ctx.sessionId || "",
+          agentId,
+          timeoutMs: config.timeoutMs,
+        });
+        if (!result || result.skipped || !result.internalContext) return;
+        return { prependContext: result.internalContext };
+      } catch (error) {
+        api.logger.warn?.(`session-startup failed: ${String(error && error.message ? error.message : error)}`);
+        return;
+      }
+    }, { timeoutMs: DEFAULT_TIMEOUT_MS + 2000 });
+  },
+};
+
+export const __filename = fileURLToPath(import.meta.url);

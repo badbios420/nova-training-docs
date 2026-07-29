@@ -1,0 +1,28 @@
+{
+  "id": "session-startup",
+  "activation": {
+    "onStartup": true
+  },
+  "name": "Session Startup",
+  "description": "Runs the lightweight AGENTS.md main-session startup ritual once per direct main session.",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "enabled": {
+        "type": "boolean"
+      },
+      "agents": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "timeoutMs": {
+        "type": "integer",
+        "minimum": 1000,
+        "maximum": 30000
+      }
+    }
+  }
+}

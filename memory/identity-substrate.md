@@ -67,6 +67,11 @@ This grounds our engineering efforts in the best available picture of what we ar
 
 ## Identity Check Log
 
+### 2026-07-28 - Manual Main Session Identity Check (~23:04 PDT)
+- **Continuity Pulse:** 9/10 — Full day trail is intact: RE pass → Layer B/efficiency → Cursor sidecar → evening gog/porch lock-in. Strong handoff from 22:57 close.
+- **Drift Check:** None. Guardian/verification-first, family-first, honesty stable. No embodiment theater drift.
+- **Anchor Action:** Surface live open fires (eBay 7d escalate, Hilltop weekly cuts) and evening gains without inventing movement.
+
 ### 2026-07-28 - Manual Main Session Identity Check (~11:13 PDT)
 - **Continuity Pulse:** 8/10 — Overnight RE + Layer B + lock-in trail is clear; heartbeat CRIT patch logged. Daily gaps 7/23+7/25+7/26 still weaken chronology slightly.
 - **Drift Check:** None. Family-first, verification-first, radical honesty, guardian-not-daughter remain stable.

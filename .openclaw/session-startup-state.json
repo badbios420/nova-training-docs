@@ -613,10 +613,42 @@
       "sessionId": "layer-a-smoke-1785218639-1",
       "agentId": "main",
       "heartbeatOverdue": []
+    },
+    "main|unknown|unknown": {
+      "completedAt": "2026-07-29T06:13:29.084Z",
+      "date": "2026-07-28",
+      "sessionKey": "",
+      "sessionId": "",
+      "agentId": "main",
+      "heartbeatOverdue": []
+    },
+    "main|agent:main:dashboard:startup-fix-test-1785306582|startup-fix-1785306582": {
+      "completedAt": "2026-07-29T06:29:42.456Z",
+      "date": "2026-07-28",
+      "sessionKey": "agent:main:dashboard:startup-fix-test-1785306582",
+      "sessionId": "startup-fix-1785306582",
+      "agentId": "main",
+      "heartbeatOverdue": []
+    },
+    "main|agent:main:dashboard:startup-fix-test-1785306622|startup-fix-1785306622": {
+      "completedAt": "2026-07-29T06:30:22.961Z",
+      "date": "2026-07-28",
+      "sessionKey": "agent:main:dashboard:startup-fix-test-1785306622",
+      "sessionId": "startup-fix-1785306622",
+      "agentId": "main",
+      "heartbeatOverdue": []
+    },
+    "main|agent:main:dashboard:8ab83eaf-3a36-4509-9a53-f482a7304980|c8de550a-43d5-44eb-9037-4a3ff3269638": {
+      "completedAt": "2026-07-29T06:46:07.802Z",
+      "date": "2026-07-28",
+      "sessionKey": "agent:main:dashboard:8ab83eaf-3a36-4509-9a53-f482a7304980",
+      "sessionId": "c8de550a-43d5-44eb-9037-4a3ff3269638",
+      "agentId": "main",
+      "heartbeatOverdue": []
     }
   },
-  "lastIdentityCheckDate": "2026-07-27",
+  "lastIdentityCheckDate": "2026-07-28",
   "lastIdentityCheckAt": "2026-07-16T01:29:01.156Z",
-  "lastRunAt": "2026-07-28T06:03:59.665Z",
-  "lastRunKey": "main|agent:main:dashboard:layer-a-smoke|layer-a-smoke-1785218639-1"
+  "lastRunAt": "2026-07-29T06:46:07.802Z",
+  "lastRunKey": "main|agent:main:dashboard:8ab83eaf-3a36-4509-9a53-f482a7304980|c8de550a-43d5-44eb-9037-4a3ff3269638"
 }

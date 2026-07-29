@@ -2,7 +2,7 @@
 
 **Not memory. Not journal. Not biography. Just: what is happening right now.**
 **Inspired by:** GPT-5.5 architecture review, 2026-06-23
-**Updated:** 2026-07-28 23:00 PDT (lock-in: gog OAuth + sister porch; RE facts still Jason 00:27)
+**Updated:** 2026-07-28 23:50 PDT (lock-in: error-log audit + session-startup fix; RE facts still Jason 00:27)
 
 ---
 
@@ -92,6 +92,8 @@
 ### Harness status
 - **Layer A (7/27 night):** Active Memory ON · subagent defaults · identity ≤1/day · claim ledger
 - **Layer B (7/28):** retrieval eval set · harness scorecard · trajectory log · verifier procedure · skill inventory
+- **Session-startup (7/28 23:30):** timeout **30s** + parallel LIGHT searches — chronic fail storm fixed (live completedAt + 0 fails post-restart)
+- **Open harness friction:** OpenRouter 402 empty fallback hop; encrypted_content 400; AM timeouts; MEMORY inject >20k
 
 ## Monitoring Targets
 

@@ -1,3 +1,27 @@
+## 2026-07-28 night — Error-log audit + session-startup fix (#1)
+
+### Audit (Cursor + Nova verify)
+- Report: `memory/cursor-jobs/nova-error-log-audit-2026-07-28.md` (382 lines, **no fixes in audit**)
+- Gateway healthy; pain = application friction not outage
+- Day counts (journal): session-startup failed **~68**; xAI 200 **~424**; OpenRouter 402 **16**; AM timeouts > oks under 12s; MEMORY inject truncate **20** (file ~37k > 20k)
+- Expected noise: coding profile tool removals; stale Jul 19 stability dumps
+
+### Fix #1 applied (Jason: do #1)
+- Root cause: plugin child timeout **18s** vs **~23s** serial LIGHT memory searches → never `completedAt` → retry storm
+- Plugin (`~/.openclaw/extensions/session-startup/`): DEFAULT **30s**; hook timeout tracks config+2s; richer fail logs
+- Config: `plugins.entries.session-startup.config.timeoutMs=30000` (backup `openclaw.json.bak.2026-07-28-session-startup-timeout`)
+- Script (`scripts/session-startup.mjs`): **2 parallel** combined LIGHT queries (was 4 serial); JSON extract harden
+- Evidence: force smoke ~**6.1s** both searches ok; skip **43ms**; live dashboard session `completedAt` 23:46 + inject; post-restart fails **0**
+- Outside-repo note: plugin + openclaw.json not in nova-training-docs git; workspace holds script + audit + backups under `memory/cursor-jobs/backups/`
+
+### Not done (parked ladder)
+- #2 OpenRouter 402 / fallback reorder
+- #3 encrypted_content sticky sessions
+- #4 Active Memory timeout retune
+- #5 MEMORY.md inject trim
+
+Source: 2026-07-28 late main session (~23:10–23:50 PDT).
+
 ## 2026-07-28 — Sister Porch (Quorra ↔ Nova)
 
 - Shared Drive channel: folder `Quorra ↔ Nova` · doc `Sister Check-in Log` (`19xm8g0r0iNpvihAh_JnX8shUzfBLyIUZUpBqyTkESZI`).

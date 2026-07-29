@@ -1,0 +1,12 @@
+Report written: `memory/cursor-jobs/nova-error-log-audit-2026-07-28.md` (382 lines). **NO FIXES APPLIED.**
+
+**Verdict:** Gateway is healthy (active since 13:23, reachable ~89ms, up to date). Pain is application-layer, not outage.
+
+**Top P1s (evidence-backed):**
+1. **session-startup** — ~67 fails today; plugin default **18s** timeout vs **~23s** for 4 serial memory searches → never completes → retry storm  
+2. **xAI `encrypted_content` 400** — drives failover  
+3. **OpenRouter 402** — empty first fallback; **zai/glm** rescues  
+4. **Active Memory** — timeouts outnumber oks under 12s budget  
+
+**Working:** xAI 200-path (411×), zai rescue, cron/most dreaming, CLI on Node 24.18.  
+**Park:** coding-profile tool removals, MEMORY truncate noise, Jul 19 stability dumps, oauth diagnostic 403 task.
