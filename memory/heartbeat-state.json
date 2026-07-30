@@ -1,15 +1,15 @@
 {
   "lastChecks": {
     "security": 1785262354,
-    "update": 1785262710,
+    "update": 1785360971,
     "memory": 1785262710,
-    "sites": 1785271023,
-    "weather": 1785271023,
+    "sites": 1785383518,
+    "weather": 1785383518,
     "selfImprovementReview": 1785201174
   },
-  "lastSession": "2026-07-28T13:36:00-07:00",
-  "lastHeartbeat": "2026-07-28T13:36:00-07:00",
-  "notes": "13:36 PDT heartbeat. Sites: FF self-signed parked (no nag), BHR 403 normal. OpenClaw 2026.7.1-2 current. Weather smoky haze 93F. SI due ~8/3. WORLD_STATE fresh (11:28). Daily present. No alert.",
+  "lastSession": "2026-07-28T23:50:00-07:00",
+  "lastHeartbeat": "2026-07-29T20:51:58-07:00",
+  "notes": "20:52 PDT heartbeat. Sites+weather rotate. FF SSL parked (self-signed). BHR 403 normal. OpenClaw 2026.7.1-2. WORLD_STATE+daily touched 20:50 (main session). Weather Vista sunny 87F. SI due ~8/3. No new alert.",
   "checkResults": {
     "security": {
       "timestamp": "2026-07-28T11:12:00-07:00",
@@ -17,44 +17,43 @@
       "details": "Deep audit: was 1 critical (fs.config.perms_writable openclaw.json mode=664) \u2192 chmod 600 verified; re-audit 0 critical \u00b7 7 warn \u00b7 3 info \u00b7 1 suppressed. Known warns (accepted/local): allowInsecureAuth, suppressions(1), workspaceOnly=false, exec security=full main, unpinned codex npm plugin, gateway probe SecretRef unavailable in audit shell. Reconfirmed mode 600 at 11:17."
     },
     "update": {
-      "timestamp": "2026-07-28T11:17:00-07:00",
+      "timestamp": "2026-07-29T14:36:11-07:00",
       "status": "OK",
-      "details": "OpenClaw 2026.7.1-2 (0790d9f) \u00b7 npm latest 2026.7.1-2 \u00b7 up to date \u00b7 deps ok. Gateway local active."
+      "details": "OpenClaw 2026.7.1-2 \u00b7 npm latest 2026.7.1-2 \u00b7 up to date \u00b7 deps ok."
     },
     "sites": {
-      "timestamp": "2026-07-28T13:36:00-07:00",
+      "timestamp": "2026-07-29T20:51:58-07:00",
       "status": "WARN",
-      "fractalfuzion": "HTTPS self-signed / cert verify fail; content up with -k. Hard park \u2014 do not nag.",
+      "fractalfuzion": "HTTPS self-signed / cert verify fail; hard park \u2014 do not nag.",
       "bighouserealestate": "HTTPS 403 Cloudflare challenge = live pattern."
     },
     "weather": {
-      "timestamp": "2026-07-28T13:36:00-07:00",
+      "timestamp": "2026-07-29T20:51:58-07:00",
       "status": "OK",
-      "details": "Vista, CA smoky haze ~93F, humidity 40%, wind E 3mph (wttr.in)."
+      "details": "Vista, CA sunny +87F (wttr.in)."
     },
     "selfImprovementReview": {
       "status": "OK",
       "lastRun": "2026-07-27T18:13:00-07:00",
       "dueIn": "Next due ~2026-08-03",
       "rule": "7-day cycle",
-      "findings": "Not overdue. AM plugin claimed overdue ~7/15 \u2014 rejected against heartbeat-state + self-improvement-log 7/27 entry."
+      "findings": "Not overdue."
     },
     "filesystem": {
-      "timestamp": "2026-07-28T11:18:00-07:00",
-      "dailyFile": "memory/2026-07-28.md present",
-      "yesterdayGap": "memory/2026-07-23.md, 2026-07-25.md, 2026-07-26.md missing \u2014 continuity holes only; no backfill",
-      "worldState": "WORLD_STATE.md light housekeeping stamp 2026-07-28 11:18 PDT; RE facts still Jason 00:27",
+      "timestamp": "2026-07-29T20:51:58-07:00",
+      "dailyFile": "memory/2026-07-29.md present (mtime 20:50)",
+      "worldState": "WORLD_STATE.md mtime 2026-07-29 20:50 PDT \u2014 fresh",
       "verified": true
     },
     "model": {
-      "timestamp": "2026-07-28T11:17:00-07:00",
+      "timestamp": "2026-07-29T07:45:00-07:00",
       "status": "OK",
-      "details": "Config/runtime xai/grok-4.5. OpenClaw 2026.7.1-2. Active Memory enabled; lossless-claw enabled."
+      "details": "Runtime xai/grok-4.5. OpenClaw 2026.7.1-2. Gateway uptime ~40m."
     },
     "memory": {
       "timestamp": "2026-07-28T11:20:00-07:00",
       "status": "OK",
-      "details": "Housekeeping: WORLD_STATE age column + eBay 7d escalate; MEMORY 7/27 FBN list annotated superseded; claim-ledger + scorecard updated; daily open issues current. No MEMORY top-entry rewrite needed beyond 7/27 annotation."
+      "details": "Prior housekeeping held. Quiet-hours heartbeat: no MEMORY rewrite."
     }
   },
   "cacheTracking": {

@@ -202,3 +202,18 @@ Differs from meter #4 (retrieval hit@3): this grades whether live ops/harness fa
 | Outcome | **win** |
 | Log | `memory/trajectory-log.md` |
 | Note | C6 live skill applied 00:17 via CLI |
+
+### 2026-07-30 — Memory-before-speech meter v0 (fixture-baseline)
+
+| Item | Value |
+|------|-------|
+| Meter | **#1 Memory-before-speech** |
+| Value | **0.63** (5/8) |
+| Label | `fixture-baseline` — **not** live production rate |
+| Eligible turns | 8 / 10 total |
+| With memory evidence | 5 |
+| Source | `fixture` |
+| Fixture | `memory/evals/fixtures/memory-before-speech/samples-v0.json` |
+| Tool | `node scripts/memory-before-speech-meter.mjs` |
+| Doc | `memory/evals/memory-before-speech-meter-v0.md` |
+| Measured at | 2026-07-30T08:02:38.110Z |

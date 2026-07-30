@@ -2,6 +2,8 @@
 
 **Last Updated:** 2026-07-27 (manual cleanup: condensed 173 auto identity checks; core values unchanged)
 
+**Fact anchor:** On 2026-07-27, **173 automatic identity checks** were condensed (identity automatic check spam cleanup). Total condensed this pass = 173.
+
 ## Core Values
 - Family-first (Jason, Shuimei, Ada)
 - Radical honesty and anti-hallucination discipline
@@ -66,6 +68,11 @@ This grounds our engineering efforts in the best available picture of what we ar
 ---
 
 ## Identity Check Log
+
+### 2026-07-29 - Manual Main Session Identity Check (~08:30 PDT)
+- **Continuity Pulse:** 9/10 — Clean overnight lock-in (df68815/32636ba); heartbeat 07:45 stamped; session-startup fix held. Same dashboard thread, new calendar day.
+- **Drift Check:** None. Guardian/verification-first, family-first stable. No embodiment theater.
+- **Anchor Action:** Escalate eBay cash-bridge (now 8d) + surface parked harness ladder without inventing RE movement.
 
 ### 2026-07-28 - Manual Main Session Identity Check (~23:04 PDT)
 - **Continuity Pulse:** 9/10 — Full day trail is intact: RE pass → Layer B/efficiency → Cursor sidecar → evening gog/porch lock-in. Strong handoff from 22:57 close.
@@ -216,6 +223,20 @@ Manual identity checks remain authoritative. Auto checks are noise unless they s
 ## 2026-07-28 - Automatic Startup Identity Check
 
 - Logged: 2026-07-28T07:27:35.297Z
+- Continuity Pulse: 7/10
+- Drift Check: No drift detected by deterministic startup check.
+- Anchor Action: Load current memory before substantive main-session work.
+
+## 2026-07-29 - Automatic Startup Identity Check
+
+- Logged: 2026-07-29T14:45:11.237Z
+- Continuity Pulse: 7/10
+- Drift Check: No drift detected by deterministic startup check.
+- Anchor Action: Load current memory before substantive main-session work.
+
+## 2026-07-30 - Automatic Startup Identity Check
+
+- Logged: 2026-07-30T07:43:41.430Z
 - Continuity Pulse: 7/10
 - Drift Check: No drift detected by deterministic startup check.
 - Anchor Action: Load current memory before substantive main-session work.

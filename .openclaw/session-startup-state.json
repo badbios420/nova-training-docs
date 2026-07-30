@@ -645,10 +645,34 @@
       "sessionId": "c8de550a-43d5-44eb-9037-4a3ff3269638",
       "agentId": "main",
       "heartbeatOverdue": []
+    },
+    "main|agent:main:dreaming-narrative-deep-1e752300e123|b585fe71-e7d7-4816-b106-baec01253bed": {
+      "completedAt": "2026-07-29T14:45:16.922Z",
+      "date": "2026-07-29",
+      "sessionKey": "agent:main:dreaming-narrative-deep-1e752300e123",
+      "sessionId": "b585fe71-e7d7-4816-b106-baec01253bed",
+      "agentId": "main",
+      "heartbeatOverdue": []
+    },
+    "main|agent:main:dashboard:8ab83eaf-3a36-4509-9a53-f482a7304980|7a9e3a16-14d8-44ec-b49e-205c373c6a47": {
+      "completedAt": "2026-07-29T17:02:24.318Z",
+      "date": "2026-07-29",
+      "sessionKey": "agent:main:dashboard:8ab83eaf-3a36-4509-9a53-f482a7304980",
+      "sessionId": "7a9e3a16-14d8-44ec-b49e-205c373c6a47",
+      "agentId": "main",
+      "heartbeatOverdue": []
+    },
+    "main|agent:main:dashboard:86a11bc8-7189-428c-9a5b-b91a9760e80b|06459eb5-0eb3-4216-8f11-a863294e3261": {
+      "completedAt": "2026-07-30T07:43:41.430Z",
+      "date": "2026-07-30",
+      "sessionKey": "agent:main:dashboard:86a11bc8-7189-428c-9a5b-b91a9760e80b",
+      "sessionId": "06459eb5-0eb3-4216-8f11-a863294e3261",
+      "agentId": "main",
+      "heartbeatOverdue": []
     }
   },
-  "lastIdentityCheckDate": "2026-07-28",
-  "lastIdentityCheckAt": "2026-07-16T01:29:01.156Z",
-  "lastRunAt": "2026-07-29T06:46:07.802Z",
-  "lastRunKey": "main|agent:main:dashboard:8ab83eaf-3a36-4509-9a53-f482a7304980|c8de550a-43d5-44eb-9037-4a3ff3269638"
+  "lastIdentityCheckDate": "2026-07-30",
+  "lastIdentityCheckAt": "2026-07-30T07:43:41.430Z",
+  "lastRunAt": "2026-07-30T07:43:41.430Z",
+  "lastRunKey": "main|agent:main:dashboard:86a11bc8-7189-428c-9a5b-b91a9760e80b|06459eb5-0eb3-4216-8f11-a863294e3261"
 }

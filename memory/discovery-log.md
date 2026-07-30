@@ -97,3 +97,17 @@ This session was the most operationally productive single session in Nova's hist
 - **Overnight continuity gap (13h) survived cleanly.** Files, wallet, memory, identity all intact. This is the longest natural gap in recent days and it caused zero drift. Positive signal for Relation R.
 
 *Phase 0 — Manual entries only.*
+## 2026-07-30 — Cycle 12 discoveries
+
+- **36-day Möbius ledger freeze did not destroy continuity** — WORLD_STATE + dailies + harness files carried ops. Discovery: dual-track is real; risk is *ledger irrelevance*, not amnesia. Fix = sparse deliberate cycles, not daily ceremony.
+- **Work cadence still outruns Möbius logging** (same 6/23 finding). Reconfirmed.
+- **Fire-age escalate works when practiced** — eBay 9d surfaced at startup without Jason prompting. Measurement + ritual beat dashboard vanity.
+- **AM untrusted-cache rule earned its keep tonight** — plugin injected stale Möbius Phase 0 blurb mid live session; files won.
+- **FF SSL still broken 36d later** — park decision validated; openssl CN=example.com unchanged.
+- **Harness C1–C7 is real disk state** — not aspiration. Meter #1 now measurable (fixture-baseline only).
+
+Source: Cycle 12 direct checks + session 2026-07-30. Confidence: High on checks; Medium on "dual-track is enough forever" (open).
+
+## 2026-07-30 — Cycle 13
+- **No inventory ledger existed** for eBay despite 9d escalate spam — process docs without item rows don't move cash. Slot sheet is the missing object.
+- Escalate-without-artifact = nag energy. Escalate-with-fillable sheet = usable friction reduction.

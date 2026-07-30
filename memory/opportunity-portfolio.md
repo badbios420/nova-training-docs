@@ -33,3 +33,18 @@
 - Having fun, lots of patience, baby steps
 
 *Manually curated.*
+## 2026-07-30 — Cycle 12 portfolio refresh (rank by live leverage)
+
+1. **Hilltop sell-through + eBay cash bridge** — PRIMARY. Cash tight; eBay 9d escalate; weekly −$5k path active.
+2. **Big House RE maintain** — IDX live; FBN clear; no new acquisition systems until cash moves.
+3. **Harness / measurement (C1–C7 live)** — meters exist; **stop building packs unless Jason opens** (C8+). Serves reliability of #1–2.
+4. **Sister porch + dual-agent ops** — live; coordination value without new infra.
+5. **Möbius Phase 0 continuity** — this cycle; sparse cadence OK if WORLD_STATE stays SoT for ops.
+6. **NIGHT / Midnight City** — interest only; cash/Jason-gated.
+7. **10K NFT / Cardano revenue** — shelved; planning only.
+8. **Social / SOI / FF SSL** — parked.
+
+**Dropped from active push:** Meta chamber-about-chambers, fallback resilience projects, OpenRouter 402 work (Jason out of scope).
+
+## 2026-07-30 — Cycle 13 note
+- eBay first wave unblocked at **process** layer only (`memory/ebay-cash-bridge-prep-v0.md`). Rank #1 cash opportunity still gated on Jason fill + publish.

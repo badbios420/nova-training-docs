@@ -492,8 +492,14 @@ Never treat git-only as complete lock-in. Failure mode 2026-07-30: skipped porch
 3. If overall **degraded** → note warns (e.g. Dirty=yes); do not ignore stuck dirty
 4. **Do not claim memory down** without probe (or equivalent direct CLI) evidence
 5. **Do not** auto-reindex; probe print-only remediation (`--repair` lists discovered commands without executing)
+6. **In-session flake (tool error / empty while ops facts should exist):**
+   - Retry `memory_search` **once**
+   - If still bad → run probe (or `openclaw memory search` CLI). Trust CLI/probe over empty tool hits
+   - Continue on **ops-first files** (WORLD_STATE + today/yesterday + known paths) — do not stall the session
+   - **Do not** reconfigure embed provider (ollama/nomic) for a single tool flake; embeddings ≠ chat brain
+7. **lossless-claw (DEEP, keep enabled):** When files + memory_search still miss *session/transcript* continuity ("what did we say", multi-turn reconstruction, poisoned/missing daily), escalate to lossless-claw. It is not a substitute for WORLD_STATE/MEMORY; it fills the gap those layers cannot. Leave enabled; heavy path only — not every turn.
 
 **SUCCESS CRITERIA**
-Infra outages are detected mechanically; recovery uses the ladder; empty tool recall is not trusted when CLI probe passes.
+Infra outages are detected mechanically; recovery uses the ladder; empty tool recall is not trusted when CLI probe passes; session continues via files; lossless-claw available for DEEP transcript recovery without config thrash.
 
-**ORIGIN:** Cursor job C4 2026-07-29.
+**ORIGIN:** Cursor job C4 2026-07-29. **Hardened 2026-07-30:** retry-once + no embed reconfig for flake; lossless-claw affirmed as DEEP layer (Jason).

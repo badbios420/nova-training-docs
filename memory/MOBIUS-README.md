@@ -31,7 +31,7 @@ It is designed to survive session loss, provider cutoffs, and context resets by 
 
 ## Current State
 
-Manual operating structure is in place. Ready for first manual Möbius cycles. Nothing is automated.
+Phase 0 manual structure remains. **Last formal cycle: Cycle 13 — 2026-07-30 ~01:10 PDT** (eBay cash-bridge prep pack). Prior: Cycle 12 reality-contact catch-up. Class 0–1 only. Nothing automated. Ops SoT for fires remains `WORLD_STATE.md`; Möbius ledgers are sparse audit/intent/assumption layers. Next cycle requires Jason approval.
 
 ## Next Phase Direction (Not Started)
 

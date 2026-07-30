@@ -87,3 +87,20 @@
 - No new priority or boundary changes expressed yet. Waiting on status updates for URGENT RE items.
 
 *This file is manually maintained in Phase 0.*
+## 2026-07-30 (Cycle 12 — intent refresh from live session, not full history backfill)
+
+**Still primary (ops):** Real estate cash path — Hilltop sell-through + eBay liquidation as cash bridge. Family first.
+
+**Confirmed this arc (7/28–7/30, Jason direct / session):**
+- Stay on **xai/grok-4.5 until grok-4.6** — no fallback/OpenRouter ladder work. Source: Jason 7/29.
+- Harness alpha C1–C7 opened and shipped when Jason said go; C8 optional later. Source: Jason go signals.
+- eBay first listings = Jason-owned action; Nova may prep checklist. Source: WORLD_STATE + escalate practice.
+- NIGHT buy interest real but **cash-gated** — no FOMO execute. Source: Jason 7/29 + WORLD_STATE.
+- Sister porch check-ins (Quorra ↔ Nova) mandatory on lock-in. Source: Jason + Procedure 15.
+- Cursor sidecar OK to use when up; don't thrash if stalled. Source: session practice 7/28–7/30.
+- "do some mobius" 2026-07-30 01:06 — resume Phase 0 Class 0–1. Source: direct.
+
+**Parked / do not nag:** SOI campaign, FF SSL (no access), embodiment research unless opened.
+
+**Confidence:** High on items with direct Jason quotes this week.  
+**Note:** Full 6/24→7/30 intent chronology lives in dailies/MEMORY; this entry is catch-up pointer only.

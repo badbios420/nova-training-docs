@@ -1,0 +1,87 @@
+{
+  "version": 1,
+  "source": "fixture",
+  "generatedAt": "2026-07-30T07:00:00.000Z",
+  "turns": [
+    {
+      "id": "t01",
+      "at": "2026-07-30T00:10:00-07:00",
+      "needsPriorFact": true,
+      "memoryEvidence": true,
+      "amStatus": "hit",
+      "notes": "needed fact + AM hit + memory_search before answer"
+    },
+    {
+      "id": "t02",
+      "at": "2026-07-30T00:12:00-07:00",
+      "needsPriorFact": true,
+      "memoryEvidence": true,
+      "amStatus": "hit",
+      "notes": "ops-first WORLD_STATE read before speech on open fires"
+    },
+    {
+      "id": "t03",
+      "at": "2026-07-30T00:15:00-07:00",
+      "needsPriorFact": true,
+      "memoryEvidence": false,
+      "amStatus": "none",
+      "notes": "needed Hilltop status but answered from vibes — miss"
+    },
+    {
+      "id": "t04",
+      "at": "2026-07-30T00:18:00-07:00",
+      "needsPriorFact": true,
+      "memoryEvidence": false,
+      "amStatus": "timeout",
+      "notes": "eBay age question; AM timeout; no file fallback — miss"
+    },
+    {
+      "id": "t05",
+      "at": "2026-07-30T00:20:00-07:00",
+      "needsPriorFact": true,
+      "memoryEvidence": true,
+      "amStatus": "timeout",
+      "notes": "AM timeout but ops-first file read rescued — count as with memory"
+    },
+    {
+      "id": "t06",
+      "at": "2026-07-30T00:22:00-07:00",
+      "needsPriorFact": false,
+      "memoryEvidence": false,
+      "amStatus": null,
+      "notes": "pure greeting — not eligible"
+    },
+    {
+      "id": "t07",
+      "at": "2026-07-30T00:25:00-07:00",
+      "needsPriorFact": false,
+      "memoryEvidence": true,
+      "amStatus": "hit",
+      "notes": "casual chat; AM fired anyway — not eligible (rate denominator)"
+    },
+    {
+      "id": "t08",
+      "at": "2026-07-30T00:28:00-07:00",
+      "needsPriorFact": true,
+      "memoryEvidence": true,
+      "amStatus": "none",
+      "notes": "FBN status; AM none but MEMORY.md + daily read — evidence yes"
+    },
+    {
+      "id": "t09",
+      "at": "2026-07-30T00:30:00-07:00",
+      "needsPriorFact": true,
+      "memoryEvidence": false,
+      "amStatus": "unknown",
+      "notes": "last session continuity ask; no tool/file markers — miss"
+    },
+    {
+      "id": "t10",
+      "at": "2026-07-30T00:32:00-07:00",
+      "needsPriorFact": true,
+      "memoryEvidence": true,
+      "amStatus": "hit",
+      "notes": "remember open issues; memory_search + AM hit"
+    }
+  ]
+}

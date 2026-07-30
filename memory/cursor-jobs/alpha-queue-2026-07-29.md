@@ -13,7 +13,7 @@
 | C3 | Retrieval residual attack + re-score | P0/P1 | **DONE 7/29** filt hit@3 **0.87** (was 0.60); residual F09/F11 |
 | C5 | Trajectory closeout CLI | P1 | **DONE 7/30** Nova-direct 10/10 tests; Proc 13 one command |
 | C6 | Verifier skill workshop proposal | P1 | **APPLIED 7/30 00:17** `skills/verifier-pass-v1/SKILL.md` (CLI apply) |
-| C7 | Memory-before-speech meter v0 | P1 | queued |
+| C7 | Memory-before-speech meter v0 | P1 | **DONE 7/30** Nova verify 13/13; fixture rate 0.63 (5/8) labeled fixture-baseline |
 | C8 | Wiki ops entity pack | P1 | queued |
 | C9 | SWV dry harness templates | P1 | queued |
 

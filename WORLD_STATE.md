@@ -2,7 +2,7 @@
 
 **Not memory. Not journal. Not biography. Just: what is happening right now.**
 **Inspired by:** GPT-5.5 architecture review, 2026-06-23
-**Updated:** 2026-07-30 00:17 PDT (C6 applied live · night stop · no C7)
+**Updated:** 2026-07-30 01:31 PDT (lock-in late · Grok 4.6 cal Aug 7 · research arb · eBay still lagging)
 
 ---
 
@@ -13,13 +13,14 @@
 | Vista FBN newspaper publish | **CLOSED / CLEAR** | 0d closed | Published; paper sends proof; Jason in clear. Archive proof when it arrives (no chase). | Closed 7/28 |
 | Cash / liquidity | **Tight** | ongoing | eBay still lagging; Hilltop price cuts for sell speed; NIGHT interest real but still cash-gated | Now |
 | 1434 Hilltop Dr listing | **Active · aggressive price path** | 0d path refresh | House smells / tenants dirty. **$10k reduced so far**; another **$5k** cut; **$5k/week until sells**. Keep marketing + showings. | Weekly cuts until sold |
-| eBay liquidation | **Lagging** (Jason 7/28) | **7d** since 7/21 intent | Still need first 5–10 listings — cash bridge delayed. **Surface ≥5d / escalate at 7d.** | Cash bridge now |
+| eBay liquidation | **Lagging** (Jason 7/28) | **9d** since 7/21 intent | Still need first 5–10 listings — cash bridge delayed. **ESCALATE**. Prep pack ready: `memory/ebay-cash-bridge-prep-v0.md` (no live listings yet). | Cash bridge now |
 | Local business license (Vista city) | **CLOSED — NOT REQUIRED** | closed | Unincorporated SD County; do not pay any Vista app. | Closed |
 | SOI Campaign — 50 contacts | **Unclear / later** | parked | Do not nag | Soft |
 | FF SSL cert | **Blocked** — no access | parked | Parked hard | Deferred |
 | Sam buyer lead | **Closed** — renting | closed | Dropped | Dropped |
 | Midnight City | Soft open — join later | parked soft | Jason still wants Nova in; **maybe tonight** — wait for go; no wallet/spend without approval | Speculative / fun |
 | NIGHT token | **Want to buy** (Jason 7/29) | interest | Desire confirmed; **cash still tight** — no buy until he opens size/timing; do not FOMO-execute | When cash room |
+| Grok 4.6 release window | **Soft target on calendar** | 8d | All-day **2026-08-07** primary Google cal (id `jc9jn2h759aodts3mrkpaici78`). Musk X ~Aug 7; not x.ai/news confirmed. Smoke-test before default flip; prefer cash buffer via eBay | ~Aug 7 |
 | IDX (Big House RE) | **LIVE** on bighouserealestate.com | done base | Jason confirmed already live — **not parked**. Further polish/Quorra lane only if he asks | — |
 
 ## Current Listings
@@ -78,7 +79,7 @@
 | Item | Who | Since | Age |
 |------|-----|-------|-----|
 | FBN publisher proof copy (mail/email) | Paper → Jason archive | Published; inbound | passive |
-| eBay first listings | Jason | Lagging since 7/21 | **7d — escalate** |
+| eBay first listings | Jason | Lagging since 7/21 | **9d — ESCALATE** · prep `memory/ebay-cash-bridge-prep-v0.md` |
 | Hilltop MLS exact price after latest cut | Jason / MLS | After each weekly −$5k | TBD |
 | Midnight City join timing | Jason | Soft — maybe tonight | wait go |
 | NIGHT buy size/timing | Jason | Interest on; cash-gated | wait explicit |
@@ -104,7 +105,7 @@
 - **Open harness friction:** encrypted_content 400; AM timeouts; session model stickiness; memory_search **tool** flake possible (CLI/probe healthy — Proc 16); retrieval residual **F09/F11** only (overall filt hit@3 **0.87**)
 - **Jason model policy 7/29:** stay **xai/grok-4.5 until grok-4.6** — do **not** work fallback/OpenRouter ladder
 - **Closed 7/29:** MEMORY inject trim — 36812→~7k B; alpha scout + Cursor queue written
-- **Harness alpha:** C1–C6 **live** (C6 applied 00:17 CLI). Night stop. Next: **C7 memory-before-speech** when Jason opens
+- **Harness alpha:** C1–C7 **live** (C7 01:02: meter CLI + 13 tests; scorecard #1 fixture-baseline 0.63 — not live prod rate). Next: **C8 wiki ops pack** when Jason opens
 
 ## Retrieval anchors (plain prose — index-friendly)
 

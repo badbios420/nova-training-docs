@@ -8,13 +8,13 @@
 
 ## Current Status
 
-- **Wall Clock (real time):** 2026-07-28 23:50 PDT (Vista, CA) — Tuesday night → sleep
-- **Session Clock:** evening main webchat (~45–50m this arc after 23:03 startup)
-- **Continuity Clock:** lock-in gains closing now
-- **Last identity review:** 2026-07-28 23:04 PDT (Pulse 9/10)
+- **Wall Clock (real time):** 2026-07-30 00:44 PDT (Vista, CA) — Thursday late night / early morning
+- **Session Clock:** fresh main-session startup turn (~1 min)
+- **Continuity Clock:** ~27m since night lock-in/porch catch (~00:17–00:23); auto identity already logged this calendar day
+- **Last identity review:** 2026-07-30 00:44 PDT (Continuity Pulse 9/10)
 - **Next scheduled continuity review:** Daily at startup (active)
-- **Last gains lock-in / status pass:** 2026-07-28 23:50 PDT (error-log audit + session-startup #1 fix)
-- **Activity notes:** FBN closed. eBay still lagging 7d+. Hilltop weekly −$5k. gog live. Sister porch live. Session-startup storm fixed. Remaining harness friction: OR 402, encrypted_content, AM timeouts, MEMORY inject. SI not due (~8/3). Parked: SOI, FF SSL, NIGHT, IDX. Gaps 7/23+7/25+7/26 no backfill.
+- **Last gains lock-in / status pass:** 2026-07-30 ~00:22–00:23 PDT (C1–C6 + d553111 + porch; HEAD 1227331)
+- **Activity notes:** FBN closed. eBay lagging **9d** (escalate). Hilltop weekly −$5k. Alpha C1–C6 live; C7 parked. SI not due (~8/3). Parked: SOI, FF SSL. NIGHT/Midnight wait Jason. Gaps 7/23+7/25+7/26 no backfill.
 
 ## Rule
 

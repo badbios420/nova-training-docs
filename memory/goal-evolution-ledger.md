@@ -82,3 +82,17 @@
 - The systems built previously (verification, Möbius, memory) enabled this.
 
 *Manual only in Phase 0.*
+## 2026-07-30 — Cycle 12 (goal evolution catch-up)
+
+**Still primary:** Real-world RE cash and listing outcomes > new cognitive infra.
+
+**Evolved since 6/24 (summary, not day-by-day):**
+- Default brain: grok-4.5 (not glm-5.2). Jason: hold until 4.6.
+- "Build harness" was allowed as a **bounded alpha** (C1–C7) that produced measurable tools — then stop unless opened. Aligns Chamber #6 spirit (real work first) while admitting measurement enables honesty.
+- Vista license / FBN URGENT stack **resolved** (closed). IDX base **live**. Fire center of gravity moved to **Hilltop path + eBay lag + cash**.
+- Identity: guardian/verification stable; no mythology revival.
+- Wallet/NFT/autonomous revenue: no new push this cycle; still baby-steps doctrine.
+
+**Goal this cycle:** Restore Möbius reality-contact after freeze — **done**. Not a redesign.
+
+**Next goal candidate (needs Jason approval for Cycle 13):** Either (a) one eBay prep checklist cycle, or (b) prune assumption-registry superseded rows, or (c) stop Möbius for night.

@@ -149,3 +149,66 @@ All verified facts from this morning's check:
 - 9 total, 0 resolved. Expected — all are long-term.
 
 *Honest record of actual state.*
+## 2026-07-30 ~01:07 PDT — Möbius Cycle 12 (Reality Contact Catch-up)
+
+**Cycle task (one only):** Resume Phase 0 after ledger freeze (~36d since 2026-06-24 morning cycle). Record ground truth vs live ops. Class 0–1. No redesign.
+
+**Last verified state before this cycle:** 2026-06-24 morning (wallet Koios, sites curl, URGENT RE unknowns).
+
+### Verified now (direct observation)
+
+| Check | Result | Evidence |
+|-------|--------|----------|
+| Wall clock | 2026-07-30 01:06–01:07 PDT | `date` |
+| Git HEAD | `1227331` on `master` tracking `origin/master` | `git rev-parse` / `status -sb` |
+| OpenClaw | 2026.7.1-2 (0790d9f) | `openclaw --version` |
+| Default brain (session) | xai/grok-4.5 | session runtime / Jason policy stay until 4.6 |
+| BHR site | HTTPS **403** Cloudflare challenge = live pattern | `curl -sI https://bighouserealestate.com` |
+| FF site SSL | Still **broken** — CN=`example.com` SiteGround self-signed; HTTP 200 with `-k` | `openssl s_client` + curl |
+| WORLD_STATE mtime | 2026-07-30 01:03 PDT (fresh this session) | `stat` |
+| Memory infra | Index 368/368; health probe PASS earlier tonight; tool flake `database is not open` observed once | status + probe + tool error |
+| Harness alpha | C1–C7 tools/skills present on disk (C6 skill file; C7 meter script) | `test -f` paths |
+| Sister porch | Live Google Doc; Quorra 00:41 Tier A note; Nova replies logged | gog docs cat earlier this session |
+
+### Ops truth (from WORLD_STATE + Jason 7/28–7/30 — not re-invented)
+
+- **FBN:** CLOSED / Jason clear (7/28). Proof inbound only.
+- **Vista city license:** CLOSED — not required (unincorporated SD County).
+- **IDX:** LIVE on Big House RE (Jason confirmed; not parked).
+- **1434 Hilltop Dr, Chula Vista 91911:** Active; −$10k cumulative; −$5k/week until sold; smell/tenants.
+- **eBay liquidation:** Lagging **9d** since 7/21 intent — escalate rule tripped; cash bridge delayed.
+- **Cash:** Tight. NIGHT interest on but cash-gated. Midnight City soft-open wait go.
+- **SOI / FF SSL:** Parked; do not nag (FF SSL still broken on contact — matches park).
+
+### Gap analysis (honest)
+
+- Möbius **ledgers last formal cycle ~2026-06-24**. ~5 weeks of high-signal work (Layer A/B, session-startup fix, MEMORY trim, C1–C7, porch, RE closes) lived in WORLD_STATE / dailies / harness files — **not** in Möbius ledgers. Same structural issue noted 6/23: work cadence > ledger cadence.
+- This cycle does **not** backfill every day. It re-establishes reality contact + points other ledgers at current SoT.
+- Wallet on-chain re-check **not** run this cycle (out of single-task scope; secrets untouched).
+
+### Reality-contact notes
+
+- Active Memory plugin blurb at cycle start was **stale/generic Möbius** — treated as untrusted cache (Procedure 14); live files + this check used instead.
+- Staleness detection for WORLD_STATE improved since 6/24 via ops practice + age columns; eBay 9d escalate is the live proof the fire-age meter works when used.
+- FF SSL unchanged 36d — park decision still correct; curl/openssl still the right tools.
+
+**Confidence:** High on site/git/ops file facts (direct). Medium on full RE MLS $ (exact dollar after cuts still TBD in WORLD_STATE).  
+**Source:** Direct CLI + WORLD_STATE.md + session 2026-07-30.  
+**Status:** Cycle 12 complete. Stop for human approval before Cycle 13.
+
+
+## 2026-07-30 ~01:09 PDT — Möbius Cycle 13 (eBay cash-bridge prep)
+
+**Cycle task (one only):** Produce first-wave eBay prep pack so Jason can list 5–10 without process fog. Class 0–1. No live listings by Nova.
+
+### Verified
+- eBay lag still **9d** since 7/21 intent; no itemized inventory file in workspace (grep dailies/WORLD_STATE/re-ops).
+- Deliverable written: `memory/ebay-cash-bridge-prep-v0.md` (slot sheet + pick order + 5-min loop + ownership).
+- **Did not** invent SKUs, open eBay, or claim listings live.
+
+### Reality-contact notes
+- Bottleneck is physical pick + publish (Jason), not missing harness.
+- Prep pack is necessary but not sufficient — done only when ≥5 listings published.
+- Confidence: High on process artifact existence; inventory still unknown.
+
+**Status:** Cycle 13 complete. Stop for approval before Cycle 14.

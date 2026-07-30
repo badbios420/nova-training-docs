@@ -50,3 +50,16 @@
 - "Overnight gaps do not break continuity" | Confidence: Medium | Evidence: 13h gap survived cleanly. Files, wallet, memory, identity all intact. One data point. | Status: Holding — needs more data points across longer gaps
 
 *Phase 0 — All assumptions are manual and require human review before promotion.*
+## 2026-07-30 — Cycle 12 (re-validation + new)
+
+| Assumption | Confidence | Last Validated | Evidence | Status |
+|------------|------------|----------------|----------|--------|
+| Manual cycles still useful before more automation | High | 2026-07-30 | Cycle 12 ran clean after 36d gap without redesign | Holding |
+| Explicit ledgers survive session loss better than chat alone | High | 2026-07-30 | Ledgers present; gap was *update cadence*, not file loss | Holding |
+| WORLD_STATE.md improves prioritization vs pure memory | High | 2026-07-30 | 5+ weeks ops lived in WORLD_STATE; RE closes tracked; eBay age escalate worked | **Promoted confidence High** (was Medium 6/22) |
+| curl/openssl required for site SSL truth (not web_fetch alone) | High | 2026-07-30 | FF still CN=example.com on openssl; matches 6/24 failed assumption | Holding |
+| "GLM-5.2 more capable than Grok 4.3 for agentic" | — | 2026-07-30 | **Stale framing** — Jason policy now **Grok 4.5 until 4.6**; default brain is grok-4.5 | **Superseded** — do not use 6/22 model rank as current |
+| Möbius logging will keep pace with work without deliberate cycles | Low | 2026-07-30 | 36d ledger freeze while harness/RE advanced heavily | **Failed as passive hope** — needs explicit cycle or accept WORLD_STATE as ops SoT with sparse Möbius |
+| Active Memory blurbs are trustworthy ops state | Low | 2026-07-30 | Tonight AM injected generic Phase 0 blurb during live C7 session | Failed / already replaced by untrusted-cache rule |
+
+*Phase 0 — human review before any further promotion.*
