@@ -27,7 +27,7 @@ Promotion (durable memory)
 **Baseline metric established 2026-06-22:** Research Session #1 = 58% unverified. Future sessions scored against this baseline.
 
 **Verified Claim Language Rule:**
-The following words are **banned unless accompanied by proof**: done, fixed, verified, clean, working, pushed, live, shipped.
+Banned success words / verified claim language — the following words are **banned unless accompanied by proof**: done, fixed, verified, clean, working, pushed, live, shipped.
 
 Before using any of these words, state the proof source:
 - local file readback (quote the line)
@@ -320,6 +320,7 @@ Child result has evidence paths; parent states what was verified vs still pendin
 2. Add row: CLAIM / STATUS / EVIDENCE / CHECKED
 3. Prefer direct evidence (command output, file path+quote, plugin list, tx hash)
 4. Status `verified` only with evidence; else `pending`/`asserted`/`rejected`
+5. Optional mechanical scan: `node scripts/claim-guard.mjs path/to/note.md`
 
 **SUCCESS CRITERIA**
 Banned-word claims in durable notes map to a ledger row or inline proof.
@@ -362,6 +363,7 @@ audit labels exist and promotions are sparse/high-value.
 3. Mark each claim: verified / pending / rejected
 4. Reject vibes, secondary web summaries without primary check, and child-agent prose without artifacts
 5. Write failures to claim-ledger or observed-failures when systemic
+6. Optional mechanical scan: `node scripts/claim-guard.mjs path/to/note.md` (or `--stdin` on a draft)
 
 **SUCCESS CRITERIA**
 No banned success word survives without evidence after verifier pass.
@@ -416,13 +418,20 @@ Ops answers cite live ops files; dream reports do not drive factual claims; AM c
 
 **TRIGGER**
 - Architecture, harness, RE status shifts, wallet, or multi-hour builds
+- End of alpha/harness arcs (C1–Cn nights)
 
 **CHECKLIST**
-1. Append ≤20 lines to `memory/trajectory-log.md`
-2. Fields: Goal / Actions / Evidence / Outcome / Lesson / Follow-up
-3. Outcome must be win | partial | fail — no theater
+1. Prefer one command: `node scripts/trajectory-closeout.mjs --title "..." --goal "..." --actions "..." --evidence "..." --outcome win|partial|fail --lesson "..." [--follow-up "..."]`
+2. Or manually append ≤20 lines to `memory/trajectory-log.md`
+3. Fields: Goal / Actions / Evidence / Outcome / Lesson / Follow-up
+4. Outcome must be win | partial | fail — no theater
+5. Optional: `--scorecard` one-row touch on `memory/harness-scorecard.md`
+6. Dry-run first when unsure: `--dry-run`
 
-**ORIGIN:** Layer B 2026-07-28.
+**SUCCESS CRITERIA**
+Major sessions leave a graded trajectory while evidence is fresh; next session can read the log instead of reconstructing from chat.
+
+**ORIGIN:** Layer B 2026-07-28 · CLI C5 2026-07-30.
 
 ---
 
@@ -459,3 +468,25 @@ Ops answers cite live ops files; dream reports do not drive factual claims; AM c
 New Quorra entries get a Nova reply same session when seen; no dual-owned shared external actions; porch stays short and human-readable.
 
 **ORIGIN:** Jason directive 2026-07-28 ~22:36 PT — end-of-session check + sister communication opportunity.
+
+---
+
+## 16. Memory Health Probe
+
+**TRIGGER**
+- `memory_search` tool errors (including `database is not open`)
+- Empty / suspicious recall when ops facts should exist
+- After gateway restart, crash, or Node PATH swap
+- Weekly harness / optional heartbeat infra check
+
+**CHECKLIST**
+1. Run `node scripts/memory-health-probe.mjs` (or `--quick` / `--json`) with Node ≥24.15 on PATH
+2. If overall **fail** → follow `memory/evals/memory-health-recovery-v0.md` (ollama → embed model → status → search → sqlite escalate → tool-vs-CLI flake)
+3. If overall **degraded** → note warns (e.g. Dirty=yes); do not ignore stuck dirty
+4. **Do not claim memory down** without probe (or equivalent direct CLI) evidence
+5. **Do not** auto-reindex; probe print-only remediation (`--repair` lists discovered commands without executing)
+
+**SUCCESS CRITERIA**
+Infra outages are detected mechanically; recovery uses the ladder; empty tool recall is not trusted when CLI probe passes.
+
+**ORIGIN:** Cursor job C4 2026-07-29.

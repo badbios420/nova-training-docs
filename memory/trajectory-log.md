@@ -55,3 +55,19 @@
 - Outcome: **win** on #1; ladder #2–#5 parked
 - Lesson: Many "tool failures" are policy noise or empty fallback hops. Measure before thrash-fix. Timeout mismatch is a silent storm.
 - Follow-up: fallback reorder or OR credits; encrypted_content hygiene; MEMORY trim; eBay still human
+
+### 2026-07-30 — Alpha P0 night C1-C4 + C5 CLI
+- Goal: Ship Procedure 13 as one command; close alpha P0 arc with graded trajectory
+- Actions: Nova-direct C5: trajectory-closeout lib/CLI/tests; Proc 13 hook; live append this row; scorecard touch
+- Evidence: node scripts/test-trajectory-closeout.mjs 10/10; CLI --dry-run + append exit 0; scripts/trajectory-closeout.mjs
+- Outcome: **win**
+- Lesson: Small harness tools: implement direct when sidecar flaky; close trajectory same night as the wins
+- Follow-up: C6 verifier skill workshop proposal when Jason says go; keep using closeout after major sessions
+
+### 2026-07-30 — C6 apply + night stop
+- Goal: Jason delegated your-call: apply verifier skill; stop before C7
+- Actions: CLI openclaw skills workshop apply; skill landed SKILL.md; no C7 tonight
+- Evidence: workshop list applied; skills/verifier-pass-v1/SKILL.md 8050B; exit 0
+- Outcome: **win**
+- Lesson: Workshop tool apply needs gateway UI approval; CLI apply worked. Late-night: ship apply then stop — don't open C7.
+- Follow-up: C7 memory-before-speech meter next session; use verifier-pass-v1 on next research/impl burst

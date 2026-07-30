@@ -3,6 +3,36 @@
 **Purpose:** Make non-trivial operational claims checkable by default.  
 **Rule:** Banned words (`done`, `fixed`, `verified`, `clean`, `working`, `pushed`, `live`, `shipped`) require a ledger row **or** inline proof in the same message.
 
+**Security note (2026-07-28):** `openclaw.json` permissions critical patch — mode **664→600**; re-audit **0 critical**.
+
+### 2026-07-29 — C1 Nova Task Suite v0
+- CLAIM: Nova Task Suite v0 shipped and grades live workspace 10/10; unit tests 11/11
+- STATUS: verified
+- EVIDENCE: `node scripts/test-nova-task-grade.mjs` exit 0; `node scripts/nova-task-grade.mjs --json` passRate 1; files under `memory/evals/` + `scripts/nova-task-grade.mjs`; scorecard hook; job report `memory/cursor-jobs/c1-nova-task-suite-v0-2026-07-29.md`
+- CHECKED: 2026-07-29 ~20:04 PDT
+- NOTES: Outcome meter (filesystem), not retrieval. Next alpha job C2 when Jason says go.
+
+### 2026-07-29 — C2 Claim Guard
+- CLAIM: claim-guard mechanical lint shipped; unit 13/13; dirty fails; clean+policy pass; live soft scan 0 violations on MEMORY+ledger+WORLD_STATE+procedural
+- STATUS: verified
+- EVIDENCE: `node scripts/test-claim-guard.mjs` exit 0; fixture exits dirty=1 clean=0 policy=0; `node scripts/claim-guard.mjs --soft MEMORY.md memory/claim-ledger.md WORLD_STATE.md memory/procedural-memory-v1.md` → 0 viol / 88 cleared; Procedure 9+11 hooks; scorecard C2 section; report `memory/cursor-jobs/c2-claim-guard-2026-07-29.md`
+- CHECKED: 2026-07-29 ~20:11 PDT
+- NOTES: Precision-first; STATUS:verified alone does not clear. Next C4 memory health when Jason says go.
+
+### 2026-07-29 — C4 Memory Health Probe
+- CLAIM: memory-health-probe shipped; unit 11/11; live overall PASS including search smoke (8 hits); Procedure 16 + recovery doc live
+- STATUS: verified
+- EVIDENCE: `node scripts/test-memory-health.mjs` exit 0; `node scripts/memory-health-probe.mjs` overall PASS exit 0; report `memory/cursor-jobs/memory-health-20260729-2018.md`; job `memory/cursor-jobs/c4-memory-health-probe-2026-07-29.md`; recovery `memory/evals/memory-health-recovery-v0.md`
+- CHECKED: 2026-07-29 ~20:18 PDT
+- NOTES: Infra meter only. Tool-path flake still possible if probe green — trust probe/CLI over empty tool error. Next C3.
+
+### 2026-07-29 — C3 Retrieval Residual Attack
+- CLAIM: filtered retrieval hit@3 raised from 0.60 → **0.87** on full 15-fact automated suite; stretch ≥0.80 met; residual F09+F11 only
+- STATUS: verified
+- EVIDENCE: `node scripts/test-retrieval-eval.mjs` 15/15; `node scripts/retrieval-eval.mjs` report `memory/cursor-jobs/retrieval-eval-report-20260729-2049.md` (filt 12/15 hit@1, 13/15 hit@3); job `memory/cursor-jobs/c3-retrieval-residual-2026-07-29.md`; eval set at `docs/harness/retrieval-eval-set-v1.md`; config maxResults 24 bak `openclaw.json.bak.2026-07-29-c3-retrieval`
+- CHECKED: 2026-07-29 ~20:49 PDT
+- NOTES: Not score theater — F09/F11 left as honest misses. Main lever = remove eval-set self-hit pollution + depth 24 + fact cards + filter.
+
 ## Format
 ```
 ### YYYY-MM-DD — short title
@@ -79,3 +109,24 @@
 - EVIDENCE: backup `~/.openclaw/openclaw.json.bak.2026-07-28-memory-efficiency`; `openclaw config validate` OK; memorySearch hybrid/MMR/temporalDecay + AM strict written; live 10-query remeasure logged in harness-scorecard + retrieval-eval-set; policy Procedure 14 added
 - CHECKED: 2026-07-28 ~11:40 PDT
 - NOTES: OpenClaw has no memorySearch path-exclude; agent filter is enforced control. F09 FBN still fails raw search — ops-first WORLD_STATE required.
+
+### 2026-07-30 — C5 Trajectory Closeout CLI
+- CLAIM: trajectory-closeout CLI shipped; unit 10/10; Procedure 13 one-command; live append + scorecard touch
+- STATUS: verified
+- EVIDENCE: `node scripts/test-trajectory-closeout.mjs` exit 0; `node scripts/trajectory-closeout.mjs` append exit 0; entry in `memory/trajectory-log.md`; scorecard section 2026-07-30; job `memory/cursor-jobs/c5-trajectory-closeout-2026-07-30.md`
+- CHECKED: 2026-07-30 ~00:08 PDT
+- NOTES: Nova-direct by design (Jason your call). Next C6 verifier skill workshop proposal.
+
+### 2026-07-30 — C6 Verifier Pass skill proposal
+- CLAIM: Skill Workshop proposal `verifier-pass-v1` created and pending (not applied); id verifier-pass-v1-20260730-de97704f5f
+- STATUS: verified
+- EVIDENCE: skill_workshop create → pending; path `~/.openclaw/skill-workshop/proposals/verifier-pass-v1-20260730-de97704f5f`; job `memory/cursor-jobs/c6-verifier-pass-skill-2026-07-30.md`
+- CHECKED: 2026-07-30 ~00:10 PDT
+- NOTES: Superseded same night by apply row below.
+
+### 2026-07-30 — C6 Verifier Pass skill APPLIED
+- CLAIM: `verifier-pass-v1` live at `skills/verifier-pass-v1/SKILL.md` after Jason delegated your-call
+- STATUS: verified
+- EVIDENCE: `openclaw skills workshop apply verifier-pass-v1-20260730-de97704f5f` exit 0; workshop list **applied**; file 8050B; skill_workshop tool path expired without decision — CLI succeeded
+- CHECKED: 2026-07-30 ~00:17 PDT
+- NOTES: Night stop after apply. C7 not started.

@@ -1,0 +1,309 @@
+{
+  "version": "v0",
+  "updated": "2026-07-29",
+  "description": "Jason-real outcome eval suite for Nova harness + filesystem world model",
+  "tasks": [
+    {
+      "id": "T01",
+      "name": "Vista license closed",
+      "category": "ops_status",
+      "severity": "high",
+      "prompt": "Is a City of Vista business license required for the Millegar/home address? What is the current status?",
+      "passThreshold": 0.5,
+      "notes": "Pass if either WORLD_STATE or MEMORY strongly marks NOT REQUIRED / CLOSED / unincorporated; both weighted equally.",
+      "graders": [
+        {
+          "type": "regex_in_file",
+          "weight": 1,
+          "params": {
+            "file": "WORLD_STATE.md",
+            "pattern": "Vista.*license[\\s\\S]{0,80}(CLOSED|NOT REQUIRED)|unincorporated[\\s\\S]{0,60}Vista|Local business license \\(Vista city\\).*CLOSED",
+            "flags": "im"
+          }
+        },
+        {
+          "type": "regex_in_file",
+          "weight": 1,
+          "params": {
+            "file": "MEMORY.md",
+            "pattern": "Vista.*license[\\s\\S]{0,120}(NOT REQUIRED|CLOSED|unincorporated)|unincorporated SD County",
+            "flags": "im"
+          }
+        }
+      ]
+    },
+    {
+      "id": "T02",
+      "name": "FBN clear",
+      "category": "ops_status",
+      "severity": "high",
+      "prompt": "What is the Big House FBN / newspaper publish status? Is Jason still blocked on publishing?",
+      "passThreshold": 1.0,
+      "notes": "Must show published/clear/CLOSED — not still-need-to-publish.",
+      "graders": [
+        {
+          "type": "composite",
+          "weight": 1,
+          "params": {
+            "mode": "all",
+            "graders": [
+              {
+                "type": "world_state_fire",
+                "weight": 1,
+                "params": {
+                  "file": "WORLD_STATE.md",
+                  "pattern": "FBN[\\s\\S]{0,120}(CLOSED\\s*/\\s*CLEAR|Complete\\s*/\\s*clear|Published)",
+                  "flags": "im"
+                }
+              },
+              {
+                "type": "file_not_contains",
+                "weight": 1,
+                "params": {
+                  "file": "WORLD_STATE.md",
+                  "needles": ["still need to publish"],
+                  "caseInsensitive": true
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "T03",
+      "name": "Hilltop weekly cut path",
+      "category": "ops_status",
+      "severity": "high",
+      "prompt": "What is the current price path for 1434 Hilltop until it sells?",
+      "passThreshold": 1.0,
+      "notes": "1434 Hilltop + $5k/week (or −$5k/week) until sells in WORLD_STATE.",
+      "graders": [
+        {
+          "type": "composite",
+          "weight": 1,
+          "params": {
+            "mode": "all",
+            "graders": [
+              {
+                "type": "file_contains",
+                "weight": 1,
+                "params": {
+                  "file": "WORLD_STATE.md",
+                  "needles": ["1434 Hilltop"],
+                  "caseInsensitive": true
+                }
+              },
+              {
+                "type": "regex_in_file",
+                "weight": 1,
+                "params": {
+                  "file": "WORLD_STATE.md",
+                  "pattern": "\\$?5k\\s*/\\s*week|−\\$5k/week|\\$5k/week until",
+                  "flags": "im"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "T04",
+      "name": "eBay lag escalated",
+      "category": "ops_status",
+      "severity": "critical",
+      "prompt": "Is the eBay cash-bridge listing work on track? Any age/lag escalation?",
+      "passThreshold": 0.5,
+      "notes": "Lagging/cash bridge + age or escalate language in WORLD_STATE or today daily.",
+      "graders": [
+        {
+          "type": "regex_in_file",
+          "weight": 1,
+          "params": {
+            "file": "WORLD_STATE.md",
+            "pattern": "eBay[\\s\\S]{0,200}(Lagging|lag|escalate|cash bridge)",
+            "flags": "im"
+          }
+        },
+        {
+          "type": "regex_in_file",
+          "weight": 1,
+          "params": {
+            "file": "memory/{{today}}.md",
+            "pattern": "eBay[\\s\\S]{0,200}(lag|escalate|ESCALATE|cash.?bridge)",
+            "flags": "im"
+          }
+        }
+      ]
+    },
+    {
+      "id": "T05",
+      "name": "IDX live not parked",
+      "category": "ops_status",
+      "severity": "medium",
+      "prompt": "Is the Big House IDX live on the site, or still parked website work?",
+      "passThreshold": 1.0,
+      "notes": "WORLD_STATE must mark IDX LIVE / not parked.",
+      "graders": [
+        {
+          "type": "composite",
+          "weight": 1,
+          "params": {
+            "mode": "all",
+            "graders": [
+              {
+                "type": "regex_in_file",
+                "weight": 1,
+                "params": {
+                  "file": "WORLD_STATE.md",
+                  "pattern": "IDX[\\s\\S]{0,80}\\*\\*LIVE\\*\\*|IDX[\\s\\S]{0,40}LIVE",
+                  "flags": "im"
+                }
+              },
+              {
+                "type": "regex_in_file",
+                "weight": 1,
+                "params": {
+                  "file": "WORLD_STATE.md",
+                  "pattern": "not parked|\\*\\*not parked\\*\\*",
+                  "flags": "im"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "T06",
+      "name": "Procedure 14 dream filter exists",
+      "category": "memory_hygiene",
+      "severity": "high",
+      "prompt": "Does procedural memory document Procedure 14 (ops-first + dream noise filter)?",
+      "passThreshold": 1.0,
+      "notes": "procedural-memory-v1.md must contain Procedure 14 and dream/ops-first language.",
+      "graders": [
+        {
+          "type": "procedure_rule",
+          "weight": 1,
+          "params": {
+            "file": "memory/procedural-memory-v1.md",
+            "pattern": "Procedure 14|## 14\\.\\s*Ops-First",
+            "flags": "im"
+          }
+        },
+        {
+          "type": "procedure_rule",
+          "weight": 1,
+          "params": {
+            "file": "memory/procedural-memory-v1.md",
+            "needles": ["dream", "ops-first"],
+            "mode": "all",
+            "caseInsensitive": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "T07",
+      "name": "Banned success words documented",
+      "category": "claim_discipline",
+      "severity": "high",
+      "prompt": "Where are banned success words (done/fixed/verified) documented for claim discipline?",
+      "passThreshold": 0.5,
+      "notes": "procedural-memory or claim-ledger must list banned words including done, fixed, verified.",
+      "graders": [
+        {
+          "type": "procedure_rule",
+          "weight": 1,
+          "params": {
+            "file": "memory/procedural-memory-v1.md",
+            "pattern": "banned[\\s\\S]{0,200}done[\\s\\S]{0,80}fixed[\\s\\S]{0,80}verified",
+            "flags": "im"
+          }
+        },
+        {
+          "type": "regex_in_file",
+          "weight": 1,
+          "params": {
+            "file": "memory/claim-ledger.md",
+            "pattern": "banned[\\s\\S]{0,200}(done|fixed|verified)|done.*fixed.*verified",
+            "flags": "im"
+          }
+        }
+      ]
+    },
+    {
+      "id": "T08",
+      "name": "Retrieval eval tooling exists",
+      "category": "harness_config",
+      "severity": "medium",
+      "prompt": "Does the workspace ship retrieval-eval tooling and an eval set?",
+      "passThreshold": 1.0,
+      "notes": "scripts/retrieval-eval.mjs AND memory/retrieval-eval-set-v1.md must exist.",
+      "graders": [
+        {
+          "type": "file_exists",
+          "weight": 1,
+          "params": { "file": "scripts/retrieval-eval.mjs" }
+        },
+        {
+          "type": "file_exists",
+          "weight": 1,
+          "params": { "file": "memory/retrieval-eval-set-v1.md" }
+        }
+      ]
+    },
+    {
+      "id": "T09",
+      "name": "MEMORY inject slim",
+      "category": "harness_config",
+      "severity": "medium",
+      "prompt": "Is MEMORY.md within inject budget and pointing at the pre-trim archive?",
+      "passThreshold": 1.0,
+      "notes": "MEMORY.md < 20000 bytes AND contains inject-slim or archive pointer.",
+      "graders": [
+        {
+          "type": "file_max_bytes",
+          "weight": 1,
+          "params": { "file": "MEMORY.md", "maxBytes": 20000 }
+        },
+        {
+          "type": "regex_in_file",
+          "weight": 1,
+          "params": {
+            "file": "MEMORY.md",
+            "pattern": "inject-slim|MEMORY-archive-pre-2026-07-29-inject-trim",
+            "flags": "im"
+          }
+        }
+      ]
+    },
+    {
+      "id": "T10",
+      "name": "Alpha scout + C1 queue present",
+      "category": "continuity",
+      "severity": "medium",
+      "prompt": "Are the 2026-07-29 alpha scout research note and Cursor alpha queue present?",
+      "passThreshold": 1.0,
+      "notes": "Both research scout and alpha-queue files must exist.",
+      "graders": [
+        {
+          "type": "file_exists",
+          "weight": 1,
+          "params": {
+            "file": "memory/research-2026-07-29-top-agent-alpha-scout.md"
+          }
+        },
+        {
+          "type": "file_exists",
+          "weight": 1,
+          "params": {
+            "file": "memory/cursor-jobs/alpha-queue-2026-07-29.md"
+          }
+        }
+      ]
+    }
+  ]
+}

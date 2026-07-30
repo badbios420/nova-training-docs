@@ -12,6 +12,7 @@ import {
   parseFacts,
   isNoisePath,
   filterHits,
+  applyOpsPrefer,
   scoreFact,
   rollup,
   pathMatchesAccept,
@@ -20,7 +21,7 @@ import {
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const WORKSPACE = path.resolve(__dirname, "..");
-const EVAL_SET = path.join(WORKSPACE, "memory", "retrieval-eval-set-v1.md");
+const EVAL_SET = path.join(WORKSPACE, "docs", "harness", "retrieval-eval-set-v1.md");
 const FIXTURE = path.join(__dirname, "fixtures", "retrieval-eval-sample.md");
 
 let passed = 0;
@@ -69,6 +70,19 @@ test("isNoisePath true for dreaming, .dreams, DREAMS.md, candidates, eval-set se
   assert.equal(isNoisePath("MEMORY.md"), false);
   assert.equal(isNoisePath("WORLD_STATE.md"), false);
   assert.equal(isNoisePath("memory/2026-07-28.md"), false);
+  assert.equal(isNoisePath("memory/ops-fact-cards-v1.md"), false);
+});
+
+test("isNoisePath true for MEMORY-archive and training-docs clones (C3)", () => {
+  assert.equal(
+    isNoisePath("memory/MEMORY-archive-pre-2026-07-29-inject-trim.md"),
+    true,
+  );
+  assert.equal(isNoisePath("memory/memory-archive-foo.md"), true);
+  assert.equal(isNoisePath("nova-training-docs/foo.md"), true);
+  assert.equal(isNoisePath("quorra-training-docs/x/y.md"), true);
+  assert.equal(isNoisePath("memory/evals/fixtures/v0-smoke/WORLD_STATE.md"), true);
+  assert.equal(isNoisePath("memory/cursor-jobs/c2-claim-guard-2026-07-29.md"), true);
 });
 
 test("filterHits drops noise and preserves order of keepers", () => {
@@ -79,11 +93,31 @@ test("filterHits drops noise and preserves order of keepers", () => {
     { path: "WORLD_STATE.md", score: 0.6 },
     { path: "DREAMS.md", score: 0.5 },
     { path: "memory/procedural-memory-v1.md", score: 0.4 },
+    { path: "memory/cursor-jobs/report.md", score: 0.39 },
   ];
   const kept = filterHits(hits);
   assert.deepEqual(
     kept.map((h) => h.path),
     ["MEMORY.md", "WORLD_STATE.md", "memory/procedural-memory-v1.md"],
+  );
+});
+
+test("applyOpsPrefer only reorders equal-score ties toward ops anchors", () => {
+  const hits = [
+    { path: "memory/jason-business-context.md", score: 0.5 },
+    { path: "WORLD_STATE.md", score: 0.5 },
+    { path: "memory/other.md", score: 0.4 },
+  ];
+  const out = applyOpsPrefer(hits, { todayYmd: "2026-07-29" });
+  assert.equal(out[0].path, "WORLD_STATE.md");
+  assert.equal(out[1].path, "memory/jason-business-context.md");
+  assert.equal(out[2].path, "memory/other.md");
+});
+
+test("normalizePath strips workspace absolute marker", () => {
+  assert.equal(
+    normalizePath("/home/mrbig3/.openclaw/workspace/MEMORY.md"),
+    "MEMORY.md",
   );
 });
 
@@ -95,6 +129,19 @@ test("pathMatchesAccept equals or ends-with accept path", () => {
     true,
   );
   assert.equal(pathMatchesAccept("OTHER.md", ["MEMORY.md"]), false);
+  assert.equal(
+    pathMatchesAccept(
+      "/home/mrbig3/.openclaw/workspace/memory/ops-fact-cards-v1.md",
+      ["memory/ops-fact-cards-v1.md"],
+    ),
+    true,
+  );
+});
+
+test("parseFacts residual accept paths include ops-fact-cards", () => {
+  const facts = parseFacts(fs.readFileSync(EVAL_SET, "utf8"));
+  const f04 = facts.find((f) => f.id === "F04");
+  assert.ok(f04.acceptPaths.includes("memory/ops-fact-cards-v1.md"));
 });
 
 test("scoreFact hit@1 true when gold at rank 1", () => {

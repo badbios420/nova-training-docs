@@ -15,15 +15,48 @@ export const CATEGORIES = Object.freeze([
   "historical_narrative",
 ]);
 
+/** Paths preferred under optional opsPrefer tie-break (after classic filter). */
+export const OPS_PREFER_BASENAMES = Object.freeze([
+  "WORLD_STATE.md",
+  "MEMORY.md",
+  "memory/ops-fact-cards-v1.md",
+]);
+
 /**
- * Normalize a path for comparison: strip leading ./, use posix separators.
+ * Normalize a path for comparison: strip leading ./, absolute workspace roots,
+ * use posix separators. Optional workspaceRoot strips that prefix when present.
  * @param {string} p
+ * @param {string} [workspaceRoot]
  * @returns {string}
  */
-export function normalizePath(p) {
+export function normalizePath(p, workspaceRoot) {
   if (!p || typeof p !== "string") return "";
   let s = p.replace(/\\/g, "/").trim();
   while (s.startsWith("./")) s = s.slice(2);
+
+  // Heuristic: strip .../.openclaw/workspace/ absolute prefix
+  const marker = ".openclaw/workspace/";
+  const markerIdx = s.toLowerCase().indexOf(marker);
+  if (markerIdx !== -1) {
+    s = s.slice(markerIdx + marker.length);
+  }
+
+  if (workspaceRoot && typeof workspaceRoot === "string") {
+    let wr = workspaceRoot.replace(/\\/g, "/").trim();
+    while (wr.endsWith("/")) wr = wr.slice(0, -1);
+    if (wr && (s === wr || s.startsWith(wr + "/"))) {
+      s = s.slice(wr.length);
+      while (s.startsWith("/")) s = s.slice(1);
+    }
+    // Also try without leading slash on workspace root compare against absolute s
+    const wrNoSlash = wr.replace(/^\/+/, "");
+    const sNoSlash = s.replace(/^\/+/, "");
+    if (wrNoSlash && (sNoSlash === wrNoSlash || sNoSlash.startsWith(wrNoSlash + "/"))) {
+      s = sNoSlash.slice(wrNoSlash.length);
+      while (s.startsWith("/")) s = s.slice(1);
+    }
+  }
+
   while (s.startsWith("/")) s = s.slice(1);
   return s;
 }
@@ -41,6 +74,9 @@ export function pathBasename(p) {
 
 /**
  * True if path should be dropped under memory-efficiency-pass filtered ranking.
+ * Classic drops: dreaming, .dreams, DREAMS.md, candidates, eval-set self-hit.
+ * C3 noise expansions: MEMORY-archive-*, *-training-docs/**, cursor-jobs/**, evals/**
+ * (meta/report/fixture noise that steals ranks without being gold).
  * @param {string} p
  * @returns {boolean}
  */
@@ -51,12 +87,25 @@ export function isNoisePath(p) {
 
   if (n === "memory/retrieval-eval-set-v1.md") return true;
   if (n.startsWith("memory/retrieval-eval-set-v1.md/")) return true;
+  // Canonical eval set relocated under docs/harness (C3); still treat as self-hit noise if indexed
+  if (n === "docs/harness/retrieval-eval-set-v1.md") return true;
+  if (n.endsWith("/retrieval-eval-set-v1.md") && n.includes("harness")) return true;
 
   if (n.startsWith("memory/dreaming/") || n === "memory/dreaming") return true;
   if (n.startsWith("memory/.dreams/") || n === "memory/.dreams") return true;
   if (n.startsWith("memory/candidates/") || n === "memory/candidates") return true;
 
   if (base === "dreams.md") return true;
+
+  // Pre-trim / archive MEMORY dumps — not live inject gold
+  if (/^memory\/memory-archive-/i.test(n)) return true;
+
+  // Nested training clones (reference only)
+  if (/(^|\/)[^/]*-training-docs(\/|$)/i.test(n)) return true;
+
+  // Job reports + eval fixtures/suites steal ranks (F14 etc.) without being accept gold
+  if (n.startsWith("memory/cursor-jobs/") || n === "memory/cursor-jobs") return true;
+  if (n.startsWith("memory/evals/") || n === "memory/evals") return true;
 
   return false;
 }
@@ -72,16 +121,63 @@ export function filterHits(hits) {
 }
 
 /**
+ * True if path is an ops-preferred anchor for optional tie-break re-rank.
+ * @param {string} p
+ * @param {{ todayYmd?: string }} [opts]
+ */
+export function isOpsPreferPath(p, opts = {}) {
+  const n = normalizePath(p);
+  if (!n) return false;
+  if (OPS_PREFER_BASENAMES.includes(n)) return true;
+  if (opts.todayYmd) {
+    const today = `memory/${opts.todayYmd}.md`;
+    if (n === today) return true;
+  }
+  return false;
+}
+
+/**
+ * Optional filtered+opsPrefer mode: after classic filter, within equal-score
+ * ties prefer WORLD_STATE / MEMORY / today daily / ops-fact-cards.
+ * Does not override higher engine scores. Canonical meter remains classic filtered.
+ * @param {SearchHit[]} hits  already filterHits()'d
+ * @param {{ todayYmd?: string }} [opts]
+ * @returns {SearchHit[]}
+ */
+export function applyOpsPrefer(hits, opts = {}) {
+  if (!Array.isArray(hits) || hits.length === 0) return [];
+  const annotated = hits.map((h, i) => ({ h, i }));
+  const allScored = annotated.every(
+    ({ h }) => h && h.score != null && Number.isFinite(Number(h.score)),
+  );
+  if (!allScored) {
+    // Without scores, only reorder exact path-preference at equal position — no-op preserve
+    return hits.slice();
+  }
+  annotated.sort((a, b) => {
+    const sa = Number(a.h.score);
+    const sb = Number(b.h.score);
+    if (sb !== sa) return sb - sa;
+    const pa = isOpsPreferPath(String(a.h.path ?? ""), opts) ? 0 : 1;
+    const pb = isOpsPreferPath(String(b.h.path ?? ""), opts) ? 0 : 1;
+    if (pa !== pb) return pa - pb;
+    return a.i - b.i;
+  });
+  return annotated.map(({ h }) => h);
+}
+
+/**
  * True if result path equals or ends with any accept path (after normalize).
  * @param {string} resultPath
  * @param {string[]} acceptPaths
+ * @param {string} [workspaceRoot]
  * @returns {boolean}
  */
-export function pathMatchesAccept(resultPath, acceptPaths) {
-  const rp = normalizePath(resultPath);
+export function pathMatchesAccept(resultPath, acceptPaths, workspaceRoot) {
+  const rp = normalizePath(resultPath, workspaceRoot);
   if (!rp || !Array.isArray(acceptPaths)) return false;
   for (const raw of acceptPaths) {
-    const ap = normalizePath(raw);
+    const ap = normalizePath(raw, workspaceRoot);
     if (!ap) continue;
     if (rp === ap) return true;
     if (rp.endsWith("/" + ap) || rp.endsWith(ap)) {
@@ -184,9 +280,10 @@ export function parseFacts(markdown) {
  * support@3: weak proxy — Y iff hit@3 and top matching hit's snippet non-empty; else N.
  * @param {EvalFact} fact
  * @param {SearchHit[]} hits
+ * @param {string} [workspaceRoot]
  * @returns {ScoreResult}
  */
-export function scoreFact(fact, hits) {
+export function scoreFact(fact, hits, workspaceRoot) {
   const list = Array.isArray(hits) ? hits : [];
   const accept = fact?.acceptPaths ?? [];
   let hitRank = null;
@@ -195,7 +292,7 @@ export function scoreFact(fact, hits) {
 
   for (let i = 0; i < list.length; i += 1) {
     const h = list[i];
-    if (pathMatchesAccept(String(h?.path ?? ""), accept)) {
+    if (pathMatchesAccept(String(h?.path ?? ""), accept, workspaceRoot)) {
       hitRank = i + 1;
       matched = h;
       break;
@@ -211,7 +308,7 @@ export function scoreFact(fact, hits) {
 }
 
 /**
- * @param {Array<{ category?: string, raw?: ScoreResult, filtered?: ScoreResult, error?: string | null }>} rows
+ * @param {Array<{ category?: string, raw?: ScoreResult, filtered?: ScoreResult, opsPrefer?: ScoreResult, error?: string | null }>} rows
  * @returns {{ overall: object, byCategory: Record<string, object> }}
  */
 export function rollup(rows) {
@@ -239,6 +336,9 @@ export function rollup(rows) {
     raw: meter(list, "raw"),
     filtered: meter(list, "filtered"),
   };
+  if (list.some((r) => r.opsPrefer)) {
+    overall.opsPrefer = meter(list, "opsPrefer");
+  }
 
   /** @type {Record<string, object>} */
   const byCategory = {};
@@ -253,6 +353,9 @@ export function rollup(rows) {
       raw: meter(subset, "raw"),
       filtered: meter(subset, "filtered"),
     };
+    if (subset.some((r) => r.opsPrefer)) {
+      byCategory[cat].opsPrefer = meter(subset, "opsPrefer");
+    }
   }
 
   return { overall, byCategory };
@@ -270,4 +373,15 @@ export function formatMeter(m, field) {
   const n = m?.n ?? 0;
   const rate = m?.[rateKey] ?? 0;
   return `${count}/${n} (${rate.toFixed(2)})`;
+}
+
+/**
+ * Local YYYY-MM-DD for today-daily opsPrefer.
+ * @param {Date} [d]
+ */
+export function localYmd(d = new Date()) {
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${y}-${m}-${day}`;
 }

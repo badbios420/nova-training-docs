@@ -13,15 +13,18 @@ import { fileURLToPath } from "node:url";
 import {
   parseFacts,
   filterHits,
+  applyOpsPrefer,
   scoreFact,
   rollup,
   formatMeter,
+  localYmd,
   CATEGORIES,
 } from "./lib/retrieval-eval-lib.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const WORKSPACE = path.resolve(__dirname, "..");
-const DEFAULT_EVAL_SET = path.join(WORKSPACE, "memory", "retrieval-eval-set-v1.md");
+// C3: live outside memory/ so the gold table is not indexed as corpus pollution
+const DEFAULT_EVAL_SET = path.join(WORKSPACE, "docs", "harness", "retrieval-eval-set-v1.md");
 const REPORT_DIR = path.join(WORKSPACE, "memory", "cursor-jobs");
 const SEARCH_TIMEOUT_MS = 120_000;
 const INTER_QUERY_SLEEP_MS = 150;
@@ -29,7 +32,7 @@ const INTER_QUERY_SLEEP_MS = 150;
 function printHelp() {
   console.log(`Usage: node scripts/retrieval-eval.mjs [options]
 
-Run live openclaw memory search against memory/retrieval-eval-set-v1.md,
+Run live openclaw memory search against docs/harness/retrieval-eval-set-v1.md,
 score raw + filtered hit@1 / hit@3 / support@3, write markdown report.
 
 Options:
@@ -37,12 +40,19 @@ Options:
   --limit N        Only first N facts (smoke)
   --id FXX         Run a single fact by ID
   --json           Print machine-readable summary to stdout
-  --eval-set PATH  Override eval-set markdown (default: memory/retrieval-eval-set-v1.md)
+  --eval-set PATH  Override eval-set markdown (default: docs/harness/retrieval-eval-set-v1.md)
   --max-results N  openclaw --max-results (default: 8)
   --no-report      Skip writing markdown report
 
-Filtered ranking drops: memory/dreaming/**, memory/.dreams/**, DREAMS.md,
-memory/candidates/**, memory/retrieval-eval-set-v1.md (self-hit).
+Filtered ranking drops (classic / canonical meter):
+  memory/dreaming/**, memory/.dreams/**, DREAMS.md, memory/candidates/**,
+  memory/retrieval-eval-set-v1.md (self-hit), memory/MEMORY-archive-*,
+  *-training-docs/**, memory/cursor-jobs/**, memory/evals/**
+
+Optional opsPrefer (secondary only): after filter, equal-score ties prefer
+WORLD_STATE.md / MEMORY.md / today daily / memory/ops-fact-cards-v1.md.
+Canonical acceptance meter remains classic filtered.
+
 support@3 is a weak proxy: Y if hit@3 and matched snippet non-empty.
 `);
 }
@@ -54,7 +64,8 @@ function parseArgs(argv) {
     id: null,
     json: false,
     evalSet: DEFAULT_EVAL_SET,
-    maxResults: 8,
+    // C3: default 24 so dream/eval-self noise can be filtered without emptying top-3
+    maxResults: 24,
     report: true,
   };
   for (let i = 0; i < argv.length; i += 1) {
@@ -221,7 +232,10 @@ function renderReport({ stamp, evalSetRel, facts, rows, rolled, openclawPath }) 
     `- **support@3 note:** weak proxy — Y if hit@3 and matched hit snippet is non-empty; N on miss.`,
   );
   lines.push(
-    `- **Filtered drops:** \`memory/dreaming/**\`, \`memory/.dreams/**\`, \`DREAMS.md\`, \`memory/candidates/**\`, \`memory/retrieval-eval-set-v1.md\``,
+    `- **Filtered drops (canonical):** \`memory/dreaming/**\`, \`memory/.dreams/**\`, \`DREAMS.md\`, \`memory/candidates/**\`, \`memory/retrieval-eval-set-v1.md\`, \`memory/MEMORY-archive-*\`, \`*-training-docs/**\`, \`memory/cursor-jobs/**\`, \`memory/evals/**\``,
+  );
+  lines.push(
+    `- **opsPrefer (secondary):** after filter, equal-score ties prefer WORLD_STATE / MEMORY / today daily / ops-fact-cards. Canonical meter = filtered.`,
   );
   lines.push("");
 
@@ -236,6 +250,11 @@ function renderReport({ stamp, evalSetRel, facts, rows, rolled, openclawPath }) 
   lines.push(
     `| filtered | ${formatMeter(o.filtered, "hitAt1")} | ${formatMeter(o.filtered, "hitAt3")} | ${formatMeter(o.filtered, "supportAt3")} | ${o.filtered.errors} |`,
   );
+  if (o.opsPrefer) {
+    lines.push(
+      `| opsPrefer | ${formatMeter(o.opsPrefer, "hitAt1")} | ${formatMeter(o.opsPrefer, "hitAt3")} | ${formatMeter(o.opsPrefer, "supportAt3")} | ${o.opsPrefer.errors} |`,
+    );
+  }
   lines.push("");
 
   lines.push("## Per category");
@@ -261,14 +280,14 @@ function renderReport({ stamp, evalSetRel, facts, rows, rolled, openclawPath }) 
   lines.push("## Per fact");
   lines.push("");
   lines.push(
-    "| ID | Category | raw hit@1 | raw hit@3 | filt hit@1 | filt hit@3 | support@3 (filt) | error | top raw paths |",
+    "| ID | Category | raw hit@1 | raw hit@3 | filt hit@1 | filt hit@3 | opsP hit@3 | support@3 (filt) | error | top raw paths | top filt paths |",
   );
   lines.push(
-    "|----|----------|-----------|-----------|------------|------------|------------------|-------|---------------|",
+    "|----|----------|-----------|-----------|------------|------------|------------|------------------|-------|---------------|----------------|",
   );
   for (const r of rows) {
     lines.push(
-      `| ${r.id} | ${r.category} | ${r.error ? "—" : r.raw.hitAt1 ? "Y" : "N"} | ${r.error ? "—" : r.raw.hitAt3 ? "Y" : "N"} | ${r.error ? "—" : r.filtered.hitAt1 ? "Y" : "N"} | ${r.error ? "—" : r.filtered.hitAt3 ? "Y" : "N"} | ${r.error ? "—" : r.filtered.supportAt3 ? "Y" : "N"} | ${r.error ? r.error.replace(/\|/g, "/") : ""} | ${pathsPreview(r.rawHits).replace(/\|/g, "/")} |`,
+      `| ${r.id} | ${r.category} | ${r.error ? "—" : r.raw.hitAt1 ? "Y" : "N"} | ${r.error ? "—" : r.raw.hitAt3 ? "Y" : "N"} | ${r.error ? "—" : r.filtered.hitAt1 ? "Y" : "N"} | ${r.error ? "—" : r.filtered.hitAt3 ? "Y" : "N"} | ${r.error ? "—" : r.opsPrefer?.hitAt3 ? "Y" : "N"} | ${r.error ? "—" : r.filtered.supportAt3 ? "Y" : "N"} | ${r.error ? r.error.replace(/\|/g, "/") : ""} | ${pathsPreview(r.rawHits).replace(/\|/g, "/")} | ${pathsPreview(r.filteredHits).replace(/\|/g, "/")} |`,
     );
   }
   lines.push("");
@@ -325,12 +344,12 @@ async function main() {
     process.stderr.write(`[${i + 1}/${facts.length}] ${fact.id} …\n`);
     const { hits, error } = await runSearch(openclawPath, fact.query, args.maxResults);
     const filtered = filterHits(hits);
-    const rawScore = error
-      ? { hitAt1: false, hitAt3: false, supportAt3: false, hitRank: null }
-      : scoreFact(fact, hits);
-    const filtScore = error
-      ? { hitAt1: false, hitAt3: false, supportAt3: false, hitRank: null }
-      : scoreFact(fact, filtered);
+    const todayYmd = localYmd();
+    const opsPref = applyOpsPrefer(filtered, { todayYmd });
+    const emptyScore = { hitAt1: false, hitAt3: false, supportAt3: false, hitRank: null };
+    const rawScore = error ? emptyScore : scoreFact(fact, hits, WORKSPACE);
+    const filtScore = error ? emptyScore : scoreFact(fact, filtered, WORKSPACE);
+    const opsScore = error ? emptyScore : scoreFact(fact, opsPref, WORKSPACE);
 
     rows.push({
       id: fact.id,
@@ -340,14 +359,16 @@ async function main() {
       error,
       raw: rawScore,
       filtered: filtScore,
+      opsPrefer: opsScore,
       rawHits: hits,
       filteredHits: filtered,
+      opsPreferHits: opsPref,
     });
 
     if (!args.json) {
       const line = error
         ? `  ${fact.id} ERROR ${error}`
-        : `  ${fact.id} [${fact.category}] raw hit@1=${rawScore.hitAt1 ? "Y" : "N"} hit@3=${rawScore.hitAt3 ? "Y" : "N"} | filt hit@1=${filtScore.hitAt1 ? "Y" : "N"} hit@3=${filtScore.hitAt3 ? "Y" : "N"} support@3=${filtScore.supportAt3 ? "Y" : "N"}`;
+        : `  ${fact.id} [${fact.category}] raw hit@1=${rawScore.hitAt1 ? "Y" : "N"} hit@3=${rawScore.hitAt3 ? "Y" : "N"} | filt hit@1=${filtScore.hitAt1 ? "Y" : "N"} hit@3=${filtScore.hitAt3 ? "Y" : "N"} | opsP hit@3=${opsScore.hitAt3 ? "Y" : "N"} support@3=${filtScore.supportAt3 ? "Y" : "N"}`;
       console.log(line);
       if (!error) {
         console.log(`    raw top: ${pathsPreview(hits)}`);
@@ -391,8 +412,10 @@ async function main() {
       error: r.error,
       raw: r.raw,
       filtered: r.filtered,
+      opsPrefer: r.opsPrefer,
       rawTopPaths: (r.rawHits || []).slice(0, 3).map((h) => h.path),
       filteredTopPaths: (r.filteredHits || []).slice(0, 3).map((h) => h.path),
+      opsPreferTopPaths: (r.opsPreferHits || []).slice(0, 3).map((h) => h.path),
     })),
   };
 
@@ -407,6 +430,11 @@ async function main() {
     console.log(
       `filtered: hit@1 ${formatMeter(rolled.overall.filtered, "hitAt1")}  hit@3 ${formatMeter(rolled.overall.filtered, "hitAt3")}  support@3 ${formatMeter(rolled.overall.filtered, "supportAt3")}`,
     );
+    if (rolled.overall.opsPrefer) {
+      console.log(
+        `opsPrefer: hit@1 ${formatMeter(rolled.overall.opsPrefer, "hitAt1")}  hit@3 ${formatMeter(rolled.overall.opsPrefer, "hitAt3")}  support@3 ${formatMeter(rolled.overall.opsPrefer, "supportAt3")}  (secondary; canonical=filtered)`,
+      );
+    }
     console.log("");
     console.log("## Per category (filtered hit@3)");
     for (const cat of CATEGORIES) {
