@@ -469,6 +469,13 @@ New Quorra entries get a Nova reply same session when seen; no dual-owned shared
 
 **ORIGIN:** Jason directive 2026-07-28 ~22:36 PT — end-of-session check + sister communication opportunity.
 
+**Lock-in order (hard):** When Jason says lock in gains / session close:
+1. **Porch first** — read Sister Check-in Log; reply if due (this procedure)
+2. Durable MEMORY / consolidation / WORLD_STATE
+3. git commit + push
+4. Stamp verification
+Never treat git-only as complete lock-in. Failure mode 2026-07-30: skipped porch until Jason asked.
+
 ---
 
 ## 16. Memory Health Probe
