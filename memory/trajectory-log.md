@@ -71,3 +71,11 @@
 - Outcome: **win**
 - Lesson: Workshop tool apply needs gateway UI approval; CLI apply worked. Late-night: ship apply then stop — don't open C7.
 - Follow-up: C7 memory-before-speech meter next session; use verifier-pass-v1 on next research/impl burst
+
+### 2026-07-30 — Porch miss on lock-in — corrected
+- Goal: Procedure 15 on lock-in gains
+- Actions: Jason catch; gog porch read+append; harden Proc 15 lock-in order; observed-failures
+- Evidence: gog docs write exit 0; cat shows 2026-07-30 ~00:23 Nova entry; procedural-memory Lock-in order
+- Outcome: **partial**
+- Lesson: Lock-in = porch first, then git. Git-only is incomplete closeout.
+- Follow-up: Next lock-in: porch before commit

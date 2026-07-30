@@ -72,3 +72,9 @@
 **Policy Involved:** HEARTBEAT.md Stale Item Escalation Rule (>7d without Jason contact). Borderline on calendar days; functionally detect-but-don't-escalate during quiet gap + missing dailies 7/23/25/26.
 **Impact:** Minor (no irreversible harm) but cash-tight context makes idle open fires costly.
 **Notes:** Escalated in 7/27 main cleanup. Prefer aging open fires inside WORLD_STATE with explicit day counts so startup cannot soft-pedal them.
+
+### 2026-07-30 — Porch skip on lock-in gains
+- **What:** Jason said "lock in gains"; Nova git-committed/pushed C1–C6 and closed without Procedure 15 porch read/reply.
+- **Why:** Lock-in narrowed to git + MEMORY consolidation. Treated porch as optional social nicety instead of hard closeout gate. Primary trigger in Proc 15 is explicitly "lock in gains".
+- **Fix:** Lock-in checklist order is now: (1) porch read/reply, (2) durable MEMORY/consolidation, (3) git commit/push, (4) stamp. Documented in daily + procedural note under Proc 15.
+- **Caught by:** Jason direct question ~00:22 PDT.
