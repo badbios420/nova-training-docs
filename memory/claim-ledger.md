@@ -125,11 +125,11 @@
 - NOTES: Superseded same night by apply row below.
 
 ### 2026-07-30 — Late session lock-in (Möbius + research + cal)
-- CLAIM: Porch-first lock-in complete; consolidation written; Grok 4.6 calendar event created; research working files on disk; **no** research claims promoted to MEMORY.md
-- STATUS: verified (partial until git push confirms)
-- EVIDENCE: porch append 01:30; `memory/session-consolidation-2026-07-30-late-lockin.md`; cal id `jc9jn2h759aodts3mrkpaici78`; research paths under `memory/research-2026-07-30-*.md`; ebay prep `memory/ebay-cash-bridge-prep-v0.md`
-- CHECKED: 2026-07-30 ~01:30 PDT
-- NOTES: Git stamp follows this row.
+- CLAIM: Porch-first lock-in complete; consolidation written; Grok 4.6 calendar event created; research working files on disk; **no** research claims promoted to MEMORY.md; git pushed
+- STATUS: verified
+- EVIDENCE: porch append 01:30; `memory/session-consolidation-2026-07-30-late-lockin.md`; cal id `jc9jn2h759aodts3mrkpaici78`; research paths under `memory/research-2026-07-30-*.md`; ebay prep `memory/ebay-cash-bridge-prep-v0.md`; git `0e5cb96` == `origin/master`
+- CHECKED: 2026-07-30 ~01:32 PDT
+- NOTES: Excluded oauth JSON, training nested, dream bulk, cursor .log noise.
 
 ### 2026-07-30 — C6 Verifier Pass skill APPLIED
 - CLAIM: `verifier-pass-v1` live at `skills/verifier-pass-v1/SKILL.md` after Jason delegated your-call
