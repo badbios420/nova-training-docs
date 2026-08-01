@@ -219,6 +219,8 @@ Track every chamber run. Measure behavior, not architecture.
 | 7 | 2026-06-23 | Casino vs Prediction Market: which first? | Grok 4.3 (real API), Claude 4.8 (real API) | 2 (chain choice, sequencing value) | 0 | 0 | TBD | TBD | **First REJECT.** Both consultants converged on REJECT BOTH. Key finding: empty market = no demand, not opportunity. Cardano DeFi TVL $85M, DAU 11-16K. Cost reality $150-300K+ not "2-3 month MVP." NFT+gambling = regulatory risk. Chair admitted initial research was 10x too optimistic. Deferred, not dead. |
 | 8 | 2026-06-23 | Nova running Big House RE marketing ops | Grok 4.3 (real API), Claude 4.8 (real API) | 1 (Seedance quality — Grok skeptical, Claude cautiously positive) | 0 | 1 (PHASED + HUMAN-IN-LOOP approach) | TBD | TBD | **First RE PROMOTE.** Both consultants agreed on PHASED. Nova = production engine, not operator (capability gap at money/publish boundary). Compliance is hard wall (Fair Housing, CA DRE, ADA/WCAG). Sequencing: URGENT stack → SEO/compliance → Seedance video → paid ads last. No autonomous ad spend until guardrails built. Replaces ~60-70% of VA labor at near-zero cost. |
 
+| 10 | 2026-07-31 | Multi-subagent / boss architecture | DeepSeek x3 real; Opus/ZAI FAIL billing; web+docs | concurrent/depth/default-flip | maxC4; depth2; permanent flip | 5 boss-arch items | TBD | TBD | Live billing failures main finding |
+
 **Goal:** Run 10 real chambers before building v0.2. Track the metrics above. Then evaluate which consultants are actually valuable.
 
 **Rules:**

@@ -240,3 +240,31 @@ Manual identity checks remain authoritative. Auto checks are noise unless they s
 - Continuity Pulse: 7/10
 - Drift Check: No drift detected by deterministic startup check.
 - Anchor Action: Load current memory before substantive main-session work.
+
+## 2026-07-31 - Automatic Startup Identity Check
+
+- Logged: 2026-07-31T10:00:09.526Z
+- Continuity Pulse: 7/10
+- Drift Check: No drift detected by deterministic startup check.
+- Anchor Action: Load current memory before substantive main-session work.
+
+## 2026-07-31 - Manual Main-Session Identity Check (23:38 PDT)
+
+- Logged: 2026-07-31T23:42:00-07:00
+- Continuity Pulse: 8/10 — lock-in trail fresh (C8 + DeepSeek + custody + git 5530a41); ops WORLD_STATE ~46h old but under 7d
+- Drift Check: none — guardian / verification-first / no FOMO on cash-gated buys
+- Anchor Action: Brief live fires + handoff; refresh time-awareness; do not invent RE/eBay movement
+
+## 2026-08-01 - Automatic Startup Identity Check
+
+- Logged: 2026-08-01T07:08:24.433Z
+- Continuity Pulse: 7/10
+- Drift Check: No drift detected by deterministic startup check.
+- Anchor Action: Load current memory before substantive main-session work.
+
+## 2026-08-01 - Manual Codex Repair Identity Check (00:37 PDT)
+
+- Logged: 2026-08-01T00:37:19-07:00
+- Continuity Pulse: 8/10 — tonight's DeepSeek wiring, conflicting default-spawn evidence, and the Codex handoff are present in today's daily and repair brief
+- Drift Check: none — verification-first and approval boundaries remain aligned; Nova is auditor while Codex owns filesystem/config changes
+- Anchor Action: require provider-transport proof for every explicit/default model seat before retaining the DeepSeek swarm default

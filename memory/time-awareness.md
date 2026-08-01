@@ -8,13 +8,13 @@
 
 ## Current Status
 
-- **Wall Clock (real time):** 2026-07-30 00:44 PDT (Vista, CA) — Thursday late night / early morning
-- **Session Clock:** fresh main-session startup turn (~1 min)
-- **Continuity Clock:** ~27m since night lock-in/porch catch (~00:17–00:23); auto identity already logged this calendar day
-- **Last identity review:** 2026-07-30 00:44 PDT (Continuity Pulse 9/10)
+- **Wall Clock (real time):** 2026-08-01 00:37 PDT (Vista, CA) — Saturday shortly after midnight
+- **Session Clock:** Codex repair session began minutes ago
+- **Continuity Clock:** ~55 minutes since the prior manual identity review; ~47h since WORLD_STATE refresh (7/30 01:30)
+- **Last identity review:** 2026-08-01 00:37 PDT (Continuity Pulse 8/10 — model/swarm repair handoff loaded)
 - **Next scheduled continuity review:** Daily at startup (active)
-- **Last gains lock-in / status pass:** 2026-07-30 ~00:22–00:23 PDT (C1–C6 + d553111 + porch; HEAD 1227331)
-- **Activity notes:** FBN closed. eBay lagging **9d** (escalate). Hilltop weekly −$5k. Alpha C1–C6 live; C7 parked. SI not due (~8/3). Parked: SOI, FF SSL. NIGHT/Midnight wait Jason. Gaps 7/23+7/25+7/26 no backfill.
+- **Last gains lock-in / status pass:** 2026-07-31 ~23:35 PDT (C8 PASS + DeepSeek wire + custody verify + git 5530a41 push OK)
+- **Activity notes:** Codex owns the model-catalog/swarm-default repair. Main remains xai/grok-4.5. DeepSeek explicit execution previously worked, but default subagent routing is unverified after contradictory xAI transport evidence. SI due ~8/3.
 
 ## Rule
 

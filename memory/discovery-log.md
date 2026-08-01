@@ -120,3 +120,11 @@ Source: Cycle 12 direct checks + session 2026-07-30. Confidence: High on checks;
 - **AM auto-promotions into MEMORY.md are inject noise** — stripped on lock-in; sparse recent-decisions line preferred.
 
 Source: session 2026-07-31 direct checks + consolidation. Confidence: High on C8/DeepSeek/custody checks.
+
+## 2026-08-01 — Swarm + chamber model seats
+- Swarm default → deepseek/deepseek-v4-flash (proven: default + 3 concurrent workers; transcript provider=deepseek)
+- Grok UI alias → "Grok 4.5" (Control UI alias||name)
+- Chamber Skeptic → openai/gpt-5.6-sol (alias GPT-Skeptic); never chair/synthesize
+- Seat map: memory/chambers/chamber-seat-map-v1.md
+- Standing: model path claims require transcript/transport evidence
+- Config outside git; backups under memory/cursor-jobs/backups/
