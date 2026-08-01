@@ -6,7 +6,13 @@
 #   scripts/cursor-worker.sh ask   "prompt..."   # read-only Q&A
 #   scripts/cursor-worker.sh read  "prompt..."   # print, no force (alias ask-ish)
 #   scripts/cursor-worker.sh write "prompt..."   # print + --force (implement only)
-#   scripts/cursor-worker.sh raw   [agent args...]
+#   scripts/cursor-worker.sh raw   [agent args...]  # still pins --model unless caller passed one
+#
+# Model pin (Chamber #11 / Jason 2026-08-01):
+#   Default CURSOR_MODEL=cursor-grok-4.5-high (never bare Auto for production C-jobs)
+#   Override: CURSOR_MODEL=composer-2.5 scripts/cursor-worker.sh write "..."
+#   Hard jobs: CURSOR_MODEL=gpt-5.6-sol-high ...
+#   raw: same pin + log_header; skip inject only if args already include --model / --model=*
 set -euo pipefail
 # Prefer nvm Node ≥24.15 for any openclaw CLI the worker may invoke.
 # Cursor ships an older node on PATH (observed v24.5.0) that cannot run OpenClaw.
@@ -24,6 +30,9 @@ ROOT="/home/mrbig3/.openclaw/workspace"
 cd "$ROOT"
 JOBDIR="$ROOT/memory/cursor-jobs"
 mkdir -p "$JOBDIR"
+
+# Pinned default — Chamber #11 Jason pick B (2026-08-01). Do not default to Auto.
+CURSOR_MODEL="${CURSOR_MODEL:-cursor-grok-4.5-high}"
 
 MODE="${1:-}"
 shift || true
@@ -44,32 +53,76 @@ STAMP=$(date +%Y%m%d-%H%M%S)
 LOG="$JOBDIR/${STAMP}-${MODE:-raw}.log"
 
 # --trust: Nova workspace is intentionally trusted for sidecar use
-COMMON=(--trust --workspace "$ROOT")
+COMMON=(--trust --workspace "$ROOT" --model "$CURSOR_MODEL")
+
+log_header() {
+  {
+    echo "=== cursor-worker ==="
+    echo "stamp=$STAMP"
+    echo "mode=${MODE:-raw}"
+    echo "model=$CURSOR_MODEL"
+    echo "workspace=$ROOT"
+    echo "cli=$(command -v agent)"
+    echo "===================="
+  } | tee "$LOG" >/dev/null
+  # also print model to stderr for Nova/Jason visibility
+  echo "CURSOR_MODEL=$CURSOR_MODEL MODE=${MODE:-raw} LOG=$LOG" >&2
+}
 
 case "$MODE" in
   status)
-    agent status 2>&1 | tee "$LOG"
-    agent about 2>&1 | tee -a "$LOG" | head -30
+    {
+      echo "=== cursor-worker status ==="
+      echo "pinned_default_model=cursor-grok-4.5-high"
+      echo "effective_CURSOR_MODEL=$CURSOR_MODEL"
+      echo "============================"
+      agent status
+      agent about
+      echo "--- models (head) ---"
+      agent models 2>/dev/null | head -40 || true
+    } 2>&1 | tee "$LOG"
     ;;
   plan)
-    agent -p --mode plan --output-format text "${COMMON[@]}" "$*" 2>&1 | tee "$LOG"
+    log_header
+    agent -p --mode plan --output-format text "${COMMON[@]}" "$*" 2>&1 | tee -a "$LOG"
     ;;
   ask|read)
-    agent -p --mode ask --output-format text "${COMMON[@]}" "$*" 2>&1 | tee "$LOG"
+    log_header
+    agent -p --mode ask --output-format text "${COMMON[@]}" "$*" 2>&1 | tee -a "$LOG"
     ;;
   write)
     # implement — Nova/Jason must have chosen write path
-    agent -p --force --output-format text "${COMMON[@]}" "$*" 2>&1 | tee "$LOG"
+    log_header
+    agent -p --force --output-format text "${COMMON[@]}" "$*" 2>&1 | tee -a "$LOG"
     ;;
   raw)
-    exec agent --trust "$@"
+    # raw: caller owns most args; still pin model + log unless --model already present
+    log_header
+    RAW_HAS_MODEL=0
+    for arg in "$@"; do
+      case "$arg" in
+        --model|--model=*) RAW_HAS_MODEL=1 ;;
+      esac
+    done
+    if [[ "$RAW_HAS_MODEL" -eq 0 ]]; then
+      agent --trust --model "$CURSOR_MODEL" "$@" 2>&1 | tee -a "$LOG"
+    else
+      agent --trust "$@" 2>&1 | tee -a "$LOG"
+    fi
     ;;
   *)
     cat >&2 <<USAGE
 Usage: $0 {status|plan|ask|read|write|raw} ...
+
+Default model: cursor-grok-4.5-high (override with CURSOR_MODEL=...)
+Examples:
+  $0 status
+  $0 plan "..."
+  CURSOR_MODEL=composer-2.5 $0 write "..."
+  CURSOR_MODEL=gpt-5.6-sol-high $0 write "..."
 USAGE
     exit 1
     ;;
 esac
 
-echo "LOG=$LOG" >&2
+echo "LOG=$LOG model=$CURSOR_MODEL" >&2

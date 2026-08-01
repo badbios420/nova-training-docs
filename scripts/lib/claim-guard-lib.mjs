@@ -47,12 +47,30 @@ export const DEFAULT_BANNED_WORDS = Object.freeze([
  * @property {string} [file]
  */
 
-const EVIDENCE_MARKERS = [
+/** Marker label only — body after colon must be non-whitespace to count. */
+const EVIDENCE_MARKER_EMPTY = [
   /\bEVIDENCE\s*:/i,
   /\bSource\s*:/i,
   /\bCHECKED\s*:/i,
   /\bchecked\s*:/,
 ];
+
+/**
+ * True when line has EVIDENCE:/Source:/CHECKED: with non-whitespace body after the colon.
+ * Bare `EVIDENCE:` or whitespace-only body does NOT count.
+ * @param {string} line
+ * @returns {boolean}
+ */
+function lineHasFilledEvidenceMarker(line) {
+  for (const re of EVIDENCE_MARKER_EMPTY) {
+    re.lastIndex = 0;
+    const m = re.exec(line);
+    if (!m) continue;
+    const after = line.slice(m.index + m[0].length);
+    if (after.trim().length > 0) return true;
+  }
+  return false;
+}
 
 const PATH_BACKTICK = /`[^`\n]*\/[^`\n]+`/;
 const PATH_BARE =
@@ -112,7 +130,7 @@ export function buildBannedRegex(words) {
  * @returns {boolean}
  */
 function lineHasEvidenceMarkers(line) {
-  return EVIDENCE_MARKERS.some((re) => re.test(line));
+  return lineHasFilledEvidenceMarker(line);
 }
 
 /**

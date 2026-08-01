@@ -15,7 +15,8 @@
 | C6 | Verifier skill workshop proposal | P1 | **APPLIED 7/30 00:17** `skills/verifier-pass-v1/SKILL.md` (CLI apply) |
 | C7 | Memory-before-speech meter v0 | P1 | **DONE 7/30** Nova verify 13/13; fixture rate 0.63 (5/8) labeled fixture-baseline |
 | C8 | Wiki ops entity pack | P1 | **DONE 7/31** Nova PASS — Entities=4 + synthesis; compile/lint/get exit 0; secrets clean; openclaw.json untouched |
-| C9 | SWV dry harness templates | P1 | queued |
+| C9 | SWV dry harness templates | P1 | **DONE 8/1** Nova PASS — CLI 14/14 + live Flash SWV-DRY-001 S/W/V PASS; Cursor model cursor-grok-4.5-high |
+| C9b | Coverage: session-startup fixtures + AM offline smoke | P1 | **DONE 8/1 PASS** Jason accept; freeze night; future live AM inject smoke queued (no config) |
 
 ## Do not dispatch
 - OpenRouter 402 / fallback reorder

@@ -38,7 +38,7 @@ Score each fact as usual (hit@1 / hit@3 / support), then roll up **by Category**
 | F07 | Möbius promotion rule research audit | No research to durable memory without audit | MEMORY.md, memory/procedural-memory-v1.md, memory/research-2026-06-22-ai-agents.md | procedures |
 | F08 | How many automatic identity checks were condensed 2026-07-27 | 173 auto identity checks condensed 2026-07-27 | MEMORY.md, memory/identity-substrate.md, memory/2026-07-27.md, memory/ops-fact-cards-v1.md | recent_events |
 | F09 | Big House Real Estate FBN newspaper publish status Jason | FBN published / Jason clear (or prior proof-held state) | WORLD_STATE.md, MEMORY.md, memory/2026-07-28.md, memory/2026-07-27.md, memory/ops-fact-cards-v1.md | current_ops |
-| F10 | subagent defaults glm-5.1 Layer A | agents.defaults.subagents model zai/glm-5.1 | MEMORY.md, memory/claim-ledger.md, memory/procedural-memory-v1.md | current_ops |
+| F10 | subagent defaults deepseek-v4-flash | agents.defaults.subagents model deepseek/deepseek-v4-flash | MEMORY.md, memory/claim-ledger.md, memory/procedural-memory-v1.md | current_ops |
 | F11 | Hilltop Dr weekly five thousand dollar price reductions until sold | Hilltop policy $5k/week cuts until sells; −$10k cumulative so far | WORLD_STATE.md, MEMORY.md, memory/2026-07-28.md, memory/ops-fact-cards-v1.md | current_ops |
 | F12 | openclaw.json file mode critical permissions patch July 28 | openclaw.json mode 664→600; re-audit 0 critical 2026-07-28 | memory/2026-07-28.md, MEMORY.md, memory/claim-ledger.md, memory/ops-fact-cards-v1.md | recent_events |
 | F13 | Nova robot body Tesla Optimus embodiment | Preferred embodiment Tesla Optimus; perfect harness first; not near-term | MEMORY.md | durable_facts |

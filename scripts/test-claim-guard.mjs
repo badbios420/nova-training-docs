@@ -138,6 +138,37 @@ test("formatReport text includes OK when clean", () => {
   assert(md.includes("Claim Guard Report"), "expected md header");
 });
 
+test("empty EVIDENCE: alone does not clear bare done", () => {
+  const r = scanText("Ship is done.\nEVIDENCE:");
+  assert(
+    r.violations.some((v) => v.word === "done"),
+    `empty EVIDENCE should not clear: ${JSON.stringify(r.violations)}`,
+  );
+});
+
+test("whitespace-only EVIDENCE: does not clear bare shipped", () => {
+  const r = scanText("Deploy is shipped.\nEVIDENCE:   \t  ");
+  assert(
+    r.violations.some((v) => v.word === "shipped"),
+    `whitespace EVIDENCE should not clear: ${JSON.stringify(r.violations)}`,
+  );
+});
+
+test("EVIDENCE with real artifact clears", () => {
+  const r = scanText("Ship is done.\nEVIDENCE: `scripts/test-claim-guard.mjs` exit 0");
+  assert(r.violations.length === 0, `unexpected violations: ${JSON.stringify(r.violations)}`);
+  assert(r.cleared.some((c) => c.word === "done"), "expected done cleared by filled EVIDENCE");
+});
+
+test("Source:/CHECKED: empty markers do not clear", () => {
+  const r1 = scanText("Patch is fixed.\nSource:");
+  assert(r1.violations.some((v) => v.word === "fixed"), "empty Source: should not clear");
+  const r2 = scanText("Patch is fixed.\nCHECKED:  ");
+  assert(r2.violations.some((v) => v.word === "fixed"), "whitespace CHECKED: should not clear");
+  const r3 = scanText("Patch is fixed.\nSource: memory/claim-ledger.md");
+  assert(r3.violations.length === 0, `filled Source should clear: ${JSON.stringify(r3.violations)}`);
+});
+
 test("clean child / clean install idioms", () => {
   const r = scanText("Spawn a clean child session after clean install.");
   assert(r.violations.length === 0, `clean idioms flagged: ${JSON.stringify(r.violations)}`);

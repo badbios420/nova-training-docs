@@ -54,6 +54,10 @@ Add whatever helps you do your job. This is your cheat sheet.
 | Rules | `.cursor/rules/nova-sidecar.mdc` |
 | Auth | **Required** — `agent login` or `CURSOR_API_KEY` |
 | Job logs | `memory/cursor-jobs/` |
+| **Default model** | **`cursor-grok-4.5-high`** (pinned 2026-08-01 Chamber #11 / Jason B) |
+| Override | `CURSOR_MODEL=composer-2.5` or `gpt-5.6-sol-high` etc. |
+
+**Never** run production C-jobs on bare Auto. Worker always passes `--model` (including `raw`, unless caller already passed `--model` / `--model=*`). Job logs header includes `model=`.
 
 ### Auth (Jason one-time)
 ```bash
@@ -65,16 +69,19 @@ agent status
 
 ### Nova dispatch patterns
 ```bash
-# status
+# status (shows pinned + effective model)
 scripts/cursor-worker.sh status
 
-# read-only / plan
+# read-only / plan (uses cursor-grok-4.5-high)
 scripts/cursor-worker.sh read "..."
-# equivalent:
-agent -p --mode plan --workspace /home/mrbig3/.openclaw/workspace "..."
+scripts/cursor-worker.sh plan "..."
 
 # implement (explicit only)
-scripts/cursor-worker.sh write "..."   # uses --force
+scripts/cursor-worker.sh write "..."   # --force + pinned model
+
+# overrides
+CURSOR_MODEL=composer-2.5 scripts/cursor-worker.sh write "..."
+CURSOR_MODEL=gpt-5.6-sol-high scripts/cursor-worker.sh write "..."  # hard jobs
 ```
 
 ### Quorra nuggets stolen (keep)

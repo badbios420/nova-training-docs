@@ -1,0 +1,6 @@
+{
+  "taskId": "SWV-DRY-001",
+  "runDir": "/home/mrbig3/.openclaw/workspace/memory/cursor-jobs/swv-runs/SWV-DRY-001-nova-verify",
+  "createdAt": "2026-08-01T08:53:49.697Z",
+  "note": "SWV dry harness — CLI does not auto-spawn agents"
+}

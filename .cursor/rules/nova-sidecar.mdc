@@ -15,4 +15,13 @@ Hard rules:
 - When done: summarize files changed, commands run, how to verify, and residual risks.
 - If blocked (missing auth, unclear requirements, dangerous scope): stop and report blocker.
 
+## Completion gate (mandatory — do not claim done if any fail)
+Before reporting completion on any write/implement job, run and show exits:
+1. **Shell:** `bash -n` on every modified `*.sh`
+2. **JS/TS:** targeted tests and/or `node --check` on modified `*.mjs`/`*.js`
+3. **Targeted tests** for the feature you touched (existing test-*.mjs or new smoke)
+4. **Readback:** `git diff --stat` (or list paths + key snippets) proving what changed
+
+If validation fails: fix or report FAIL — never report completion with broken syntax.
+
 Workspace root: /home/mrbig3/.openclaw/workspace

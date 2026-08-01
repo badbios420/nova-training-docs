@@ -79,3 +79,11 @@
 - Outcome: **partial**
 - Lesson: Lock-in = porch first, then git. Git-only is incomplete closeout.
 - Follow-up: Next lock-in: porch before commit
+
+### 2026-08-01 — C9 SWV dry harness + live Flash SWV-DRY-001
+- Goal: Ship SWV templates/CLI; prove Scout-Worker-Verifier on claim-guard gap scout with DeepSeek swarm; Cursor pin grok-4.5-high
+- Actions: Cursor write C9 deliverables; Nova unit/validate/init-run; swarm scout+worker+verifier Flash; chair spot-check empty EVIDENCE gap
+- Evidence: scripts/test-swv-dry-harness.mjs 14/14; memory/cursor-jobs/swv-runs/SWV-DRY-001-nova-verify/; evidence/worker.md+verifier.md; claim-guard empty EVIDENCE exit 0 gap
+- Outcome: **win**
+- Lesson: SWV dry harness works: Cursor grok-high implements; Flash swarm scouts/works/verifies; Chair closes. Sample task found real claim-guard evasion gaps — follow-up is tests not mass redo.
+- Follow-up: Optional C10: claim-guard adversarial tests cases 1-8+9-10; not auto-implement tonight

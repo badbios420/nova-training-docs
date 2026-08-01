@@ -78,3 +78,10 @@
 - **Why:** Lock-in narrowed to git + MEMORY consolidation. Treated porch as optional social nicety instead of hard closeout gate. Primary trigger in Proc 15 is explicitly "lock in gains".
 - **Fix:** Lock-in checklist order is now: (1) porch read/reply, (2) durable MEMORY/consolidation, (3) git commit/push, (4) stamp. Documented in daily + procedural note under Proc 15.
 - **Caught by:** Jason direct question ~00:22 PDT.
+
+### 2026-08-01 — Python heredoc startup log fail
+- **Failure Type:** Other (Tooling / Startup Hygiene)
+- **Description:** Session startup tried multi-file anchor updates via `python3 <<'PY'` heredoc. Script broke (literal `\\n` in source / bad escaping). UI showed recurring banner: `Exec failed: run python3 inline script (heredoc)`.
+- **Policy Involved:** Missing ban on fragile multi-line shell/python for simple memory stamps; overused exec vs write/edit.
+- **Impact:** Minor (user-visible every-startup friction; delayed brief only).
+- **Notes:** Fix: for startup logs (daily, identity-substrate, time-awareness, heartbeat-state) use `write`/`edit` tools only. No python/bash heredoc. Simple one-liners OK if needed (`date`, `stat`). Jason flagged "we get this error every startup."

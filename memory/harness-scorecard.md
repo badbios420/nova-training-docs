@@ -217,3 +217,23 @@ Differs from meter #4 (retrieval hit@3): this grades whether live ops/harness fa
 | Tool | `node scripts/memory-before-speech-meter.mjs` |
 | Doc | `memory/evals/memory-before-speech-meter-v0.md` |
 | Measured at | 2026-07-30T08:02:38.110Z |
+
+### 2026-08-01 — C9 SWV dry harness (meter #7 touch)
+
+| Item | Value |
+|------|-------|
+| Meter | **#7 Subagent leverage** |
+| Value | **dry harness shipped** (templates + CLI; not live spawn count) |
+| Label | `dry-harness-v0` — prepares Scout/Worker/Verifier briefs; does not auto-spawn |
+| Tool | `node scripts/swv-dry-harness.mjs` |
+| Doc | `docs/harness/swv-dry-harness-v0.md` |
+| Job | `memory/cursor-jobs/c9-swv-dry-harness-2026-08-01.md` |
+| Note | Pending Nova verify before alpha-queue DONE |
+
+### 2026-08-01 — Trajectory closeout
+
+| Item | Value |
+|------|-------|
+| Title | C9 SWV dry harness + live Flash SWV-DRY-001 |
+| Outcome | **win** |
+| Log | `memory/trajectory-log.md` |

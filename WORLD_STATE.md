@@ -90,7 +90,7 @@
 | Role | Model | Strength |
 |------|-------|----------|
 | Executive / Memory / Coordination | Grok 4.5 | Default brain |
-| Cheap worker / Active Memory fallback | GLM-5.1 | Subagents + AM recall |
+| Cheap worker / swarm default | DeepSeek V4 Flash | Subagents (`deepseek/deepseek-v4-flash`) |
 | Structural Thinker | Claude Opus 4.8 | Decomposition |
 | Compare lane | GLM-5.2 | Long coherence / audit |
 | Research Scout | Perplexity | Receipts |

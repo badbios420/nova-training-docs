@@ -285,7 +285,7 @@ Plugin enabled + validate OK + at least one verbose turn shows active-memory sta
 - Tasks that would bloat main context with raw browsing/logs
 
 **DEFAULTS (config)**
-- `agents.defaults.subagents.model`: cheap worker (currently `zai/glm-5.1`)
+- `agents.defaults.subagents.model`: cheap worker (currently `deepseek/deepseek-v4-flash`)
 - `runTimeoutSeconds`: 600
 - `maxConcurrent`: 3
 - `delegationMode`: `suggest` (bump to `prefer` only after proven good runs)
@@ -503,3 +503,100 @@ Never treat git-only as complete lock-in. Failure mode 2026-07-30: skipped porch
 Infra outages are detected mechanically; recovery uses the ladder; empty tool recall is not trusted when CLI probe passes; session continues via files; lossless-claw available for DEEP transcript recovery without config thrash.
 
 **ORIGIN:** Cursor job C4 2026-07-29. **Hardened 2026-07-30:** retry-once + no embed reconfig for flake; lossless-claw affirmed as DEEP layer (Jason).
+
+---
+
+## 17. Session Startup File Stamps (no heredoc)
+
+**TRIGGER**
+- Manual or ritual main-session startup
+- Need to update daily note, identity-substrate, time-awareness, heartbeat-state
+
+**CHECKLIST**
+1. Prefer **ops-first reads** with `read` / `memory_get` (WORLD_STATE, today/yesterday, consolidation)
+2. Stamp updates with **`write` / `edit` tools only**
+3. **Ban** multi-file startup stamps via `python3 <<'PY'` / bash heredoc / inline multi-line python
+4. Simple shell OK only for inspection: `stat`, `date`, `git log -1`, single-purpose one-liners
+5. If `memory_search` flakes (`database is not open`) → Procedure 16; continue on files
+
+**SUCCESS CRITERIA**
+Startup completes without `Exec failed: ... python3 inline script (heredoc)` banners; anchors updated via file tools.
+
+**FAILURE CONDITIONS**
+- Fragile heredoc/python for text appends
+- Claiming startup complete while only showing exec errors
+
+**ORIGIN:** 2026-08-01 Jason — "we get this error every startup" after broken python heredoc for anchor updates.
+
+---
+
+## 18. SWV Dry Harness (Scout→Worker→Verifier)
+
+**TRIGGER**
+- Multi-agent / subagent work that needs measured briefs (not cosplay)
+- Before live `sessions_spawn` Scout→Worker→Verifier arcs
+- Alpha queue C9+ harness dry-runs
+
+**CHECKLIST**
+1. Write or reuse a task JSON under `memory/evals/swv/` (see `fixtures/sample-task.json`)
+2. `node scripts/swv-dry-harness.mjs validate --task <task.json>`
+3. `node scripts/swv-dry-harness.mjs init-run --task <task.json>` (or `render-all`)
+4. Paste rendered briefs into OpenClaw `sessions_spawn` — **CLI does not auto-spawn**
+5. Fill evidence stubs; run `checklist` / grade vs acceptance
+6. Chair (Nova) synthesizes; Verifier is mechanical only (see Procedure 8 for live pattern)
+
+**SUCCESS CRITERIA**
+Task validates; briefs have no leftover required `{{VAR}}`; evidence paths recorded; forbidden scopes untouched.
+
+**FAILURE CONDITIONS**
+- Claiming SWV “done” from child prose alone
+- Expanding past `scopePaths` / touching openclaw.json, wallet, secrets
+- Treating Verifier output as Chair promote
+
+**ORIGIN:** Cursor job C9 2026-08-01 — `docs/harness/swv-dry-harness-v0.md`
+
+---
+
+## 19. Cursor Implementation Completion Gate
+
+**TRIGGER**
+- Any Cursor (`scripts/cursor-worker.sh write` / implement) job about to report completion
+- Nova reviewing Cursor output before accepting PASS
+
+**CHECKLIST (Cursor must run; Nova re-checks on fail)**
+1. `bash -n` every modified `*.sh`
+2. `node --check` (or equivalent parse) on modified `*.mjs` / `*.js` when no full test run
+3. Targeted tests for touched feature (e.g. `node scripts/test-claim-guard.mjs`)
+4. Readback: `git diff --stat` or path list + key proof lines
+5. Job log includes `model=` (pinned worker)
+
+**SUCCESS CRITERIA**
+All validation exits 0; no syntax errors; tests for touched surface green; diff matches claimed scope.
+
+**FAILURE CONDITIONS**
+- Reporting completion while `bash -n` / tests fail
+- Nova having to manually catch broken shell/JS after "done"
+- Scope creep into openclaw.json / wallet / gmail without Jason
+
+**ORIGIN:** 2026-08-01 — first Swarm Protocol CHI cycle; Cursor left transient `cursor-worker.sh` syntax break; GPT + Jason: gate before completion. Also `.cursor/rules/nova-sidecar.mdc`.
+
+---
+
+## 20. Implementation Role Split (Nova / Cursor / Codex)
+
+**TRIGGER**
+- Any implement request after swarm findings or harness work
+
+**RULES**
+1. **Nova** — scope, acceptance criteria, dispatch, evidence review, promote/reject, chair. Not default file implementer.
+2. **Cursor** (`cursor-worker.sh`, pinned model) — ordinary scripts, tests, docs, prompts, application code. Must pass Procedure 19 completion gate.
+3. **Codex** — OpenClaw configuration, providers, services, plugins, gateway, authentication, protected infrastructure.
+4. **Emergency Nova one-line repair** — only when explicitly labeled as emergency; must be followed by Cursor/Codex review of the same surface.
+
+**FAILURE CONDITIONS**
+- Nova silently owning multi-file refactors that Cursor should have done
+- Cursor touching openclaw.json / plugins / auth without Codex + Jason
+
+**ORIGIN:** Jason 2026-08-01 ~02:40 after coverage implement — process correction.
+
+
