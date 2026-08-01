@@ -31,6 +31,13 @@ export const LIGHT_QUERIES = Object.freeze([
 
 export const LIGHT_SEARCH_CONCURRENCY = 2;
 
+/**
+ * Per-query CLI timeout for LIGHT memory_search.
+ * Raised 10s→20s so cold/load paths are less likely to flake under plugin budget (timeoutMs=30000).
+ * Agent tool hardcode remains 15s in openclaw package (not tunable here).
+ */
+export const LIGHT_SEARCH_TIMEOUT_MS = 20_000;
+
 /** WORLD_STATE older than this → warning (matches HEARTBEAT freshness rule). */
 export const WORLD_STATE_STALE_SECONDS = 7 * 24 * 60 * 60;
 
@@ -152,13 +159,14 @@ export function extractJsonPayload(stdout) {
  */
 export async function runMemorySearch(workspace, query, deps = {}) {
   const execFileAsync = deps.execFileAsync || defaultExecFileAsync;
+  const timeoutMs = deps.timeoutMs ?? LIGHT_SEARCH_TIMEOUT_MS;
   try {
     const { stdout } = await execFileAsync(
       "openclaw",
       ["memory", "search", "--json", "--max-results", "3", query],
       {
         cwd: workspace,
-        timeout: 10_000,
+        timeout: timeoutMs,
         maxBuffer: 512 * 1024,
         env: {
           ...process.env,

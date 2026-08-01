@@ -85,3 +85,10 @@
 - **Policy Involved:** Missing ban on fragile multi-line shell/python for simple memory stamps; overused exec vs write/edit.
 - **Impact:** Minor (user-visible every-startup friction; delayed brief only).
 - **Notes:** Fix: for startup logs (daily, identity-substrate, time-awareness, heartbeat-state) use `write`/`edit` tools only. No python/bash heredoc. Simple one-liners OK if needed (`date`, `stat`). Jason flagged "we get this error every startup."
+
+### 2026-08-01 — memory_search tool 15s timeout (CLI OK)
+- **Failure Type:** Retrieval / Tool timeout
+- **Description:** Main-session startup ~12:42 PDT: agent `memory_search` timed out after 15s and reported embedding/provider unavailable; CLI `openclaw memory search` and probe remained healthy (~5s). Tool entered 60s cooldown, looking “broken” longer than the blip.
+- **Policy Involved:** Procedure 16; session-startup LIGHT CLI timeout was 10s (tight under cold/load).
+- **Impact:** Minor (file fallback used; continuity preserved) but false “provider down” signal.
+- **Notes:** Not a dead index. Workspace fix: embed warmup (`scripts/memory-embed-warmup.mjs`), latency-aware probe, LIGHT search timeout 10s→20s. Agent tool 15s hardcode remains package-side (Codex/upstream).

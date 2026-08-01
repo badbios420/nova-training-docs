@@ -1,60 +1,60 @@
 {
   "lastChecks": {
-    "security": 1785262354,
-    "update": 1785541780,
-    "memory": 1785541780,
-    "sites": 1785541780,
-    "weather": 1785541780,
+    "security": 1785612983,
+    "update": 1785612983,
+    "memory": 1785612983,
+    "sites": 1785612983,
+    "weather": 1785612983,
     "selfImprovementReview": 1785201174
   },
-  "lastSession": "2026-08-01T00:38:21-07:00",
-  "lastHeartbeat": "2026-08-01T01:08:08-07:00",
-  "notes": "01:08 PDT 2026-08-01 late-night poll. Quiet window (23-08). Daily present. WORLD_STATE age ~48h (<7d). SI due ~8/3. No full checks. No urgent alerts.",
+  "lastSession": "2026-08-01T12:43:00-07:00",
+  "lastHeartbeat": "2026-08-01T12:56:00-07:00",
+  "notes": "12:56 PDT 2026-08-01 midday poll. Daily present. WORLD_STATE age ~10.6h (<7d). Security 0 crit / 6 warn (known local). Update 2026.7.1-2 up to date. Memory probe quick PASS (embed 145ms). Sites: BHR 403 CF live pattern; FF cert fail parked. Weather Vista sunny +88F. SI due ~8/3 (~4.8d). Standing eBay lag known non-nag. No new urgent alerts.",
   "checkResults": {
     "security": {
-      "timestamp": "2026-07-28T11:12:00-07:00",
+      "timestamp": "2026-08-01T12:56:00-07:00",
       "status": "OK",
-      "details": "Deep audit: was 1 critical (fs.config.perms_writable openclaw.json mode=664) \u2192 chmod 600 verified; re-audit 0 critical \u00b7 7 warn \u00b7 3 info \u00b7 1 suppressed. Known warns (accepted/local): allowInsecureAuth, suppressions(1), workspaceOnly=false, exec security=full main, unpinned codex npm plugin, gateway probe SecretRef unavailable in audit shell. Reconfirmed mode 600 at 11:17."
+      "details": "Audit: 0 critical · 6 warn · 3 info. openclaw.json mode 600. Known accepts: allowInsecureAuth, suppressions(1), workspaceOnly=false, exec security=full main, unpinned npm plugins (codex, deepseek)."
     },
     "update": {
-      "timestamp": "2026-07-31T16:49:40-07:00",
+      "timestamp": "2026-08-01T12:56:00-07:00",
       "status": "OK",
-      "details": "OpenClaw 2026.7.1-2 \u00b7 npm latest 2026.7.1-2 \u00b7 up to date \u00b7 deps ok."
+      "details": "OpenClaw 2026.7.1-2 · npm latest 2026.7.1-2 · up to date · deps ok."
     },
     "sites": {
-      "timestamp": "2026-07-31T16:49:40-07:00",
+      "timestamp": "2026-08-01T12:56:00-07:00",
       "status": "WARN",
-      "fractalfuzion": "HTTPS self-signed / cert verify fail; hard park \u2014 do not nag.",
+      "fractalfuzion": "HTTPS curl fail / cert path; hard park — do not nag.",
       "bighouserealestate": "HTTPS 403 Cloudflare challenge = live pattern."
     },
     "weather": {
-      "timestamp": "2026-07-31T16:49:40-07:00",
+      "timestamp": "2026-08-01T12:56:00-07:00",
       "status": "OK",
-      "details": "Vista, CA partly cloudy +79F, humidity 54%, wind S 12mph (wttr.in)."
+      "details": "Vista, CA sunny +88F (wttr.in)."
     },
     "selfImprovementReview": {
       "status": "OK",
       "lastRun": "2026-07-27T18:13:00-07:00",
       "dueIn": "Next due ~2026-08-03",
       "rule": "7-day cycle",
-      "findings": "Not overdue (age ~3.9d)."
+      "findings": "Not overdue (age ~4.8d)."
     },
     "filesystem": {
-      "timestamp": "2026-08-01T01:08:08-07:00",
+      "timestamp": "2026-08-01T12:56:00-07:00",
       "dailyFile": "memory/2026-08-01.md present",
       "yesterday": "memory/2026-07-31.md present",
-      "worldState": "WORLD_STATE.md mtime 2026-07-30 01:30 PDT \u2014 fresh (<7d)",
+      "worldState": "WORLD_STATE.md mtime 2026-08-01 ~02:22 PDT — age ~10.6h (<7d)",
       "verified": true
     },
     "model": {
-      "timestamp": "2026-07-29T07:45:00-07:00",
+      "timestamp": "2026-08-01T12:56:00-07:00",
       "status": "OK",
-      "details": "Runtime xai/grok-4.5. OpenClaw 2026.7.1-2. Gateway uptime ~40m."
+      "details": "Runtime xai/grok-4.5. OpenClaw 2026.7.1-2."
     },
     "memory": {
-      "timestamp": "2026-07-28T11:20:00-07:00",
+      "timestamp": "2026-08-01T12:56:00-07:00",
       "status": "OK",
-      "details": "Prior housekeeping held. Quiet-hours heartbeat: no MEMORY rewrite."
+      "details": "memory-health-probe --quick PASS; embed_latency 145ms; Indexed 446/446 Dirty no; report memory/cursor-jobs/memory-health-20260801-1256.md. Midday memory_search reliability work already landed earlier this session."
     }
   },
   "cacheTracking": {

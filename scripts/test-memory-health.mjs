@@ -14,6 +14,13 @@ import {
   tagsIncludeEmbedModel,
   overallToExitCode,
   formatHumanReport,
+  classifyLatencyMs,
+  classifyEmbedLatency,
+  classifySearchLatency,
+  classifyConcurrentSearchWall,
+  EMBED_LATENCY_WARN_MS,
+  SEARCH_LATENCY_WARN_MS,
+  CONCURRENT_SEARCH_WARN_MS,
   DB_NOT_OPEN_RE,
 } from "./lib/memory-health-lib.mjs";
 
@@ -184,6 +191,32 @@ test("formatHumanReport includes FAIL for db-not-open style check", () => {
   assert(/FAIL/.test(text), "expected FAIL mark");
   assert(/database is not open/.test(text), "expected error string");
   assert(/Remediation/.test(text), "expected remediation block");
+});
+
+test("classifyLatencyMs thresholds", () => {
+  assert(classifyLatencyMs(100, 2000) === "pass", "under warn");
+  assert(classifyLatencyMs(2001, 2000) === "warn", "over warn");
+  assert(classifyLatencyMs(null, 2000) === "fail", "null fail");
+  assert(classifyLatencyMs(-1, 2000) === "fail", "negative fail");
+});
+
+test("classifyEmbedLatency warn cliff 2s", () => {
+  assert(classifyEmbedLatency(50) === "pass", "fast embed");
+  assert(classifyEmbedLatency(EMBED_LATENCY_WARN_MS) === "pass", "at boundary pass");
+  assert(classifyEmbedLatency(EMBED_LATENCY_WARN_MS + 1) === "warn", "over 2s warn");
+  assert(EMBED_LATENCY_WARN_MS === 2_000, "embed warn constant");
+});
+
+test("classifySearchLatency warn cliff 8s", () => {
+  assert(classifySearchLatency(5_000) === "pass", "5s ok");
+  assert(classifySearchLatency(SEARCH_LATENCY_WARN_MS + 1) === "warn", "over 8s warn");
+  assert(SEARCH_LATENCY_WARN_MS === 8_000, "search warn constant");
+});
+
+test("classifyConcurrentSearchWall warn cliff 12s", () => {
+  assert(classifyConcurrentSearchWall(6_000) === "pass", "6s wall ok");
+  assert(classifyConcurrentSearchWall(CONCURRENT_SEARCH_WARN_MS + 1) === "warn", "over 12s warn");
+  assert(CONCURRENT_SEARCH_WARN_MS === 12_000, "concurrent warn constant");
 });
 
 console.log(`\n${passed} passed, ${failed} failed`);

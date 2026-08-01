@@ -29,6 +29,7 @@ import os from "node:os";
  * @property {number} [timeoutMs]
  * @property {boolean} [skipSearch]
  * @property {boolean} [skipOllama]
+ * @property {boolean} [skipConcurrent]
  * @property {boolean} [allowEmptySearch]
  * @property {NodeJS.ProcessEnv} [env]
  */
@@ -54,14 +55,23 @@ export const MIN_NODE_MAJOR = 24;
 export const MIN_NODE_MINOR = 15;
 export const DB_NOT_OPEN_RE = /database is not open/i;
 
+/** Latency cliffs (warn before agent tool 15s / startup CLI cliffs). */
+export const EMBED_LATENCY_WARN_MS = 2_000;
+export const SEARCH_LATENCY_WARN_MS = 8_000;
+export const CONCURRENT_SEARCH_WARN_MS = 12_000;
+export const WARMUP_SEARCH_QUERY = "warmup ping";
+
 export const CHECK_IDS = Object.freeze([
   "node_path",
   "openclaw_cli",
   "sqlite_store",
   "ollama_http",
   "embed_model",
+  "embed_latency",
   "memory_status",
   "memory_search_smoke",
+  "memory_search_latency",
+  "memory_search_concurrent",
   "workspace_memory_dir",
   "index_nonempty",
 ]);
@@ -151,6 +161,42 @@ export function classifySearchFailure(text) {
   else if (/ENOENT|not found|command not found/i.test(t)) failReason = "cli missing";
   else if (t.trim()) failReason = "error";
   return { isDbNotOpen, isTimeout, failReason };
+}
+
+/**
+ * Pure latency classifier for unit tests (no network).
+ * @param {number|null|undefined} ms
+ * @param {number} warnMs
+ * @returns {'pass'|'warn'|'fail'}
+ */
+export function classifyLatencyMs(ms, warnMs) {
+  if (ms == null || !Number.isFinite(ms) || ms < 0) return "fail";
+  if (ms > warnMs) return "warn";
+  return "pass";
+}
+
+/**
+ * @param {number|null|undefined} embedMs
+ * @returns {'pass'|'warn'|'fail'}
+ */
+export function classifyEmbedLatency(embedMs) {
+  return classifyLatencyMs(embedMs, EMBED_LATENCY_WARN_MS);
+}
+
+/**
+ * @param {number|null|undefined} searchMs
+ * @returns {'pass'|'warn'|'fail'}
+ */
+export function classifySearchLatency(searchMs) {
+  return classifyLatencyMs(searchMs, SEARCH_LATENCY_WARN_MS);
+}
+
+/**
+ * @param {number|null|undefined} wallMs
+ * @returns {'pass'|'warn'|'fail'}
+ */
+export function classifyConcurrentSearchWall(wallMs) {
+  return classifyLatencyMs(wallMs, CONCURRENT_SEARCH_WARN_MS);
 }
 
 /**
@@ -393,6 +439,208 @@ export function httpGet(url, timeoutMs = 8_000) {
       resolve({ ok: false, statusCode: null, body: "", error: err.message });
     });
   });
+}
+
+/**
+ * @param {string} url
+ * @param {unknown} payload
+ * @param {number} [timeoutMs]
+ * @returns {Promise<{ ok: boolean, statusCode: number | null, body: string, error: string | null, elapsedMs: number }>}
+ */
+export function httpPostJson(url, payload, timeoutMs = 30_000) {
+  const started = Date.now();
+  return new Promise((resolve) => {
+    let parsed;
+    try {
+      parsed = new URL(url);
+    } catch (err) {
+      resolve({
+        ok: false,
+        statusCode: null,
+        body: "",
+        error: err instanceof Error ? err.message : String(err),
+        elapsedMs: Date.now() - started,
+      });
+      return;
+    }
+    const lib = parsed.protocol === "https:" ? https : http;
+    const body = JSON.stringify(payload);
+    const req = lib.request(
+      {
+        protocol: parsed.protocol,
+        hostname: parsed.hostname,
+        port: parsed.port || (parsed.protocol === "https:" ? 443 : 80),
+        path: `${parsed.pathname}${parsed.search}`,
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Content-Length": Buffer.byteLength(body),
+        },
+        timeout: timeoutMs,
+      },
+      (res) => {
+        let data = "";
+        res.on("data", (c) => {
+          data += c;
+          if (data.length > 2_000_000) req.destroy();
+        });
+        res.on("end", () => {
+          const code = res.statusCode ?? null;
+          resolve({
+            ok: code != null && code >= 200 && code < 300,
+            statusCode: code,
+            body: data,
+            error: null,
+            elapsedMs: Date.now() - started,
+          });
+        });
+      },
+    );
+    req.on("timeout", () => {
+      req.destroy();
+      resolve({
+        ok: false,
+        statusCode: null,
+        body: "",
+        error: `timeout after ${timeoutMs}ms`,
+        elapsedMs: Date.now() - started,
+      });
+    });
+    req.on("error", (err) => {
+      resolve({
+        ok: false,
+        statusCode: null,
+        body: "",
+        error: err.message,
+        elapsedMs: Date.now() - started,
+      });
+    });
+    req.write(body);
+    req.end();
+  });
+}
+
+/**
+ * Single Ollama embed ping (warm path). No DB writes.
+ * @param {{ ollamaBase?: string, embedModel?: string, prompt?: string, timeoutMs?: number }} [opts]
+ * @returns {Promise<{ ok: boolean, embedMs: number, dims: number | null, error: string | null, statusCode: number | null }>}
+ */
+export async function pingOllamaEmbed(opts = {}) {
+  const base = (opts.ollamaBase || DEFAULT_OLLAMA_BASE).replace(/\/$/, "");
+  const model = opts.embedModel || process.env.DEFAULT_EMBED_MODEL || DEFAULT_EMBED_MODEL;
+  const prompt = opts.prompt || "memory warmup ping";
+  const timeoutMs = opts.timeoutMs ?? 30_000;
+  const url = `${base}/api/embeddings`;
+  const r = await httpPostJson(url, { model, prompt }, timeoutMs);
+  if (!r.ok) {
+    return {
+      ok: false,
+      embedMs: r.elapsedMs,
+      dims: null,
+      error: r.error || `HTTP ${r.statusCode}`,
+      statusCode: r.statusCode,
+    };
+  }
+  let dims = null;
+  try {
+    const parsed = JSON.parse(r.body);
+    const emb = parsed?.embedding;
+    if (Array.isArray(emb)) dims = emb.length;
+  } catch (err) {
+    return {
+      ok: false,
+      embedMs: r.elapsedMs,
+      dims: null,
+      error: `embed JSON parse failed: ${err instanceof Error ? err.message : err}`,
+      statusCode: r.statusCode,
+    };
+  }
+  if (dims == null || dims < 1) {
+    return {
+      ok: false,
+      embedMs: r.elapsedMs,
+      dims,
+      error: "embed response missing embedding vector",
+      statusCode: r.statusCode,
+    };
+  }
+  return {
+    ok: true,
+    embedMs: r.elapsedMs,
+    dims,
+    error: null,
+    statusCode: r.statusCode,
+  };
+}
+
+/**
+ * Timed CLI memory search (warm / smoke / concurrent helper).
+ * @param {{ workspace?: string, query?: string, maxResults?: number, timeoutMs?: number, env?: NodeJS.ProcessEnv }} [opts]
+ * @returns {Promise<{ ok: boolean, searchMs: number, code: number | null, stdout: string, stderr: string, error: string | null, timedOut: boolean, resultCount: number | null, parseError: string | null }>}
+ */
+export async function timedMemorySearch(opts = {}) {
+  const env = buildChildEnv(opts.env);
+  const workspace = opts.workspace || defaultWorkspace();
+  const timeoutMs = opts.timeoutMs ?? DEFAULT_TIMEOUT_MS;
+  const query = opts.query || DEFAULT_SEARCH_QUERY;
+  const maxResults = opts.maxResults ?? null;
+  const openclaw = await resolveOnPath("openclaw", env);
+  if (!openclaw) {
+    return {
+      ok: false,
+      searchMs: 0,
+      code: null,
+      stdout: "",
+      stderr: "",
+      error: "openclaw not on PATH",
+      timedOut: false,
+      resultCount: null,
+      parseError: null,
+    };
+  }
+  const args = ["memory", "search", query, "--json"];
+  if (maxResults != null) {
+    args.push("--max-results", String(maxResults));
+  }
+  const started = Date.now();
+  const r = await spawnCapture(openclaw, args, { cwd: workspace, env, timeoutMs });
+  const searchMs = Date.now() - started;
+  const combined = `${r.stdout}\n${r.stderr}\n${r.error || ""}`;
+  const classified = classifySearchFailure(combined);
+
+  let resultCount = null;
+  let parseError = null;
+  if (r.code === 0 && !r.timedOut && !r.error) {
+    try {
+      const json = JSON.parse(r.stdout);
+      if (Array.isArray(json?.results)) resultCount = json.results.length;
+      else if (Array.isArray(json)) resultCount = json.length;
+      else if (Array.isArray(json?.hits)) resultCount = json.hits.length;
+      else parseError = "JSON missing results/hits array";
+    } catch (err) {
+      parseError = err instanceof Error ? err.message : String(err);
+    }
+  }
+
+  const ok =
+    !r.timedOut &&
+    !classified.isTimeout &&
+    !classified.isDbNotOpen &&
+    !r.error &&
+    r.code === 0 &&
+    !parseError;
+
+  return {
+    ok,
+    searchMs,
+    code: r.code,
+    stdout: r.stdout,
+    stderr: r.stderr,
+    error: r.error || (classified.failReason && !ok ? classified.failReason : null),
+    timedOut: Boolean(r.timedOut || classified.isTimeout),
+    resultCount,
+    parseError,
+  };
 }
 
 /**
@@ -700,6 +948,60 @@ export async function checkEmbedModel(options = {}) {
 }
 
 /**
+ * Single embed latency ping. Fail if unreachable/error; warn if > EMBED_LATENCY_WARN_MS.
+ * @param {ProbeOptions} [options]
+ * @returns {Promise<CheckResult>}
+ */
+export async function checkEmbedLatency(options = {}) {
+  if (options.skipOllama) {
+    return {
+      id: "embed_latency",
+      status: "skip",
+      summary: "skipped (--skipOllama)",
+    };
+  }
+  const want = options.embedModel || DEFAULT_EMBED_MODEL;
+  const base = (options.ollamaBase || DEFAULT_OLLAMA_BASE).replace(/\/$/, "");
+  const ping = await pingOllamaEmbed({
+    ollamaBase: base,
+    embedModel: want,
+    timeoutMs: Math.min(options.timeoutMs ?? DEFAULT_TIMEOUT_MS, 30_000),
+  });
+  if (!ping.ok) {
+    return {
+      id: "embed_latency",
+      status: "fail",
+      summary: `embed ping failed (${ping.embedMs}ms): ${ping.error}`,
+      detail: { ...ping, model: want, ollamaBase: base },
+      remediation: [
+        `curl -s ${base}/api/embeddings -d '{"model":"${want}","prompt":"ping"}'`,
+        `ollama pull ${want}`,
+        "node scripts/memory-embed-warmup.mjs",
+      ],
+    };
+  }
+  const tier = classifyEmbedLatency(ping.embedMs);
+  if (tier === "warn") {
+    return {
+      id: "embed_latency",
+      status: "warn",
+      summary: `embed latency ${ping.embedMs}ms > ${EMBED_LATENCY_WARN_MS}ms warn (dims=${ping.dims})`,
+      detail: { ...ping, model: want, warnMs: EMBED_LATENCY_WARN_MS },
+      remediation: [
+        "node scripts/memory-embed-warmup.mjs",
+        "Cold embed can trip agent memory_search 15s tool timeout — warm before startup",
+      ],
+    };
+  }
+  return {
+    id: "embed_latency",
+    status: "pass",
+    summary: `embed latency ${ping.embedMs}ms (dims=${ping.dims})`,
+    detail: { ...ping, model: want, warnMs: EMBED_LATENCY_WARN_MS },
+  };
+}
+
+/**
  * @param {ProbeOptions} [options]
  * @returns {Promise<CheckResult>}
  */
@@ -778,13 +1080,18 @@ export async function checkMemorySearchSmoke(options = {}) {
       summary: "skipped (--quick / skipSearch)",
     };
   }
-  const env = buildChildEnv(options.env);
   const workspace = options.workspace || defaultWorkspace();
   const timeoutMs = options.timeoutMs ?? DEFAULT_TIMEOUT_MS;
   const query = options.searchQuery || DEFAULT_SEARCH_QUERY;
   const allowEmpty = Boolean(options.allowEmptySearch);
-  const openclaw = await resolveOnPath("openclaw", env);
-  if (!openclaw) {
+  const timed = await timedMemorySearch({
+    workspace,
+    query,
+    timeoutMs,
+    env: options.env,
+  });
+
+  if (timed.error === "openclaw not on PATH") {
     return {
       id: "memory_search_smoke",
       status: "fail",
@@ -793,12 +1100,7 @@ export async function checkMemorySearchSmoke(options = {}) {
     };
   }
 
-  const r = await spawnCapture(
-    openclaw,
-    ["memory", "search", query, "--json"],
-    { cwd: workspace, env, timeoutMs },
-  );
-  const combined = `${r.stdout}\n${r.stderr}\n${r.error || ""}`;
+  const combined = `${timed.stdout}\n${timed.stderr}\n${timed.error || ""}`;
   const classified = classifySearchFailure(combined);
 
   if (classified.isDbNotOpen) {
@@ -806,7 +1108,7 @@ export async function checkMemorySearchSmoke(options = {}) {
       id: "memory_search_smoke",
       status: "fail",
       summary: 'memory search: "database is not open"',
-      detail: { query, classified },
+      detail: { query, classified, searchMs: timed.searchMs },
       remediation: [
         'openclaw memory search "Vista business license" --json | head',
         "If CLI fails same way: check sqlite + ollama; do not claim memory healthy",
@@ -814,28 +1116,30 @@ export async function checkMemorySearchSmoke(options = {}) {
       ],
     };
   }
-  if (r.timedOut || classified.isTimeout) {
+  if (timed.timedOut || classified.isTimeout) {
     return {
       id: "memory_search_smoke",
       status: "fail",
       summary: `memory search timed out after ${timeoutMs}ms`,
-      detail: { query, timedOut: true },
+      detail: { query, timedOut: true, searchMs: timed.searchMs },
       remediation: [
         `openclaw memory search "${query}" --json`,
         "Check ollama embed latency / stuck index",
+        "node scripts/memory-embed-warmup.mjs",
       ],
     };
   }
-  if (r.error || r.code !== 0) {
+  if (timed.error || timed.code !== 0) {
     return {
       id: "memory_search_smoke",
       status: "fail",
-      summary: `memory search failed (code=${r.code}): ${r.error || r.stderr.slice(0, 200) || "non-zero"}`,
+      summary: `memory search failed (code=${timed.code}): ${timed.error || timed.stderr.slice(0, 200) || "non-zero"}`,
       detail: {
         query,
-        code: r.code,
-        stderr: r.stderr.slice(0, 1000),
-        stdout: r.stdout.slice(0, 1000),
+        code: timed.code,
+        searchMs: timed.searchMs,
+        stderr: timed.stderr.slice(0, 1000),
+        stdout: timed.stdout.slice(0, 1000),
       },
       remediation: [
         `openclaw memory search "${query}" --json`,
@@ -844,34 +1148,24 @@ export async function checkMemorySearchSmoke(options = {}) {
     };
   }
 
-  let resultCount = 0;
-  let parseError = null;
-  try {
-    const json = JSON.parse(r.stdout);
-    if (Array.isArray(json?.results)) resultCount = json.results.length;
-    else if (Array.isArray(json)) resultCount = json.length;
-    else if (Array.isArray(json?.hits)) resultCount = json.hits.length;
-    else parseError = "JSON missing results/hits array";
-  } catch (err) {
-    parseError = err instanceof Error ? err.message : String(err);
-  }
-
-  if (parseError) {
+  if (timed.parseError) {
     return {
       id: "memory_search_smoke",
       status: "fail",
-      summary: `memory search JSON parse failed: ${parseError}`,
-      detail: { query, stdoutPreview: r.stdout.slice(0, 500) },
+      summary: `memory search JSON parse failed: ${timed.parseError}`,
+      detail: { query, searchMs: timed.searchMs, stdoutPreview: timed.stdout.slice(0, 500) },
       remediation: [`openclaw memory search "${query}" --json`],
     };
   }
+
+  const resultCount = timed.resultCount ?? 0;
 
   if (resultCount < 1 && !allowEmpty) {
     return {
       id: "memory_search_smoke",
       status: "fail",
-      summary: `memory search returned 0 results for "${query}"`,
-      detail: { query, resultCount },
+      summary: `memory search returned 0 results for "${query}" (${timed.searchMs}ms)`,
+      detail: { query, resultCount, searchMs: timed.searchMs },
       remediation: [
         "openclaw memory status",
         "Confirm index non-empty; try a broader query once",
@@ -884,16 +1178,205 @@ export async function checkMemorySearchSmoke(options = {}) {
     return {
       id: "memory_search_smoke",
       status: "warn",
-      summary: `memory search empty (allowed) for "${query}"`,
-      detail: { query, resultCount, allowEmpty: true },
+      summary: `memory search empty (allowed) for "${query}" (${timed.searchMs}ms)`,
+      detail: { query, resultCount, allowEmpty: true, searchMs: timed.searchMs },
     };
   }
 
   return {
     id: "memory_search_smoke",
     status: "pass",
-    summary: `memory search smoke ok (${resultCount} result(s))`,
-    detail: { query, resultCount },
+    summary: `memory search smoke ok (${resultCount} result(s), ${timed.searchMs}ms)`,
+    detail: { query, resultCount, searchMs: timed.searchMs },
+  };
+}
+
+/**
+ * Latency classification for CLI search (uses searchMs from smoke when provided).
+ * Fail on timeout/error; warn if searchMs > SEARCH_LATENCY_WARN_MS.
+ * @param {ProbeOptions} [options]
+ * @param {CheckResult | null} [smokeCheck]
+ * @returns {Promise<CheckResult>}
+ */
+export async function checkMemorySearchLatency(options = {}, smokeCheck = null) {
+  if (options.skipSearch) {
+    return {
+      id: "memory_search_latency",
+      status: "skip",
+      summary: "skipped (--quick / skipSearch)",
+    };
+  }
+
+  /** @type {number | null} */
+  let searchMs = null;
+  /** @type {string | null} */
+  let smokeStatus = smokeCheck?.status ?? null;
+  /** @type {string | null} */
+  let smokeSummary = smokeCheck?.summary ?? null;
+
+  if (smokeCheck?.detail && typeof smokeCheck.detail.searchMs === "number") {
+    searchMs = /** @type {number} */ (smokeCheck.detail.searchMs);
+  } else if (smokeCheck == null) {
+    const timed = await timedMemorySearch({
+      workspace: options.workspace || defaultWorkspace(),
+      query: options.searchQuery || DEFAULT_SEARCH_QUERY,
+      timeoutMs: options.timeoutMs ?? DEFAULT_TIMEOUT_MS,
+      env: options.env,
+    });
+    searchMs = timed.searchMs;
+    if (timed.timedOut) {
+      return {
+        id: "memory_search_latency",
+        status: "fail",
+        summary: `memory search latency: timed out (${timed.searchMs}ms)`,
+        detail: { searchMs: timed.searchMs, timedOut: true },
+        remediation: ["node scripts/memory-embed-warmup.mjs", "openclaw memory search ... --json"],
+      };
+    }
+    if (!timed.ok) {
+      return {
+        id: "memory_search_latency",
+        status: "fail",
+        summary: `memory search latency: error (${timed.searchMs}ms): ${timed.error || timed.parseError || "fail"}`,
+        detail: { searchMs: timed.searchMs, error: timed.error, parseError: timed.parseError },
+        remediation: ["node scripts/memory-embed-warmup.mjs", "openclaw memory status"],
+      };
+    }
+  }
+
+  if (smokeStatus === "fail") {
+    const timedOut = Boolean(smokeCheck?.detail?.timedOut);
+    return {
+      id: "memory_search_latency",
+      status: "fail",
+      summary: timedOut
+        ? `memory search latency: timed out (${searchMs ?? "?"}ms)`
+        : `memory search latency: smoke failed (${searchMs ?? "?"}ms) — ${smokeSummary || "error"}`,
+      detail: { searchMs, smokeStatus, smokeSummary, warnMs: SEARCH_LATENCY_WARN_MS },
+      remediation: [
+        "node scripts/memory-embed-warmup.mjs",
+        "Agent tool hard timeout is 15s (package); slow CLI foreshadows tool flake",
+      ],
+    };
+  }
+
+  if (searchMs == null) {
+    return {
+      id: "memory_search_latency",
+      status: "fail",
+      summary: "memory search latency: no searchMs available",
+      detail: { smokeStatus },
+      remediation: ["Re-run probe without --quick"],
+    };
+  }
+
+  const tier = classifySearchLatency(searchMs);
+  if (tier === "warn") {
+    return {
+      id: "memory_search_latency",
+      status: "warn",
+      summary: `memory search ${searchMs}ms > ${SEARCH_LATENCY_WARN_MS}ms warn (approaching 10s/15s cliffs)`,
+      detail: { searchMs, warnMs: SEARCH_LATENCY_WARN_MS },
+      remediation: [
+        "node scripts/memory-embed-warmup.mjs",
+        "Session-startup CLI timeout is 20s; agent tool still hardcodes 15s",
+      ],
+    };
+  }
+
+  return {
+    id: "memory_search_latency",
+    status: "pass",
+    summary: `memory search latency ${searchMs}ms (warn>${SEARCH_LATENCY_WARN_MS}ms)`,
+    detail: { searchMs, warnMs: SEARCH_LATENCY_WARN_MS },
+  };
+}
+
+/**
+ * Dual concurrent CLI searches (startup-like). Warn if wall > CONCURRENT_SEARCH_WARN_MS.
+ * Skipped on --quick / skipSearch / skipConcurrent.
+ * @param {ProbeOptions} [options]
+ * @returns {Promise<CheckResult>}
+ */
+export async function checkMemorySearchConcurrent(options = {}) {
+  if (options.skipSearch || options.skipConcurrent) {
+    return {
+      id: "memory_search_concurrent",
+      status: "skip",
+      summary: "skipped (--quick / skipSearch / skipConcurrent)",
+    };
+  }
+  const workspace = options.workspace || defaultWorkspace();
+  const timeoutMs = options.timeoutMs ?? DEFAULT_TIMEOUT_MS;
+  const q1 = options.searchQuery || DEFAULT_SEARCH_QUERY;
+  const q2 = "session consolidation observed failures procedural memory";
+
+  const started = Date.now();
+  const [a, b] = await Promise.all([
+    timedMemorySearch({ workspace, query: q1, maxResults: 3, timeoutMs, env: options.env }),
+    timedMemorySearch({ workspace, query: q2, maxResults: 3, timeoutMs, env: options.env }),
+  ]);
+  const wallMs = Date.now() - started;
+
+  if (a.timedOut || b.timedOut) {
+    return {
+      id: "memory_search_concurrent",
+      status: "fail",
+      summary: `concurrent search timed out (wall ${wallMs}ms)`,
+      detail: {
+        wallMs,
+        a: { ok: a.ok, searchMs: a.searchMs, timedOut: a.timedOut, error: a.error },
+        b: { ok: b.ok, searchMs: b.searchMs, timedOut: b.timedOut, error: b.error },
+      },
+      remediation: [
+        "node scripts/memory-embed-warmup.mjs",
+        "Startup runs 2 concurrent LIGHT searches — contention can trip tool 15s",
+      ],
+    };
+  }
+  if (!a.ok || !b.ok) {
+    return {
+      id: "memory_search_concurrent",
+      status: "fail",
+      summary: `concurrent search error (wall ${wallMs}ms): a=${a.error || a.parseError || a.ok}; b=${b.error || b.parseError || b.ok}`,
+      detail: {
+        wallMs,
+        a: { ok: a.ok, searchMs: a.searchMs, error: a.error, parseError: a.parseError },
+        b: { ok: b.ok, searchMs: b.searchMs, error: b.error, parseError: b.parseError },
+      },
+      remediation: ["openclaw memory status", "node scripts/memory-embed-warmup.mjs"],
+    };
+  }
+
+  const tier = classifyConcurrentSearchWall(wallMs);
+  if (tier === "warn") {
+    return {
+      id: "memory_search_concurrent",
+      status: "warn",
+      summary: `concurrent search wall ${wallMs}ms > ${CONCURRENT_SEARCH_WARN_MS}ms warn (a=${a.searchMs}ms b=${b.searchMs}ms)`,
+      detail: {
+        wallMs,
+        warnMs: CONCURRENT_SEARCH_WARN_MS,
+        aMs: a.searchMs,
+        bMs: b.searchMs,
+      },
+      remediation: [
+        "node scripts/memory-embed-warmup.mjs",
+        "Wall near agent 15s / prior 10s LIGHT timeout — warm before main session",
+      ],
+    };
+  }
+
+  return {
+    id: "memory_search_concurrent",
+    status: "pass",
+    summary: `concurrent search wall ${wallMs}ms (a=${a.searchMs}ms b=${b.searchMs}ms)`,
+    detail: {
+      wallMs,
+      warnMs: CONCURRENT_SEARCH_WARN_MS,
+      aMs: a.searchMs,
+      bMs: b.searchMs,
+    },
   };
 }
 
@@ -1092,6 +1575,7 @@ export async function runAllChecks(options = {}) {
   checks.push(await checkSqliteStore(options));
   checks.push(await checkOllamaHttp(options));
   checks.push(await checkEmbedModel(options));
+  checks.push(await checkEmbedLatency(options));
 
   const statusCheck = await checkMemoryStatus(options);
   checks.push(statusCheck);
@@ -1101,7 +1585,10 @@ export async function runAllChecks(options = {}) {
       ? /** @type {ParsedMemoryStatus} */ (statusCheck.detail.parsed)
       : null;
 
-  checks.push(await checkMemorySearchSmoke(options));
+  const smokeCheck = await checkMemorySearchSmoke(options);
+  checks.push(smokeCheck);
+  checks.push(await checkMemorySearchLatency(options, smokeCheck));
+  checks.push(await checkMemorySearchConcurrent(options));
   checks.push(await checkWorkspaceMemoryDir(options));
   checks.push(await checkIndexNonempty(options, parsed));
 
@@ -1122,6 +1609,7 @@ export async function runAllChecks(options = {}) {
       timeoutMs,
       skipSearch: Boolean(options.skipSearch),
       skipOllama: Boolean(options.skipOllama),
+      skipConcurrent: Boolean(options.skipConcurrent),
       processVersion: process.version,
       platform: process.platform,
     },

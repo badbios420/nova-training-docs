@@ -497,13 +497,13 @@ Never treat git-only as complete lock-in. Failure mode 2026-07-30: skipped porch
    - If still bad → run probe (or `openclaw memory search` CLI). Trust CLI/probe over empty tool hits
    - Continue on **ops-first files** (WORLD_STATE + today/yesterday + known paths) — do not stall the session
    - **Do not** reconfigure embed provider (ollama/nomic) for a single tool flake; embeddings ≠ chat brain
+   - **Tool timeout note (2026-08-01):** Agent `memory_search` hard timeout is **15s** + fail cooldown **60s** (openclaw package hardcode — not `openclaw.json`). If tool says unavailable/embedding error but `openclaw memory search` works → **tool flake / cooldown**; use CLI + files; run `node scripts/memory-embed-warmup.mjs` + probe; do not flip embed provider. Latency probe warns before 10s/15s cliffs (`embed_latency` >2s, search >8s, concurrent wall >12s).
 7. **lossless-claw (DEEP, keep enabled):** When files + memory_search still miss *session/transcript* continuity ("what did we say", multi-turn reconstruction, poisoned/missing daily), escalate to lossless-claw. It is not a substitute for WORLD_STATE/MEMORY; it fills the gap those layers cannot. Leave enabled; heavy path only — not every turn.
 
 **SUCCESS CRITERIA**
 Infra outages are detected mechanically; recovery uses the ladder; empty tool recall is not trusted when CLI probe passes; session continues via files; lossless-claw available for DEEP transcript recovery without config thrash.
 
-**ORIGIN:** Cursor job C4 2026-07-29. **Hardened 2026-07-30:** retry-once + no embed reconfig for flake; lossless-claw affirmed as DEEP layer (Jason).
-
+**ORIGIN:** Cursor job C4 2026-07-29. **Hardened 2026-07-30:** retry-once + no embed reconfig for flake; lossless-claw affirmed as DEEP layer (Jason). **Latency note 2026-08-01:** tool 15s/60s cooldown + warmup/probe cliffs.
 ---
 
 ## 17. Session Startup File Stamps (no heredoc)

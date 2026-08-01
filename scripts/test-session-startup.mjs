@@ -16,6 +16,7 @@ import {
   WORLD_STATE_STALE_SECONDS,
   LIGHT_QUERIES,
   LIGHT_SEARCH_CONCURRENCY,
+  LIGHT_SEARCH_TIMEOUT_MS,
   main,
 } from "./lib/session-startup-lib.mjs";
 
@@ -336,6 +337,7 @@ await test("critical missing → main sets exitCode 1", async () => {
 await test("LIGHT concurrency is 2 (not serial 4-storm)", () => {
   assert(LIGHT_SEARCH_CONCURRENCY === 2, "concurrency pinned to 2");
   assert(LIGHT_QUERIES.length === 2, "two light queries");
+  assert(LIGHT_SEARCH_TIMEOUT_MS === 20_000, "LIGHT search timeout 20s");
 });
 
 console.log(`\n${passed} passed, ${failed} failed`);

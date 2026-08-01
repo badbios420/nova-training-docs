@@ -35,7 +35,7 @@ Probe OpenClaw memory stack health (sqlite, ollama, CLI status/search).
 Options:
   --help
   --json
-  --quick              skip memory_search_smoke (faster)
+  --quick              skip search smoke + latency + concurrent (faster)
   --search-query Q
   --timeout-ms N
   --report [PATH]      write markdown report (default path when omitted)
@@ -47,6 +47,13 @@ Options:
   --remediation        always print remediation block
   --repair             print discovered reindex/repair commands (never executes)
   --repair-dry-run     same as --repair (explicit dry-run alias)
+
+Latency-aware checks (full probe):
+  embed_latency              warn if embed >2s; fail if unreachable
+  memory_search_latency      warn if CLI search >8s; fail on timeout/error
+  memory_search_concurrent   dual search; warn if wall >12s (skipped on --quick)
+
+Warmup (separate): node scripts/memory-embed-warmup.mjs
 
 Exit codes:
   0  overall pass

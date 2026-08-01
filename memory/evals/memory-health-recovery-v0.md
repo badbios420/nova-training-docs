@@ -59,6 +59,8 @@ Never treat “tool returned empty” as proof the index is empty without a prob
 6. **Tool flake but CLI OK**
    - Gateway / agent tool-path issue. Retry once; open a new session.
    - **Do not trust empty recall** from the tool while CLI search returns hits.
+   - Agent tool hard timeout is **15s** + **60s cooldown** after fail (package hardcode — not `openclaw.json`). Timeout often surfaces as “embedding/provider error”.
+   - If tool unavailable but `openclaw memory search` works → tool flake/cooldown; use CLI + files; run warmup + probe; **do not** flip embed provider.
 7. **Optional reindex (explicit only)**
    - Probe discovers commands via `openclaw memory --help` and lists them in remediation.
    - Common (document only — **probe never executes**):
@@ -67,8 +69,27 @@ Never treat “tool returned empty” as proof the index is empty without a prob
      - `openclaw memory status --fix` (stale recall locks — confirm before use)
    - Run reindex only with Jason/Nova approval when status shows indexed 0 or stuck dirty after ladder 1–4.
 
+## Latency cliffs + warmup
+
+Cold/load searches (~6–15s) can trip session-startup CLI (was 10s; now 20s) or the agent tool (hard 15s). Probe now warns before cliffs:
+
+| Check | Warn | Fail |
+|-------|------|------|
+| `embed_latency` | >2s | unreachable/error |
+| `memory_search_latency` | >8s | timeout/error |
+| `memory_search_concurrent` | wall >12s | timeout/error |
+
+Warm the path before main session / after idle:
+
+```bash
+export PATH="$HOME/.nvm/versions/node/v24.18.0/bin:$PATH"
+node scripts/memory-embed-warmup.mjs   # embed ping + 1 CLI search; prints embed_ms / search_ms
+node scripts/memory-health-probe.mjs   # full latency-aware probe
+```
+
 ## What this is not
 
 - Not retrieval hit@k scoring (`scripts/retrieval-eval.mjs`)
 - Not claim discipline (`scripts/claim-guard.mjs`)
 - Does not modify the memory DB
+- Does not raise the agent tool 15s hardcode (npm `openclaw` / Codex/upstream)
