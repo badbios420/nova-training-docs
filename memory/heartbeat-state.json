@@ -1,15 +1,15 @@
 {
   "lastChecks": {
     "security": 1785262354,
-    "update": 1785360971,
-    "memory": 1785262710,
-    "sites": 1785383518,
-    "weather": 1785383518,
+    "update": 1785541780,
+    "memory": 1785541780,
+    "sites": 1785541780,
+    "weather": 1785541780,
     "selfImprovementReview": 1785201174
   },
-  "lastSession": "2026-07-28T23:50:00-07:00",
-  "lastHeartbeat": "2026-07-29T20:51:58-07:00",
-  "notes": "20:52 PDT heartbeat. Sites+weather rotate. FF SSL parked (self-signed). BHR 403 normal. OpenClaw 2026.7.1-2. WORLD_STATE+daily touched 20:50 (main session). Weather Vista sunny 87F. SI due ~8/3. No new alert.",
+  "lastSession": "2026-07-31T23:28:16-07:00",
+  "lastHeartbeat": "2026-07-31T23:28:16-07:00",
+  "notes": "23:28 PDT late-night poll. Quiet window. Daily 2026-07-31 present. WORLD_STATE age ~46h (<7d). Update 2026.7.1-2 up to date. SI due ~8/3. DeepSeek wired earlier this session (manual lane; default still grok-4.5). No urgent alerts. No re-nag eBay/FF SSL.",
   "checkResults": {
     "security": {
       "timestamp": "2026-07-28T11:12:00-07:00",
@@ -17,32 +17,33 @@
       "details": "Deep audit: was 1 critical (fs.config.perms_writable openclaw.json mode=664) \u2192 chmod 600 verified; re-audit 0 critical \u00b7 7 warn \u00b7 3 info \u00b7 1 suppressed. Known warns (accepted/local): allowInsecureAuth, suppressions(1), workspaceOnly=false, exec security=full main, unpinned codex npm plugin, gateway probe SecretRef unavailable in audit shell. Reconfirmed mode 600 at 11:17."
     },
     "update": {
-      "timestamp": "2026-07-29T14:36:11-07:00",
+      "timestamp": "2026-07-31T16:49:40-07:00",
       "status": "OK",
       "details": "OpenClaw 2026.7.1-2 \u00b7 npm latest 2026.7.1-2 \u00b7 up to date \u00b7 deps ok."
     },
     "sites": {
-      "timestamp": "2026-07-29T20:51:58-07:00",
+      "timestamp": "2026-07-31T16:49:40-07:00",
       "status": "WARN",
       "fractalfuzion": "HTTPS self-signed / cert verify fail; hard park \u2014 do not nag.",
       "bighouserealestate": "HTTPS 403 Cloudflare challenge = live pattern."
     },
     "weather": {
-      "timestamp": "2026-07-29T20:51:58-07:00",
+      "timestamp": "2026-07-31T16:49:40-07:00",
       "status": "OK",
-      "details": "Vista, CA sunny +87F (wttr.in)."
+      "details": "Vista, CA partly cloudy +79F, humidity 54%, wind S 12mph (wttr.in)."
     },
     "selfImprovementReview": {
       "status": "OK",
       "lastRun": "2026-07-27T18:13:00-07:00",
       "dueIn": "Next due ~2026-08-03",
       "rule": "7-day cycle",
-      "findings": "Not overdue."
+      "findings": "Not overdue (age ~3.9d)."
     },
     "filesystem": {
-      "timestamp": "2026-07-29T20:51:58-07:00",
-      "dailyFile": "memory/2026-07-29.md present (mtime 20:50)",
-      "worldState": "WORLD_STATE.md mtime 2026-07-29 20:50 PDT \u2014 fresh",
+      "timestamp": "2026-07-31T16:49:40-07:00",
+      "dailyFile": "memory/2026-07-31.md present",
+      "yesterday": "memory/2026-07-30.md present",
+      "worldState": "WORLD_STATE.md mtime 2026-07-30 01:30 PDT \u2014 fresh (<7d)",
       "verified": true
     },
     "model": {
