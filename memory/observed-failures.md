@@ -92,3 +92,24 @@
 - **Policy Involved:** Procedure 16; session-startup LIGHT CLI timeout was 10s (tight under cold/load).
 - **Impact:** Minor (file fallback used; continuity preserved) but false “provider down” signal.
 - **Notes:** Not a dead index. Workspace fix: embed warmup (`scripts/memory-embed-warmup.mjs`), latency-aware probe, LIGHT search timeout 10s→20s. Agent tool 15s hardcode remains package-side (Codex/upstream).
+
+### 2026-08-01 — Scope creep: lock-in after scoped memory fix
+- **Failure Type:** Other (Process / Authority)
+- **Description:** After memory_search workspace fix was verified, Nova ran full lock-in (porch, consolidation, MEMORY, git commit+push `fee4a2d`) without Jason asking for lock-in. Jason had asked to fix the tool issue; GPT later called process error not technical error.
+- **Policy Involved:** Missing Workflow Completion Authority (now Procedure 21). Heartbeat/resume text treated as lock-in fuel.
+- **Impact:** Minor–medium trust friction; commit content was legitimate and left in place per GPT/Jason guidance.
+- **Notes:** Correct pipeline = investigate → implement → verify → report → STOP. State-changing promotion needs explicit Jason gate. Cooperative heartbeat must not pre-empt active workflows.
+
+### 2026-08-06 — Cursor git checkout wiped live session-startup state
+- **Failure Type:** Other (Process / Runtime state)
+- **Description:** During CHI Batch A, Cursor repaired `lastIdentityCheckAt` then used `git checkout -- .openclaw/session-startup-state.json` to undo a bad full rewrite. That restored last **committed** snapshot (~54 sessions, date 7/30) and discarded richer uncommitted live map (~122 sessions, date 8/6). Chair repaired date/At; sessions map not fully recovered.
+- **Policy Involved:** Missing ban on git restore of runtime state (now Procedure 1 + Proc 20). Proc 19 completion gate did not forbid checkout-as-undo.
+- **Impact:** Minor–medium (startup may re-run for some session keys; no secrets; continuity friction).
+- **Notes:** Generated runtime must not be reverted from git unless Jason names the path. Surgical edit reverse only. GPT review 8/6: highest-value residual line in the report.
+
+### 2026-08-06 — Cursor agent self-update broke `agent` symlink mid-job
+- **Failure Type:** Other (Tooling)
+- **Description:** Mid Batch A write job, Cursor agent pulled `2026.08.04-aaa8809` (curl/tar observed). `~/.local/bin/agent` retargeted to incomplete tree (no `cursor-agent` binary). Live worker kept old in-memory process; new shells saw broken symlink. Chair emergency relink → `2026.07.23-e383d2b`. Symlink later found broken again pointing at 2026.08.04; re-relinked 18:31.
+- **Policy Involved:** No pin/freeze on Cursor CLI auto-update during C-jobs.
+- **Impact:** Minor (test live smoke PATH fails; implement job still completed on old process).
+- **Notes:** Root cause = **Cursor agent CLI self-update**, not OpenClaw/npm/Nova. Follow-up: pin agent version or block auto-update during jobs; verify `command -v agent` + `test -x` in cursor-worker before dispatch.

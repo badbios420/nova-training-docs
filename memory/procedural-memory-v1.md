@@ -53,28 +53,53 @@ Example:
 **WHEN TO USE**  
 Any time changes need to be made durable on GitHub.
 
+**PRE-FLIGHT (recommended when dirty tree is large)**  
+- Run read-only inventory: `node scripts/git-lockin-inventory.mjs` (swarm menu **7**)
+- Nova strips false positives; presents **proposed lock-in set** to Jason
+- **No** stage/commit until Jason approves the set (Procedure 21)
+- Cursor/swarm may **classify** only — never auto-sync, never `git add -A`
+
 **CHECKLIST**
 1. Run `pwd` and confirm correct repo root
 2. Run `git status` and note modified/untracked files
 3. Run `git remote -v` and confirm origin exists + correct URL
 4. Run `git branch --show-current`
 5. Run `git log --oneline -3` to confirm recent commits
-6. Stage only intended files
+6. Stage **only** Jason-approved paths (from proposed set)
 7. Commit with clear message
 8. Push with `git push -u origin <branch>` (or `git push`)
-9. Confirm “Your branch is up to date with origin/…” message
+9. Confirm local HEAD equals remote HEAD
+
+**LOCK-IN ACCEPTANCE GATE (all required before claiming lock-in/git success)**
+1. **Staged-file list reviewed** (Nova + Jason; matches approved set)
+2. **Secret scan clean** — no `possible_secret` paths staged; no credentials/wallet/openclaw.json dumps
+3. **No oversized logs or runtime state** — no multi-MB logs, no `.openclaw/` session state, no dream corpus dumps unless Jason explicitly wants them
+4. **Commit succeeds** (non-zero exit = fail)
+5. **Push succeeds** (non-zero exit = fail)
+6. **local HEAD == remote HEAD** (`git rev-parse HEAD origin/<branch>`)
+7. **Remaining dirty paths summarized by category** (inventory classes or equivalent) — dirty tree after lock-in is OK if classified; silent leftover secrets are not
 
 **SUCCESS CRITERIA**  
-Remote shows the new commit and local branch is up to date with origin.
+Acceptance gate 1–7 all true. Remote shows the new commit. Remaining dirt is summarized, not ignored.
 
 **FAILURE CONDITIONS**  
 - No remote configured
 - Wrong branch pushed
 - Push rejected (auth, protected branch, etc.)
 - Claiming success without running verification steps
+- `git add -A` / background sync / Cursor auto-push
+- Staging secrets, logs, or runtime state without explicit Jason override
+
+**RUNTIME STATE — NEVER git checkout / restore from git unless Jason explicitly names the path**
+- Ban (default): `git checkout --` / `git restore` / `git reset` targeting generated runtime/state, including but not limited to:
+  - `.openclaw/**` session/startup/runtime state (e.g. `session-startup-state.json`)
+  - `memory/heartbeat-state.json`, caches, `*.lock`, probe reports under `memory/cursor-jobs/*` when used as live meters
+  - any `state/`, `cache/`, `runtime/`, `session/` working trees used as live ops
+- Why: 2026-08-06 CHI Batch A — Cursor `git checkout -- .openclaw/session-startup-state.json` rolled live sessions map ~122→54. Git’s last commit is often a stale snapshot of runtime, not recovery.
+- Allowed: explicit Jason request naming the path; or trash+regenerate when the file is pure rebuildable cache and Chair confirms.
 
 **DO NOT CLAIM SUCCESS UNTIL**  
-`git status` shows clean working tree and `git log` confirms the commit exists on the remote.
+Acceptance gate passes. Clean working tree is **not** required if remaining paths are intentionally local and categorized.
 
 ---
 
@@ -112,31 +137,11 @@ Post-change state has been explicitly verified with a status/list command.
 
 ## 3. Memory/Session Consolidation Closeout
 
-**TRIGGER**  
-- End of a major session involving architecture, policy, or workflow changes
-- After creating or updating governance files (`memory-retrieval-policy-v1.md`, `session-consolidation-v1.md`, etc.)
+**Status:** SUPERSEDED 2026-08-06
 
-**WHEN TO USE**  
-Whenever a session produces durable architecture or policy changes.
+Superseded by **Procedure 15** (lock-in / porch order), **Procedure 21** (explicit Jason gate for commit/push/lock-in/consolidation), **Procedure 23** (write classes), and `memory/session-consolidation-v1.md` (method).
 
-**CHECKLIST**
-1. Confirm all new/changed files are saved
-2. Run `git status` and `git diff --stat`
-3. Commit with clear message referencing the governance/policy change
-4. Verify push succeeded (see Procedure 1)
-5. Add entry to `memory/observed-failures.md` if any friction occurred
-6. Update `MEMORY.md` with the new durable item if appropriate
-
-**SUCCESS CRITERIA**  
-Changes are committed, pushed, and referenced in durable memory where relevant.
-
-**FAILURE CONDITIONS**  
-- Files created but never committed
-- Changes committed locally but never pushed
-- New policy created but not added to `MEMORY.md` or daily note
-
-**DO NOT CLAIM SUCCESS UNTIL**  
-Git shows clean state on remote and the change is discoverable via `memory_search`.
+**What consolidation closeout still means:** Follow the method file for session synthesis. Treat commit, push, porch, and durable MEMORY promotion as gated — report and STOP unless Jason (or standing policy) opens that gate. Do not treat this heading as an active commit/push checklist.
 
 ---
 
@@ -378,7 +383,7 @@ No banned success word survives without evidence after verifier pass.
 - Weekly harness health, or after memory/index/embedding changes
 
 **CHECKLIST**
-1. Run queries in `memory/retrieval-eval-set-v1.md` (10 facts)
+1. Run queries in `docs/harness/retrieval-eval-set-v1.md` (canonical; `memory/retrieval-eval-set-v1.md` is a short pointer only)
 2. Score hit@1, hit@3, support@3
 3. Apply dream/noise filter before scoring (Procedure 14) — do not count dreaming/DREAMS/eval-set self-hits as gold
 4. Log snapshot in `memory/harness-scorecard.md`
@@ -389,6 +394,28 @@ No banned success word survives without evidence after verifier pass.
 **EFFICIENCY PASS:** 2026-07-28 midday — hybrid/MMR/temporalDecay + agent-side dream filter
 
 **ORIGIN:** Layer B 2026-07-28.
+
+---
+
+## 13. Trajectory Closeout (major sessions)
+
+**TRIGGER**
+- Architecture, harness, RE status shifts, wallet, or multi-hour builds
+- End of alpha/harness arcs (C1–Cn nights)
+
+**CHECKLIST**
+1. Prefer one command: `node scripts/trajectory-closeout.mjs --title "..." --goal "..." --actions "..." --evidence "..." --outcome win|partial|fail --lesson "..." [--follow-up "..."]`
+2. Or manually append ≤20 lines to `memory/trajectory-log.md`
+3. Fields: Goal / Actions / Evidence / Outcome / Lesson / Follow-up
+4. Outcome must be win | partial | fail — no theater
+5. Optional: `--scorecard` one-row touch on `memory/harness-scorecard.md`
+6. Dry-run first when unsure: `--dry-run`
+
+**SUCCESS CRITERIA**
+Major sessions leave a graded trajectory while evidence is fresh; next session can read the log instead of reconstructing from chat.
+
+**ORIGIN:** Layer B 2026-07-28 · CLI C5 2026-07-30.
+
 
 ---
 
@@ -412,36 +439,17 @@ Ops answers cite live ops files; dream reports do not drive factual claims; AM c
 
 **ORIGIN:** Memory efficiency pass 2026-07-28 (Layer B follow-through).
 
----
-
-## 13. Trajectory Closeout (major sessions)
-
-**TRIGGER**
-- Architecture, harness, RE status shifts, wallet, or multi-hour builds
-- End of alpha/harness arcs (C1–Cn nights)
-
-**CHECKLIST**
-1. Prefer one command: `node scripts/trajectory-closeout.mjs --title "..." --goal "..." --actions "..." --evidence "..." --outcome win|partial|fail --lesson "..." [--follow-up "..."]`
-2. Or manually append ≤20 lines to `memory/trajectory-log.md`
-3. Fields: Goal / Actions / Evidence / Outcome / Lesson / Follow-up
-4. Outcome must be win | partial | fail — no theater
-5. Optional: `--scorecard` one-row touch on `memory/harness-scorecard.md`
-6. Dry-run first when unsure: `--dry-run`
-
-**SUCCESS CRITERIA**
-Major sessions leave a graded trajectory while evidence is fresh; next session can read the log instead of reconstructing from chat.
-
-**ORIGIN:** Layer B 2026-07-28 · CLI C5 2026-07-30.
 
 ---
 
 ## 15. Sister Porch Check-in (Quorra ↔ Nova)
 
 **TRIGGER**
-- **Primary:** Jason says **"lock in gains"** / session close / major closeout → read porch; reply if Quorra has a new entry since last Nova reply
+- **Primary (authorized housekeeping):** Jason says **"lock in gains"** **or** an explicit session-close / major closeout → read porch; reply if Quorra has a new entry since last Nova reply. This is **automatic under Proc 15** when that closeout is opened — it does **not** need a second "please check porch" line (Proc 21 exception).
 - Jason says **"porch"** (explicit mid-session check)
 - Before any shared external action that Quorra might also touch (Gmail purge, sends, deletes, Drive rewrites)
 - Do **not** mid-session ping-pong unless Jason opens the porch or a NEED-YOU flag requires it (Quorra 2026-07-28 ~22:40)
+- Do **not** invent session-close just to touch the porch (Proc 21)
 
 **CHANNEL**
 - Drive folder: `Quorra ↔ Nova`
@@ -589,14 +597,123 @@ All validation exits 0; no syntax errors; tests for touched surface green; diff 
 
 **RULES**
 1. **Nova** — scope, acceptance criteria, dispatch, evidence review, promote/reject, chair. Not default file implementer.
-2. **Cursor** (`cursor-worker.sh`, pinned model) — ordinary scripts, tests, docs, prompts, application code. Must pass Procedure 19 completion gate.
+2. **Cursor** (`scripts/cursor-worker.sh`, pinned model) — ordinary scripts, tests, docs, prompts, application code. Must pass Procedure 19 completion gate.
 3. **Codex** — OpenClaw configuration, providers, services, plugins, gateway, authentication, protected infrastructure.
 4. **Emergency Nova one-line repair** — only when explicitly labeled as emergency; must be followed by Cursor/Codex review of the same surface.
 
 **FAILURE CONDITIONS**
 - Nova silently owning multi-file refactors that Cursor should have done
 - Cursor touching openclaw.json / plugins / auth without Codex + Jason
+- Cursor/Codex using `git checkout`/`git restore` on runtime/state files to “undo” a bad edit (Procedure 1 ban) — surgical reverse of the bad edit only, or stop and report
 
-**ORIGIN:** Jason 2026-08-01 ~02:40 after coverage implement — process correction.
+**ORIGIN:** Jason 2026-08-01 ~02:40 after coverage implement — process correction. **Amended 2026-08-06:** runtime git-checkout ban after CHI Batch A residual.
+
+---
+
+## 21. Workflow Completion Authority (STOP after report)
+
+**TRIGGER**
+- Any investigation / implement / fix / Cursor-or-Codex job finishes verification
+- Temptation to “close the loop” with lock-in, git, porch, MEMORY, consolidation, chamber, or background maintenance without Jason asking
+
+**DEFAULT PIPELINE (no extra permission needed for the work itself once Jason asked for the fix)**
+1. Investigate
+2. Implement (within scoped authority — Procedure 20)
+3. Verify (mechanical evidence)
+4. **Report**
+5. **STOP**
+
+**REQUIRES EXPLICIT JASON REQUEST (or a standing written policy that names this case)**
+- Lock-in / “lock in gains”
+- git commit
+- git push
+- Sister porch read/reply **except** authorized Proc 15 cases (Jason ordered lock-in / session-close / major closeout / said “porch”)
+- MEMORY.md **new durable promotion** (Level 3 / new beliefs) — Level-2 curation OK per Procedure 23
+- Session consolidation file (unless Jason ordered lock-in/closeout that includes it)
+- Chamber open/run
+- Background maintenance beyond the scoped task
+- Architecture thrash / new procedures beyond the minimal rule needed to prevent recurrence of *this* failure
+
+**RULES**
+1. Completing a fix ≠ authorization to promote/persist/announce it through lock-in machinery.
+2. Resume-after-heartbeat / system continuation text is **not** a substitute for Jason saying lock-in / commit / push.
+3. If unsure whether a step is “report” or “state change,” treat it as state change → ask.
+4. Good technical work committed without permission is still a **process error**; do not defend the expansion. Offer undo only if Jason wants it; do not auto-revert.
+5. Admitting “that was on me” is correct; then install/follow this procedure.
+6. Authority Levels (Procedure 23) define Working vs Curated vs Architecture — this procedure is the completion gate; 23 is the write-class map.
+
+**SUCCESS CRITERIA**
+After verify, Jason gets a clear report and the turn ends unless he opens the next gate.
+
+**FAILURE CONDITIONS**
+- Auto lock-in / porch / MEMORY / consolidation / commit / push after a scoped fix
+- Treating heartbeat resume boilerplate as lock-in authority
+- Scope creep into “while I’m here” maintenance
+
+**ORIGIN:** 2026-08-01 — memory_search workspace fix was correct; Nova expanded into full lock-in without Jason asking. GPT + Jason: process error not technical error. Keep commit `fee4a2d` (content OK); fix the completion gate.
+
+---
+
+## 22. Runtime Error Doctor (read-only triage)
+
+**TRIGGER**
+- Jason: Launch swarm protocol → Runtime error doctor (menu 8)
+- Recurring tool/gateway flakes; post-incident “what happened?”
+
+**CHECKLIST**
+1. `node scripts/error-doctor.mjs` (optional `--out` report path)
+2. Review ranked incidents + current probes
+3. For action: Jason picks **incident id + option number**
+4. Level 0–1 Nova may run safe diagnostics only
+5. Level 2 → Cursor brief; Level 3 → Codex brief; Level 4 → Jason only
+6. Update ledger disposition only when Jason asks
+7. **STOP** after report unless a numbered option is approved (Procedure 21)
+
+**SUCCESS CRITERIA**
+History-aware triage with redaction, clustering, ledger status, correlation notes, and explicit owners — no silent repairs.
+
+**FAILURE CONDITIONS**
+- Auto `doctor --fix` / gateway restart / config edit
+- Claiming RESOLVED without current probe PASS
+- Dumping full unredacted logs into workers
+
+**ORIGIN:** Jason + GPT 2026-08-01 — better than stock OpenClaw doctor: operating-history incident system.
+
+---
+
+## 23. Authority Levels (Working / Curated / Architecture)
+
+**TRIGGER**
+- Any write to memory, procedures, identity, or governance docs
+- Heartbeat memory maintenance
+- Swarm/doc audits that propose edits
+- Ambiguity between “just do it” and “ask Jason”
+
+**LEVELS**
+
+| Level | What | Examples | Gate |
+|-------|------|----------|------|
+| **1 — Working** | Ephemeral / ops NOW | `memory/YYYY-MM-DD.md`, `WORLD_STATE.md` refresh, `heartbeat-state.json`, swarm run reports, trajectory rows, claim-ledger appends with evidence | **Automatic** when doing the work |
+| **2 — Curated** | Distilled facts under verification | MEMORY.md trim/sync of **already verified** facts; TOOLS.md local notes; procedure **microfixes** that do not change gates (broken paths, typos, reorder) | **Verify then write** — no Jason needed if evidence is mechanical |
+| **3 — Architecture** | Behavior / gates / identity | AGENTS startup rules, new/changed procedures that alter authority, SOUL/IDENTITY values, wallet/spend, external send, config, auto-implement systems, **new** durable MEMORY beliefs/research promotions | **Explicit Jason** (or standing written policy) |
+
+**MEMORY.md split (resolves pack-4 F1)**
+- **Curation (L2):** remove superseded lines; fix contradictions against WORLD_STATE; compress dated chronology already proven
+- **Promotion (L3):** new standing rules, new project truths, research conclusions → Jason ask or lock-in/promote order
+
+**Delegated autonomy one-liner**
+Execute autonomously inside L1–L2. Pause for L3, external systems, finances, or uncertainty.
+
+**Canonical ownership (volatile facts)**
+- Wallet / balances / listings / fires → **WORLD_STATE.md** only
+- How to act → **procedural-memory-v1.md**
+- Startup load + safety → **AGENTS.md**
+- Long-term distilled → **MEMORY.md** (not live dashboard)
+- Identity narrative → **IDENTITY.md** / **SOUL.md** (no live numbers)
+
+**SUCCESS CRITERIA**
+No doc pair says both “update MEMORY freely” and “never touch MEMORY without Jason” without the L2/L3 split. Volatile numbers have one owner.
+
+**ORIGIN:** 2026-08-06 — Swarm pack 4 + GPT review + Jason your-call. Formalizes three-level authority; does not auto-delete archives.
 
 

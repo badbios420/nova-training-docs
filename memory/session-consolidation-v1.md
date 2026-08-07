@@ -102,7 +102,7 @@ Every consolidated session produces a structured record with these sections:
 3. Nova proposes specific items for promotion to durable memory.
 4. Human reviews and approves (or edits) the promotion decisions.
 5. Approved items are added to `MEMORY.md` under the appropriate date or topic section.
-6. High-value frameworks get their own dedicated file (e.g., `memory/research-synthesis-v2.md`).
+6. High-value frameworks may get their own dedicated file when actually written. **Note:** `memory/research-synthesis-v2.md` was planned (2026-05-26) but **never created** as a standalone file — framework notes live in this doc’s example section and related research procedures, not a separate path.
 
 **No silent promotion. No automation of promotion decisions in v1.**
 

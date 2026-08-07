@@ -22,7 +22,7 @@ Trigger this skill when **any** of:
 1. **Gen ≠ Verify.** Prefer a separate pass (second model/subagent when stakes are high). Same-session self-check is allowed only if explicitly labeled and evidence is re-checked mechanically.
 2. **No evidence pointer → cannot be `verified`.** Paths, commands, tx hashes, URLs, plugin lists, exit codes only.
 3. **Banned success words** without proof are automatic `rejected` or `pending` (never `verified`).
-4. **Secondary web/X** stays untrusted until primary-checked (Procedure 6 / Möbius).
+4. **Secondary web/X** stays untrusted until primary-checked (Procedure 5 / Möbius).
 5. **Dream / AM cache** is not evidence (Procedure 14). Prefer `WORLD_STATE.md`, dailies, claim-ledger, direct `ls`/`stat`/CLI.
 6. **No auto-apply** of other skills; no silent MEMORY promotions; no external sends.
 7. **trash > rm.**
@@ -158,7 +158,7 @@ When available:
 1. **Generator** already produced claims (or scout summary).
 2. **Verifier** spawn gets **only**: claim list, evidence_hints, this skill, and read access — not the generator's cheerleading.
 3. Verifier returns the table; main agent merges and enforces ship gate.
-4. Prefer cheaper/different model for verifier when configured (`zai/glm-5.1` worker defaults are fine for mechanical checks).
+4. Prefer cheaper/different model for verifier when configured (`deepseek/deepseek-v4-flash` worker default; `zai/glm-5.1` optional alt for mechanical checks).
 
 Never let the generator mark its own claims `verified` without re-reading evidence.
 

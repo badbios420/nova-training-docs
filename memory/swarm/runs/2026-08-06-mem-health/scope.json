@@ -1,0 +1,15 @@
+{
+  "pack": "mem-health",
+  "menu": 5,
+  "date": "2026-08-06",
+  "chair": "nova/xai-grok-4.5",
+  "workers": "deepseek/deepseek-v4-flash",
+  "mode": "read-only",
+  "hard_bans": ["edit", "delete", "git write", "MEMORY promote", "auto-trash", "implement"],
+  "constraints": {
+    "no_ebay_ops": true,
+    "no_glm_anthropic_calls": true,
+    "skip_dreaming_as_truth": true
+  },
+  "out_dir": "memory/swarm/runs/2026-08-06-mem-health"
+}

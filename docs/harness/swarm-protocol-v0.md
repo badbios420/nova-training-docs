@@ -1,6 +1,6 @@
 # Swarm Protocol v0 — Labor, not brains
 
-**Status:** Working plan (Chair Nova · 2026-08-01)  
+**Status:** Live v0 — operational (Chair Nova · first cycle 2026-08-01; authority pass 2026-08-06)  
 **Aligns with:** Chamber #10 verdict · C9 SWV dry harness · GPT “operating system not advisors” note  
 **Default worker:** `deepseek/deepseek-v4-flash`  
 **Chair / brain:** Nova · `xai/grok-4.5`  
@@ -94,8 +94,21 @@ Swarm protocol — pick a number (highest ROI first):
 6. Quick security greps                [sec-scan]
    Secrets patterns, dangerous shell — report only.
 
-Reply: 1–6 · your call · stop
+7. Git lock-in inventory               [git-lockin-inventory]
+   Read-only classify dirty paths (commit vs local vs secret vs gitignore).
+   No stage/commit/push. Nova trims; Jason approves set.
+
+8. Runtime error doctor                [error-doctor]
+   Bounded logs → redact → cluster → family merge (≤5) → ledger → options.
+   Read-only diagnosis; corpus self-reports excluded; no auto-fix.
+
+9. Authority / single-source audit            [authority-audit] (P1)
+   Duplicate facts, which-file-wins map, procedure overlap — report only.
+
+Reply: 1–9 · your call · stop
 ```
+
+**Note (2026-08-06):** Menu **9** is designed/queued after pack 4 authority pass; run Nova-manual until pack JSON exists. Do not auto-edit from authority audits.
 
 ### Pack details (internal)
 
@@ -113,6 +126,26 @@ Reply: 1–6 · your call · stop
 
 #### `coverage` — What’s not tested?
 **Workers:** 4 — startup holes, scripts w/o acceptance, unsmoked plugins, procedures w/o rollback
+
+#### `git-lockin-inventory` — Git lock-in inventory (read-only)
+**When:** Before lock-in / when dirty tree is large / after Jason connects GitHub tools  
+**CLI:** `node scripts/git-lockin-inventory.mjs` (+ `--json`) · pack `memory/swarm/packs/git-lockin-inventory-v0.json`  
+**Workers (optional Flash):** inventory / secret-surface / size-guard — **status porcelain + path classify only**  
+**Classes:** `commit_candidate` · `intentional_local_only` · `generated_rebuildable` · `add_to_gitignore_candidate` · `archive_candidate` · `investigate` · `possible_secret`  
+**Hard ban:** no `git add`, commit, push, reset, clean, rm, mv; **no** `.gitignore` edits; **no** `git add -A`; **no** background sync  
+**Chair:** strip false positives → concise proposed lock-in set → **Jason approves** → Procedure 1 acceptance gate  
+**Ownership model (Jason-approved):** Cursor/swarm are **not** librarians of the tree. Nova decides lock-in material; git writes only after explicit approval.
+
+#### `error-doctor` — Runtime error doctor (read-only diagnosis)
+**When:** Recurring failures, mystery flakes, post-incident triage, “what’s actually wrong?”  
+**User phrase:** Launch swarm protocol → **Runtime error doctor** (menu **8**)  
+**CLI:** `node scripts/error-doctor.mjs` · pack `memory/swarm/packs/error-doctor-v0.json` · ledger `memory/error-doctor-ledger.md`  
+**Pipeline:** bounded evidence → redact → cluster/fingerprint → **family merge** → ledger NEW/KNOWN/REGRESSED/RESOLVED/NOISE → change correlation (not causation) → current probes → numbered options (L0–L4)  
+**Default output:** ≤5 actionable **families** + appendix (unclassified / low-confidence / noise). High-severity is never buried by low count.  
+**Corpus exclude:** do not ingest `memory/swarm/runs/**`, prior `error-doctor-report*`, chair/worker packets, ledger, or `memory/cursor-jobs/*error-doctor*` / nova-error-log-audit dumps (fixtures only with `--include-fixtures` / `NODE_ENV=test`).  
+**Lanes:** A cluster · B root-cause · C risk/repair planning · **Chair Nova** adjudicates (v0.1 lanes in-process; optional Flash critique)  
+**Hard ban:** no `doctor --fix`, no gateway restart, no config edits, no log deletion, no full-log dumps, no secrets, no auto-commit, no Level 2+ without Jason approval, no RESOLVED without current passing probe  
+**First runs:** manual only (3–5×) before any nightly automation
 
 ### P1 — High value, schedule after P0 works
 
@@ -178,7 +211,7 @@ Uses **C9 SWV** where useful; pure labor packs can skip Scout if task is pure me
    - render N worker briefs from pack JSON  
    - write run dir under `memory/swarm/runs/`  
    - **does not** auto-spawn (same rule as C9) unless we later add a thin helper  
-5. Procedure **19** — “Launch swarm protocol” checklist  
+5. ~~Procedure 19 launch checklist~~ — **superseded:** Proc **19** = Cursor Implementation Completion Gate; launch UX is this doc §2 (one phrase + menu). Optional thin checklist may be added later under a **new** procedure number only.  
 6. One live CHI run + one live REGRESS run with evidence  
 7. Scorecard meter #7 (subagent leverage) + optional CHI findings count  
 
@@ -258,3 +291,8 @@ Next high-value pack when Jason launches: menu **3 — What’s not tested?**
 - session-startup fixture suite + AM **offline** smoke shipped
 - **Queued (not built):** controlled live active-memory injection smoke (no plugin config changes until Jason opens)
 - **Role split (binding):** Nova chairs/dispatches/verifies; Cursor = ordinary code; Codex = protected OpenClaw infra; emergency Nova one-liners must be labeled + tool-reviewed
+
+### 2026-08-01 midday — git lock-in inventory pack
+- Jason: GitHub≠auto-sync; add read-only swarm menu item + lock-in acceptance rule (prior night agent failed mid-reply)
+- Menu **7** `[git-lockin-inventory]` + CLI `scripts/git-lockin-inventory.mjs` + unit tests
+- No automatic syncing by Cursor or swarm (ownership model approved)

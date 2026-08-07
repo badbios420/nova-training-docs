@@ -114,7 +114,7 @@ Source: Cycle 12 direct checks + session 2026-07-30. Confidence: High on checks;
 
 ## 2026-07-31 — Evening lock-in discoveries
 - **Empty wiki vault is a routing failure, not a storage failure.** C8 seeding 4 ops entities (hilltop, fbn/vista, harness-meters, sister-porch) + ops-now synthesis made wiki_search/claim routes real. Evidence: compile/lint exit 0, Entities=4 after install.
-- **Custody can be mechanical and log-safe.** `verify-custody-v2.js` decrypt→BIP39→re-derive without printing mnemonic; payment+stake match is the proof object.
+- **Custody can be mechanical and log-safe.** `memory/wallet-gen/verify-custody-v2.js` decrypt→BIP39→re-derive without printing mnemonic; payment+stake match is the proof object.
 - **DeepSeek Flash is a worker, not a continuer.** Official V4-Flash-0731 drop + live PONG smoke ≠ permission to host identity/wallet/full MEMORY. Configure/auth-store path > chat paste; chat keys are burned.
 - **Compaction recovery works when dailies are kept current.** Session transcript compact did not erase C8→wallet→DeepSeek arc because `memory/2026-07-31.md` held the spine.
 - **AM auto-promotions into MEMORY.md are inject noise** — stripped on lock-in; sparse recent-decisions line preferred.

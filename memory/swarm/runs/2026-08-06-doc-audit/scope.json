@@ -1,0 +1,15 @@
+{
+  "pack": "doc-sync+file-audit",
+  "menu": 4,
+  "date": "2026-08-06",
+  "chair": "nova/xai-grok-4.5",
+  "workers": "deepseek/deepseek-v4-flash",
+  "mode": "read-only",
+  "hard_bans": ["edit", "delete", "git write", "MEMORY promote", "config change"],
+  "scope_paths": [
+    "AGENTS.md", "SOUL.md", "USER.md", "TOOLS.md", "MEMORY.md", "WORLD_STATE.md", "HEARTBEAT.md", "IDENTITY.md",
+    "memory/procedural-memory-v1.md", "memory/observed-failures.md", "docs/harness/",
+    "scripts/", "skills/", "memory/swarm/"
+  ],
+  "out_dir": "memory/swarm/runs/2026-08-06-doc-audit"
+}

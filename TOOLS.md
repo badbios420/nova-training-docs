@@ -134,7 +134,7 @@ CURSOR_MODEL=gpt-5.6-sol-high scripts/cursor-worker.sh write "..."  # hard jobs
 **Status 2026-07-28:** P0 spike in progress. Profiles today: `openclaw` (managed WSL chromium, stopped), `user` (chrome-mcp, stopped), `chrome` (extension, stopped). No remote profile configured yet. WSL probes to `10.255.255.254:9222` and `127.0.0.1:9222` failed (nothing listening).
 
 **#1 architecture (audit):** OpenClaw profile `remote` → Windows Chrome dedicated user-data-dir + `--remote-debugging-port=9222` + `attachOnly: true`.
-Docs: `openclaw` → `docs/tools/browser-wsl2-windows-remote-cdp-troubleshooting.md`
+Docs: OpenClaw upstream browser/WSL remote-CDP troubleshooting (search installed `openclaw` docs). Workspace helper: `scripts/shared-browser-p0-check.sh`. Local stub path `docs/tools/browser-wsl2-…` was never written — do not cite as present.
 
 ### Security gates
 - Dedicated profile only — **never** attach to Jason primary Chrome with password manager unlocked

@@ -78,7 +78,7 @@
 - `AGENTS.md`
 - `HEARTBEAT.md`
 - `memory/self-improvement-log.md`
-- `memory/RECURSIVE-PATTERNS.md`
+- `RECURSIVE-PATTERNS.md` (workspace root — not under `memory/`)
 - `memory/2026-06-02.md`
 
 **Current State:**

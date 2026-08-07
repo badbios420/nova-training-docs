@@ -169,6 +169,39 @@ test("Source:/CHECKED: empty markers do not clear", () => {
   assert(r3.violations.length === 0, `filled Source should clear: ${JSON.stringify(r3.violations)}`);
 });
 
+test("EVIDENCE: [] placeholder does not clear done", () => {
+  const r = scanText("Status: done\nEVIDENCE: []");
+  assert(
+    r.violations.some((v) => v.word === "done"),
+    `[] EVIDENCE should not clear: ${JSON.stringify(r.violations)}`,
+  );
+});
+
+test("EVIDENCE: - placeholder does not clear fixed", () => {
+  const r = scanText("Patch is fixed.\nEVIDENCE: -");
+  assert(
+    r.violations.some((v) => v.word === "fixed"),
+    `dash EVIDENCE should not clear: ${JSON.stringify(r.violations)}`,
+  );
+});
+
+test("EVIDENCE: N/A / none placeholders do not clear done", () => {
+  const r1 = scanText("Status: done\nEVIDENCE: N/A");
+  assert(r1.violations.some((v) => v.word === "done"), "N/A should not clear");
+  const r2 = scanText("Status: done\nEVIDENCE: none");
+  assert(r2.violations.some((v) => v.word === "done"), "none should not clear");
+});
+
+test("EVIDENCE: tbd/todo/pending/placeholder/later do not clear fixed", () => {
+  for (const body of ["tbd", "todo", "pending", "placeholder", "later"]) {
+    const r = scanText(`Patch is fixed.\nEVIDENCE: ${body}`);
+    assert(
+      r.violations.some((v) => v.word === "fixed"),
+      `${body} EVIDENCE should not clear: ${JSON.stringify(r.violations)}`,
+    );
+  }
+});
+
 test("clean child / clean install idioms", () => {
   const r = scanText("Spawn a clean child session after clean install.");
   assert(r.violations.length === 0, `clean idioms flagged: ${JSON.stringify(r.violations)}`);

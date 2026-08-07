@@ -1,0 +1,17 @@
+{
+  "pack": "coverage",
+  "menu": 3,
+  "date": "2026-08-06",
+  "focus": "authority-memory regression guards after mem-health 1-4",
+  "chair": "nova/xai-grok-4.5",
+  "workers": "deepseek/deepseek-v4-flash",
+  "mode": "read-only",
+  "hard_bans": ["edit", "delete", "git write", "implement", "config"],
+  "target_failure_classes": [
+    "superseded_files_retaining_live_task_tables",
+    "canonical_path_existence",
+    "present_tense_model_claims_vs_live_arch",
+    "historical_model_statements_rewritten_as_current"
+  ],
+  "out_dir": "memory/swarm/runs/2026-08-06-coverage"
+}

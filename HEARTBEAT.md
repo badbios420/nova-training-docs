@@ -16,6 +16,8 @@ This check protects against over-autonomy while keeping routine work fast.
 
 Strict: Operational checks only. Batch checks. Late night (23-08 PT)? Skip unless urgent. Track in memory/heartbeat-state.json. Do not load recovery, reboot, or training docs unless a real issue requires them.
 
+**Cooperative heartbeat (not preemptive):** If a main-session **active workflow** is in progress (investigate→implement→verify→report not yet closed), do **not** hijack it into lock-in, git, porch, MEMORY promotion, consolidation, or unrelated maintenance. Prefer: queue/skip non-urgent heartbeat work and return control to the workflow, or answer `HEARTBEAT_OK` when nothing urgent. Heartbeat must not invent “lock-in” authority. See Procedure 21 (Workflow Completion Authority).
+
 **Daily File Mandate:** Heartbeat MUST create a minimal daily file (`memory/YYYY-MM-DD.md`) if none exists for today, even if content is just "heartbeat only — nothing new." This eliminates silent activity gaps where heartbeat runs but leaves no trace.
 
 **Filesystem Verification Rule:** Any heartbeat claim about file existence/status MUST be verified with an actual filesystem check (`ls`/`stat`), not repeated from prior heartbeat text or MEMORY.md. If a prior heartbeat said a file is missing, verify before repeating.
@@ -25,7 +27,7 @@ Strict: Operational checks only. Batch checks. Late night (23-08 PT)? Skip unles
 **WORLD_STATE.md Freshness Check:** If WORLD_STATE.md last-modified >7 days, flag for refresh in heartbeat and refresh during next main session.
 
 1. **Security/Update:** openclaw security audit --deep + update status. Alert if critical/update ready. Auto-patch safe CRITs where possible (groupPolicy for trusted channels only). (plugins.allow must include lossless-claw + other installed extensions)
-2. **Memory Maint:** memory_search 'todos decisions' → Update MEMORY.md if insights.
+2. **Memory Maint:** memory_search 'todos decisions' → Level-2 MEMORY curation only (trim/sync verified facts). New durable promotions need Jason (Proc 21/23). Log candidates in daily if unsure.
 3. **Sites Check:** web_fetch fractalfuzion.com + bighouserealestate.com (status/updates).
 4. **Weather:** Vista CA forecast (skill if trigger).
 

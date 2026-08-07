@@ -1,0 +1,12 @@
+{
+  "pack": "chi",
+  "menu": 2,
+  "date": "2026-08-06",
+  "chair": "nova/xai-grok-4.5",
+  "workers": "deepseek/deepseek-v4-flash",
+  "mode": "read-only",
+  "hard_bans": ["edit", "delete", "git write", "MEMORY promote", "config change", "implement"],
+  "classes": ["duplicate", "stale", "missing-test", "regression-risk", "optimization"],
+  "context": "Post pack-4 authority pass (Proc 23). Prefer harness/scripts/docs gains. No wallet/config thrash. Implement later via Cursor only.",
+  "out_dir": "memory/swarm/runs/2026-08-06-chi"
+}

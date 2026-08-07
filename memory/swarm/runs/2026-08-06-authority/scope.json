@@ -1,0 +1,11 @@
+{
+  "pack": "authority-audit",
+  "menu": 9,
+  "date": "2026-08-06",
+  "chair": "nova/xai-grok-4.5",
+  "workers": "deepseek/deepseek-v4-flash",
+  "mode": "read-only",
+  "hard_bans": ["edit", "delete", "git write", "MEMORY promote", "config change", "implement"],
+  "context": "Post Proc 23 + Batch A. Map canonical owners, duplicate facts, procedure overlap. Recommend delete/ref only — no auto edits.",
+  "out_dir": "memory/swarm/runs/2026-08-06-authority"
+}

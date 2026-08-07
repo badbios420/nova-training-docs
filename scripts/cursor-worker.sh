@@ -42,7 +42,39 @@ if ! command -v agent >/dev/null 2>&1; then
   exit 127
 fi
 
-if ! agent status 2>&1 | grep -qi 'logged in'; then
+# Auth check: prefer JSON isAuthenticated; never treat "Not logged in" as success.
+# CURSOR_API_KEY remains an escape hatch when status cannot confirm auth.
+cursor_agent_authenticated() {
+  local status_out=""
+  local timed=()
+  if command -v timeout >/dev/null 2>&1; then
+    timed=(timeout 15)
+  fi
+  # Prefer structured status when available
+  if status_out=$("${timed[@]}" agent status --format json 2>/dev/null); then
+    if printf '%s' "$status_out" | grep -Eqi '"isAuthenticated"[[:space:]]*:[[:space:]]*true'; then
+      return 0
+    fi
+    if printf '%s' "$status_out" | grep -Eqi '"authenticated"[[:space:]]*:[[:space:]]*true'; then
+      return 0
+    fi
+    # Explicit false → not authenticated
+    if printf '%s' "$status_out" | grep -Eqi '"isAuthenticated"[[:space:]]*:[[:space:]]*false|"authenticated"[[:space:]]*:[[:space:]]*false'; then
+      return 1
+    fi
+  fi
+  # Text fallback: require positive login phrasing, reject "not logged in"
+  status_out=$("${timed[@]}" agent status 2>&1 || true)
+  if printf '%s' "$status_out" | grep -Eiq 'not[[:space:]]+logged[[:space:]]+in'; then
+    return 1
+  fi
+  if printf '%s' "$status_out" | grep -Eiq '(^|[^[:alnum:]])logged[[:space:]]+in([^[:alnum:]]|$)'; then
+    return 0
+  fi
+  return 1
+}
+
+if ! cursor_agent_authenticated; then
   if [[ -z "${CURSOR_API_KEY:-}" ]]; then
     echo "ERROR: Cursor not authenticated. agent login or CURSOR_API_KEY" >&2
     exit 2

@@ -119,7 +119,7 @@ Misses of note: F04 address; F08/F09/F11/F14/F15 often eval-self or empty after 
 
 | Item | Value |
 |------|-------|
-| Suite | `memory/evals/nova-task-suite-v0.json` (+ spec `nova-task-suite-v0.md`) |
+| Suite | `memory/evals/nova-task-suite-v0.json` (+ spec `memory/evals/nova-task-suite-v0.md`) |
 | Run | `node scripts/nova-task-grade.mjs` · tests: `node scripts/test-nova-task-grade.mjs` |
 | Live smoke (2026-07-29 ~20:03 PDT) | **10/10 (100%)** pass |
 | Job report | `memory/cursor-jobs/c1-nova-task-suite-v0-2026-07-29.md` |

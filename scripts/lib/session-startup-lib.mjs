@@ -288,7 +288,7 @@ export async function maybeLogIdentityCheck({ workspace, date, state, nowIso, io
   const existing = await readTextIfExists(identityPath, io);
   if (existing && existing.includes(heading)) {
     state.lastIdentityCheckDate = date;
-    state.lastIdentityCheckAt = state.lastIdentityCheckAt || nowIso;
+    state.lastIdentityCheckAt = nowIso;
     return { logged: false, reason: "file_already_has_today_entry", path: identityPath };
   }
 
@@ -309,7 +309,11 @@ export async function maybeLogIdentityCheck({ workspace, date, state, nowIso, io
 }
 
 export function buildInternalContext(result) {
-  const lines = [
+  const lines = [];
+  if (result.retrievalDegraded) {
+    lines.push("STARTUP_RETRIEVAL_DEGRADED");
+  }
+  lines.push(
     "<session_startup_context>",
     "Automatic main-session startup completed. Treat this as internal context, not user-facing copy.",
     `Date: ${result.date}`,
@@ -318,12 +322,15 @@ export function buildInternalContext(result) {
       result.daily?.path ? path.basename(result.daily.path) : "n/a"
     })`,
     `Recent files loaded: ${result.loadedFiles?.join(", ") || "none"}`,
-  ];
+  );
   if (result.missingFiles?.length) {
     lines.push(`Missing continuity files: ${result.missingFiles.join(", ")}`);
   }
   if (result.worldState?.warning) {
     lines.push(`WORLD_STATE: ${result.worldState.warning}`);
+  }
+  if (result.retrievalDegraded) {
+    lines.push("LIGHT memory retrieval: DEGRADED (searches failed or unavailable)");
   }
   if (result.searchSummary?.length > 0) {
     lines.push("LIGHT memory retrieval summary:");
@@ -430,6 +437,23 @@ export async function runStartup(args, deps = {}) {
   const criticalMissing = missingFiles.filter((f) => CRITICAL_CONTINUITY_FILES.includes(f));
   const ok = criticalMissing.length === 0;
 
+  // LIGHT retrieval degraded when queries were attempted but none succeeded
+  const searchAttempts = searches.length;
+  const successfulSearches = searches.filter((s) => s && s.ok === true).length;
+  const retrievalDegraded = searchAttempts > 0 && successfulSearches === 0;
+
+  if (retrievalDegraded && daily?.path) {
+    try {
+      const note = `\n- STARTUP_RETRIEVAL_DEGRADED: LIGHT memory_search unavailable (${nowIso})\n`;
+      const existingDaily = await readTextIfExists(daily.path, io);
+      if (existingDaily !== null && !existingDaily.includes("STARTUP_RETRIEVAL_DEGRADED")) {
+        await io.appendFile(daily.path, note, "utf8");
+      }
+    } catch {
+      // best-effort; do not fail startup
+    }
+  }
+
   const result = {
     skipped: false,
     ok,
@@ -449,8 +473,9 @@ export async function runStartup(args, deps = {}) {
     heartbeatOverdue: overdue,
     searches,
     searchSummary: summarizeSearches(searches),
-    searchAttempts: searches.length,
+    searchAttempts,
     lightSearchConcurrency: LIGHT_SEARCH_CONCURRENCY,
+    retrievalDegraded,
   };
   result.internalContext = buildInternalContext(result);
 

@@ -47,7 +47,7 @@ export const DEFAULT_BANNED_WORDS = Object.freeze([
  * @property {string} [file]
  */
 
-/** Marker label only — body after colon must be non-whitespace to count. */
+/** Marker label only — body after colon must be real evidence to count. */
 const EVIDENCE_MARKER_EMPTY = [
   /\bEVIDENCE\s*:/i,
   /\bSource\s*:/i,
@@ -55,9 +55,44 @@ const EVIDENCE_MARKER_EMPTY = [
   /\bchecked\s*:/,
 ];
 
+/** Placeholder bodies that look filled but are not evidence. */
+const EVIDENCE_PLACEHOLDER_WORDS = new Set([
+  "n/a",
+  "na",
+  "none",
+  "tbd",
+  "todo",
+  "pending",
+  "placeholder",
+  "later",
+  "null",
+  "nil",
+  "empty",
+  "missing",
+  "unknown",
+]);
+
 /**
- * True when line has EVIDENCE:/Source:/CHECKED: with non-whitespace body after the colon.
- * Bare `EVIDENCE:` or whitespace-only body does NOT count.
+ * True when trimmed evidence body is a placeholder (empty brackets, dashes/dots, known words).
+ * @param {string} body
+ * @returns {boolean}
+ */
+export function isPlaceholderEvidenceBody(body) {
+  const trimmed = String(body ?? "").trim();
+  if (!trimmed) return true;
+  // Empty brackets / braces / parens: [], {}, (), [ ], etc.
+  if (/^[\[\{\(]\s*[\]\}\)]$/.test(trimmed)) return true;
+  // Only dashes, dots, underscores, or bullets
+  if (/^[-–—._•·…]+$/.test(trimmed)) return true;
+  // Known placeholder words (optionally wrapped in backticks/quotes)
+  const word = trimmed.replace(/^[`'"\[\(]+|[`'"\]\)]+$/g, "").trim().toLowerCase();
+  if (EVIDENCE_PLACEHOLDER_WORDS.has(word)) return true;
+  return false;
+}
+
+/**
+ * True when line has EVIDENCE:/Source:/CHECKED: with a real (non-placeholder) body after the colon.
+ * Bare `EVIDENCE:`, whitespace-only, `[]`, `-`, `N/A`, `none`, etc. do NOT count.
  * @param {string} line
  * @returns {boolean}
  */
@@ -67,7 +102,8 @@ function lineHasFilledEvidenceMarker(line) {
     const m = re.exec(line);
     if (!m) continue;
     const after = line.slice(m.index + m[0].length);
-    if (after.trim().length > 0) return true;
+    const body = after.trim();
+    if (body.length > 0 && !isPlaceholderEvidenceBody(body)) return true;
   }
   return false;
 }
@@ -126,6 +162,19 @@ export function buildBannedRegex(words) {
 }
 
 /**
+ * True when line contains an EVIDENCE:/Source:/CHECKED: label (any body).
+ * @param {string} line
+ * @returns {boolean}
+ */
+function lineHasEvidenceMarkerLabel(line) {
+  for (const re of EVIDENCE_MARKER_EMPTY) {
+    re.lastIndex = 0;
+    if (re.test(line)) return true;
+  }
+  return false;
+}
+
+/**
  * @param {string} line
  * @returns {boolean}
  */
@@ -150,12 +199,16 @@ function lineHasPathOrCmd(line) {
 /**
  * Evidence content (markers, paths, cmds, urls, proof phrases).
  * STATUS: verified alone is NOT evidence.
+ * Lines with an EVIDENCE:/Source:/CHECKED: label are judged only by marker body
+ * (placeholders like N/A must not clear via PATH_BARE matching "N/A").
  * @param {string} line
  * @returns {boolean}
  */
 export function lineHasEvidence(line) {
   if (!line || typeof line !== "string") return false;
-  if (lineHasEvidenceMarkers(line)) return true;
+  if (lineHasEvidenceMarkerLabel(line)) {
+    return lineHasFilledEvidenceMarker(line);
+  }
   if (lineHasPathOrCmd(line)) return true;
   return false;
 }

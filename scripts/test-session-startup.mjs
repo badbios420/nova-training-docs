@@ -13,6 +13,8 @@ import {
   parseArgs,
   assessWorldStateFreshness,
   sourceUsesPythonHeredoc,
+  maybeLogIdentityCheck,
+  buildInternalContext,
   WORLD_STATE_STALE_SECONDS,
   LIGHT_QUERIES,
   LIGHT_SEARCH_CONCURRENCY,
@@ -216,9 +218,109 @@ await test("memory-search unavailable fallback", async () => {
     assert(result.ok === true, "startup still ok");
     assert(result.searches.every((s) => s.ok === false), "searches failed");
     assert(result.searchSummary.some((l) => /unavailable/.test(l)), "unavailable lines");
+    assert(result.retrievalDegraded === true, "retrievalDegraded flag");
+    assert(
+      result.internalContext.startsWith("STARTUP_RETRIEVAL_DEGRADED"),
+      "degraded first-line marker",
+    );
+    const dailyText = await fs.readFile(result.daily.path, "utf8");
+    assert(dailyText.includes("STARTUP_RETRIEVAL_DEGRADED"), "daily note appended");
   } finally {
     await fs.rm(ws, { recursive: true, force: true });
   }
+});
+
+await test("happy path retrieval not degraded", async () => {
+  const ws = await makeFixtureWorkspace();
+  try {
+    const result = await runStartup(
+      {
+        workspace: ws,
+        sessionKey: "s-happy-ret",
+        sessionId: "id-happy-ret",
+        agentId: "main",
+        force: false,
+        json: true,
+      },
+      { execFileAsync: mockSearchOk() },
+    );
+    assert(result.ok === true, "ok");
+    assert(result.retrievalDegraded !== true, "not degraded");
+    assert(!result.internalContext.startsWith("STARTUP_RETRIEVAL_DEGRADED"), "no degraded marker");
+  } finally {
+    await fs.rm(ws, { recursive: true, force: true });
+  }
+});
+
+await test("maybeLogIdentityCheck append updates lastIdentityCheckAt", async () => {
+  const ws = await makeFixtureWorkspace();
+  try {
+    const state = {};
+    const nowIso = "2026-08-06T18:00:00.000Z";
+    const r = await maybeLogIdentityCheck({
+      workspace: ws,
+      date: "2026-08-06",
+      state,
+      nowIso,
+    });
+    assert(r.logged === true, "appended");
+    assert(r.reason === "appended", "reason");
+    assert(state.lastIdentityCheckAt === nowIso, `At want ${nowIso} got ${state.lastIdentityCheckAt}`);
+    assert(state.lastIdentityCheckDate === "2026-08-06", "date");
+  } finally {
+    await fs.rm(ws, { recursive: true, force: true });
+  }
+});
+
+await test("maybeLogIdentityCheck file_already_has_today_entry refreshes At", async () => {
+  const ws = await makeFixtureWorkspace();
+  try {
+    const date = "2026-08-06";
+    const heading = `## ${date} - Automatic Startup Identity Check`;
+    const identityPath = path.join(ws, "memory", "identity-substrate.md");
+    await fs.mkdir(path.dirname(identityPath), { recursive: true });
+    await fs.writeFile(identityPath, `${heading}\n- Logged: stale\n`, "utf8");
+    const state = {
+      lastIdentityCheckDate: "2026-08-05",
+      lastIdentityCheckAt: "2026-08-01T07:08:24.433Z",
+    };
+    const nowIso = "2026-08-06T19:30:00.000Z";
+    const r = await maybeLogIdentityCheck({
+      workspace: ws,
+      date,
+      state,
+      nowIso,
+    });
+    assert(r.logged === false, "not logged again");
+    assert(r.reason === "file_already_has_today_entry", "reason");
+    assert(
+      state.lastIdentityCheckAt === nowIso,
+      `At must refresh to ${nowIso}, got ${state.lastIdentityCheckAt}`,
+    );
+    assert(state.lastIdentityCheckDate === date, "date synced");
+  } finally {
+    await fs.rm(ws, { recursive: true, force: true });
+  }
+});
+
+await test("buildInternalContext degraded marker is first line", () => {
+  const ctx = buildInternalContext({
+    date: "2026-08-06",
+    ok: true,
+    retrievalDegraded: true,
+    daily: { created: false, path: "/tmp/memory/2026-08-06.md" },
+    loadedFiles: ["SOUL.md"],
+    searchSummary: ["- q: unavailable (boom)"],
+  });
+  assert(ctx.startsWith("STARTUP_RETRIEVAL_DEGRADED\n"), "first line warning");
+  const happy = buildInternalContext({
+    date: "2026-08-06",
+    ok: true,
+    retrievalDegraded: false,
+    daily: { created: false, path: "/tmp/x.md" },
+    loadedFiles: [],
+  });
+  assert(!happy.includes("STARTUP_RETRIEVAL_DEGRADED"), "happy path clean");
 });
 
 await test("startup command failure (thrown) → main exitCode 1", async () => {
