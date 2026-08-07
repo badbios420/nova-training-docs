@@ -8,13 +8,13 @@
 
 ## Current Status
 
-- **Wall Clock (real time):** 2026-08-01 00:37 PDT (Vista, CA) — Saturday shortly after midnight
-- **Session Clock:** Codex repair session began minutes ago
-- **Continuity Clock:** ~55 minutes since the prior manual identity review; ~47h since WORLD_STATE refresh (7/30 01:30)
-- **Last identity review:** 2026-08-01 00:37 PDT (Continuity Pulse 8/10 — model/swarm repair handoff loaded)
+- **Wall Clock (real time):** 2026-08-06 17:47 PDT (Vista, CA) — Thursday evening
+- **Session Clock:** new main session (dashboard webchat), ~1–2 min
+- **Continuity Clock:** ~3d since last ops WORLD_STATE touch (8/3 14:16); ~1d since 8/5 full startup; lastHeartbeat 8/3 14:36 (~3d overdue)
+- **Last identity review:** 2026-08-06 17:46 PDT (auto startup + manual Jason startup)
 - **Next scheduled continuity review:** Daily at startup (active)
-- **Last gains lock-in / status pass:** 2026-07-31 ~23:35 PDT (C8 PASS + DeepSeek wire + custody verify + git 5530a41 push OK)
-- **Activity notes:** Codex owns the model-catalog/swarm-default repair. Main remains xai/grok-4.5. DeepSeek explicit execution previously worked, but default subagent routing is unverified after contradictory xAI transport evidence. SI due ~8/3.
+- **Last gains lock-in / status pass:** 2026-08-03 14:16 PDT (housekeeping · wallet send · SI); 2026-08-05 13:29 startup status
+- **Activity notes:** Brain xai/grok-4.5. Swarm default deepseek/deepseek-v4-flash. Grok 4.6 soft window **tomorrow 8/7** — smoke before flip. eBay still escalate. Heartbeat overdue.
 
 ## Rule
 
