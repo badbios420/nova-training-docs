@@ -109,8 +109,10 @@ CURSOR_MODEL=gpt-5.6-sol-high scripts/cursor-worker.sh write "..."  # hard jobs
 | Binary | `gog` (`~/.npm-global/bin/gog`) |
 | Account | `jasontbethurum@gmail.com` |
 | Credentials | `~/.config/gogcli/credentials.json` (Jason's Desktop OAuth client) |
-| Keyring | needs `GOG_KEYRING_PASSWORD` in non-interactive shells (set in `~/.bashrc`) |
-| Scopes | gmail.modify, calendar, drive, contacts, sheets |
+| Keyring | needs `GOG_KEYRING_PASSWORD` in non-interactive shells (`~/.bashrc` + gateway env files as of 2026-08-06) |
+| Scopes | gmail, calendar, drive, docs, contacts, sheets (reauthed 2026-08-06; force-consent refresh token) |
+| Gateway env | `GOG_KEYRING_PASSWORD` in `~/.config/openclaw/openclaw.env` and `~/.openclaw/gateway.systemd.env` (mode 600) — required so agent exec inherits unlock without bashrc |
+| Reauth | If `invalid_grant`: `gog auth add EMAIL --remote --step 1 --force-consent --services gmail,calendar,drive,docs,contacts,sheets` → Jason browser → paste redirect → `--remote --step 2 --auth-url …` |
 
 ### Sister porch (Quorra ↔ Nova)
 - Folder: `Quorra ↔ Nova`

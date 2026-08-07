@@ -8,12 +8,12 @@
 
 ## Current Status
 
-- **Wall Clock (real time):** 2026-08-06 ~20:30 PDT (Vista, CA) — Thursday evening
-- **Session Clock:** main session ending (lock-in)
-- **Continuity Clock:** lock-in commit 230206c just pushed; consolidation written
-- **Last identity review:** 2026-08-06 startup + lock-in
-- **Last gains lock-in:** 2026-08-06 ~20:30 PDT · `230206c` on origin/master
-- **Activity notes:** Brain xai/grok-4.5. Swarm deepseek/deepseek-v4-flash. Proc 23 live. Porch blocked (gog OAuth). eBay Jason-only. Next session: ops-first WORLD_STATE + 2026-08-06 daily + consolidation.
+- **Wall Clock (real time):** 2026-08-06 ~23:51 PDT (Vista, CA) — Thursday night
+- **Session Clock:** evening lock-in after gog/gmail/life-ops HOLD
+- **Continuity Clock:** evening lock-in in progress; afternoon base `230206c`
+- **Last identity review:** 2026-08-06 20:57 PDT manual startup
+- **Last gains lock-in:** 2026-08-06 ~23:51 PDT evening (this commit)
+- **Activity notes:** Brain xai/grok-4.5. gog OAuth live + gateway keyring env. Gmail sweep done. Life-ops HOLD. eBay Jason-only. Grok 4.6 soft window 8/7 — smoke before default flip.
 
 ## Rule
 

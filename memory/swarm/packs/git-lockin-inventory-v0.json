@@ -1,0 +1,53 @@
+{
+  "id": "git-lockin-inventory",
+  "menuLabel": "Git lock-in inventory",
+  "version": "v0",
+  "readonly": true,
+  "mutatesGit": false,
+  "description": "Classify dirty tracked/untracked paths for Chair review before any lock-in. Never stage/commit/push/edit .gitignore.",
+  "cli": {
+    "command": "node scripts/git-lockin-inventory.mjs",
+    "json": "node scripts/git-lockin-inventory.mjs --json",
+    "tests": "node scripts/test-git-lockin-inventory.mjs"
+  },
+  "classes": [
+    "commit_candidate",
+    "intentional_local_only",
+    "generated_rebuildable",
+    "add_to_gitignore_candidate",
+    "archive_candidate",
+    "investigate",
+    "possible_secret"
+  ],
+  "workerRules": [
+    "READ-ONLY filesystem + git status only",
+    "Do not git add, commit, push, reset, clean, rm, mv",
+    "Do not edit .gitignore",
+    "Do not open or print secret file contents — path classify only",
+    "Return structured counts + path lists + evidence of commands/exits"
+  ],
+  "chairRules": [
+    "Remove false positives from commit_candidate",
+    "Present concise proposed lock-in set to Jason",
+    "No lock-in without Jason approval (Procedure 21)",
+    "On approval, Procedure 1 acceptance gate before claim success"
+  ],
+  "swarmPattern": {
+    "workers": [
+      {
+        "role": "inventory",
+        "task": "Run node scripts/git-lockin-inventory.mjs --json; summarize counts; list possible_secret and commit_candidate paths only (no file bodies)"
+      },
+      {
+        "role": "secret-surface",
+        "task": "Re-scan porcelain paths for secret-like names; confirm none of possible_secret are proposed for commit"
+      },
+      {
+        "role": "size-guard",
+        "task": "Flag any path >= 1MB; ensure oversized logs not in commit_candidate"
+      }
+    ],
+    "maxConcurrent": 3,
+    "autoImplement": false
+  }
+}

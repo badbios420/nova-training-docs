@@ -1,0 +1,23 @@
+{
+  "rawEvents": 60,
+  "fingerprints": 115,
+  "byStatus": {
+    "NEW": 7,
+    "KNOWN": 2,
+    "NOISE": 3
+  },
+  "incidentIds": [
+    "E-embedded-run-timeout-a7a7c68af4a6",
+    "E-generic-ebb4a5a47ea9",
+    "E-generic-41ab136ae5fb",
+    "E-generic-28027d8a5d83",
+    "E-generic-57de3c58c422",
+    "E-generic-6db62050869d",
+    "E-generic-f1532f976e09",
+    "E-active-memory-timeout",
+    "E-active-memory-timeout",
+    "E-secrets-env-missing",
+    "E-secrets-env-missing",
+    "E-secrets-env-missing"
+  ]
+}

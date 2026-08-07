@@ -1,0 +1,71 @@
+{
+  "id": "error-doctor",
+  "menuLabel": "Runtime error doctor",
+  "version": "v0.1.1",
+  "readonly": true,
+  "description": "History-aware incident triage: bounded logs, redact, cluster, family merge (≤5 top families), ledger, change correlation, numbered repair options. No auto-repair. Excludes diagnostic corpus from ingest.",
+  "userTrigger": "Launch swarm protocol → Runtime error doctor",
+  "cli": {
+    "command": "node scripts/error-doctor.mjs",
+    "json": "node scripts/error-doctor.mjs --json",
+    "out": "node scripts/error-doctor.mjs --out memory/swarm/runs/<stamp>/error-doctor-report.md",
+    "tests": "node scripts/test-error-doctor.mjs"
+  },
+  "ledger": "memory/error-doctor-ledger.md",
+  "precision": {
+    "defaultTopFamilies": 5,
+    "familyMerge": "shared runId/sessionId + AM cascade tags (timeout/abort-settle/aborted/failover)",
+    "corpusExclude": [
+      "memory/swarm/runs/**",
+      "memory/error-doctor-ledger.md",
+      "**/error-doctor-report*",
+      "**/chair-adjudication*",
+      "**/worker-packet.json",
+      "memory/cursor-jobs/*error-doctor*",
+      "memory/cursor-jobs/nova-error-log-audit-*"
+    ]
+  },
+  "lanes": {
+    "A": "Evidence + clustering + family merge (normalize, fingerprint, count, children)",
+    "B": "Root-cause hypotheses + procedure map + competing explanations",
+    "C": "Blast radius, probes, repair options, owner, rollback needs"
+  },
+  "chair": "Nova synthesizes; Flash does not self-certify diagnosis",
+  "repairLevels": {
+    "0": "observe",
+    "1": "safe_diagnostic",
+    "2": "cursor_workspace",
+    "3": "codex_infra",
+    "4": "jason_decision"
+  },
+  "hardBans": [
+    "no doctor --fix/--repair",
+    "no gateway restart",
+    "no config edits",
+    "no log deletion",
+    "no full-log model dumps",
+    "no secret exposure",
+    "no auto-commit/push",
+    "no resolved without current passing probe",
+    "no Level 2+ without Jason approval"
+  ],
+  "swarmPattern": {
+    "note": "v0.1 runs lanes in-process via CLI for determinism; optional Flash workers may re-validate report sections read-only",
+    "workers": [
+      {
+        "role": "lane-A",
+        "task": "Read doctor JSON clusters only; verify counts and sample redaction; no file bodies beyond report"
+      },
+      {
+        "role": "lane-B",
+        "task": "Critique root-cause hypotheses; add competing explanations; do not edit ledger"
+      },
+      {
+        "role": "lane-C",
+        "task": "Critique repair levels/owners; reject any auto-repair language"
+      }
+    ],
+    "maxConcurrent": 3,
+    "autoImplement": false
+  }
+}

@@ -1,0 +1,2 @@
+Scope frozen:
+{"pack":"chi","date":"2026-08-05","scope":["harness/","scripts/","docs/","memory/","MEMORY.md","WORLD_STATE.md","HEARTBEAT.md","TOOLS.md"],"banned":["wallet","config/openclaw.json","external send","spend","git write","MEMORY promotion","auto-edit"]}
