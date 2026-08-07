@@ -8,13 +8,12 @@
 
 ## Current Status
 
-- **Wall Clock (real time):** 2026-08-06 17:47 PDT (Vista, CA) — Thursday evening
-- **Session Clock:** new main session (dashboard webchat), ~1–2 min
-- **Continuity Clock:** ~3d since last ops WORLD_STATE touch (8/3 14:16); ~1d since 8/5 full startup; lastHeartbeat 8/3 14:36 (~3d overdue)
-- **Last identity review:** 2026-08-06 17:46 PDT (auto startup + manual Jason startup)
-- **Next scheduled continuity review:** Daily at startup (active)
-- **Last gains lock-in / status pass:** 2026-08-03 14:16 PDT (housekeeping · wallet send · SI); 2026-08-05 13:29 startup status
-- **Activity notes:** Brain xai/grok-4.5. Swarm default deepseek/deepseek-v4-flash. Grok 4.6 soft window **tomorrow 8/7** — smoke before flip. eBay still escalate. Heartbeat overdue.
+- **Wall Clock (real time):** 2026-08-06 ~20:30 PDT (Vista, CA) — Thursday evening
+- **Session Clock:** main session ending (lock-in)
+- **Continuity Clock:** lock-in commit 230206c just pushed; consolidation written
+- **Last identity review:** 2026-08-06 startup + lock-in
+- **Last gains lock-in:** 2026-08-06 ~20:30 PDT · `230206c` on origin/master
+- **Activity notes:** Brain xai/grok-4.5. Swarm deepseek/deepseek-v4-flash. Proc 23 live. Porch blocked (gog OAuth). eBay Jason-only. Next session: ops-first WORLD_STATE + 2026-08-06 daily + consolidation.
 
 ## Rule
 
